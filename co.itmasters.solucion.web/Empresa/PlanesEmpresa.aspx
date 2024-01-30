@@ -39,34 +39,6 @@
         </ContentTemplate>
     </asp:UpdatePanel>
 
-   <script type="text/javascript">
-
-
-       // Call the CreatePreference method and pass the reference ID
-       function payMercadoPago(PreferenceId) {
-
-
-           console.log(PreferenceId)
-           // Pass the preference ID to the Mercado Pago button
-           const mp = new MercadoPago('APP_USR-c06e83e5-e43c-44a6-9874-4781ff66c9d6');
-               const bricksBuilder = mp.bricks();
-
-               const renderComponent =  () => {
-                   //if (windows.checkoutButton) window.checkoutButton.unmount();
-                   console.log('builder')
-                    bricksBuilder.create("wallet", "wallet_container", {
-                       initialization: {
-                            preferenceId: PreferenceId,
-                       },
-                   });
-
-               }
-
-               renderComponent();
-           };
-                   
-       
-
-   </script>
+  
    
 </asp:Content>

@@ -97,10 +97,45 @@
             
         </ContentTemplate>
     </asp:UpdatePanel>
-    <div id="wallet_container"></div>
-
+        <div runat="server" ID="wallet_container"></div>
+         <asp:Button Text="" runat="server" ID="btnSubmitPay" CssClass="hidden" OnClick="btnSubmitPay_Click"/>
  </ContentTemplate>
-   
+    <script type="text/javascript">
+
+
+        // Call the CreatePreference method and pass the reference ID
+
+            
+        window[`payMercadoPago_<%= this.ClientID%>`] = function (PreferenceId, walletContainer) {
+                // Pass the preference ID to the Mercado Pago button
+                const mp = new MercadoPago('APP_USR-c06e83e5-e43c-44a6-9874-4781ff66c9d6');
+                const bricksBuilder = mp.bricks();
+
+                const renderComponent = () => {
+                    //if (windows.checkoutButton) window.checkoutButton.unmount();
+                    bricksBuilder.create("wallet", walletContainer, {
+                        initialization: {
+                            preferenceId: PreferenceId,
+                        },
+                        callbacks: {
+                            onSubmit: () => { AddPlan()},
+                             onError: (error) => { console.error(error) }
+                         }
+                     });
+                }
+                renderComponent();
+                
+            };
+        
+        
+        function AddPlan() {
+            const btnSubmitPay = document.getElementById('<%= this.btnSubmitPay.ClientID%>');
+            btnSubmitPay.click();
+        }
+
+
+    </script>
+
 </Updatepanel>
 
  

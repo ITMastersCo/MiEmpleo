@@ -1,4 +1,7 @@
-﻿using MercadoPago.Client.Preference;
+﻿using co.itmasters.solucion.web.Code;
+using co.itmasters.solucion.vo;
+using co.itmasters.solucion.web.EmpresaService;
+using MercadoPago.Client.Preference;
 using MercadoPago.Config;
 using MercadoPago.Resource.Preference;
 using Microsoft.Ajax.Utilities;
@@ -10,11 +13,15 @@ using System.Web;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Microsoft.SqlServer.Server;
 
 namespace co.itmasters.solucion.web.Components_UI
 {
     public partial class UserControlCardPlan : UserControl
     {
+        private EmpresaServiceClient _Empresa;
+        private UserVO user ;
+        
         private string IconState(Boolean state)
         {
             if (state == true)
@@ -42,9 +49,19 @@ namespace co.itmasters.solucion.web.Components_UI
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack) { user = ((UserVO)Session["UsuarioAutenticado"]); }
+            
         }
+
         private int PlanPrice { get; set; }
+        private int PlanId { get; set; }
+        private int VigenciaPlan { get; set; }
+        private int NumerodeOfertas { get; set; }
+        public int IdEmpresa { get; set; }
+        public string idPlan
+        {
+            set { PlanId = Convert.ToInt32(value); }
+        }
         public string TextBtnPlan
         {
             set { btnGetPlan.Text = value; }
@@ -92,20 +109,27 @@ namespace co.itmasters.solucion.web.Components_UI
         }
         public string PlanValidity
         {
-            set { stateVigenciaPlan.InnerText = value; }
+            set {
+                VigenciaPlan = Convert.ToInt32(value);
+                stateVigenciaPlan.InnerText = $"{value} días"; }
         }
       
 
 
         protected void btnGetPlan_ClickAsync(object sender, EventArgs e)
         {
-            CreatePreferenceAsync();
-            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba"
-            //    , $"payMercadoPago({preference})", true);
+            try
+            {
+                CreatePreferenceAsync();
 
+            }
+            catch (Exception err) { 
+            }
         }
         protected async void CreatePreferenceAsync() 
         {
+
+            user = ((UserVO)Session["UsuarioAutenticado"]);
             try
             {
 
@@ -138,13 +162,42 @@ namespace co.itmasters.solucion.web.Components_UI
                 var client = new PreferenceClient();
                 Preference preference = await client.CreateAsync(request);
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba"
-                    , $"payMercadoPago('{preference.Id}')", true);
+                    , $"payMercadoPago_{this.ClientID}('{preference.Id}','{wallet_container.ClientID}')", true);
+                
             }
             catch (Exception err) 
             {
-             
+                
+            }
+
+        }
+        protected object CreatePlanAdquirido()
+        {
+            user = ((UserVO)Session["UsuarioAutenticado"]);
+            try { 
+            EmpresaVO newEmpresa = new EmpresaVO();
+            OfertaVO newPlan = new OfertaVO();
+
+            newEmpresa.idUsuario = user.IdUsuario;
+            newEmpresa.idEmpresa = IdEmpresa;
+            newPlan.idPlan = Convert.ToInt32( PlanId);
+            newPlan.vigenciaPlan = VigenciaPlan;
+            newPlan.numeroOfertas = NumerodeOfertas;
+            newPlan.valorPlan = PlanPrice;
+             newEmpresa.Oferta = newPlan;
+
+            _Empresa = new EmpresaServiceClient();
+            _Empresa.CreatePlanAdquirido(newEmpresa);
+            _Empresa.Close();
+                return newEmpresa;
+            }catch (Exception err) {
+                return null;
             }
         }
 
+        protected void btnSubmitPay_Click(object sender, EventArgs e)
+        {
+            CreatePlanAdquirido();
+        }
     }
 }

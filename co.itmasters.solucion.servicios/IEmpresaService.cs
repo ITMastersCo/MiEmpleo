@@ -3,13 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using co.itmasters.solucion.vo;
 using System.Data;
 
 namespace co.itmasters.solucion.servicios
@@ -18,6 +13,8 @@ namespace co.itmasters.solucion.servicios
     [ServiceContract]
     public interface IEmpresaService
     {
+        [OperationContract]
+        void CreatePlanAdquirido(EmpresaVO empresa);
         [OperationContract]
         void GuardarDatosEmpresa(EmpresaVO Empresa);
         [OperationContract]

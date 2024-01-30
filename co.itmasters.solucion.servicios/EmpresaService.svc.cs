@@ -16,6 +16,20 @@ namespace co.itmasters.solucion.servicios
     {
         private EmpresaNegocio _empresa;
 
+        public void CreatePlanAdquirido(EmpresaVO empresa)
+        {
+            try
+            {
+
+                _empresa = new EmpresaNegocio();
+                 _empresa.CreatePlanAdquirido(empresa);
+            }
+            catch (Exception err)
+            {
+                Log.Write(err.Message, Log.ERROR);
+                throw new FaultException(new FaultReason(err.Message));
+            }
+        }
         public List<EmpresaVO> TraeEmpresas(EmpresaVO empresa)
         {
             try

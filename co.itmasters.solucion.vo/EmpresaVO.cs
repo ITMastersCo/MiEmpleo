@@ -37,9 +37,11 @@ namespace co.itmasters.solucion.vo
         public string usuarioModfica { get; set; }
         public DateTime? fechaModifica { get; set; }
         //Campos para trareo guardar ofertas de la empresa
+        public string typeModify { get; set; }
         public int? idOferta { get; set; }
         public int? paquetesActivos { get; set; }
         public string estado { get; set; }
         public string observacion { get; set; }
+        public OfertaVO Oferta { get; set; }
     }
 }

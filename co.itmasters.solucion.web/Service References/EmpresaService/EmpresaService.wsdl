@@ -7,6 +7,12 @@
       <xsd:import schemaLocation="http://localhost:3487/EmpresaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IEmpresaService_CreatePlanAdquirido_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePlanAdquirido" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresaService_CreatePlanAdquirido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePlanAdquiridoResponse" />
+  </wsdl:message>
   <wsdl:message name="IEmpresaService_GuardarDatosEmpresa_InputMessage">
     <wsdl:part name="parameters" element="tns:GuardarDatosEmpresa" />
   </wsdl:message>
@@ -32,6 +38,10 @@
     <wsdl:part name="parameters" element="tns:AprobarEmpresasResponse" />
   </wsdl:message>
   <wsdl:portType name="IEmpresaService">
+    <wsdl:operation name="CreatePlanAdquirido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresaService/CreatePlanAdquirido" message="tns:IEmpresaService_CreatePlanAdquirido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresaService/CreatePlanAdquiridoResponse" message="tns:IEmpresaService_CreatePlanAdquirido_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GuardarDatosEmpresa">
       <wsdl:input wsaw:Action="http://tempuri.org/IEmpresaService/GuardarDatosEmpresa" message="tns:IEmpresaService_GuardarDatosEmpresa_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IEmpresaService/GuardarDatosEmpresaResponse" message="tns:IEmpresaService_GuardarDatosEmpresa_OutputMessage" />
@@ -51,6 +61,15 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IEmpresaService" type="tns:IEmpresaService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreatePlanAdquirido">
+      <soap:operation soapAction="http://tempuri.org/IEmpresaService/CreatePlanAdquirido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GuardarDatosEmpresa">
       <soap:operation soapAction="http://tempuri.org/IEmpresaService/GuardarDatosEmpresa" style="document" />
       <wsdl:input>

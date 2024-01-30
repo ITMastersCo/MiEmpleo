@@ -5,6 +5,8 @@ using System.Text;
 using co.itmasters.solucion.vo;
 using System.Data;
 using System.Data.SqlClient;
+using System.CodeDom;
+using System.Security.Policy;
 
 namespace co.itmasters.solucion.dao
 {
@@ -13,10 +15,11 @@ namespace co.itmasters.solucion.dao
         private EmpresaDao _empresa;
 
         #region [StoredProcedures]
+        public const string EMPRESA_PLANESADQUIRIDOS = "Empresa_PlanesAdquiridos";
         public const string EMPRESA_TRAEDATOSEMPRESASAPROBAR = "Empresa_TraeDatosEmpresaAprobar";
         public const string EMPRESA_DATOSEMPRESABUSCAR = "Empresa_BuscarDatosEmpresa";
         public const string EMPRESA_DATOSEMPRESAGUARDAR = "Empresa_GuardarDatosEmpresa";
-        public const string EMPRESA_APROBAREMPRESA = "Empresa_AprobarEmpresa";  
+        public const string EMPRESA_APROBAREMPRESA = "Empresa_AprobarEmpresa";
 
         #endregion
 
@@ -54,7 +57,12 @@ namespace co.itmasters.solucion.dao
         public const string EMPRESA_PAQUETESACTIVOS = "paquetesActivos";
         public const string EMPRESA_ESTADO = "estado";
         public const string EMPRESA_OBSERVACION = "observacion";
-
+        // Planes
+        public const string EMPRESA_TYPEMODIFY = "typeModify";
+        public const string PLAN_IDPLAN = "idPlan";
+        public const string PLAN_VIGENCIAPLAN = "vigenciaPlan";
+        public const string PLAN_NUMEROOFERTAS = "numeroOfertas";
+        public const string PLAN_VALORPLAN = "valorPlan";
 
 
         /*************************Proceso de formulario****************************************************/
@@ -63,6 +71,33 @@ namespace co.itmasters.solucion.dao
         #endregion
 
         #region  [Metodos Expuestos]
+        public void CreatePlanAdquirido(EmpresaVO empresa) {
+
+            empresa.typeModify = "INS";
+            try
+            {
+                Parametro[] valParam = new Parametro[]
+                {
+                    new Parametro(EMPRESA_TYPEMODIFY, empresa.typeModify, DbType.String),
+                    new Parametro(EMPRESA_IDUSUARIO, empresa.idUsuario, DbType.Int32),
+                    new Parametro(EMPRESA_IDEMPRESA, empresa.idEmpresa, DbType.Int32),
+                    new Parametro(PLAN_IDPLAN, empresa.Oferta.idPlan, DbType.Int32),
+                    new Parametro(PLAN_VIGENCIAPLAN, empresa.Oferta.vigenciaPlan, DbType.Int32),
+                    new Parametro(PLAN_NUMEROOFERTAS, empresa.Oferta.numeroOfertas, DbType.Int32),
+                    new Parametro(PLAN_VALORPLAN, empresa.Oferta.valorPlan, DbType.Int32),
+            };
+                this.EjecutarStoredProcedure(EMPRESA_PLANESADQUIRIDOS, valParam);
+
+            }
+            catch (System.Data.SqlClient.SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
         public List<EmpresaVO> TraeEmpresas(EmpresaVO empresa)
         {
             try
@@ -394,3 +429,4 @@ namespace co.itmasters.solucion.dao
     }
 
 }
+

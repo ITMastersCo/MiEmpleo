@@ -15,6 +15,12 @@ namespace co.itmasters.solucion.web.EmpresaService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="EmpresaService.IEmpresaService")]
     public interface IEmpresaService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmpresaService/CreatePlanAdquirido", ReplyAction="http://tempuri.org/IEmpresaService/CreatePlanAdquiridoResponse")]
+        void CreatePlanAdquirido(co.itmasters.solucion.vo.EmpresaVO empresa);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmpresaService/CreatePlanAdquirido", ReplyAction="http://tempuri.org/IEmpresaService/CreatePlanAdquiridoResponse")]
+        System.Threading.Tasks.Task CreatePlanAdquiridoAsync(co.itmasters.solucion.vo.EmpresaVO empresa);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmpresaService/GuardarDatosEmpresa", ReplyAction="http://tempuri.org/IEmpresaService/GuardarDatosEmpresaResponse")]
         void GuardarDatosEmpresa(co.itmasters.solucion.vo.EmpresaVO Empresa);
         
@@ -65,6 +71,14 @@ namespace co.itmasters.solucion.web.EmpresaService {
         
         public EmpresaServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public void CreatePlanAdquirido(co.itmasters.solucion.vo.EmpresaVO empresa) {
+            base.Channel.CreatePlanAdquirido(empresa);
+        }
+        
+        public System.Threading.Tasks.Task CreatePlanAdquiridoAsync(co.itmasters.solucion.vo.EmpresaVO empresa) {
+            return base.Channel.CreatePlanAdquiridoAsync(empresa);
         }
         
         public void GuardarDatosEmpresa(co.itmasters.solucion.vo.EmpresaVO Empresa) {

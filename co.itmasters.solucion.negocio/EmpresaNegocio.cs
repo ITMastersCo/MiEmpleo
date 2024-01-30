@@ -15,6 +15,10 @@ namespace co.itmasters.solucion.negocio
         {
             _empresa = new EmpresaDao();
         }
+        public void CreatePlanAdquirido(EmpresaVO empresa)
+        {
+            _empresa.CreatePlanAdquirido(empresa);
+        }
         public List<EmpresaVO> TraeEmpresas(EmpresaVO empresa)
         {
             return _empresa.TraeEmpresas(empresa);

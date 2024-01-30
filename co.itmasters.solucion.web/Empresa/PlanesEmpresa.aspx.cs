@@ -17,6 +17,7 @@ using MercadoPago.Config;
 using MercadoPago.Resource.Preference;
 using System.Threading.Tasks;
 using MercadoPago.Client.Common;
+using System.Windows.Forms;
 
 
 namespace co.itmasters.solucion.web.Empresa
@@ -24,8 +25,9 @@ namespace co.itmasters.solucion.web.Empresa
     public partial class PlanesEmpresa : System.Web.UI.Page
     {
         private OfertaServiceClient _OfertaService;
+        private EmpresaServiceClient _Empresa;
         private UserVO user;
-
+        public EmpresaVO newPlan;
         protected void Page_Load(object sender, EventArgs e)
         {
             user = ((UserVO)Session["UsuarioAutenticado"]);
@@ -76,6 +78,8 @@ namespace co.itmasters.solucion.web.Empresa
         {
             UserControlCardPlan ucCardPlan = (UserControlCardPlan)LoadControl("~/Components_UI/UserControlCardPlan.ascx");
             ucCardPlan.ID = plan.idPlan.ToString();
+            ucCardPlan.idPlan = plan.idPlan.ToString();
+            ucCardPlan.IdEmpresa = 0;
             ucCardPlan.Name = plan.nomPlan;
             ucCardPlan.Price = plan.valorPlan.ToString();
             ucCardPlan.OffersFeatured = Convert.ToBoolean(plan.ofertaDestacada);
@@ -85,7 +89,7 @@ namespace co.itmasters.solucion.web.Empresa
             ucCardPlan.MultiUser = Convert.ToBoolean(plan.multiusuario);
             ucCardPlan.TrainingTech = Convert.ToBoolean(plan.capacitaciones);
             ucCardPlan.TimePublication = $"{plan.diasPublicacionOferta} días";
-            ucCardPlan.PlanValidity = $"{plan.vigenciaPlan} días";
+            ucCardPlan.PlanValidity = Convert.ToString(plan.vigenciaPlan);
             ucCardPlan.TextBtnPlan = "Aquirir Plan";
 
             contenedorPlanes.Controls.Add(ucCardPlan);
@@ -97,8 +101,7 @@ namespace co.itmasters.solucion.web.Empresa
                 AddPlanToContainer(plan);
             }
         }
-
-        
+       
        
 
     }
