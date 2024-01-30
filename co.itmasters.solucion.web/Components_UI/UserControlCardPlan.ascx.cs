@@ -44,7 +44,7 @@ namespace co.itmasters.solucion.web.Components_UI
         {
 
         }
-
+        private int PlanPrice { get; set; }
         public string TextBtnPlan
         {
             set { btnGetPlan.Text = value; }
@@ -55,7 +55,11 @@ namespace co.itmasters.solucion.web.Components_UI
         }
         public string Price
         {
-            set { pricePlan.InnerText = $"${value}"; }
+            set
+            {
+                PlanPrice = Convert.ToInt32(value);
+                pricePlan.InnerText = $"${value}";
+            }
         }
         public Boolean OffersFeatured
 
@@ -90,7 +94,7 @@ namespace co.itmasters.solucion.web.Components_UI
         {
             set { stateVigenciaPlan.InnerText = value; }
         }
-
+      
 
 
         protected void btnGetPlan_ClickAsync(object sender, EventArgs e)
@@ -105,7 +109,7 @@ namespace co.itmasters.solucion.web.Components_UI
             try
             {
 
-            MercadoPagoConfig.AccessToken = "TEST-2148574929506385-013011-fdac278536875a2ce84593f85c704c99-1660977390";
+            MercadoPagoConfig.AccessToken = "APP_USR-2148574929506385-013011-2a326a05936b10aaeafa5b0b78b61be6-1660977390";
 
                 //Crea el objeto de request de la preference
                 var request = new PreferenceRequest
@@ -114,12 +118,20 @@ namespace co.itmasters.solucion.web.Components_UI
                       {
                           new PreferenceItemRequest
                           {
-                              Title = "Mi producto",
+                              Title = namePlan.InnerText ,
                               Quantity = 1,
                               CurrencyId = "COP",
-                              UnitPrice = 75m,
+                              UnitPrice = Convert.ToInt32(this.PlanPrice),
                           },
+                          
                       },
+                    BackUrls = new PreferenceBackUrlsRequest
+                    {
+                        Success = "http://localhost:8080/Empresa/PlanesEmpresa.aspx",
+                        Failure = "http://localhost:8080/Empresa/PlanesEmpresa.aspx",
+                        Pending = "http://localhost:8080/Empresa/PlanesEmpresa.aspx",
+                    },
+                    AutoReturn = "approved",
                 };
 
                 // Crea la preferencia usando el client

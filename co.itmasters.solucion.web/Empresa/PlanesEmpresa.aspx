@@ -48,7 +48,7 @@
 
            console.log(PreferenceId)
            // Pass the preference ID to the Mercado Pago button
-               const mp = new MercadoPago('TEST-e288c309-1f1c-447f-8946-e6a82e8699cf');
+           const mp = new MercadoPago('APP_USR-c06e83e5-e43c-44a6-9874-4781ff66c9d6');
                const bricksBuilder = mp.bricks();
 
                const renderComponent =  () => {

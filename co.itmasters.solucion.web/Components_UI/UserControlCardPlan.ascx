@@ -90,11 +90,11 @@
         
 
     </div>
-    <asp:UpdatePanel runat="server">
+    <asp:UpdatePanel runat="server" class="flex flex-center-h">
         <ContentTemplate>
 
             <asp:Button ID="btnGetPlan" runat="server" Text="" class="button" OnClick="btnGetPlan_ClickAsync"/>
-            <button onclick="payMercadoPago()" class="button"> Mercado Pago</button>
+            
         </ContentTemplate>
     </asp:UpdatePanel>
     <div id="wallet_container"></div>
