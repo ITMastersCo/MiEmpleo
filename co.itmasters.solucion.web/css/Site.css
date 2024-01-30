@@ -1,0 +1,512 @@
+﻿
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    text-decoration: none;
+    font-size: 16px;
+    border: none;
+    font-family: var(--font-family);
+}
+
+:root {
+    --font-size-small: .8rem;
+    --p-button: .5em 1em;
+    --rounded-button: 1.5em;
+    --gray-200: rgba(217, 217, 217, 0.44);
+    --white: #fff;
+    --green-200: #09E294;
+    --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --shadow: 0px 2px 4px 0px rgba(126, 126, 126, 0.808);
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+.button {
+    display: inline;
+    font-size: var(--font-size-small);
+    padding: var(--p-button);
+    border-radius: var(--rounded-button);
+    background: var(--green-200, );
+    color: var(--white);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button-ghost {
+    display: flex;
+    gap: 8px;
+    font-size: var(--font-size-small);
+    padding: var(--p-button);
+    border-radius: var(--rounded-button);
+    border: solid 2px var(--green-200, );
+    color: var(--green-200);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+    .button-ghost:hover {
+        background-color: var(--green-200);
+        border-color: var(--white);
+        color: var(--white);
+    }
+
+.button:hover {
+    background-color: #29c28a;
+}
+@media screen and (max-width:800;){
+    .header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100vw;
+        height: 54px;
+        box-shadow: var(--shadow);
+    }
+
+    .menu img {
+        width: 42px;
+    }
+
+    .header .tech {
+        display: none
+    }
+}
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 54px;
+    box-shadow: var(--shadow);
+}
+
+.menu img {
+    width: 42px;
+}
+
+.logo {
+    height: 100%;
+}
+
+    .logo img {
+        height: 80%;
+    }
+
+.header .tech {
+    display: none
+}
+
+.header button {
+    display: none;
+}
+
+.loginIconDesktop {
+    display: none;
+}
+
+.banner {
+    display: flex;
+    padding: 2rem;
+    text-align: center;
+    background-image: url(../Images/imgInicio/vector-21.png);
+    background-size: 150%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    width: 100 vw;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.info-banner {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+.text-big {
+    font-size: 1.5rem;
+}
+
+.title {
+    font-size: 2rem;
+}
+
+.text-highlighted {
+    color: var(--green-200)
+}
+
+.banner .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+}
+
+.banner .input {
+    border: solid 2px gray;
+    border-radius: var(--rounded-button);
+    padding: .3em;
+}
+
+.banner img.mobile {
+    object-fit: cover;
+    width: 120px;
+}
+
+.banner img.desktop {
+    display: none;
+}
+
+
+.wrapper-offers {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.wrapper {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    gap: 1.5rem;
+}
+
+.offer-item {
+    background-color: var(--gray-200);
+    text-align: center;
+    padding: 1em;
+    max-width: 380px;
+    box-shadow: var(--shadow);
+}
+
+    .offer-item h3 {
+        margin-bottom: 1rem;
+    }
+
+.title-small {
+    color: #242424;
+    text-align: center;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.texts-iniline {
+    display: flex;
+    justify-content: space-between;
+}
+
+.offer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+    .offer-content img {
+        object-fit: contain;
+    }
+
+.text-small-12 {
+    font-size: .8rem;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-gray-500 {
+    color: rgba(0, 0, 0, 0.52);
+    font-weight: 500;
+}
+
+.text-small-slim {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.42);
+    font-weight: 500;
+}
+
+.loginIcon {
+    height: 100%;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginIcon img {
+    height: 50%;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.benefit-main {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    max-width: 500px;
+}
+
+    .benefit-main img {
+        transform: rotate3d(0, 1, 0, 180deg);
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+
+.benefit button {
+    grid-column-start: 2;
+}
+
+.benefit-main img.desktop {
+    display: none;
+}
+
+section.benefit {
+    background-image: url(../Images/imgInicio/vector-21.png);
+    background-size: 150%;
+    background-repeat: no-repeat;
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+    background-position: 100% -10%;
+    gap: 1rem;
+}
+
+.benefit p {
+    width: 80%;
+    margin: auto;
+    max-width: 400px;
+}
+
+.benefit h2 {
+    width: 50%;
+}
+
+.benefit-content {
+    gap: 1rem;
+}
+
+.customers h2 {
+    margin-bottom: 3rem;
+}
+
+.slider {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+}
+
+    .slider .arrowRight {
+        transform: rotate(180deg);
+    }
+
+.customers-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    max-width: 300px;
+}
+
+.arrowRight, .arrowLeft {
+    width: 3rem;
+}
+
+.footer.desktop {
+    display: none;
+}
+
+.footer {
+    background-color: var(--gray-200);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+    .footer p {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .footer .social {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        background-color: #595959;
+        padding: .5rem;
+        border-radius: var(--rounded-button);
+    }
+
+.text-medium {
+    font-size: 1.2rem;
+}
+
+@media screen and (min-width:800px) {
+    .header button {
+        display: block;
+    }
+
+    .banner {
+        background-size: 100%;
+    }
+
+        .banner h1 {
+            width: 400px;
+            margin-bottom: 3rem;
+        }
+
+    .benefit-main img {
+        display: block;
+    }
+
+    .benefit-main p {
+        max-width: 280px;
+    }
+
+    .wrapper-offers {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media screen and (min-width:1200px) {
+
+    .header {
+        height: 75px;
+    }
+
+        .header .tech {
+            display: block;
+        }
+
+    .wrapper.offers {
+        width: 80%;
+    }
+
+    .text-small-16 {
+        font-size: 1.2rem;
+    }
+
+    .menu img {
+        width: 60px;
+    }
+
+    .loginIconDesktop {
+        display: flex;
+    }
+
+    .loginIcon {
+        display: none;
+    }
+
+    .banner {
+        height: 70dvh;
+        background-position: center 125%;
+        /* background-size: 80%; */
+    }
+
+        .banner img.mobile {
+            display: none;
+        }
+
+        .banner img.desktop {
+            display: block;
+        }
+
+    .info-banner {
+        justify-content: center;
+    }
+
+    .banner .form {
+        flex-direction: row;
+        border-radius: 80.151px;
+        padding: 1em;
+        background: rgba(82, 99, 93, 0.867);
+    }
+
+    .banner h1, .banner span {
+        font-size: 2rem;
+    }
+
+    :root {
+        font-size: 20px;
+    }
+
+    .offer-item {
+        max-width: 600px;
+    }
+
+    .offer-content {
+        gap: 2rem;
+    }
+
+    .wrapper.benefit {
+        height: 70dvh;
+        background-position: center 125%;
+        background-size: 95%;
+    }
+
+    .benefit-main p {
+        max-width: 400px;
+    }
+
+    .benefit img.mobile {
+        display: none;
+    }
+
+    .benefit img.desktop {
+        display: block;
+    }
+
+    .benefit-main {
+        max-width: 100%;
+    }
+
+    .footer.mobile {
+        display: none;
+    }
+
+    .footer.desktop {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 300.408px;
+    }
+
+    .footer .menu-footer {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        list-style: none;
+        text-align: left;
+    }
+
+        .footer .menu-footer a {
+            font-size: 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            color: #000;
+        }
+
+    .footer-social .button {
+        margin-bottom: 1rem;
+    }
+}

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="EmpresaService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:3487/EmpresaService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:3487/EmpresaService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:3487/EmpresaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IEmpresaService_GuardarDatosEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarDatosEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresaService_GuardarDatosEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GuardarDatosEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresaService_TraeEmpresas_InputMessage">
+    <wsdl:part name="parameters" element="tns:TraeEmpresas" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresaService_TraeEmpresas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TraeEmpresasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresaService_DatosEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:DatosEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresaService_DatosEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DatosEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresaService_AprobarEmpresas_InputMessage">
+    <wsdl:part name="parameters" element="tns:AprobarEmpresas" />
+  </wsdl:message>
+  <wsdl:message name="IEmpresaService_AprobarEmpresas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AprobarEmpresasResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IEmpresaService">
+    <wsdl:operation name="GuardarDatosEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresaService/GuardarDatosEmpresa" message="tns:IEmpresaService_GuardarDatosEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresaService/GuardarDatosEmpresaResponse" message="tns:IEmpresaService_GuardarDatosEmpresa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TraeEmpresas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresaService/TraeEmpresas" message="tns:IEmpresaService_TraeEmpresas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresaService/TraeEmpresasResponse" message="tns:IEmpresaService_TraeEmpresas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DatosEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresaService/DatosEmpresa" message="tns:IEmpresaService_DatosEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresaService/DatosEmpresaResponse" message="tns:IEmpresaService_DatosEmpresa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AprobarEmpresas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEmpresaService/AprobarEmpresas" message="tns:IEmpresaService_AprobarEmpresas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEmpresaService/AprobarEmpresasResponse" message="tns:IEmpresaService_AprobarEmpresas_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEmpresaService" type="tns:IEmpresaService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GuardarDatosEmpresa">
+      <soap:operation soapAction="http://tempuri.org/IEmpresaService/GuardarDatosEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeEmpresas">
+      <soap:operation soapAction="http://tempuri.org/IEmpresaService/TraeEmpresas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DatosEmpresa">
+      <soap:operation soapAction="http://tempuri.org/IEmpresaService/DatosEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AprobarEmpresas">
+      <soap:operation soapAction="http://tempuri.org/IEmpresaService/AprobarEmpresas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmpresaService">
+    <wsdl:port name="BasicHttpBinding_IEmpresaService" binding="tns:BasicHttpBinding_IEmpresaService">
+      <soap:address location="http://localhost:3487/EmpresaService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

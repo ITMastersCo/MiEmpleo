@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:3487/EmpresaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" />
+  <xs:element name="GuardarDatosEmpresa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Empresa" nillable="true" type="q1:EmpresaVO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GuardarDatosEmpresaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TraeEmpresas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="empresa" nillable="true" type="q2:EmpresaVO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TraeEmpresasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="TraeEmpresasResult" nillable="true" type="q3:ArrayOfEmpresaVO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DatosEmpresa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Empresa" nillable="true" type="q4:EmpresaVO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DatosEmpresaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="DatosEmpresaResult" nillable="true" type="q5:EmpresaVO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AprobarEmpresas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Empresa" nillable="true" type="q6:EmpresaVO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AprobarEmpresasResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

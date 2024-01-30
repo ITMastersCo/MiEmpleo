@@ -1,0 +1,12 @@
+@import 'Variables.css';
+@import 'Utilities.css';
+
+.button.tech{
+    background-color:var(--orange-500);
+}
+.button.employee{
+    background-color:var(--green-500);
+}
+.place-center{
+    gap: 3em;
+}

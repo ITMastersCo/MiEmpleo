@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="f0f75856-5ce2-4d43-a826-5423058b827e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:3487/ComunesService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ComunesService.wsdl" MetadataType="Wsdl" ID="f820ae12-efa6-4841-8546-38151de37934" SourceId="1" SourceUrl="http://localhost:3487/ComunesService.svc?wsdl" />
+    <MetadataFile FileName="ComunesService5.xsd" MetadataType="Schema" ID="3e1b7f19-5536-4aea-b6d7-9356cb7bec07" SourceId="1" SourceUrl="http://localhost:3487/ComunesService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ComunesService4.xsd" MetadataType="Schema" ID="52a1bdd5-b68f-484e-a0a2-4131e5d85f09" SourceId="1" SourceUrl="http://localhost:3487/ComunesService.svc?xsd=xsd5" />
+    <MetadataFile FileName="ComunesService3.xsd" MetadataType="Schema" ID="2cef52a7-8fea-427f-9bdb-e1d034a5e906" SourceId="1" SourceUrl="http://localhost:3487/ComunesService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ComunesService2.xsd" MetadataType="Schema" ID="1c214178-30fe-445e-864e-3f75512311bc" SourceId="1" SourceUrl="http://localhost:3487/ComunesService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ComunesService1.xsd" MetadataType="Schema" ID="7e03219f-a158-427d-8868-7a83bc2e80c2" SourceId="1" SourceUrl="http://localhost:3487/ComunesService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ComunesService.xsd" MetadataType="Schema" ID="aaebbd4a-bb5b-48a6-ab63-e19436ccd39a" SourceId="1" SourceUrl="http://localhost:3487/ComunesService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ComunesService.disco" MetadataType="Disco" ID="04ef31cf-1beb-430f-a2fc-7cc9ee8d02a7" SourceId="1" SourceUrl="http://localhost:3487/ComunesService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

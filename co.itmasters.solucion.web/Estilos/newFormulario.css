@@ -1,0 +1,160 @@
+﻿body
+{
+    padding-top: 100px;
+    
+}
+.nav.nav-justified > li > a
+{
+    position: relative;
+}
+.nav.nav-justified > li > a:hover, .nav.nav-justified > li > a:focus
+{
+    background-color: transparent;
+}
+.nav.nav-justified > li > a > .quote
+{
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+    opacity: 0;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    background-color: #278DBC;
+    border-radius: 15px;
+    color: #fff;
+}
+
+.nav.nav-justified > li.active > a > .quote
+{
+    opacity: 1;
+}
+.nav.nav-justified > li > a > img
+{
+    box-shadow: 0 0 0 5px #278DBC;
+}
+.nav.nav-justified > li > a > img
+{
+    max-width: 100%;
+    opacity: .;
+    -webkit-transform: scale(.8,.8);
+    transform: scale(.8,.8);
+    -webkit-transition: all 0.3s 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.nav.nav-justified > li.active > a > img, .nav.nav-justified > li:hover > a > img, .nav.nav-justified > li:focus > a > img
+{
+    opacity: .;
+    -webkit-transform: scale(.8,.8);
+    transform: scale(.8,.8);
+    -webkit-transition: all 0.3s 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.tab-pane .tab-inner
+{
+    padding: 10px 0 20px;
+}
+.tab-content
+{
+    width:1250px;
+    text-align:left;
+    margin-left:-340px;
+}
+
+
+CSS
+
+.ir-arriba {
+	display:none;
+	padding:20px;
+	background:#024959;
+	font-size:20px;
+	color:#fff;
+	cursor:pointer;
+	position: fixed;
+	bottom:20px;
+	right:20px;
+}
+
+.ir-arriba {
+	display:none;
+	padding:20px;
+	background:#278DBC;
+	font-size:20px;
+	color:#fff;
+	cursor:pointer;
+	position: fixed;
+	bottom:20px;
+	right:20px;
+	z-index:999;
+	border-radius: 65px;
+}
+
+.btn-lg
+{
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+}
+.btn-xl
+{
+    padding: 10px 16px;
+    font-size: 24px;
+    line-height: 1.33;
+}
+.btn{transition:all 0.8s;-o-transition:all 0.8s;-moz-transition:all 0.8s;-webkit-transition:all 0.8s;border-radius:0px;margin-top:10px}
+.btn-rounded{border-radius:50px}
+.btn-round-tosquare:hover{border-radius:0px}
+.btn-square-toround:hover{border-radius:50px}
+.btn-bordered-primary{color:#428BCA;background:#FFFFFF;border:2px solid #428BCA}
+.btn-bordered-primary:hover{color:#FFFFFF;background:#428BCA;border:2px solid #FFFFFF}
+.btn-bordered-success{color:#5CB85C;background:#FFFFFF;border:2px solid #5CB85C}
+.btn-bordered-success:hover{color:#FFFFFF;background:#5CB85C;border:2px solid #FFFFFF}
+.btn-bordered-info{color:#5BC0DE;background:#FFFFFF;border:2px solid #5BC0DE}
+.btn-bordered-info:hover{color:#FFFFFF;background:#5BC0DE;border:2px solid #FFFFFF}
+.btn-bordered-warning{color:#F0AD4E;background:#FFFFFF;border:2px solid #F0AD4E}
+.btn-bordered-warning:hover{color:#FFFFFF;background:#F0AD4E;border:2px solid #FFFFFF}
+.btn-bordered-danger{color:#D9534F;background:#FFFFFF;border:2px solid #D9534F}
+.btn-bordered-danger:hover{color:#FFFFFF;background:#D9534F;border:2px solid #FFFFFF}
+
+.padingdiv
+{
+    padding-right:0px;
+    }
+
+/*********************css validation group carta manejo datos******/
+
+.validationGroupRegistro {
+    margin-left: 31%;
+    width: 35%;
+    color: #fff;
+    font-size: 15px;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.80);
+    top: 1em;
+    border: 2px dotted #266884;
+    z-index: 999;
+    overflow-y: scroll;
+    height: 40%;
+    border-radius:2%;
+    overflow-x: hidden;
+}
+
+.validationGroupRegistroHr {
+    width: 100%;
+    border: 2px dotted #266884;
+}
+.validationGroupRegistro::-webkit-scrollbar {
+    width: 15px;
+}
+ 
+.validationGroupRegistro::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+.validationGroupRegistro::-webkit-scrollbar-thumb {
+  background-color: #a0a3a7;
+  border-radius:100px 100px;
+  border:1px double #fff;
+  outline: 1px solid slategrey;
+}

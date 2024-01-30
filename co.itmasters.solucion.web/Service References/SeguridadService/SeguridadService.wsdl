@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="SeguridadService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:3487/SeguridadService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:3487/SeguridadService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:3487/SeguridadService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISeguridadService_RegistroUsuarioTokenEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroUsuarioTokenEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="ISeguridadService_RegistroUsuarioTokenEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroUsuarioTokenEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISeguridadService_RegistroUsuarioEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroUsuarioEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="ISeguridadService_RegistroUsuarioEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroUsuarioEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISeguridadService_RegistroUsuarioCandidato_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroUsuarioCandidato" />
+  </wsdl:message>
+  <wsdl:message name="ISeguridadService_RegistroUsuarioCandidato_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroUsuarioCandidatoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISeguridadService_ActualizaContrasena_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaContrasena" />
+  </wsdl:message>
+  <wsdl:message name="ISeguridadService_ActualizaContrasena_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaContrasenaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISeguridadService_validarToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:validarToken" />
+  </wsdl:message>
+  <wsdl:message name="ISeguridadService_validarToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validarTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISeguridadService_RestablecerContrasena_InputMessage">
+    <wsdl:part name="parameters" element="tns:RestablecerContrasena" />
+  </wsdl:message>
+  <wsdl:message name="ISeguridadService_RestablecerContrasena_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RestablecerContrasenaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISeguridadService_validarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:validarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ISeguridadService_validarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:validarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISeguridadService_getUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ISeguridadService_getUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISeguridadService_buscarPreguntas_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarPreguntas" />
+  </wsdl:message>
+  <wsdl:message name="ISeguridadService_buscarPreguntas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarPreguntasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISeguridadService_EnviarRespuestas_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnviarRespuestas" />
+  </wsdl:message>
+  <wsdl:message name="ISeguridadService_EnviarRespuestas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EnviarRespuestasResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISeguridadService">
+    <wsdl:operation name="RegistroUsuarioTokenEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISeguridadService/RegistroUsuarioTokenEmpresa" message="tns:ISeguridadService_RegistroUsuarioTokenEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISeguridadService/RegistroUsuarioTokenEmpresaResponse" message="tns:ISeguridadService_RegistroUsuarioTokenEmpresa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistroUsuarioEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISeguridadService/RegistroUsuarioEmpresa" message="tns:ISeguridadService_RegistroUsuarioEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISeguridadService/RegistroUsuarioEmpresaResponse" message="tns:ISeguridadService_RegistroUsuarioEmpresa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistroUsuarioCandidato">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISeguridadService/RegistroUsuarioCandidato" message="tns:ISeguridadService_RegistroUsuarioCandidato_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISeguridadService/RegistroUsuarioCandidatoResponse" message="tns:ISeguridadService_RegistroUsuarioCandidato_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaContrasena">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISeguridadService/ActualizaContrasena" message="tns:ISeguridadService_ActualizaContrasena_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISeguridadService/ActualizaContrasenaResponse" message="tns:ISeguridadService_ActualizaContrasena_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validarToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISeguridadService/validarToken" message="tns:ISeguridadService_validarToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISeguridadService/validarTokenResponse" message="tns:ISeguridadService_validarToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RestablecerContrasena">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISeguridadService/RestablecerContrasena" message="tns:ISeguridadService_RestablecerContrasena_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISeguridadService/RestablecerContrasenaResponse" message="tns:ISeguridadService_RestablecerContrasena_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="validarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISeguridadService/validarUsuario" message="tns:ISeguridadService_validarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISeguridadService/validarUsuarioResponse" message="tns:ISeguridadService_validarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISeguridadService/getUsuario" message="tns:ISeguridadService_getUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISeguridadService/getUsuarioResponse" message="tns:ISeguridadService_getUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarPreguntas">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISeguridadService/buscarPreguntas" message="tns:ISeguridadService_buscarPreguntas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISeguridadService/buscarPreguntasResponse" message="tns:ISeguridadService_buscarPreguntas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviarRespuestas">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISeguridadService/EnviarRespuestas" message="tns:ISeguridadService_EnviarRespuestas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISeguridadService/EnviarRespuestasResponse" message="tns:ISeguridadService_EnviarRespuestas_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISeguridadService" type="tns:ISeguridadService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegistroUsuarioTokenEmpresa">
+      <soap:operation soapAction="http://tempuri.org/ISeguridadService/RegistroUsuarioTokenEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistroUsuarioEmpresa">
+      <soap:operation soapAction="http://tempuri.org/ISeguridadService/RegistroUsuarioEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistroUsuarioCandidato">
+      <soap:operation soapAction="http://tempuri.org/ISeguridadService/RegistroUsuarioCandidato" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaContrasena">
+      <soap:operation soapAction="http://tempuri.org/ISeguridadService/ActualizaContrasena" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validarToken">
+      <soap:operation soapAction="http://tempuri.org/ISeguridadService/validarToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestablecerContrasena">
+      <soap:operation soapAction="http://tempuri.org/ISeguridadService/RestablecerContrasena" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validarUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISeguridadService/validarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISeguridadService/getUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarPreguntas">
+      <soap:operation soapAction="http://tempuri.org/ISeguridadService/buscarPreguntas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviarRespuestas">
+      <soap:operation soapAction="http://tempuri.org/ISeguridadService/EnviarRespuestas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SeguridadService">
+    <wsdl:port name="BasicHttpBinding_ISeguridadService" binding="tns:BasicHttpBinding_ISeguridadService">
+      <soap:address location="http://localhost:3487/SeguridadService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

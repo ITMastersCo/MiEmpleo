@@ -1,0 +1,670 @@
+﻿/* estilos de los DIVS del MASTER PAGE*/
+
+#contenedor {
+    width: 100%;
+}
+
+#cabecera {
+    height: 97px;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
+    background-image: url( '../Images/ImgInicio/fondo_cabecera.png' );
+    border-top-style: groove;
+    border-right-style: groove;
+    border-left-style: groove;
+    border-top-width: thin;
+    border-right-width: thin;
+    border-left-width: thin;
+    border-top-color: #266886;
+    border-right-color: #266886;
+    border-left-color: #266886;
+}
+
+#cuerpo {
+    height: 100%;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
+    border-right-style: groove;
+    border-left-style: groove;
+    border-right-width: thin;
+    border-left-width: thin;
+    border-right-color: #266886;
+    border-left-color: #266886;
+}
+
+
+#pie {
+    height: 67px;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
+    background-image: url( '../Images/ImgInicio/fondo_pie.png' ); /*clear: both;*/
+    border-right-style: groove;
+    border-bottom-style: groove;
+    border-left-style: groove;
+    border-right-width: thin;
+    border-bottom-width: thin;
+    border-left-width: thin;
+    border-right-color: #266886;
+    border-bottom-color: #266886;
+    border-left-color: #266886;
+    font-family: sans-serif;
+    font-weight: 300;
+    color: #FFFFFF;
+    position: fixed;
+    bottom: 0;
+    z-index: 100; /* Depende el valor segun las capas flotantes que tengas */
+    left: 0;
+}
+
+#titulo {
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-weight: 600; /*text-transform: uppercase;*/
+    color: #5C5C5C;
+    width: 60%;
+    float: left;
+    height: 28px;
+    font-size: 26pt;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+
+/*Encabezado de la tabla en fondo azul oscuro degradado*/
+.tabla th {
+    font-family: Pathway Gothic One, sans-serif;
+    font-family:'Agency FB';
+    font-weight: 300;
+    text-transform: uppercase;
+    background-color: #266886;
+    color: #FFFFFF;
+    height: 28px;
+    font-size: 12pt;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/*Detalle de la tabla en fondo azul claro*/
+.tabla .modo1 {
+    font-family: Pathway Gothic One, sans-serif;
+    font-weight: 400; /*text-transform: uppercase;*/
+    background-color: #FFFFFF;
+    color: #5C5C5C;
+    height: 0px;
+    font-size: 12pt;
+    text-align: left;
+    background-repeat: repeat-x;
+    border-top: solid 0px #FFFFFF;
+    border-bottom: solid 0px #FFFFFF;
+    border-left: solid 0px #FFFFFF;
+    border-right: solid 0px #FFFFFF; /*font-size: 9pt; 	font-weight: normal; 	background-image: url('../Images/fondo_tr00.png' ); 	color: #34484E; 	font-family: Calibri, Trebuchet MS, Arial; 	text-align: left;*/
+}
+
+/*Detalle de la tabla en fondo azul claro*/
+.tabla .modo3 {
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    background-color: #B7B7B7;
+    color: BLUE;
+    height: 0px;
+    font-size: 12pt;
+    text-align: left;
+    background-repeat: repeat-x; /*border-top: solid 0px #FFFFFF; 	border-bottom: solid 0px #FFFFFF; 	border-left: solid 0px #FFFFFF; 	border-right: solid 0px #FFFFFF; */ /*font-size: 9pt; 	font-weight: normal; 	background-image: url('../Images/fondo_tr00.png' ); 	color: #34484E; 	font-family: Calibri, Trebuchet MS, Arial; 	text-align: left;*/
+}
+
+
+.overlay {
+    padding: 5px;
+    z-index: 100;
+    width: 1500px;
+    height: 1000px;
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    background-color: #ffff;
+    -moz-opacity: 0.75;
+    opacity: 0.90;
+    filter: alpha(opacity=75);
+    font-family: Tahoma;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/*Encabezado de la tabla hija en fondo cafe claro degradado*/
+.tabla1 th {
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    background-color: #B7B7B7;
+    color: #FFFFFF;
+    height: 28px;
+    font-size: 12pt;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/*Detalle de la tabla hija en fondo amarillo claro*/
+.tabla1 .modo2 {
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-weight: 400; /*text-transform: uppercase;*/
+    background-color: #FFFFFF;
+    color: #5C5C5C;
+    height: 0px;
+    font-size: 12pt;
+    text-align: left;
+    background-repeat: repeat-x;
+    border-top: solid 1px #FFFFFF;
+    border-bottom: solid 1px #FFFFFF;
+    border-left: solid 1px #FFFFFF;
+    border-right: solid 1px #FFFFFF;
+}
+
+.lblInfo {
+    /*text-transform: uppercase;*/
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: small;
+    font-weight: bold;
+    font-style: normal;
+    color: #000000;
+}
+
+.lblRotulo {
+    /*text-transform: uppercase;*/
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: small;
+    font-weight: bold;
+    font-style: italic;
+    color: #008080;
+}
+
+
+
+/*----------------------------------------------------------
+ESTAS SON LAS DEFINICIONES GENERALES DE ESTILOS PARA EL PROYECTO
+ACADEMICS TECNICO
+----------------------------------------------------------*/
+
+.tdinfo {
+    border-bottom: #d0cec6 thin solid;
+    vertical-align: top;
+    background-color: red;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+}
+
+.page {
+    /*Define el tamaño de presentación de la página*/ /*width: 1000px; Ancho de la página 80%;*/
+    margin-left: auto;
+    margin-right: auto;
+    color: #000000;
+    padding: 0px;
+}
+
+    .page table /*Tabla externa*/ {
+        border-color: #CCCCCC;
+        border-style: none;
+        width: 100%; /*Area de trabajo dado por la tabla principal*/
+    }
+
+    .page td {
+        /*background-color:#FFFFCC;*/
+        vertical-align: top;
+        height: 12px;
+    }
+card-col
+
+.page th {
+    /*background-color:#FFFFCC;*/
+    vertical-align: top;
+    background-image: BACKGROUND-IMAGE: url(../Imagenes/Cabezote.gif);
+    font-family: Calibri, Tahoma, Verdana, Helvetica, Sans-Serif, Arial;
+    font-size: 14px;
+}
+
+body {
+    font-family: 'Pathway Gothic One', sans-serif;
+    /*font-family: Calibri, Tahoma, Verdana, Helvetica, Sans-Serif, Arial;*/
+    font-size: 12px;
+}
+
+/*CAJAS DE TEXTO*/
+input[type="text"] {
+    /*font-family: 'Pathway Gothic One' , sans-serif;*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #5C5C5C;
+    width: 98%;
+}
+
+input[type="date"] {
+    background-color: #F5F5F5; /*Color del fondo de la caja de texto*/
+    /*font-family: 'Pathway Gothic One' , sans-serif;*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #5C5C5C;
+    width: 98%;
+}
+
+input[type="email"] {
+    border: 1px solid #266884;
+    background-color: #F5F5F5; /*Color del fondo de la caja de texto*/
+    /*font-family: 'Pathway Gothic One' , sans-serif;*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #5C5C5C;
+    width: 98%;
+}
+
+input[type="phone"] {
+    border: 1px solid #266884;
+    background-color: #F5F5F5; /*Color del fondo de la caja de texto*/
+    /*font-family: 'Pathway Gothic One' , sans-serif;*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #5C5C5C;
+    width: 98%;
+}
+
+Soporte: input[type="Email"] {
+    border: 1px solid #B7B7B7;
+    background-color: #F5F5F5;
+    /Color del fondo de la caja de texto/ font-family: 'Source Sans Pro', sans-serif;
+    font-size: 12px;
+    color: #5C5C5C;
+}
+
+select {
+    border: 1px solid #B7B7B7;
+    background-color: #F5F5F5;
+    /*font-family: 'Pathway Gothic One' , sans-serif;*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #5C5C5C;
+    text-align: left;
+    margin-bottom: 3px;
+    }
+
+textarea {
+    border: 1px;
+    background-color: #F5F5F5; /*Color del fondo de la caja de texto*/
+    /*font-family: 'Pathway Gothic One' , sans-serif;*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    width: 97%;
+    color: #5C5C5C;
+    border-top: solid 1px #B7B7B7;
+    border-bottom: solid 1px #B7B7B7;
+    border-left: solid 1px #B7B7B7;
+    border-right: solid 1px #B7B7B7;
+}
+
+input[type="password"] {
+    border: 1px; /*border-color: #BBBBBB;*/ /*border-style:ridge;*/
+    color: #000000;
+    background-color: #F5F5F5;
+    font-family: Calibri, Arial;
+    font-size: 12px;
+    width: 95%;
+}
+
+label {
+    color: #000000;
+}
+
+
+.CriterioF {
+    color: #0000FF;
+}
+
+
+.CriterioR {
+    color: #006600;
+}
+
+
+.CriterioD {
+    color: #FF0000;
+}
+
+.NotaApruebafalse {
+    background-color: #FFFF99;
+    color: #000000;
+    font-weight: normal;
+}
+
+.PeriodoSeleccionado {
+    background-color: #00FF00;
+    color: #000000;
+    font-weight: normal;
+}
+
+.NotaFinalTd {
+    background-color: Blue; /* #FF3300;*/
+    color: #000000;
+    font-weight: normal;
+}
+
+.Fallas {
+    background-color: #FF66FF;
+    color: #000000;
+    font-weight: normal;
+}
+
+
+/* Login
+---------------------------------------------------------*/
+.TablaLogin {
+    /*border-bottom-style:groove;  	border-left-style:groove;  	border-right-style:groove; 	border-top:groove;*/
+}
+
+/*INICIO*/
+.inicio {
+}
+
+
+
+
+/* INTERNA
+----------------------------------------------------------*/
+.interna1 td {
+    border-bottom: #d0cec6 thin solid;
+    vertical-align: top;
+    background-color: #fbfbfb;
+    font-size: 12px;
+    vertical-align: top;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+}
+
+.interna1 th {
+    padding: 0px;
+    text-align: center;
+    font-size: small;
+    background-image: url(../images/FondoTH.gif);
+    color: White; /*Color de la letra*/
+    height: 20px;
+    font-family: Calibri, Tahoma, Verdana, Helvetica, Sans-Serif, Arial;
+    font-size: 15px;
+}
+
+.interna input[type="text"] {
+    border-bottom: #006699 1px solid;
+    border-left: #006699 1px solid;
+    background-color: #f5f5f5;
+    width: 98%;
+    font-family: Calibri, Arial;
+    color: #000000;
+    font-size: 12px;
+    vertical-align: middle;
+    border-top: #006699 1px solid;
+    border-right: #006699 1px solid; /*text-transform :uppercase;*/
+}
+
+.interna select {
+    border-bottom: #006699 1px solid;
+    border-left: #006699 1px solid;
+    border-top: #006699 1px solid;
+    border-right: #006699 1px solid;
+    background-color: #f5f5f5;
+    width: 98%;
+    font-family: Calibri, Arial;
+    color: #000000;
+    font-size: 12px;
+}
+
+.interna textarea {
+    border-bottom: #006699 1px solid;
+    border-left: #006699 1px solid;
+    background-color: #f5f5f5;
+    width: 98%;
+    font-family: Calibri, Arial;
+    color: #000000;
+    font-size: 12px;
+    vertical-align: middle;
+    border-top: #006699 1px solid;
+    border-right: #006699 1px solid;
+}
+
+
+/*links*/
+a:link {
+  /* color: #b5b0b0;*/
+  font-family:'Franklin Gothic Medium';
+  color:#000000;
+}
+
+a:visited {
+    /*color: #b5b0b0;*/
+    color:#000000;
+}
+
+a:hover {
+    color: RED;
+}
+
+a:active {
+    color: #FFFFFF; /*Color que toma al momento del click*/
+}
+
+
+/* HEADINGS   
+----------------------------------------------------------*/
+
+h1 {
+    font-size: 10px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+h2 {
+    padding: 0 0 10px 0;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+h4 {
+    font-size: 1.1em;
+}
+
+h5, h6 {
+    font-size: 1em;
+}
+
+/* PAGOS   
+----------------------------------------------------------*/
+
+.Negro {
+    font-weight: bold;
+    font-size: 12px;
+    color: black;
+    font-family: Verdana;
+}
+
+.Rojo {
+    font-weight: bold;
+    font-size: 12px;
+    color: red;
+    font-family: Verdana;
+}
+
+.Azul {
+    font-weight: bold;
+    font-size: 12px;
+    color: blue;
+    font-family: Verdana;
+}
+
+/*ENCUESTA
+===========================================================================*/
+
+.PreguntaGrupo {
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-weight: 100;
+    font-size: 11pt;
+    color: #000000;
+    border: 1px solid black;
+    background-color: #B7B7B7; /* #FF3300;*/
+}
+
+.RespuestaTD {
+    border-style: groove;
+}
+
+.Introduccion {
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-weight: 200;
+    height: 20px;
+    font-size: 11pt;
+    vertical-align: middle;
+}
+
+.OpcionesRespuesta {
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-weight: 100;
+    font-size: 11pt;
+    border: 1px solid black;
+    background-color: #B7B7B7; /* #FF3300;*/
+    color: #000000;
+    text-align: center;
+}
+
+.Pregunta {
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-weight: normal;
+    font-size: 11pt;
+    font-weight: normal;
+    border-bottom: 1pt solid black;
+}
+/**************NUEVOS ESTILOS AC***************/
+.CMB {
+    font-family: 'Pathway Gothic One', sans-serif;
+    height: 30px;
+    border: 1px solid #19749C;
+    font-weight: bold;
+}
+
+.TXT {
+    font-family: 'Pathway Gothic One', sans-serif;
+    height: 30px;
+    border: 1px solid #16546F;
+}
+
+.SPAN {
+    color: #2C73A5;
+}
+
+.espacio {
+    margin-top: 10px;
+}
+
+.imgProgrees {
+    z-index: 999;
+    margin-top: 50px;
+    position: fixed;
+    height: 80px;
+    width: 80px;
+    margin-left: 60px;
+    background-color: #E8EFF6;
+    border: 2px dotted #266884;
+    border-radius: 100px;
+}
+/**css encuesta**/
+.imgEncuesta {
+    height: 120px;
+    width: 120px;
+    border: 1px dotted #266884;
+    vertical-align: bottom;
+}
+/*css consolidadoNovedadPeriodo*/
+.divFechasDetalle {
+    position: absolute;
+    z-index: 1;
+    background-color: rgba(134, 137, 140, 0.81);
+    margin-left: 27%;
+    margin-top: 4.5%;
+    width: 30%;
+    height: 46%;
+}
+
+.divFechasClose {
+    font-weight: bolder;
+    text-decoration: none;
+    margin-left: 92%;
+    position: absolute;
+    margin-top: 2%;
+    background-color: #000000;
+    padding: 0px 5px 2px 5px;
+    border-radius: 100%;
+    color: #FFFFFF;
+    top: -3px;
+}
+
+.divFechasTitulo {
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 2%;
+}
+
+.divHrFecha {
+    border: 1px dotted #266886;
+}
+
+.divFecha {
+    text-align: center;
+    font-weight: bold;
+    color: #006699;
+}
+/*CSS div contador Js caracteres*/
+.divContador {
+    font-size: 15px;
+    font-weight: bold;
+}
+/****************VALIDATION GROUP********/
+.validationGroupNovedad {
+    margin-left: -10%;
+    width: 25%;
+    color: #fff;
+    font-size: medium;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.80);
+    top: 1em;
+    border: 2px dotted #266884;
+    z-index: 999;
+    overflow-y: scroll;
+    height: 20%;
+    border-radius:2%;
+    overflow-x: hidden;
+}
+
+.validationGroupNovedadHr {
+    width: 100%;
+    border: 2px dotted #266884;
+}
+.validationGroupNovedad::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+.validationGroupNovedad::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+.validationGroupNovedad::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #266886 0%,black 50%,#000000 50%,#000000 50%,#266886 100%);
+  border-radius:10px 10px;
+  border:1px double #fff;
+  outline: 1px solid slategrey;
+}

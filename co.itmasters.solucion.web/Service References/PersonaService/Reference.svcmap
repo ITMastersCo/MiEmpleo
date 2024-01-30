@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="7ab341fd-35b7-431a-8a9c-9c7acb984f2b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:3487/PersonaService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PersonaService.xsd" MetadataType="Schema" ID="199ebb42-9ae9-46a5-afaa-d9ff12e5ec35" SourceId="1" SourceUrl="http://localhost:3487/PersonaService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PersonaService1.xsd" MetadataType="Schema" ID="51958f5e-89e2-4a45-92c7-aca8db387401" SourceId="1" SourceUrl="http://localhost:3487/PersonaService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PersonaService.wsdl" MetadataType="Wsdl" ID="01ceeb6c-e12f-41be-ba47-39d370ce29c2" SourceId="1" SourceUrl="http://localhost:3487/PersonaService.svc?wsdl" />
+    <MetadataFile FileName="PersonaService.disco" MetadataType="Disco" ID="03e0f88c-27c8-424a-9de6-325fcdfc2958" SourceId="1" SourceUrl="http://localhost:3487/PersonaService.svc?disco" />
+    <MetadataFile FileName="PersonaService2.xsd" MetadataType="Schema" ID="83dc4865-d171-4346-90bf-48bc94ff18a8" SourceId="1" SourceUrl="http://localhost:3487/PersonaService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PersonaService3.xsd" MetadataType="Schema" ID="6a4e3488-9d00-45e5-b4da-b85bc686e309" SourceId="1" SourceUrl="http://localhost:3487/PersonaService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

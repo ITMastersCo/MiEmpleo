@@ -1,0 +1,201 @@
+@import url('Variables.css');
+
+.wrapper-navbar{
+    position: fixed;
+    height: 100dvh;
+    z-index:99;
+}
+.wrapper-navbar.open{
+    overflow-y: scroll;
+}
+.wrapper-menu{
+    background: var(--bg-gradient-500);
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    width: 110px;
+    transition: width .5s;
+}
+.wrapper-menu.open-menu{
+    width: 400px;
+}
+.wrapper-menu .IconOpenMenu {
+    width: 50px;
+    /*filter: invert();*/
+    cursor: pointer;
+    margin-bottom: 100PX;
+    color: var(--gray-800);
+}
+.OpenMenu-Mobile {
+    display: none;
+    color: var(--gray-800);
+}
+.menu-profile::after{
+    content: '';
+    margin: auto;
+    margin-top: 16px;
+    display: block;
+    width: 100%;
+    height:2px;
+    background-color:var(--gray-500);
+    border-radius: 100px;
+}
+.menu-profile-content{
+    overflow: hidden;
+    z-index: 10;
+    color: var(--gray-900);
+    display: flex;
+    gap: 16px;
+    justify-content: space-around;
+}
+.menu-profile-info{
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    
+}
+.wrapper-menu .menu-profile-avatar{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: rgb(15, 128, 227);
+    position: relative;
+    z-index: 10;
+}
+.wrapper-menu .nav-menu{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.AccordionContainer{
+    display: flex;
+    flex-direction: column;
+    font-family:var(--font-family-display);
+    gap: 8px;
+}
+.AccordionContainer .AccordionTitle, .AccordionContainer .AccordionElement {
+    color:var(--gray-900);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.AccordionContainer .AccordionTitle{
+    font-weight: 600;
+    cursor: pointer;
+}
+.AccordionTitle > .icon-24 > svg, .AccordionElement > a > .icon-24 > svg {
+    position: relative;
+    display: block;
+    width: 34px;
+    height: 34px;
+    color: var(--color-500);
+    z-index: 10;
+}
+.AccordionElement > a > .icon-24 > svg {
+    width: 30px;
+    height: 30px;
+}
+    .AccordionContent {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin-left: 38px;
+        max-height: 0px;
+        overflow: hidden;
+        transition: max-height 0s;
+        padding-left: 8px;
+        border-left: solid 1px var(--color-500);
+    }
+.AccordionContent.open{
+    max-height: 100vh;
+    transition: max-height .5s ease ;
+}
+.AccordionTitle.open{
+    opacity: 1;
+}
+.AccordionTitle.open::after{
+    content: '';
+    background-color: var(--color-500);
+    width: 18px;
+    height: 16px;
+    clip-path: polygon(100% 0, 50% 100%, 0% 0%);
+    animation: arrow .2s linear;
+}
+.AccordionElement a{
+    
+    color:var(--gray-900) ;
+    font-weight: 400;
+    cursor: pointer;
+}
+.AccordionContent.open a {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family:var(--font-family-normal);
+    font-family: var(--font-family-normal);
+}
+.AccordionTitle, .AccordionElement{
+    display: flex;
+    opacity: .8;
+    transition: opacity .2s;
+}
+.AccordionTitle:hover, .AccordionElement:hover{
+    opacity: 1;
+}
+.AccordionTitle p, .AccordionElement a{
+    display: none;
+    white-space: nowrap;
+    width: 80%;
+}
+@keyframes arrow {
+    from{
+        transform: rotate(60deg);
+    }
+    to{
+        transform: rotate(0);
+    }
+    
+}
+.wrapper-Icons-menu{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+.wrapper-menu svg.menu-logOut {
+    color: var(--color-500);
+    width: 38px;
+    scale: -1;
+    position: absolute;
+    bottom: 32px;
+}
+@media screen and (max-width:500px) {
+    .OpenMenu-Mobile{
+        display: block;
+        margin-top:10px;
+        transform: translateX(500%);
+    }
+    .OpenMenu-Mobile.open{
+        display: none;
+    }
+
+    .wrapper-menu.open-menu{
+        width: 100dvw;
+    }
+    .wrapper-navbar{
+        transform: translateX(-100%);
+        transition: transform .5s ease-in-out;
+    }
+    .wrapper-navbar.openMobile{
+        transform: translateX(0);
+        transition: transform .5s ease-in-out;
+    }
+        
+
+}

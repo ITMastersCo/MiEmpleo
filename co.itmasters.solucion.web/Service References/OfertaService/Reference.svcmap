@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="f07649ef-49bc-432e-94d2-ee1d3ae12392" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:3487/OfertaService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="OfertaService.disco" MetadataType="Disco" ID="0fddf074-a6a1-4cdb-90fa-63b08de5cea2" SourceId="1" SourceUrl="http://localhost:3487/OfertaService.svc?disco" />
+    <MetadataFile FileName="OfertaService.xsd" MetadataType="Schema" ID="7f5f24f3-5330-43c6-bca6-3c3588136d17" SourceId="1" SourceUrl="http://localhost:3487/OfertaService.svc?xsd=xsd1" />
+    <MetadataFile FileName="OfertaService.wsdl" MetadataType="Wsdl" ID="3a4337fc-c55c-4b88-80d5-815aa7432ff1" SourceId="1" SourceUrl="http://localhost:3487/OfertaService.svc?wsdl" />
+    <MetadataFile FileName="OfertaService1.xsd" MetadataType="Schema" ID="e919c654-5546-44a1-a36a-9d3220b8c127" SourceId="1" SourceUrl="http://localhost:3487/OfertaService.svc?xsd=xsd2" />
+    <MetadataFile FileName="OfertaService2.xsd" MetadataType="Schema" ID="cbe07f1b-aef6-4814-9e0e-5a511ccd6a99" SourceId="1" SourceUrl="http://localhost:3487/OfertaService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
