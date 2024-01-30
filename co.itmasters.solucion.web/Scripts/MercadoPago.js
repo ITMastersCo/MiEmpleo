@@ -1,4 +1,4 @@
-﻿const mp = new MercadoPago('APP_USR-d97cfe7f-43dd-4dd6-8966-90082c8bd905');
+﻿const mp = new MercadoPago('TEST-4be24b6e-b154-4432-9747-3e610bfb757c');
 
 
 const payMercadoPago = async () => {

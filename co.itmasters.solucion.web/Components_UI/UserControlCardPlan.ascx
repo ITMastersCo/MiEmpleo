@@ -1,7 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UserControlCardPlan.ascx.cs" Inherits="co.itmasters.solucion.web.Components_UI.UserControlCardPlan" %>
+     
 
 <Updatepanel runat="server" id="containerPlan" class="card card_plan flex-col flex-center-h gap-16">
         <ContentTemplate>  
+
+
     <div class="flex-col gap-8 flex-center-h">
 
         <h4 runat="server" id="namePlan" class="text-title-section text-semibold color-orange-500 text-center">Plan
@@ -90,7 +93,7 @@
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
 
-            <asp:Button OnClientClick="javascript:test()" ID="btnGetPlan" runat="server" Text="" class="button" />
+            <asp:Button ID="btnGetPlan" runat="server" Text="" class="button" OnClick="btnGetPlan_ClickAsync"/>
             <button onclick="payMercadoPago()" class="button"> Mercado Pago</button>
         </ContentTemplate>
     </asp:UpdatePanel>
@@ -99,3 +102,5 @@
  </ContentTemplate>
    
 </Updatepanel>
+
+ 

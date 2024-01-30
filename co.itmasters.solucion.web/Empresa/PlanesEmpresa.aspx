@@ -1,50 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ITMasters.Master" AutoEventWireup="true" CodeBehind="PlanesEmpresa.aspx.cs" Inherits="co.itmasters.solucion.web.Empresa.PlanesEmpresa" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ITMasters.Master" AutoEventWireup="true" CodeBehind="PlanesEmpresa.aspx.cs" Inherits="co.itmasters.solucion.web.Empresa.PlanesEmpresa"
+    Async="true" %>
 
 <%@ MasterType VirtualPath="../ITMasters.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Main" runat="server">
-          <script type="text/ecmascript" src="https://sdk.mercadopago.com/js/v2"></script>
-    <script type="module" src="../Scripts/MercadoPago.js"></script>
-    <script type="text/ecmascript">
-        function test() {
-            const payMercadoPago = async () => {
-                try {
-                    const orderData = {
-                        title: "plan",
-                        quanty: 1,
-                        price: 20000
-                    };
-
-                    await PageMethods.GetCiudades(orderData, onSuccess, onError);
-                } catch (error) {
-                    alert("error")
-                }
-
-            }
-
-            function onSucces(pagePreference) {
-                console.log(pagePreference)
-                createCheckoutButton(pagePreference.id)
-            }
-            function createCheckoutButton(id) {
-                const bricksBuilder = mp.bricks();
-
-                const renderComponent = async () => {
-                    if (windows.checkoutButton) window.checkoutButton.unmount();
-
-                    await bricksBuilder.create("wallet", "wallet_container", {
-                        initialization: {
-                            preferenceId: id,
-                        },
-                    });
-
-                }
-
-                renderComponent();
-            }
-
-
-        }
-    </script>
+          <script  src="https://sdk.mercadopago.com/js/v2"></script>
+    
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
             <h1 class="text-title text-semibold color-gray-800">Planes</h1>
@@ -79,4 +39,34 @@
         </ContentTemplate>
     </asp:UpdatePanel>
 
+   <script type="text/javascript">
+
+
+       // Call the CreatePreference method and pass the reference ID
+       function payMercadoPago(PreferenceId) {
+
+
+           console.log(PreferenceId)
+           // Pass the preference ID to the Mercado Pago button
+               const mp = new MercadoPago('TEST-e288c309-1f1c-447f-8946-e6a82e8699cf');
+               const bricksBuilder = mp.bricks();
+
+               const renderComponent =  () => {
+                   //if (windows.checkoutButton) window.checkoutButton.unmount();
+                   console.log('builder')
+                    bricksBuilder.create("wallet", "wallet_container", {
+                       initialization: {
+                            preferenceId: PreferenceId,
+                       },
+                   });
+
+               }
+
+               renderComponent();
+           };
+                   
+       
+
+   </script>
+   
 </asp:Content>

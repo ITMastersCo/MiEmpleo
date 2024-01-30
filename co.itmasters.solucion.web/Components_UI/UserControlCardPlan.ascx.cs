@@ -38,8 +38,8 @@ namespace co.itmasters.solucion.web.Components_UI
                 return state.ToString();
             }
         }
-        
-        
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -64,7 +64,7 @@ namespace co.itmasters.solucion.web.Components_UI
         }
         public Boolean OffersConfidential
         {
-            set { stateOfertasConfidenciales.InnerHtml = IconState(value);  }
+            set { stateOfertasConfidenciales.InnerHtml = IconState(value); }
         }
         public Boolean QuestionsFilter
         {
@@ -90,70 +90,48 @@ namespace co.itmasters.solucion.web.Components_UI
         {
             set { stateVigenciaPlan.InnerText = value; }
         }
-        [WebMethod]
-        protected async Task<Preference> GetPreference(object orderPreference)
+
+
+
+        protected void btnGetPlan_ClickAsync(object sender, EventArgs e)
+        {
+            CreatePreferenceAsync();
+            //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba"
+            //    , $"payMercadoPago({preference})", true);
+
+        }
+        protected async void CreatePreferenceAsync() 
         {
             try
             {
-                MercadoPagoConfig.AccessToken = "APP_USR-4522080206618321-102013-e1297dd29220dbd70ad377ad1dce7be7-1003778913";
+
+            MercadoPagoConfig.AccessToken = "TEST-2148574929506385-013011-fdac278536875a2ce84593f85c704c99-1660977390";
 
                 //Crea el objeto de request de la preference
                 var request = new PreferenceRequest
                 {
                     Items = new List<PreferenceItemRequest>
-                         {
-                        new PreferenceItemRequest
-                            {
-                                Id = "item-ID-1234",
-                                Title = "PREFERENCIA",
-                                Quantity = 1,
-                                CurrencyId = "COP",
-                                UnitPrice = 75m,
-                            },
-                        },
-                    BackUrls = new PreferenceBackUrlsRequest
-                    {
-                        Success = "https://www.tu-sitio/success",
-                        Failure = "http://www.tu-sitio/failure",
-                        Pending = "http://www.tu-sitio/pendings",
-                    },
-                    AutoReturn = "approved"
+                      {
+                          new PreferenceItemRequest
+                          {
+                              Title = "Mi producto",
+                              Quantity = 1,
+                              CurrencyId = "COP",
+                              UnitPrice = 75m,
+                          },
+                      },
                 };
 
                 // Crea la preferencia usando el client
                 var client = new PreferenceClient();
                 Preference preference = await client.CreateAsync(request);
-                return preference ;
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba"
+                    , $"payMercadoPago('{preference.Id}')", true);
             }
-            catch (Exception) {
-                return null;
+            catch (Exception err) 
+            {
+             
             }
-        }
-
-        protected void btnGetPlan_ClickAsync(object sender, EventArgs e)
-        {
-            //MercadoPagoConfig.AccessToken = "APP_USR-4522080206618321-102013-e1297dd29220dbd70ad377ad1dce7be7-1003778913";
-
-            ////Crea el objeto de request de la preference
-            //var request = new PreferenceRequest
-            //{
-            //    Items = new List<PreferenceItemRequest>
-            //   {
-            //   new PreferenceItemRequest
-            //       {
-            //           Id = "item-ID-1234",
-            //           Title = "PREFERENCIA",
-            //           Quantity = 1,
-            //           CurrencyId = "COP",
-            //           UnitPrice = 75m,
-            //       },
-            //   },
-            //};
-
-            //// Crea la preferencia usando el client
-            //var client = new PreferenceClient();
-            //preferenceClient = await client.CreateAsync(request);
-
         }
 
     }

@@ -12,11 +12,16 @@ using System.Web.Services;
 using System.IO;
 using co.itmasters.solucion.web.EmpresaService;
 using System.Globalization;
+using MercadoPago.Client.Preference;
+using MercadoPago.Config;
+using MercadoPago.Resource.Preference;
+using System.Threading.Tasks;
+using MercadoPago.Client.Common;
 
 
 namespace co.itmasters.solucion.web.Empresa
 {
-    public partial class PlanesEmpresa : PageBase
+    public partial class PlanesEmpresa : System.Web.UI.Page
     {
         private OfertaServiceClient _OfertaService;
         private UserVO user;
@@ -28,7 +33,7 @@ namespace co.itmasters.solucion.web.Empresa
 
             if (!Page.IsPostBack)
             {
-                
+                DataBind();
             }
                 ShowPlans(listaOfertas); // Renderiza un lista de Ofertas
         }
@@ -92,6 +97,9 @@ namespace co.itmasters.solucion.web.Empresa
                 AddPlanToContainer(plan);
             }
         }
+
+        
+       
 
     }
 }
