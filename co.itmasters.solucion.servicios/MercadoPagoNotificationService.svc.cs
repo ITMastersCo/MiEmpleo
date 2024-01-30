@@ -31,7 +31,7 @@ namespace co.itmasters.solucion.servicios
                 var rawNotification = reader.ReadToEnd();
                 var notification = JsonConvert.DeserializeObject<Notification>(rawNotification);
 
-                if (Notification.IsValid(notification))
+                if (notification != null)
                 {
                     ProcessValidNotification(notification);
                 }
