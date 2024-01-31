@@ -112,6 +112,7 @@
   <ItemGroup>
     <Content Include="ComunesService.svc" />
     <Content Include="EmpresaService.svc" />
+    <Content Include="MercadoPagoNotification.svc" />
     <Content Include="MercadoPagoService.svc" />
     <Content Include="OfertaService.svc" />
     <Content Include="PersonaService.svc" />
@@ -129,11 +130,15 @@
     </Compile>
     <Compile Include="IComunesService.cs" />
     <Compile Include="IEmpresaService.cs" />
+    <Compile Include="IMercadoPagoNotification.cs" />
     <Compile Include="IMercadoPagoService.cs" />
     <Compile Include="IOfertaService.cs" />
     <Compile Include="IPersonaService.cs" />
     <Compile Include="ISeguridadService.cs" />
     <Compile Include="Log.cs" />
+    <Compile Include="MercadoPagoNotification.svc.cs">
+      <DependentUpon>MercadoPagoNotification.svc</DependentUpon>
+    </Compile>
     <Compile Include="MercadoPagoService.cs" />
     <Compile Include="MercadoPagoService.svc.cs">
       <DependentUpon>MercadoPagoService.svc</DependentUpon>

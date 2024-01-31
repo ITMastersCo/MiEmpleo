@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace co.itmasters.solucion.servicios.MercadoPagoNotification
+namespace co.itmasters.solucion.servicios.MercadoNotification
 {
     public class Notification
     {
