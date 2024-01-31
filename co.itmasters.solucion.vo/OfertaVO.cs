@@ -94,7 +94,10 @@ namespace co.itmasters.solucion.vo
         public int? totHv { get; set; }
         public int? hvVista { get; set; }
 
-        //cosa
+        //Campos de Mercado Pago
+
+        public int? preference_id { get; set; }
+
     }
 }
 

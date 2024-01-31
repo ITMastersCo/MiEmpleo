@@ -1440,6 +1440,7 @@
     <Content Include="Empresa\OfertasActivas.aspx" />
     <Content Include="Empresa\OfertasPendientes.aspx" />
     <Content Include="Empresa\OfertasVencidas.aspx" />
+    <Content Include="Empresa\PagoAprobado.aspx" />
     <Content Include="Empresa\PanelEmpresa.aspx" />
     <Content Include="Empresa\PlanesEmpresa.aspx" />
     <Content Include="Empresa\PublicarOfertas.aspx" />
@@ -1634,6 +1635,16 @@
     <None Include="Service References\EmpresaService\EmpresaService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\MercadoPagoService\MercadoPagoService.wsdl" />
+    <None Include="Service References\MercadoPagoService\MercadoPagoService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MercadoPagoService\MercadoPagoService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MercadoPagoService\MercadoPagoService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\OfertaService\OfertaService.wsdl" />
     <None Include="Service References\OfertaService\OfertaService.xsd">
       <SubType>Designer</SubType>
@@ -1682,6 +1693,13 @@
     <None Include="Service References\OfertaService\configuration91.svcinfo" />
     <None Include="Service References\OfertaService\configuration.svcinfo" />
     <None Include="Service References\OfertaService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\MercadoPagoService\MercadoPagoService.disco" />
+    <None Include="Service References\MercadoPagoService\configuration91.svcinfo" />
+    <None Include="Service References\MercadoPagoService\configuration.svcinfo" />
+    <None Include="Service References\MercadoPagoService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -1797,6 +1815,13 @@
     </Compile>
     <Compile Include="Empresa\OfertasVencidas.aspx.designer.cs">
       <DependentUpon>OfertasVencidas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Empresa\PagoAprobado.aspx.cs">
+      <DependentUpon>PagoAprobado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empresa\PagoAprobado.aspx.designer.cs">
+      <DependentUpon>PagoAprobado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Empresa\PanelEmpresa.aspx.cs">
       <DependentUpon>PanelEmpresa.aspx</DependentUpon>
@@ -1997,6 +2022,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\EmpresaService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MercadoPagoService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -2245,6 +2275,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ComunesService\" />
     <WCFMetadataStorage Include="Service References\EmpresaService\" />
+    <WCFMetadataStorage Include="Service References\MercadoPagoService\" />
     <WCFMetadataStorage Include="Service References\OfertaService\" />
     <WCFMetadataStorage Include="Service References\PersonaService\" />
     <WCFMetadataStorage Include="Service References\SeguridadService\" />

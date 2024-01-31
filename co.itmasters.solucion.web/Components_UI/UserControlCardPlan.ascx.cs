@@ -123,7 +123,8 @@ namespace co.itmasters.solucion.web.Components_UI
                 CreatePreferenceAsync();
 
             }
-            catch (Exception err) { 
+            catch (Exception err) {
+                throw new Exception(err.Message);
             }
         }
         protected async void CreatePreferenceAsync() 
@@ -151,7 +152,7 @@ namespace co.itmasters.solucion.web.Components_UI
                       },
                     BackUrls = new PreferenceBackUrlsRequest
                     {
-                        Success = "http://localhost:8080/Empresa/PlanesEmpresa.aspx",
+                        Success = "http://localhost:8080/Empresa/PagoAprobado.aspx",
                         Failure = "http://localhost:8080/Empresa/PlanesEmpresa.aspx",
                         Pending = "http://localhost:8080/Empresa/PlanesEmpresa.aspx",
                     },
@@ -165,9 +166,9 @@ namespace co.itmasters.solucion.web.Components_UI
                     , $"payMercadoPago_{this.ClientID}('{preference.Id}','{wallet_container.ClientID}')", true);
                 
             }
-            catch (Exception err) 
+            catch (Exception e) 
             {
-                
+                throw new Exception(e.Message);
             }
 
         }
@@ -190,8 +191,8 @@ namespace co.itmasters.solucion.web.Components_UI
             _Empresa.CreatePlanAdquirido(newEmpresa);
             _Empresa.Close();
                 return newEmpresa;
-            }catch (Exception err) {
-                return null;
+            }catch (Exception e) {
+                throw new Exception(e.Message);
             }
         }
 
