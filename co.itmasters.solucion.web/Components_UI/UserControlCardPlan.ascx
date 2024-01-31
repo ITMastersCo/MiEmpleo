@@ -99,6 +99,7 @@
     </asp:UpdatePanel>
         <div runat="server" ID="wallet_container"></div>
          <asp:Button Text="" runat="server" ID="btnSubmitPay" CssClass="hidden" OnClick="btnSubmitPay_Click"/>
+            <label runat="server" id="lblPreferenceID" class="hidden"></label>
  </ContentTemplate>
     <script type="text/javascript">
 
@@ -110,15 +111,20 @@
                 // Pass the preference ID to the Mercado Pago button
                 const mp = new MercadoPago('APP_USR-c06e83e5-e43c-44a6-9874-4781ff66c9d6');
                 const bricksBuilder = mp.bricks();
-
+                
                 const renderComponent = () => {
                     //if (windows.checkoutButton) window.checkoutButton.unmount();
                     bricksBuilder.create("wallet", walletContainer, {
                         initialization: {
                             preferenceId: PreferenceId,
+                            redirectMode: "blank",
                         },
                         callbacks: {
-                            onSubmit: () => { AddPlan()},
+                            onReady: () => {
+                                const lblPreferenceID = document.getElementById('<%= this.lblPreferenceID.ClientID%>');
+                                lblPreferenceID.innerText = PreferenceId;
+                            },
+                            onSubmit: () => { AddPlan(PreferenceId)},
                              onError: (error) => { console.error(error) }
                          }
                      });
@@ -128,9 +134,9 @@
             };
         
         
-        function AddPlan() {
+        function AddPlan(preferenceId) {
             const btnSubmitPay = document.getElementById('<%= this.btnSubmitPay.ClientID%>');
-            btnSubmitPay.click();
+            //btnSubmitPay.click();
         }
 
 

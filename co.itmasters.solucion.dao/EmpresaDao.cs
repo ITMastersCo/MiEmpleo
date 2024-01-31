@@ -63,6 +63,8 @@ namespace co.itmasters.solucion.dao
         public const string PLAN_VIGENCIAPLAN = "vigenciaPlan";
         public const string PLAN_NUMEROOFERTAS = "numeroOfertas";
         public const string PLAN_VALORPLAN = "valorPlan";
+        // Mercado Pago
+        public const string MERCADOPAGO_PREFERENCEID = "preference_id";
 
 
         /*************************Proceso de formulario****************************************************/
@@ -73,7 +75,6 @@ namespace co.itmasters.solucion.dao
         #region  [Metodos Expuestos]
         public void CreatePlanAdquirido(EmpresaVO empresa) {
 
-            empresa.typeModify = "INS";
             try
             {
                 Parametro[] valParam = new Parametro[]
@@ -85,6 +86,8 @@ namespace co.itmasters.solucion.dao
                     new Parametro(PLAN_VIGENCIAPLAN, empresa.Oferta.vigenciaPlan, DbType.Int32),
                     new Parametro(PLAN_NUMEROOFERTAS, empresa.Oferta.numeroOfertas, DbType.Int32),
                     new Parametro(PLAN_VALORPLAN, empresa.Oferta.valorPlan, DbType.Int32),
+                    new Parametro(EMPRESA_ESTADO, empresa.estado, DbType.String),
+                    new Parametro(MERCADOPAGO_PREFERENCEID, empresa.Oferta.preference_id, DbType.String),
             };
                 this.EjecutarStoredProcedure(EMPRESA_PLANESADQUIRIDOS, valParam);
 

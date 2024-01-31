@@ -14,6 +14,10 @@ using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.SqlServer.Server;
+using System.Drawing;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using co.itmasters.solucion.web.Empresa;
+using MercadoPago.Client.Payment;
 
 namespace co.itmasters.solucion.web.Components_UI
 {
@@ -50,7 +54,13 @@ namespace co.itmasters.solucion.web.Components_UI
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack) { user = ((UserVO)Session["UsuarioAutenticado"]); }
-            
+            PlanesEmpresa page = Page as PlanesEmpresa;
+            if (page != null)
+            {
+                this.PreferenceID = page.PreferenceID;
+                
+            }
+
         }
 
         private int PlanPrice { get; set; }
@@ -113,8 +123,7 @@ namespace co.itmasters.solucion.web.Components_UI
                 VigenciaPlan = Convert.ToInt32(value);
                 stateVigenciaPlan.InnerText = $"{value} días"; }
         }
-      
-
+         public string PreferenceID { get; set; }
 
         protected void btnGetPlan_ClickAsync(object sender, EventArgs e)
         {
@@ -153,17 +162,24 @@ namespace co.itmasters.solucion.web.Components_UI
                     BackUrls = new PreferenceBackUrlsRequest
                     {
                         Success = "http://localhost:8080/Empresa/PagoAprobado.aspx",
-                        Failure = "http://localhost:8080/Empresa/PlanesEmpresa.aspx",
-                        Pending = "http://localhost:8080/Empresa/PlanesEmpresa.aspx",
+                        Failure = "http://localhost:8080/Empresa/PagoAprobado.aspx",
+                        Pending = "http://localhost:8080/Empresa/PagoAprobado.aspx",
                     },
                     AutoReturn = "approved",
+                    
                 };
 
                 // Crea la preferencia usando el client
                 var client = new PreferenceClient();
                 Preference preference = await client.CreateAsync(request);
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba"
+                lblPreferenceID.InnerText = preference.Id;
+                if (preference != null)
+                {
+                   ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba"
                     , $"payMercadoPago_{this.ClientID}('{preference.Id}','{wallet_container.ClientID}')", true);
+                    CreatePlanAdquirido(preference.Id);
+                }
+                
                 
             }
             catch (Exception e) 
@@ -172,16 +188,18 @@ namespace co.itmasters.solucion.web.Components_UI
             }
 
         }
-        protected object CreatePlanAdquirido()
+        protected object CreatePlanAdquirido(string preferenceId)
         {
             user = ((UserVO)Session["UsuarioAutenticado"]);
             try { 
             EmpresaVO newEmpresa = new EmpresaVO();
             OfertaVO newPlan = new OfertaVO();
 
+            newEmpresa.typeModify = TipoModificacion.MODIFY_INSERT;
             newEmpresa.idUsuario = user.IdUsuario;
             newEmpresa.idEmpresa = IdEmpresa;
             newPlan.idPlan = Convert.ToInt32( PlanId);
+            newPlan.preference_id = preferenceId;
             newPlan.vigenciaPlan = VigenciaPlan;
             newPlan.numeroOfertas = NumerodeOfertas;
             newPlan.valorPlan = PlanPrice;
@@ -198,7 +216,8 @@ namespace co.itmasters.solucion.web.Components_UI
 
         protected void btnSubmitPay_Click(object sender, EventArgs e)
         {
-            CreatePlanAdquirido();
+            CreatePlanAdquirido("a");
         }
+        
     }
 }

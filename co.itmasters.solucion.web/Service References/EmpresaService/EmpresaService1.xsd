@@ -110,6 +110,7 @@
       <xs:element name="_x003C_ofertaDestacada_x003E_k__BackingField" nillable="true" type="xs:boolean" />
       <xs:element name="_x003C_ofertasConsumidas_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_pendientes_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_preference_id_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_preguntasDeFiltro_x003E_k__BackingField" nillable="true" type="xs:boolean" />
       <xs:element name="_x003C_seguidores_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_tiempoExperiencia_x003E_k__BackingField" nillable="true" type="xs:int" />

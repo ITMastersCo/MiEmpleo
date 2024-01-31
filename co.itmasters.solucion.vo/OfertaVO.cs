@@ -96,7 +96,7 @@ namespace co.itmasters.solucion.vo
 
         //Campos de Mercado Pago
 
-        public int? preference_id { get; set; }
+        public string preference_id { get; set; }
 
     }
 }

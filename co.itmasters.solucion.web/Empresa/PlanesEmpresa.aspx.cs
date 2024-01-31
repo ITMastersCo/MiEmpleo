@@ -18,6 +18,8 @@ using MercadoPago.Resource.Preference;
 using System.Threading.Tasks;
 using MercadoPago.Client.Common;
 using System.Windows.Forms;
+using Microsoft.Ajax.Utilities;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace co.itmasters.solucion.web.Empresa
@@ -28,6 +30,8 @@ namespace co.itmasters.solucion.web.Empresa
         private EmpresaServiceClient _Empresa;
         private UserVO user;
         public EmpresaVO newPlan;
+
+        public string PreferenceID {get; set;}
         protected void Page_Load(object sender, EventArgs e)
         {
             user = ((UserVO)Session["UsuarioAutenticado"]);
@@ -101,8 +105,6 @@ namespace co.itmasters.solucion.web.Empresa
                 AddPlanToContainer(plan);
             }
         }
-       
-       
-
+        
     }
 }
