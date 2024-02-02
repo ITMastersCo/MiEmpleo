@@ -17,6 +17,7 @@ namespace co.itmasters.solucion.vo
         public string apePersona { get; set; }
         public string perfil { get; set; }
         public DateTime? fechaNac { get; set; }
+        public int? edad { get; set; }
         public int? idCiudadNac { get; set; }
         public int? idSexo { get; set; }
         public string correoElectronico { get; set; }
@@ -25,6 +26,7 @@ namespace co.itmasters.solucion.vo
         public string ciudadResidencia { get; set; }
         public int? idRangoSalario { get; set; }
         public int? idModalidadTrabajo { get; set; }
+        public string nomModalidadTrabajo { get; set; }
         public int? diligenciaBasicos { get; set; }
         public int? diligenciaPerfil { get; set; }
         public int? diligenciaAcademia { get; set; }

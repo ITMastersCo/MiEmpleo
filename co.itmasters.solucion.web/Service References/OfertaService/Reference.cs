@@ -15,6 +15,18 @@ namespace co.itmasters.solucion.web.OfertaService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="OfertaService.IOfertaService")]
     public interface IOfertaService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/Postulados", ReplyAction="http://tempuri.org/IOfertaService/PostuladosResponse")]
+        co.itmasters.solucion.vo.PersonaVO[] Postulados(co.itmasters.solucion.vo.OfertaVO oferta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/Postulados", ReplyAction="http://tempuri.org/IOfertaService/PostuladosResponse")]
+        System.Threading.Tasks.Task<co.itmasters.solucion.vo.PersonaVO[]> PostuladosAsync(co.itmasters.solucion.vo.OfertaVO oferta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/Postulacion", ReplyAction="http://tempuri.org/IOfertaService/PostulacionResponse")]
+        void Postulacion([System.ServiceModel.MessageParameterAttribute(Name="postulacion")] co.itmasters.solucion.vo.OfertaVO postulacion1);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/Postulacion", ReplyAction="http://tempuri.org/IOfertaService/PostulacionResponse")]
+        System.Threading.Tasks.Task PostulacionAsync(co.itmasters.solucion.vo.OfertaVO postulacion);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/TraePlanesAdquiridosEmpresa", ReplyAction="http://tempuri.org/IOfertaService/TraePlanesAdquiridosEmpresaResponse")]
         co.itmasters.solucion.vo.OfertaVO[] TraePlanesAdquiridosEmpresa(co.itmasters.solucion.vo.OfertaVO Oferta);
         
@@ -101,6 +113,22 @@ namespace co.itmasters.solucion.web.OfertaService {
         
         public OfertaServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public co.itmasters.solucion.vo.PersonaVO[] Postulados(co.itmasters.solucion.vo.OfertaVO oferta) {
+            return base.Channel.Postulados(oferta);
+        }
+        
+        public System.Threading.Tasks.Task<co.itmasters.solucion.vo.PersonaVO[]> PostuladosAsync(co.itmasters.solucion.vo.OfertaVO oferta) {
+            return base.Channel.PostuladosAsync(oferta);
+        }
+        
+        public void Postulacion(co.itmasters.solucion.vo.OfertaVO postulacion1) {
+            base.Channel.Postulacion(postulacion1);
+        }
+        
+        public System.Threading.Tasks.Task PostulacionAsync(co.itmasters.solucion.vo.OfertaVO postulacion) {
+            return base.Channel.PostulacionAsync(postulacion);
         }
         
         public co.itmasters.solucion.vo.OfertaVO[] TraePlanesAdquiridosEmpresa(co.itmasters.solucion.vo.OfertaVO Oferta) {

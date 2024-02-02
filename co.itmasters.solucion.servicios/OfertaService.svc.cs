@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Web.UI.MobileControls.Adapters;
 
 namespace co.itmasters.solucion.servicios
 {
@@ -15,6 +16,35 @@ namespace co.itmasters.solucion.servicios
     {
         private OfertaNegocio _oferta;
 
+
+        public List<PersonaVO> Postulados(OfertaVO oferta)
+        {
+
+            try
+            {
+                _oferta = new OfertaNegocio();
+                return _oferta.Postulados(oferta);
+            }
+            catch (Exception err)
+            {
+                Log.Write(err.Message, Log.ERROR);
+                throw new FaultException(new FaultReason(err.Message));
+            }
+        }
+        public void Postulacion(OfertaVO postulacion)
+        {
+
+            try
+            {
+                _oferta = new OfertaNegocio();
+                _oferta.Postulacion(postulacion);
+            }
+            catch (Exception err)
+            {
+                Log.Write(err.Message, Log.ERROR);
+                throw new FaultException(new FaultReason(err.Message));
+            }
+        }
         public List<OfertaVO> TraePlanesAdquiridosEmpresa(OfertaVO Oferta)
         {
 
@@ -28,7 +58,8 @@ namespace co.itmasters.solucion.servicios
                 Log.Write(err.Message, Log.ERROR);
                 throw new FaultException(new FaultReason(err.Message));
             }
-        }
+        } 
+    
         public OfertaVO GetOfertaPersonaDetalle(OfertaVO Oferta)
         {
 

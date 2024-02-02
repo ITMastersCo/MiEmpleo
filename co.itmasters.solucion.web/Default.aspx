@@ -6,7 +6,6 @@
 
     <div class="flex-col flex-center-h">
 
-
         <section class="flex-col flex-center-h">
 
             <asp:UpdatePanel ID="wraShare" runat="server">
@@ -206,7 +205,10 @@
 
                     <div id="wrapperHidden" class="hidden">
                         <article runat="server" id="detalleOferta" class="flex-col gap-8 hidden">
-
+                            <div class ="hidden">
+                                <asp:Label Text="" ID="lblIdOferta" runat="server" />
+                                <asp:Label Text="" ID="lblIdPersona" runat="server" />
+                            </div>
 
                             <div runat="server" class="flex-center-v gap-4 pointer">
                                 <div class="flex-col ">

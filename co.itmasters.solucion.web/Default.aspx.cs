@@ -9,6 +9,8 @@ using co.itmasters.solucion.web.PersonaService;
 using co.itmasters.solucion.web.OfertaService;
 using System.Collections.Generic;
 using System.Linq;
+using CsvHelper;
+using System.Web.Management;
 
 namespace co.itmasters.solucion.web
 {
@@ -149,11 +151,48 @@ namespace co.itmasters.solucion.web
 
         protected void btnPostularOferta_Click(object sender, EventArgs e)
         {
+            try
+            {
+            OfertaVO postulacion = new OfertaVO();
+            
+               postulacion.idOferta = Convert.ToInt32(lblIdOferta.Text);
+            postulacion.idPersona = Convert.ToInt32(lblIdPersona.Text);
+               postulacion.typeModify = TipoConsulta.MODIFY_INSERT;
+            postulacion.estado = null;
+           
+            
+
+            OfertaServiceClient _OfertaService = new OfertaServiceClient();
+            _OfertaService.Postulacion(postulacion);
+            _OfertaService.Close();
+              
+            Master.mostrarMensaje($"Postulacion a hecha exitosamente", Master.EXITO);
+
+            }
+            catch
+            {
+                Master.mostrarMensaje("Usted ya ha postulado a esta oferta", Master.INFORMACION);
+            }
+        }
+        protected List<PersonaVO> GetPostulados()
+        {
+
+            OfertaVO oferta = new OfertaVO();
+            oferta.idOferta = 23;
+            oferta.typeModify = TipoConsulta.GET;
+
+            OfertaServiceClient _OfertaService = new OfertaServiceClient();
+            List<PersonaVO> postulados = _OfertaService.Postulados(oferta).ToList();
+            _OfertaService.Close();
+
+            return postulados;
 
         }
 
         protected void btnViewOffer_Command(object sender, CommandEventArgs e)
         {
+
+            List<PersonaVO> postulados = GetPostulados();
 
             if (e.CommandName == "GET")
             {
@@ -167,6 +206,8 @@ namespace co.itmasters.solucion.web
                 OfertaServiceClient _OfertaService = new OfertaServiceClient();
                 OfertaVO viewOferta = _OfertaService.GetOfertaPersonaDetalle(oferta);
                 _OfertaService.Close();
+                lblIdOferta.Text = viewOferta.idOferta.ToString();
+                lblIdPersona.Text = GetPersona().idPersona.ToString();
                 lblOfferTitle.Text = viewOferta.tituloVacante;
                 lblOfferSalaryRange.Text = viewOferta.RangoSalario;
                 lblDateCrateOffer.Text = String.Format("{0:yyyy-MM-dd}", viewOferta.fechaPublicacion);

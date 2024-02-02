@@ -10,6 +10,7 @@ namespace co.itmasters.solucion.vo
     public class OfertaVO
     {
         public int idEmpresa { get; set; }
+        public int  idPersona { get; set; }
         public int? idUsuario { get; set; }
         public int? idOferta { get; set; }
         public int? idPlan { get; set; }

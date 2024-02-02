@@ -17,6 +17,7 @@ namespace co.itmasters.solucion.dao
         public const string OFERTA_GUARDAR = "Oferta_Guardar";
         public const string OFERTA_ANULAR = "Oferta_Anular";
         public const string OFERTA_PUBLICAR = "Oferta_Publicar";
+        public const string OFERTA_POSTULAR = "Oferta_Postular";
         public const string OFERTA_CONSULTAROFERTAEMPRESA = "Oferta_ConsultarOfertaEmpresa";
         public const string OFERTA_TRAERESTADISTICASOFERTA = "Oferta_TraerEstadisticasOferta";
         public const string OFERTA_TRAEESTADOOFERTAEMPRESA = "Oferta_TraeEstadoOfertaEmpresa";
@@ -33,6 +34,7 @@ namespace co.itmasters.solucion.dao
         /// Tablas ofertas
         /// </summary>
         public const string OFERTA_IDUSUARIO = "idUsuario";
+        public const string OFERTA_IDPERSONA = "idPersona";
         public const string OFERTA_IDOFERTA = "idOferta";
         public const string OFERTA_IDEMPRESA = "idEmpresa";
         public const string OFERTA_IDPLAN = "idPlan";
@@ -129,7 +131,134 @@ namespace co.itmasters.solucion.dao
 
         #endregion
 
+        #region [Constantes persona]
+
+        public const string PERSONA_IDPERSONA = "idPersona";
+        public const string PERSONA_IDUSUARIO = "idUsuario";
+        public const string PERSONA_IDTIPOIDE = "idTipoIde";
+        public const string PERSONA_NUMEROIDE = "numeroIde";
+        public const string PERSONA_NOMPERSONA = "nomPersona";
+        public const string PERSONA_APEPERSONA = "apePersona";
+        public const string PERSONA_PERFIL = "perfil";
+        public const string PERSONA_EDAD = "edad";
+        public const string PERSONA_FECHANAC = "fechaNac";
+        public const string PERSONA_IDCIUDADNAC = "idCiudadNac";
+        public const string PERSONA_IDSEXO = "idSexo";
+        public const string PERSONA_CORREOELECTRONICO = "correoElectronico";
+        public const string PERSONA_TELEFONO = "telefono";
+        public const string PERSONA_IDCIUDADRESIDENCIA = "idCiudadResidencia";
+        public const string PERSONA_RUTAAVATAR = "rutaAvatar";
+        public const string PERSONA_CIUDADRECIDENCIA = "ciudadRecidencia";
+        public const string PERSONA_IDRANGOSALARIO = "idRangoSalario";
+        public const string PERSONA_IDMODALIDADTRABAJO = "idModalidadTrabajo";
+        public const string PERSONA_NOMMODALIDADTRABAJO = "nomModalidadTrabajo";
+        public const string PERSONA_DILIGENCIABASICOS = "diligenciaBasicos";
+        public const string PERSONA_DILIGENCIAPERFIL = "diligenciaPerfil";
+        public const string PERSONA_DILIGENCIAACADEMIA = "diligenciaAcademia";
+        public const string PERSONA_DILIGENCIAEXPERIENCIA = "diligenciaExperiencia";
+        public const string PERSONA_DILIGENCIAAPTITUD = "diligenciaAptitud";
+        public const string PERSONA_USUARIOCREA = "usuarioCrea";
+        public const string PERSONA_FECHACREA = "fechaCrea";
+        public const string PERSONA_USUARIOMODIFICA = "usuarioModifica";
+        public const string PERSONA_FECHAMODIFICA = "fechaModifica";
+
+        public const string PERSONA_IDPERSONAACADEMIA = "idPersonaAcademia";
+        public const string PERSONA_IDNIVELEDUCATIVO = "idNivelEducativo";
+        public const string PERSONA_NIVELEDUCATIVO = "nivelEducativo";
+        public const string PERSONA_IDOCUPACION = "idOcupacion";
+        public const string PERSONA_IDCIUDADFORMACION = "idCiudadFormacion";
+        public const string PERSONA_TITULOFORMACIONACADEMICA = "tituloFormacionAcademica";
+        public const string PERSONA_NOMINSTITUCION = "nomInstitucion";
+        public const string PERSONA_FECHAFINFORMACION = "fechaFinFormacion";
+
+        public const string PERSONA_IDPERSONAAPTITUD = "idPersonaAptitud";
+        public const string PERSONA_IDAPTITUD = "idAptitud";
+        public const string PERSONA_NOMAPTITUD = "nomAptitud";
+
+        public const string PERSONA_IDPERSONAEXPERIENCIA = "idPersonaExperiencia";
+        public const string PERSONA_NOMCARGO = "nomCargo";
+        public const string PERSONA_IDCIUDADCARGO = "idCiudadCargo";
+        public const string PERSONA_FECHAINICARGO = "fechaIniCargo";
+        public const string PERSONA_FECHAFINCARGO = "fechaFinCargo";
+        public const string PERSONA_TIEMPOCARGO = "tiempoCargo";
+        public const string PERSONA_DESCARGO = "desCargo";
+
+
+        #endregion
+
         #region  [Metodos Expuestos]
+
+        public void Postulacion(OfertaVO postulacion)
+        {
+
+            try
+            {
+                Parametro[] valParam = new Parametro[]
+                {
+                    new Parametro(OFERTA_IDOFERTA, postulacion.idOferta, DbType.Int32),
+                    new Parametro(OFERTA_IDPERSONA, postulacion.idPersona, DbType.Int32),
+                    new Parametro(OFERTA_ESTADO, postulacion.estado, DbType.String),
+                    new Parametro(OFERTA_TYPEMODIFY, postulacion.typeModify, DbType.String),
+                };
+                this.EjecutarStoredProcedure(OFERTA_POSTULAR, valParam);
+
+            }
+            catch (System.Data.SqlClient.SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+        }
+
+        public List<PersonaVO> Postulados(OfertaVO oferta)
+        {
+            try
+            {
+                Parametro[] valParam = new Parametro[]
+                {
+                    new Parametro(OFERTA_IDOFERTA, oferta.idOferta, DbType.Int32),
+                    new Parametro(OFERTA_IDPERSONA, 0, DbType.Int32),
+                    new Parametro(OFERTA_TYPEMODIFY, oferta.typeModify, DbType.String),
+                    new Parametro(OFERTA_ESTADO, null, DbType.String),
+                };
+                DataTable dt = this.EjecutarStoredProcedureDataTable(OFERTA_POSTULAR, valParam);
+                List<PersonaVO> rPersona = new List<PersonaVO>();
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        PersonaVO persona = new PersonaVO();
+                        persona.idPersona = Convert.ToInt32(dr[PERSONA_IDPERSONA]);
+                        persona.idUsuario = Convert.ToInt32(dr[PERSONA_IDUSUARIO]);
+                        persona.rutaAvatar = Convert.ToString(dr[PERSONA_RUTAAVATAR]);
+                        persona.nomPersona = Convert.ToString(dr[PERSONA_NOMPERSONA]);
+                        persona.perfil = Convert.ToString(dr[PERSONA_PERFIL]);
+                        persona.edad = Convert.ToInt32(dr[PERSONA_EDAD]);
+                        persona.correoElectronico = Convert.ToString(dr[PERSONA_CORREOELECTRONICO]);
+                        persona.telefono = Convert.ToString(dr[PERSONA_TELEFONO]);
+                        persona.ciudadResidencia = Convert.ToString(dr[PERSONA_CIUDADRECIDENCIA]);
+                        persona.nomModalidadTrabajo = Convert.ToString(dr[PERSONA_NOMMODALIDADTRABAJO]);
+                        rPersona.Add(persona);
+                    }
+                }
+                return rPersona;
+            
+            }
+            catch (System.Data.SqlClient.SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+        }
         public List<OfertaVO> TraePlanesAdquiridosEmpresa(OfertaVO oferta)
         {
             try

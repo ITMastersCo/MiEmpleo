@@ -7,6 +7,18 @@
       <xsd:import schemaLocation="http://localhost:3487/OfertaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IOfertaService_Postulados_InputMessage">
+    <wsdl:part name="parameters" element="tns:Postulados" />
+  </wsdl:message>
+  <wsdl:message name="IOfertaService_Postulados_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostuladosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOfertaService_Postulacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:Postulacion" />
+  </wsdl:message>
+  <wsdl:message name="IOfertaService_Postulacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostulacionResponse" />
+  </wsdl:message>
   <wsdl:message name="IOfertaService_TraePlanesAdquiridosEmpresa_InputMessage">
     <wsdl:part name="parameters" element="tns:TraePlanesAdquiridosEmpresa" />
   </wsdl:message>
@@ -68,6 +80,14 @@
     <wsdl:part name="parameters" element="tns:PublicarOfertaResponse" />
   </wsdl:message>
   <wsdl:portType name="IOfertaService">
+    <wsdl:operation name="Postulados">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOfertaService/Postulados" message="tns:IOfertaService_Postulados_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOfertaService/PostuladosResponse" message="tns:IOfertaService_Postulados_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Postulacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOfertaService/Postulacion" message="tns:IOfertaService_Postulacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOfertaService/PostulacionResponse" message="tns:IOfertaService_Postulacion_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="TraePlanesAdquiridosEmpresa">
       <wsdl:input wsaw:Action="http://tempuri.org/IOfertaService/TraePlanesAdquiridosEmpresa" message="tns:IOfertaService_TraePlanesAdquiridosEmpresa_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOfertaService/TraePlanesAdquiridosEmpresaResponse" message="tns:IOfertaService_TraePlanesAdquiridosEmpresa_OutputMessage" />
@@ -111,6 +131,24 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IOfertaService" type="tns:IOfertaService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Postulados">
+      <soap:operation soapAction="http://tempuri.org/IOfertaService/Postulados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Postulacion">
+      <soap:operation soapAction="http://tempuri.org/IOfertaService/Postulacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="TraePlanesAdquiridosEmpresa">
       <soap:operation soapAction="http://tempuri.org/IOfertaService/TraePlanesAdquiridosEmpresa" style="document" />
       <wsdl:input>

@@ -44,6 +44,7 @@
       <xs:element name="_x003C_idOcupacion9_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_idOcupacion_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_idOferta_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_idPersona_x003E_k__BackingField" type="xs:int" />
       <xs:element name="_x003C_idPlanAdquirido_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_idPlan_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_idRangoSalario_x003E_k__BackingField" nillable="true" type="xs:int" />
@@ -88,6 +89,111 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="OfertaVO" nillable="true" type="tns:OfertaVO" />
+  <xs:complexType name="ArrayOfPersonaVO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PersonaVO" nillable="true" type="tns:PersonaVO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPersonaVO" nillable="true" type="tns:ArrayOfPersonaVO" />
+  <xs:complexType name="PersonaVO">
+    <xs:sequence>
+      <xs:element name="_x003C_Academia_x003E_k__BackingField" nillable="true" type="tns:ArrayOfPersonaAcademiaVO" />
+      <xs:element name="_x003C_Aptitud_x003E_k__BackingField" nillable="true" type="tns:ArrayOfPersonaAptitudVO" />
+      <xs:element name="_x003C_Experiencia_x003E_k__BackingField" nillable="true" type="tns:ArrayOfPersonaExperienciaVO" />
+      <xs:element name="_x003C_apePersona_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_ciudadResidencia_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_correoElectronico_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_diligenciaAcademia_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_diligenciaAptitud_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_diligenciaBasicos_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_diligenciaExperiencia_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_diligenciaPerfil_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_edad_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_fechaCrea_x003E_k__BackingField" type="xs:dateTime" />
+      <xs:element name="_x003C_fechaModifica_x003E_k__BackingField" type="xs:dateTime" />
+      <xs:element name="_x003C_fechaNac_x003E_k__BackingField" nillable="true" type="xs:dateTime" />
+      <xs:element name="_x003C_idCiudadNac_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_idCiudadResidencia_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_idModalidadTrabajo_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_idPersona_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_idRangoSalario_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_idSexo_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_idTipoIde_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_idUsuario_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_nomModalidadTrabajo_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_nomPersona_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_numeroIde_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_perfil_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_rutaAvatar_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_telefono_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_typeModify_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_usuarioCrea_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_usuarioModifica_x003E_k__BackingField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersonaVO" nillable="true" type="tns:PersonaVO" />
+  <xs:complexType name="ArrayOfPersonaAcademiaVO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PersonaAcademiaVO" nillable="true" type="tns:PersonaAcademiaVO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPersonaAcademiaVO" nillable="true" type="tns:ArrayOfPersonaAcademiaVO" />
+  <xs:complexType name="PersonaAcademiaVO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fechaFinFormacion" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idCiudadFormacion" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="idNivelEducativo" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="idOcupacion" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="idPersona" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="idPersonaAcademia" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="idUsuario" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="nivelEducativo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nomInstitucion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tituloFormacionAcademica" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="typeModify" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersonaAcademiaVO" nillable="true" type="tns:PersonaAcademiaVO" />
+  <xs:complexType name="ArrayOfPersonaAptitudVO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PersonaAptitudVO" nillable="true" type="tns:PersonaAptitudVO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPersonaAptitudVO" nillable="true" type="tns:ArrayOfPersonaAptitudVO" />
+  <xs:complexType name="PersonaAptitudVO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idAptitud" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="idPersona" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="idPersonaAptitud" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="idUsuario" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="nomAptitud" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="typeModify" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersonaAptitudVO" nillable="true" type="tns:PersonaAptitudVO" />
+  <xs:complexType name="ArrayOfPersonaExperienciaVO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PersonaExperienciaVO" nillable="true" type="tns:PersonaExperienciaVO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPersonaExperienciaVO" nillable="true" type="tns:ArrayOfPersonaExperienciaVO" />
+  <xs:complexType name="PersonaExperienciaVO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="desCargo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fechaFinCargo" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaIniCargo" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="idCiudadCargo" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="idNivelEducativo" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="idOcupacion" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="idPersona" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="idPersonaExperiencia" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="idUsuario" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="nomCargo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tiempoCargo" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="typeModify" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersonaExperienciaVO" nillable="true" type="tns:PersonaExperienciaVO" />
   <xs:complexType name="ArrayOfOfertaVO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="OfertaVO" nillable="true" type="tns:OfertaVO" />
