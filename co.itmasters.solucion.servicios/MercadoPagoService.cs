@@ -1,43 +1,55 @@
-﻿using Newtonsoft.Json;
+﻿using MercadoPago.Resource.Payment;
 using System;
+using System.Diagnostics.Contracts;
+using System.IO;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 
-namespace co.itmasters.solucion.servicios.MercadoNotification
+namespace co.itmasters.solucion.servicios
 {
-    public class Notification
+    
+    [XmlRoot("root")]
+    public class ActionNotification
     {
-        [JsonProperty("id")]
+        [XmlElement("action")]
+        public string Action { get; set; }
+    }
+
+    [XmlRoot("root")]
+    public class PaymentNotification
+    {
+        [XmlElement("action")]
+        public string Action { get; set; }
+
+        [XmlElement("api_version")]
+        public string ApiVersion { get; set; }
+
+        [XmlElement("data")]
+        public Paymentnotification_DataObject Data { get; set; }
+
+        [XmlElement("date_created")]
+        public string DateCreated { get; set; }
+
+        [XmlElement("id")]
         public string Id { get; set; }
 
-        [JsonProperty("topic")]
-        public string Topic { get; set; }
-
-        [JsonProperty("data")]
-        public PaymentNotificationData Data { get; set; }
-
-        [JsonProperty("live_mode")]
+        [XmlElement("live_mode")]
         public bool LiveMode { get; set; }
 
-        [JsonProperty("date_created")]
-        public DateTime DateCreated { get; set; }
+        [XmlElement("type")]
+        public string Type { get; set; }
 
-        [JsonProperty("date_last_updated")]
-        public DateTime DateLastUpdated { get; set; }
-
-        [JsonProperty("user_id")]
-        public string UserId { get; set; }
-
-        [JsonProperty("sender_id")]
-        public string SenderId { get; set; }
+        [XmlElement("user_id")]
+        public long UserId { get; set; }
     }
 
-    public class PaymentNotificationData
+    public class Paymentnotification_DataObject
     {
-        [JsonProperty("id")]
+        [XmlElement("id")]
         public string Id { get; set; }
-
-        [JsonProperty("status")]
-        public string Status { get; set; }
-
-        // Add other properties if needed, such as payment_type_id, currency_id, etc.
     }
+
 }

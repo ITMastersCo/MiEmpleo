@@ -33,24 +33,6 @@ namespace co.itmasters.solucion.web.Facturacion
         protected global::System.Web.UI.WebControls.PlaceHolder containerLashe;
 
         /// <summary>
-        /// Control lashPaquetes.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton lashPaquetes;
-
-        /// <summary>
-        /// Control lashFacturas.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton lashFacturas;
-
-        /// <summary>
         /// Control UpdatePanel1.
         /// </summary>
         /// <remarks>

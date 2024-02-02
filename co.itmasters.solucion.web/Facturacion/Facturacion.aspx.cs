@@ -23,17 +23,11 @@ namespace co.itmasters.solucion.web.Facturacion
         protected void Page_Load(object sender, EventArgs e)
         {
             user = ((UserVO)Session["UsuarioAutenticado"]);
-            List<OfertaVO> listaOfertas = GetOffers();  // Obtiene una lista de ofertas desde la base de datos.
+            List<OfertaVO> listaOfertas = TraePlanesAdquiridos();  // Obtiene una lista de ofertas desde la base de datos.
 
             if (!Page.IsPostBack)
             {
                 ShowPlans(listaOfertas); // Renderiza un lista de Ofertas
-                
-                
-            }
-            if (Request.Browser.IsMobileDevice)
-            {
-                ShowLashPaquetes();
             }
             
         }
@@ -61,13 +55,15 @@ namespace co.itmasters.solucion.web.Facturacion
             }
 
         }
-        protected List<OfertaVO> traeOfertas()
+        protected List<OfertaVO> TraePlanesAdquiridos()
         {
             OfertaVO datosConsulta = new OfertaVO();
+            datosConsulta.typeModify = TipoConsulta.GET;
             datosConsulta.idUsuario = user.IdUsuario;
+            datosConsulta.estado = EstadoPago.ESTADO_CONSOLIDADO;
 
             _OfertaService = new OfertaServiceClient();
-            List<OfertaVO> resultado = _OfertaService.TraeEstadoOferta(datosConsulta).ToList<OfertaVO>();
+            List<OfertaVO> resultado = _OfertaService.TraePlanesAdquiridosEmpresa(datosConsulta).ToList();
             _OfertaService.Close();
             return resultado;
 
@@ -75,10 +71,10 @@ namespace co.itmasters.solucion.web.Facturacion
         }
         protected void AddPlanToContainer(OfertaVO plan)
         {
-            UserControlCardPlan ucCardPlan = (UserControlCardPlan)LoadControl("~/Components_UI/UserControlCardPlan.ascx");
+            
+            UserControlCardPlanFacturacion ucCardPlan = (UserControlCardPlanFacturacion)LoadControl("~/Components_UI/UserControlCardPlanFacturacion.ascx");
             ucCardPlan.ID = plan.idPlan.ToString();
             ucCardPlan.Name = $"PAQUETE {plan.nomPlan} (Paquete Actual)"; ;
-            ucCardPlan.Price = plan.valorPlan.ToString();
             ucCardPlan.OffersFeatured = Convert.ToBoolean(plan.ofertaDestacada);
             ucCardPlan.OffersConfidential = Convert.ToBoolean(plan.ofertaConfidencial);
             ucCardPlan.QuestionsFilter = Convert.ToBoolean(plan.preguntasDeFiltro);
@@ -103,7 +99,6 @@ namespace co.itmasters.solucion.web.Facturacion
         {
             foreach (OfertaVO plan in plans)
             {
-                AddFactToContainer();
                 AddPlanToContainer(plan);
             }
         }
@@ -114,31 +109,6 @@ namespace co.itmasters.solucion.web.Facturacion
         protected void DesactiveLash(HtmlButton lash)
         {
             lash.Attributes.Add("class", "pestana");
-        }
-        protected void ShowLashPaquetes()
-        {
-            DesactiveLash(lashFacturas);
-            ActiveLash(lashPaquetes);
-            containerFacturas.Visible = false;
-            containerPlans.Visible = true;
-        }
-        protected void lashPaquetes_ServerClick(object sender, EventArgs e)
-        {
-            user = ((UserVO)Session["UsuarioAutenticado"]);
-            List<OfertaVO> listaOfertas = GetOffers();
-            ShowLashPaquetes();
-            ShowPlans(listaOfertas);
-            
-        }
-        protected void lashFacturas_ServerClick(object sender, EventArgs e)
-        {
-            user = ((UserVO)Session["UsuarioAutenticado"]);
-            List<OfertaVO> listaOfertas = GetOffers();
-            ShowPlans(listaOfertas);
-            DesactiveLash(lashPaquetes);
-            ActiveLash(lashFacturas);
-            containerFacturas.Visible = true;
-            containerPlans.Visible = false;
         }
     }
 }

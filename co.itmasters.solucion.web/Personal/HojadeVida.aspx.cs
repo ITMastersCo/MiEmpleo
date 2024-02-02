@@ -125,7 +125,7 @@ namespace co.itmasters.solucion.web.Personal
             tagName.Text = "";
 
             PersonaAptitudVO newAptitud = new PersonaAptitudVO();
-            newAptitud.typeModify = TipoModificacion.MODIFY_DELETE;
+            newAptitud.typeModify = TipoConsulta.MODIFY_DELETE;
             newAptitud.idUsuario = user.IdUsuario;
             newAptitud.idAptitud = Convert.ToInt32(tagId);
             newAptitud.idPersona = GetPersona().idPersona;
@@ -687,7 +687,7 @@ namespace co.itmasters.solucion.web.Personal
             if (persona.Aptitud.Count < 5 && cmbSkill.SelectedValue != "-1")
             {
                 PersonaAptitudVO newAptitud = new PersonaAptitudVO();
-                newAptitud.typeModify = TipoModificacion.MODIFY_INSERT;
+                newAptitud.typeModify = TipoConsulta.MODIFY_INSERT;
                 newAptitud.idUsuario = user.IdUsuario;
                 newAptitud.idAptitud = Convert.ToInt32(cmbSkill.SelectedValue);
                 newAptitud.idPersona = Convert.ToInt32(persona.idPersona);
@@ -743,9 +743,9 @@ namespace co.itmasters.solucion.web.Personal
             GridViewRow row = grdPersonaAcademia.Rows[index];
             switch (e.CommandName.ToUpper())
             {
-                case TipoModificacion.MODIFY_UPDATE:
+                case TipoConsulta.MODIFY_UPDATE:
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", MODALACADEMIA, true);
-                    lblTypeModifyAcademia.Text = TipoModificacion.MODIFY_UPDATE;
+                    lblTypeModifyAcademia.Text = TipoConsulta.MODIFY_UPDATE;
                     lblIdAcademia.Text = Convert.ToString(((Label)row.FindControl("lblidAcademia")).Text);
                     lblIdPersonaAcademia.Text = Convert.ToString(((Label)row.FindControl("lblidPersonaAcademia")).Text);
                     _carga.Cargar(cmbPaisEstudios, TipoCombo.CMBPAIS);
@@ -764,7 +764,7 @@ namespace co.itmasters.solucion.web.Personal
                     txtFechaGraduacion.Attributes["value"] = dateValue.ToString();
                     ShowModalButton(btnModalEstudiosSubmit);
                     break;
-                case TipoModificacion.MODIFY_DELETE:
+                case TipoConsulta.MODIFY_DELETE:
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", MODALELIMINARACADEMIA, true);
                     ShowModalButton(btnModalEliminarEstudio);
                     lblIdAcademiaEliminar.Text = Convert.ToString(((Label)row.FindControl("lblidAcademia")).Text);
@@ -784,9 +784,9 @@ namespace co.itmasters.solucion.web.Personal
             GridViewRow row = grdPersonaExperienca.Rows[index];
             switch (e.CommandName.ToUpper())
             {
-                case TipoModificacion.MODIFY_UPDATE:
+                case TipoConsulta.MODIFY_UPDATE:
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", MODALEXPERIENCIA, true);
-                    lblTypeModifyExperiencia.Text = TipoModificacion.MODIFY_UPDATE;
+                    lblTypeModifyExperiencia.Text = TipoConsulta.MODIFY_UPDATE;
                     lblIdExperiencia.Text = Convert.ToString(((Label)row.FindControl("lblidExperiencia")).Text);
                     lblIdPersonaExperiencia.Text = Convert.ToString(((Label)row.FindControl("lblidPersonaExperiencia")).Text);
                     txtNombreCargo.Text = Convert.ToString(((Label)row.FindControl("lblnomCargo")).Text);
@@ -808,7 +808,7 @@ namespace co.itmasters.solucion.web.Personal
                     txtFechaFinExperiencia.Attributes["value"] = dateValueFin.ToString();
                     ShowModalButton(btnModalExperienciaSubmit);
                     break;
-                case TipoModificacion.MODIFY_DELETE:
+                case TipoConsulta.MODIFY_DELETE:
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", MODALELIMINAREXPERIENCIA, true);
                     ShowModalButton(btnModalEliminarExperiencia);
                     lblIdExperienciaEliminar.Text = Convert.ToString(((Label)row.FindControl("lblidExperiencia")).Text);
@@ -912,7 +912,7 @@ namespace co.itmasters.solucion.web.Personal
                 newAcademia.idUsuario = user.IdUsuario;
                 newAcademia.idPersonaAcademia = Convert.ToInt32(lblIdAcademiaEliminar.Text);
                 newAcademia.idPersona = Convert.ToInt32(lblIdPersonaAcademiaEliminar.Text);
-                newAcademia.typeModify = TipoModificacion.MODIFY_DELETE;
+                newAcademia.typeModify = TipoConsulta.MODIFY_DELETE;
                 _ActoresService = new PersonaServiceClient();
                 _ActoresService.PersonaAcademia_Update(newAcademia);
                 _ActoresService.Close();
@@ -938,7 +938,7 @@ namespace co.itmasters.solucion.web.Personal
                 newExperiencia.idUsuario = user.IdUsuario;
                 newExperiencia.idPersonaExperiencia = Convert.ToInt32(lblIdExperienciaEliminar.Text);
                 newExperiencia.idPersona = Convert.ToInt32(lblIdPersonaExperienciaEliminar.Text);
-                newExperiencia.typeModify = TipoModificacion.MODIFY_DELETE;
+                newExperiencia.typeModify = TipoConsulta.MODIFY_DELETE;
                 _ActoresService = new PersonaServiceClient();
                 _ActoresService.PersonaExperiencia_Update(newExperiencia);
                 _ActoresService.Close();
@@ -957,7 +957,7 @@ namespace co.itmasters.solucion.web.Personal
         {
             PersonaVO persona = GetPersona();
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", MODALACADEMIA, true);
-            lblTypeModifyAcademia.Text = TipoModificacion.MODIFY_INSERT;
+            lblTypeModifyAcademia.Text = TipoConsulta.MODIFY_INSERT;
             lblIdAcademia.Text = "0";
             lblIdPersonaAcademia.Text = persona.idPersona.ToString();
             _carga.Cargar(cmbPaisEstudios, TipoCombo.CMBPAIS);
@@ -976,7 +976,7 @@ namespace co.itmasters.solucion.web.Personal
         {
             PersonaVO persona = GetPersona();
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", MODALEXPERIENCIA, true);
-            lblTypeModifyExperiencia.Text = TipoModificacion.MODIFY_INSERT;
+            lblTypeModifyExperiencia.Text = TipoConsulta.MODIFY_INSERT;
             lblIdExperiencia.Text = "0";
             lblIdPersonaExperiencia.Text = persona.idPersona.ToString(); ;
             txtNombreCargo.Text = null;

@@ -15,6 +15,20 @@ namespace co.itmasters.solucion.servicios
     {
         private OfertaNegocio _oferta;
 
+        public List<OfertaVO> TraePlanesAdquiridosEmpresa(OfertaVO Oferta)
+        {
+
+            try
+            {
+                _oferta = new OfertaNegocio();
+                return _oferta.TraePlanesAdquiridosEmpresa(Oferta);
+            }
+            catch (Exception err)
+            {
+                Log.Write(err.Message, Log.ERROR);
+                throw new FaultException(new FaultReason(err.Message));
+            }
+        }
         public OfertaVO GetOfertaPersonaDetalle(OfertaVO Oferta)
         {
 

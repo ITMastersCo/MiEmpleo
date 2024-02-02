@@ -14,17 +14,16 @@
         <asp:UpdatePanel ID="UpdatePanelLashes" runat="server">
             <ContentTemplate>
                 <asp:PlaceHolder ID="containerLashe" runat="server">
-                    <div class="flex 
-                         w-100per gap-8 flex-center wrapper-pestanas isResponsive">
+                    <div class="flex w-100per gap-8 flex-center wrapper-pestanas">
 
-                        <button runat="server" id="lashPaquetes" class="pestana" onserverclick="lashPaquetes_ServerClick">
-                            <h3 class="text-title-item text-semibold ">Tus Paquetes
+                        <span id="lashPaquetes" class="pestana" >
+                            <h3 class="text-title-item text-semibold">Suscripción 
                             </h3>
-                        </button>
-                        <button runat="server" id="lashFacturas" class="pestana" onserverclick="lashFacturas_ServerClick">
+                        </span>
+                        <span id="lashFacturas" class="pestana" >
                             <h3 class="text-title-item text-semibold ">Tus Facturas
                             </h3>
-                        </button>
+                        </span>
                     </div>
 
                 </asp:PlaceHolder>
@@ -33,9 +32,10 @@
 
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
-                <div class="flex flex-wrap gap-32 flex-center   ">
+                <div class="flex">
 
-                    <section runat="server" id="containerPlans" class="flex-col gap-16" visible="true">
+                    <section runat="server" id="containerPlans" class="flex-col flex-center w-100per gap-56" visible="true">
+
                     </section>
 
                     <section runat="server" id="containerFacturas" class="flex-col gap-16" vible="true">

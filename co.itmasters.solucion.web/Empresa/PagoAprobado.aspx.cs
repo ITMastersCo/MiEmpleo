@@ -1,7 +1,6 @@
 ﻿using co.itmasters.solucion.vo;
 using co.itmasters.solucion.web.Code;
 using co.itmasters.solucion.web.EmpresaService;
-using co.itmasters.solucion.web.MercadoPagoService;
 using CrystalDecisions.ReportAppServer.DataDefModel;
 using MercadoPago.Resource.User;
 using Microsoft.Ajax.Utilities;
@@ -18,7 +17,6 @@ namespace co.itmasters.solucion.web.Empresa
     {
         EmpresaServiceClient _Empresa;
         UserVO user;
-        MercadoPagoServiceClient _MercadoPago;
         protected void Page_Load(object sender, EventArgs e)
         {
                
@@ -70,7 +68,7 @@ namespace co.itmasters.solucion.web.Empresa
                 EmpresaVO newEmpresa = new EmpresaVO();
                 OfertaVO newPlan = new OfertaVO();
 
-                newEmpresa.typeModify = TipoModificacion.MODIFY_UPDATE;
+                newEmpresa.typeModify = TipoConsulta.MODIFY_UPDATE;
                 newEmpresa.idUsuario = user.IdUsuario;
                 newEmpresa.estado = estado;
                 newPlan.preference_id = preferenceId;

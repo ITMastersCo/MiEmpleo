@@ -15,6 +15,12 @@ namespace co.itmasters.solucion.web.OfertaService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="OfertaService.IOfertaService")]
     public interface IOfertaService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/TraePlanesAdquiridosEmpresa", ReplyAction="http://tempuri.org/IOfertaService/TraePlanesAdquiridosEmpresaResponse")]
+        co.itmasters.solucion.vo.OfertaVO[] TraePlanesAdquiridosEmpresa(co.itmasters.solucion.vo.OfertaVO Oferta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/TraePlanesAdquiridosEmpresa", ReplyAction="http://tempuri.org/IOfertaService/TraePlanesAdquiridosEmpresaResponse")]
+        System.Threading.Tasks.Task<co.itmasters.solucion.vo.OfertaVO[]> TraePlanesAdquiridosEmpresaAsync(co.itmasters.solucion.vo.OfertaVO Oferta);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/GetOfertaPersonaDetalle", ReplyAction="http://tempuri.org/IOfertaService/GetOfertaPersonaDetalleResponse")]
         co.itmasters.solucion.vo.OfertaVO GetOfertaPersonaDetalle(co.itmasters.solucion.vo.OfertaVO Ofertas);
         
@@ -95,6 +101,14 @@ namespace co.itmasters.solucion.web.OfertaService {
         
         public OfertaServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public co.itmasters.solucion.vo.OfertaVO[] TraePlanesAdquiridosEmpresa(co.itmasters.solucion.vo.OfertaVO Oferta) {
+            return base.Channel.TraePlanesAdquiridosEmpresa(Oferta);
+        }
+        
+        public System.Threading.Tasks.Task<co.itmasters.solucion.vo.OfertaVO[]> TraePlanesAdquiridosEmpresaAsync(co.itmasters.solucion.vo.OfertaVO Oferta) {
+            return base.Channel.TraePlanesAdquiridosEmpresaAsync(Oferta);
         }
         
         public co.itmasters.solucion.vo.OfertaVO GetOfertaPersonaDetalle(co.itmasters.solucion.vo.OfertaVO Ofertas) {

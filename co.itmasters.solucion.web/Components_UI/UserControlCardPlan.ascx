@@ -1,7 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UserControlCardPlan.ascx.cs" Inherits="co.itmasters.solucion.web.Components_UI.UserControlCardPlan" %>
      
 
-<Updatepanel runat="server" id="containerPlan" class="card card_plan flex-col flex-center-h gap-16">
+
+<asp:UpdatePanel runat="server" ID="containerPlan" class="card card_plan flex-col flex-center-h gap-32">
         <ContentTemplate>  
 
 
@@ -18,7 +19,7 @@
     <div runat="server" id="benefitsPlan" class="flex-col w-100per gap-8">
         <%-- Lista de beneficios --%>
 
-        <div class="flex-center-v w-100per space-between">
+        <div class="flex flex-center-v w-100per space-between">
             <p class="text-small plan-detailName">*Acceso ofertas destcadas ($50.000 c/u)</p>
 
 
@@ -31,7 +32,7 @@
             </i>
             
         </div>
-        <div class="flex-center-v w-100per space-between">
+        <div class="flex flex-center-v w-100per space-between">
             <p class="text-small plan-detailName">* Ofertas confidenciales</p>
 
 
@@ -39,7 +40,7 @@
                 <%-- Estado de Oferta Confidenciales --%>
             </div>
         </div>
-        <div class="flex-center-v w-100per space-between">
+        <div class="flex flex-center-v w-100per space-between">
             <p class="text-small plan-detailName">* Preguntas de filtro</p>
 
 
@@ -47,7 +48,7 @@
                 <%-- Estado de Pregunstas Filtro--%>
             </div>
         </div>
-        <div class="flex-center-v w-100per space-between">
+        <div class="flex flex-center-v w-100per space-between">
             <p class="text-small plan-detailName">*Programación de entrevistas por zoom</p>
 
 
@@ -55,7 +56,7 @@
                 <%-- Estado de Programación de entrevistas por zoom --%>
             </div>
         </div>
-        <div class="flex-center-v w-100per space-between">
+        <div class="flex flex-center-v w-100per space-between">
             <p class="text-small plan-detailName">* Multiusuarios con roles determinados por la empresa</p>
 
 
@@ -63,7 +64,7 @@
                 <%-- Estado de MultiUsuario --%>
             </div>
         </div>
-        <div class="flex-center-v w-100per space-between">
+        <div class="flex flex-center-v w-100per space-between">
             <p class="text-small plan-detailName">*Capacitaciones empresariales</p>
 
 
@@ -71,7 +72,7 @@
                 <%-- Estado de Capacitaciona Empresas --%>
             </div>
         </div>
-        <div class="flex-center-v w-100per space-between">
+        <div class="flex flex-center-v w-100per space-between">
             <p class="text-small plan-detailName">*Tiempo de publicación</p>
 
 
@@ -79,10 +80,10 @@
                 <%-- Estado de Tiempo de Publicacion --%>
             </p>
         </div>
-        <div class="flex-center-v w-100per space-between">
+        <div class="flex flex-center-v w-100per space-between">
             <p class="text-small plan-detailName">*Vigencia del plan a partir de la compra</p>
 
-            <p runat="server" id="stateVigenciaPlan" class="text-small text-semibold color-gray-800">
+            <p runat="server" id="stateVigenciaPlan" class="text-nowrap text-small text-semibold color-gray-800">
                 <%-- Estado de Detalle --%>
             </p>
             
@@ -101,6 +102,8 @@
          <asp:Button Text="" runat="server" ID="btnSubmitPay" CssClass="hidden" OnClick="btnSubmitPay_Click"/>
             <label runat="server" id="lblPreferenceID" class="hidden"></label>
  </ContentTemplate>
+
+</asp:UpdatePanel>
     <script type="text/javascript">
 
 
@@ -141,7 +144,5 @@
 
 
     </script>
-
-</Updatepanel>
 
  

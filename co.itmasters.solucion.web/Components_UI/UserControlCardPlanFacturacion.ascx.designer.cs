@@ -11,7 +11,7 @@ namespace co.itmasters.solucion.web.Components_UI
 {
 
 
-    public partial class UserControlCardPlan
+    public partial class UserControlCardPlanFacturacion
     {
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace co.itmasters.solucion.web.Components_UI
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel containerPlan;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl containerPlan;
 
         /// <summary>
         /// Control namePlan.
@@ -141,30 +141,21 @@ namespace co.itmasters.solucion.web.Components_UI
         protected global::System.Web.UI.WebControls.Button btnGetPlan;
 
         /// <summary>
-        /// Control wallet_container.
+        /// Control detailsFact.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl wallet_container;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl detailsFact;
 
         /// <summary>
-        /// Control btnSubmitPay.
+        /// Control priceFac.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmitPay;
-
-        /// <summary>
-        /// Control lblPreferenceID.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblPreferenceID;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl priceFac;
     }
 }

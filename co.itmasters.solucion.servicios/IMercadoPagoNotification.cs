@@ -1,4 +1,5 @@
-﻿using System;
+﻿using co.itmasters.solucion.servicios;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Text.Json;
 
 namespace co.itmasters.solucion.servicios
 {
@@ -15,10 +17,10 @@ namespace co.itmasters.solucion.servicios
     {
         [OperationContract]
         [WebInvoke(Method = "POST", 
-            UriTemplate = "/ProcessNotification",
+            UriTemplate = "ProcessNotification",
             BodyStyle = WebMessageBodyStyle.Wrapped,
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json)]
-        void ProcessNotification(Stream inputStream);
+         void ProcessNotification();
     }
 }

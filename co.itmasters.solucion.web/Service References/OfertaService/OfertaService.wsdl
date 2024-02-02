@@ -7,6 +7,12 @@
       <xsd:import schemaLocation="http://localhost:3487/OfertaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IOfertaService_TraePlanesAdquiridosEmpresa_InputMessage">
+    <wsdl:part name="parameters" element="tns:TraePlanesAdquiridosEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="IOfertaService_TraePlanesAdquiridosEmpresa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TraePlanesAdquiridosEmpresaResponse" />
+  </wsdl:message>
   <wsdl:message name="IOfertaService_GetOfertaPersonaDetalle_InputMessage">
     <wsdl:part name="parameters" element="tns:GetOfertaPersonaDetalle" />
   </wsdl:message>
@@ -62,6 +68,10 @@
     <wsdl:part name="parameters" element="tns:PublicarOfertaResponse" />
   </wsdl:message>
   <wsdl:portType name="IOfertaService">
+    <wsdl:operation name="TraePlanesAdquiridosEmpresa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOfertaService/TraePlanesAdquiridosEmpresa" message="tns:IOfertaService_TraePlanesAdquiridosEmpresa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOfertaService/TraePlanesAdquiridosEmpresaResponse" message="tns:IOfertaService_TraePlanesAdquiridosEmpresa_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetOfertaPersonaDetalle">
       <wsdl:input wsaw:Action="http://tempuri.org/IOfertaService/GetOfertaPersonaDetalle" message="tns:IOfertaService_GetOfertaPersonaDetalle_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOfertaService/GetOfertaPersonaDetalleResponse" message="tns:IOfertaService_GetOfertaPersonaDetalle_OutputMessage" />
@@ -101,6 +111,15 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IOfertaService" type="tns:IOfertaService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TraePlanesAdquiridosEmpresa">
+      <soap:operation soapAction="http://tempuri.org/IOfertaService/TraePlanesAdquiridosEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetOfertaPersonaDetalle">
       <soap:operation soapAction="http://tempuri.org/IOfertaService/GetOfertaPersonaDetalle" style="document" />
       <wsdl:input>

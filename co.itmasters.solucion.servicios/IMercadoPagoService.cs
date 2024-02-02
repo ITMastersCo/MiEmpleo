@@ -1,4 +1,7 @@
-﻿using System;
+﻿using co.itmasters.solucion.vo;
+using MercadoPago.Client.Preference;
+using MercadoPago.Resource.Preference;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,6 +9,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace co.itmasters.solucion.servicios
 {
@@ -14,7 +18,7 @@ namespace co.itmasters.solucion.servicios
     public interface IMercadoPagoService
     {
         [OperationContract]
-        void RecibirInformacionBackUrl(string preferenceId, string status, string collection_id, string payment_id, string external_reference, string payment_type, string merchant_order_id, string site_id, string processing_mode, string merchant_account_id);
+        Task<Preference>  CrearPreferencia(EmpresaVO newPlanAdquirido);
 
         
     }

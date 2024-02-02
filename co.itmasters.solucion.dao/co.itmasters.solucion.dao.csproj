@@ -105,6 +105,7 @@
   <ItemGroup>
     <Compile Include="BaseDao.cs" />
     <Compile Include="ComunesDao.cs" />
+    <Compile Include="Constantes.cs" />
     <Compile Include="OfertaDao.cs" />
     <Compile Include="FuncionarioDao.cs" />
     <Compile Include="EmpresaDao.cs" />

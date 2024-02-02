@@ -1403,6 +1403,7 @@
     <Content Include="Components_UI\UserControlCardFactura.ascx" />
     <Content Include="Components_UI\UserControlCardOfferTech.ascx" />
     <Content Include="Components_UI\UserControlCardPlan.ascx" />
+    <Content Include="Components_UI\UserControlCardPlanFacturacion.ascx" />
     <Content Include="Components_UI\UserControlCvItem.ascx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -1635,16 +1636,6 @@
     <None Include="Service References\EmpresaService\EmpresaService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MercadoPagoService\MercadoPagoService.wsdl" />
-    <None Include="Service References\MercadoPagoService\MercadoPagoService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\MercadoPagoService\MercadoPagoService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\MercadoPagoService\MercadoPagoService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\OfertaService\OfertaService.wsdl" />
     <None Include="Service References\OfertaService\OfertaService.xsd">
       <SubType>Designer</SubType>
@@ -1693,13 +1684,6 @@
     <None Include="Service References\OfertaService\configuration91.svcinfo" />
     <None Include="Service References\OfertaService\configuration.svcinfo" />
     <None Include="Service References\OfertaService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\MercadoPagoService\MercadoPagoService.disco" />
-    <None Include="Service References\MercadoPagoService\configuration91.svcinfo" />
-    <None Include="Service References\MercadoPagoService\configuration.svcinfo" />
-    <None Include="Service References\MercadoPagoService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -1780,6 +1764,13 @@
     </Compile>
     <Compile Include="Components_UI\UserControlCardPlan.ascx.designer.cs">
       <DependentUpon>UserControlCardPlan.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Components_UI\UserControlCardPlanFacturacion.ascx.cs">
+      <DependentUpon>UserControlCardPlanFacturacion.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components_UI\UserControlCardPlanFacturacion.ascx.designer.cs">
+      <DependentUpon>UserControlCardPlanFacturacion.ascx</DependentUpon>
     </Compile>
     <Compile Include="Components_UI\UserControlCvItem.ascx.cs">
       <DependentUpon>UserControlCvItem.ascx</DependentUpon>
@@ -2022,11 +2013,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\EmpresaService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\MercadoPagoService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -2275,7 +2261,6 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ComunesService\" />
     <WCFMetadataStorage Include="Service References\EmpresaService\" />
-    <WCFMetadataStorage Include="Service References\MercadoPagoService\" />
     <WCFMetadataStorage Include="Service References\OfertaService\" />
     <WCFMetadataStorage Include="Service References\PersonaService\" />
     <WCFMetadataStorage Include="Service References\SeguridadService\" />

@@ -166,13 +166,11 @@ namespace co.itmasters.solucion.web.Components_UI
                         Pending = "http://localhost:8080/Empresa/PagoAprobado.aspx",
                     },
                     AutoReturn = "approved",
-                    
                 };
 
                 // Crea la preferencia usando el client
                 var client = new PreferenceClient();
                 Preference preference = await client.CreateAsync(request);
-                lblPreferenceID.InnerText = preference.Id;
                 if (preference != null)
                 {
                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba"
@@ -190,26 +188,26 @@ namespace co.itmasters.solucion.web.Components_UI
         }
         protected object CreatePlanAdquirido(string preferenceId)
         {
-            user = ((UserVO)Session["UsuarioAutenticado"]);
-            try { 
-            EmpresaVO newEmpresa = new EmpresaVO();
-            OfertaVO newPlan = new OfertaVO();
+             user = ((UserVO)Session["UsuarioAutenticado"]);
+             try { 
+             EmpresaVO newEmpresa = new EmpresaVO();
+             OfertaVO newPlan = new OfertaVO();
 
-            newEmpresa.typeModify = TipoModificacion.MODIFY_INSERT;
-            newEmpresa.idUsuario = user.IdUsuario;
-            newEmpresa.idEmpresa = IdEmpresa;
-            newPlan.idPlan = Convert.ToInt32( PlanId);
-            newPlan.preference_id = preferenceId;
-            newPlan.vigenciaPlan = VigenciaPlan;
-            newPlan.numeroOfertas = NumerodeOfertas;
-            newPlan.valorPlan = PlanPrice;
-             newEmpresa.Oferta = newPlan;
+             newEmpresa.typeModify = TipoConsulta.MODIFY_INSERT;
+             newEmpresa.idUsuario = user.IdUsuario;
+             newEmpresa.idEmpresa = IdEmpresa;
+             newPlan.idPlan = Convert.ToInt32( PlanId);
+             newPlan.preference_id = preferenceId;
+             newPlan.vigenciaPlan = VigenciaPlan;
+             newPlan.numeroOfertas = NumerodeOfertas;
+             newPlan.valorPlan = PlanPrice;
+              newEmpresa.Oferta = newPlan;
 
-            _Empresa = new EmpresaServiceClient();
-            _Empresa.CreatePlanAdquirido(newEmpresa);
-            _Empresa.Close();
-                return newEmpresa;
-            }catch (Exception e) {
+             _Empresa = new EmpresaServiceClient();
+             _Empresa.CreatePlanAdquirido(newEmpresa);
+             _Empresa.Close();
+                 return newEmpresa;
+             }catch (Exception e) {
                 throw new Exception(e.Message);
             }
         }

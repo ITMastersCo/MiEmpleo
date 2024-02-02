@@ -15,8 +15,12 @@ namespace co.itmasters.solucion.negocio
         {
             _oferta = new OfertaDao();
         }
-        
 
+
+        public List<OfertaVO> TraePlanesAdquiridosEmpresa(OfertaVO Oferta)
+        {
+           return _oferta.TraePlanesAdquiridosEmpresa(Oferta);
+        }
         public OfertaVO GetOfertaPersonaDetalle(OfertaVO Oferta)
         {
            return _oferta.GetOfertaPersonaDetalle(Oferta);

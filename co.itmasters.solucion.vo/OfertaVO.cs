@@ -86,6 +86,7 @@ namespace co.itmasters.solucion.vo
         public Boolean? entrevistaZoom { get; set; }
         public double? valorPlan { get; set; }
         //    otros campos
+        public string typeModify { get; set; }
         public int? activas { get; set; }
         public int? vencidas { get; set; }
         public int? pendientes { get; set; }

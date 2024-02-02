@@ -24,10 +24,11 @@ namespace co.itmasters.solucion.dao
         public const string OFERTA_TRAEOFERTADETALLE = "Oferta_TraeOfertaDetalle";
         public const string OFERTA_TRAEROFERTAPERSONA = "Oferta_TraerOfertaPersona";
         public const string OFERTA_TRAEROFERTAPERSONADETALLE = "Oferta_TraerOfertaPersonaDetalle";
+        public const string EMPRESA_PLANESADQUIRIDOS = "Empresa_PlanesAdquiridos";
         #endregion
 
 
-        #region [Constantes empresa]
+        #region [Constantes oferta]
         /// <summary>
         /// Tablas ofertas
         /// </summary>
@@ -87,6 +88,7 @@ namespace co.itmasters.solucion.dao
         public const string OFERTA_USUARIOMODIFICA = "usuarioModifica";
         public const string OFERTA_FECHAMODIFICA = "fechaModifica";
         public const string OFERTA_NOMEMPRESA = "nomEmpresa";
+        public const string OFERTA_TYPEMODIFY = "typeModify";
 
         //oferta.PlanesAdquiridos
         public const string OFERTA_FECHAINICIA = "fechaInicia";
@@ -117,16 +119,79 @@ namespace co.itmasters.solucion.dao
         public const string OFERTA_HVVISTAS = "HvVistas";
         public const string OFERTA_NOMRANGOSALARIAL = "nomRangoSalarial";
         public const string ACTORES_NUMIDENTIFICACION = "numIdentificacion";
+        // Mercado Pago
+        public const string MERCADOPAGO_PREFERENCEID = "preference_id";
 
 
 
 
-  
 
 
         #endregion
 
         #region  [Metodos Expuestos]
+        public List<OfertaVO> TraePlanesAdquiridosEmpresa(OfertaVO oferta)
+        {
+            try
+            {
+                Parametro[] valParam = new Parametro[]
+                {
+                    //Se adicionan los parametros para la busqueda del objeto
+                    new Parametro(OFERTA_TYPEMODIFY, oferta.typeModify, DbType.String),
+                    new Parametro(OFERTA_IDUSUARIO, oferta.idUsuario, DbType.Int32),
+                    new Parametro(OFERTA_IDEMPRESA, oferta.idEmpresa, DbType.Int32),
+                    new Parametro(OFERTA_IDPLAN, oferta.idPlan, DbType.Int32),
+                    new Parametro(OFERTA_VIGENCIAPLAN, oferta.vigenciaPlan, DbType.Int32),
+                    new Parametro(OFERTA_NUMEROOFERTAS, oferta.numeroOfertas, DbType.Int32),
+                    new Parametro(OFERTA_VALORPLAN, oferta.valorPlan, DbType.Int32),
+                    new Parametro(OFERTA_ESTADO, oferta.estado, DbType.String),
+                    new Parametro(MERCADOPAGO_PREFERENCEID, oferta.preference_id, DbType.String),
+
+            };
+
+                DataTable dt = this.EjecutarStoredProcedureDataTable(EMPRESA_PLANESADQUIRIDOS, valParam);
+
+                List<OfertaVO> rOferta = new List<OfertaVO>();
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        OfertaVO Oferta = new OfertaVO();
+                        Oferta.idPlanAdquirido = Convert.ToInt32(dr[OFERTA_IDPLANADQUIRIDO]);
+                        Oferta.idEmpresa = Convert.ToInt32(dr[OFERTA_IDEMPRESA]);
+                        Oferta.idPlan = Convert.ToInt32(dr[OFERTA_IDPLAN]);
+                        Oferta.fechaInicia = Convert.ToDateTime(dr[OFERTA_FECHAINICIA]);
+                        Oferta.fechaFinaliza = Convert.ToDateTime(dr[OFERTA_FECHAFINALIZA]);
+                        Oferta.ofertasConsumidas= Convert.ToInt32(dr[OFERTA_OFERTASCONSUMIDAS]);
+                        Oferta.estado = Convert.ToString(dr[OFERTA_ESTADO]);
+                        oferta.fechaUltimaOferta = dr[OFERTA_FECHAULTIMAOFERTA] == Convert.DBNull ? dateNull : Convert.ToDateTime(dr[OFERTA_FECHAULTIMAOFERTA]);
+                        Oferta.valorPlan = Convert.ToDouble(dr[OFERTA_VALORPLAN]);
+                        Oferta.nomPlan = Convert.ToString(dr[OFERTA_NOMPLAN]);
+                        Oferta.nroOfertas = Convert.ToInt32(dr[OFERTA_NROOFERTAS]);
+                        Oferta.filtroCandidatos = Convert.ToBoolean(dr[OFERTA_FILTROCANDIDATOS]);
+                        Oferta.multiusuario = Convert.ToBoolean(dr[OFERTA_MULTIUSUARIO]);
+                        Oferta.diasPublicacionOferta = Convert.ToInt32(dr[OFERTA_DIASPUBLICACIONOFERTA]);
+                        Oferta.ofertaDestacada = Convert.ToBoolean(dr[OFERTA_OFERTADESTACADA]);
+                        Oferta.ofertaConfidencial = Convert.ToBoolean(dr[OFERTA_OFERTACONFIDENCIAL]);
+                        Oferta.preguntasDeFiltro = Convert.ToBoolean(dr[OFERTA_PREGUNTASDEFILTRO]);
+                        Oferta.capacitaciones = Convert.ToBoolean(dr[OFERTA_CAPACITACIONES]);
+                        Oferta.vigenciaPlan = Convert.ToInt32(dr[OFERTA_VIGENCIAPLAN]);
+                        Oferta.entrevistaZoom = Convert.ToBoolean(dr[OFERTA_ENTREVISTAZOOM]);
+                        rOferta.Add(Oferta);
+                    }
+                }
+                return rOferta;
+            }
+            catch (System.Data.SqlClient.SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
 
         public OfertaVO GetOfertaPersonaDetalle (OfertaVO Ofertas)
         {

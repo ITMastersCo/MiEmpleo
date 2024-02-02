@@ -13,6 +13,9 @@ namespace co.itmasters.solucion.servicios
     public interface IOfertaService
     {
         [OperationContract]
+        List<OfertaVO> TraePlanesAdquiridosEmpresa(OfertaVO Oferta);
+
+        [OperationContract]
         OfertaVO GetOfertaPersonaDetalle(OfertaVO Ofertas);
         [OperationContract]
         List<OfertaVO> GetOfertaPersona(OfertaVO Ofertas);

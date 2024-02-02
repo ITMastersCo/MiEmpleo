@@ -1,11 +1,10 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http.Headers;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace co.itmasters.solucion.web.Code
+namespace co.itmasters.solucion.dao
 {
     public static class TipoConsulta
     {
@@ -25,7 +24,5 @@ namespace co.itmasters.solucion.web.Code
         public const string MECADOPAGO_APROBADO = "approved";
         public const string MECADOPAGO_PENDIENTE = "in_process";
         public const string MECADOPAGO_RECHAZADO = "rejected";
-        }
+    }
 }
-
-
