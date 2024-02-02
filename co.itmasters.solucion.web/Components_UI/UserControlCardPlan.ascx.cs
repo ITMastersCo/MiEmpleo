@@ -161,9 +161,9 @@ namespace co.itmasters.solucion.web.Components_UI
                       },
                     BackUrls = new PreferenceBackUrlsRequest
                     {
-                        Success = "http://localhost:8080/Empresa/PagoAprobado.aspx",
-                        Failure = "http://localhost:8080/Empresa/PagoAprobado.aspx",
-                        Pending = "http://localhost:8080/Empresa/PagoAprobado.aspx",
+                        Success = "http://localhost:8080/Facturacion/Facturacion.aspx",
+                        Failure = "http://localhost:8080/Facturacion/Facturacion.aspx",
+                        Pending = "http://localhost:8080/Facturacion/Facturacion.aspx",
                     },
                     AutoReturn = "approved",
                 };

@@ -1,6 +1,7 @@
 ﻿using co.itmasters.solucion.vo;
 using co.itmasters.solucion.web.Code;
 using co.itmasters.solucion.web.EmpresaService;
+using co.itmasters.solucion.web.OfertaService;
 using CrystalDecisions.ReportAppServer.DataDefModel;
 using MercadoPago.Resource.User;
 using Microsoft.Ajax.Utilities;
@@ -16,6 +17,7 @@ namespace co.itmasters.solucion.web.Empresa
     public partial class PagoAprobado : System.Web.UI.Page
     {
         EmpresaServiceClient _Empresa;
+        OfertaServiceClient _OfertaService;
         UserVO user;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,16 +25,10 @@ namespace co.itmasters.solucion.web.Empresa
             if (!IsPostBack) {
                 user = ((UserVO)Session["UsuarioAutenticado"]);
                 ProcesarPago();
-                ProCesarNotificacion();
+
 
             }
             
-        }
-        protected void ProCesarNotificacion()
-        {
-
-   
-
         }
         protected void ProcesarPago()
         {

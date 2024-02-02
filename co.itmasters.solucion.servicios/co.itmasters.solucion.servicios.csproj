@@ -152,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="code\Constantes.cs" />
+    <Compile Include="code\tools.cs" />
     <Compile Include="ComunesService.svc.cs">
       <DependentUpon>ComunesService.svc</DependentUpon>
     </Compile>
@@ -169,7 +170,7 @@
     <Compile Include="MercadoPagoNotification.svc.cs">
       <DependentUpon>MercadoPagoNotification.svc</DependentUpon>
     </Compile>
-    <Compile Include="MercadoPagoService.cs" />
+    <Compile Include="ModelsMercadoPagoService.cs" />
     <Compile Include="MercadoPagoService.svc.cs">
       <DependentUpon>MercadoPagoService.svc</DependentUpon>
     </Compile>

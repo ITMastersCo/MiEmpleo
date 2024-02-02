@@ -41,7 +41,7 @@ namespace co.itmasters.solucion.web.Components_UI
 
         public string TextBtnPlan
         {
-            set { btnGetPlan.Text = value; }
+            set { btnVerPlanes.InnerText = value; }
         }
         public string Name
         {
@@ -87,7 +87,7 @@ namespace co.itmasters.solucion.web.Components_UI
 
         protected void btnGetPlan_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("./PlanesEmpresa.aspx");
         }
     }
 }

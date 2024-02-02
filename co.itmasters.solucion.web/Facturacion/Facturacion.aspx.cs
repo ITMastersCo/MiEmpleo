@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using co.itmasters.solucion.web.Components_UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.HtmlControls;
 using co.itmasters.solucion.web.Code;
 using co.itmasters.solucion.web.OfertaService;
 using co.itmasters.solucion.vo;
 using System.Web.Services;
 using System.IO;
 using co.itmasters.solucion.web.EmpresaService;
+using co.itmasters.solucion.web.Components_UI;
+using System.Web.UI.HtmlControls;
+using System.Runtime;
 
 
 namespace co.itmasters.solucion.web.Facturacion
@@ -20,13 +21,16 @@ namespace co.itmasters.solucion.web.Facturacion
     {
         private OfertaServiceClient _OfertaService;
         private UserVO user;
+        private EmpresaServiceClient _Empresa;
         protected void Page_Load(object sender, EventArgs e)
         {
             user = ((UserVO)Session["UsuarioAutenticado"]);
-            List<OfertaVO> listaOfertas = TraePlanesAdquiridos();  // Obtiene una lista de ofertas desde la base de datos.
+            
 
             if (!Page.IsPostBack)
             {
+                ProcesarPago();
+                List<OfertaVO> listaOfertas = TraePlanesAdquiridos();  // Obtiene una lista de ofertas desde la base de datos.
                 ShowPlans(listaOfertas); // Renderiza un lista de Ofertas
             }
             
@@ -109,6 +113,59 @@ namespace co.itmasters.solucion.web.Facturacion
         protected void DesactiveLash(HtmlButton lash)
         {
             lash.Attributes.Add("class", "pestana");
+        }
+        protected void ProcesarPago()
+        {
+            if (Request.QueryString["preference_id"] != null && Request.QueryString["status"] != null)
+            {
+                string preferenceId = Request.QueryString["preference_id"];
+                string status = Request.QueryString["status"];
+                switch (status)
+                {
+                    case EstadoPago.MECADOPAGO_APROBADO:
+                        Master.mostrarMensaje("Plan Adquirido con Exito", Master.EXITO);
+                        UpdatePlanAdquirido(preferenceId, EstadoPago.ESTADO_CONSOLIDADO);
+                        break;
+                    case EstadoPago.MECADOPAGO_PENDIENTE:
+                        Master.mostrarMensaje("En unas horas validaremos el pago", Master.INFORMACION);
+                        UpdatePlanAdquirido(preferenceId, EstadoPago.ESTADO_PENDIENTE);
+                        break;
+                    case EstadoPago.MECADOPAGO_RECHAZADO:
+                        Master.mostrarMensaje("No logramos procesar el pago intentalo nuevamente", Master.ERROR);
+                        UpdatePlanAdquirido(preferenceId, EstadoPago.ESTADO_RECHAZADO);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+
+            }
+        }
+        protected object UpdatePlanAdquirido(string preferenceId, string estado)
+        {
+            user = ((UserVO)Session["UsuarioAutenticado"]);
+            try
+            {
+                EmpresaVO newEmpresa = new EmpresaVO();
+                OfertaVO newPlan = new OfertaVO();
+
+                newEmpresa.typeModify = TipoConsulta.MODIFY_UPDATE;
+                newEmpresa.idUsuario = user.IdUsuario;
+                newEmpresa.estado = estado;
+                newPlan.preference_id = preferenceId;
+                newEmpresa.Oferta = newPlan;
+
+                _Empresa = new EmpresaServiceClient();
+                _Empresa.CreatePlanAdquirido(newEmpresa);
+                _Empresa.Close();
+                return newEmpresa;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
     }
 }

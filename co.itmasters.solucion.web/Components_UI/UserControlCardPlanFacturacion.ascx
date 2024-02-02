@@ -86,7 +86,7 @@
 
 
         </div>
-        <asp:Button ID="btnGetPlan" runat="server" Text="" class="button self-start-y" OnClick="btnGetPlan_Click" />
+        <a href="~/Empresa/PlanesEmpresa.aspx" runat="server" id="btnVerPlanes" class="button self-start-y">Ver Planes </a>
     </div>
     <article class="card card_plan">
         <h4 class="text-title-item text-semibold color-gray-700">Próxima factura</h4>

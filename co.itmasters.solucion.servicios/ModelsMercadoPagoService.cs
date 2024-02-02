@@ -24,11 +24,15 @@ namespace co.itmasters.solucion.servicios
         [XmlElement("action")]
         public string Action { get; set; }
 
+        [XmlElement("timestamp")]
+        public string Timestamp { get; set; }
+        
+
         [XmlElement("api_version")]
         public string ApiVersion { get; set; }
 
         [XmlElement("data")]
-        public Paymentnotification_DataObject Data { get; set; }
+        public string Data { get; set; }
 
         [XmlElement("date_created")]
         public string DateCreated { get; set; }
@@ -51,5 +55,12 @@ namespace co.itmasters.solucion.servicios
         [XmlElement("id")]
         public string Id { get; set; }
     }
+
+    class XSignatureData
+    {
+        public string Timestamp { get; set; }
+        public string V1 { get; set; }
+    }
+
 
 }

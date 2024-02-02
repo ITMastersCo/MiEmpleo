@@ -6,7 +6,7 @@ using System;
 using System.Threading.Tasks;
 using co.itmasters.solucion.vo;
 using MercadoPago.Resource.User;
-using co.itmasters.solucion.dao.code;
+using co.itmasters.solucion.servicios.code;
 using System.Numerics;
 
 namespace co.itmasters.solucion.servicios

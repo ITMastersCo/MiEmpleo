@@ -1574,7 +1574,6 @@
     <Content Include="Images\ver.png" />
     <Content Include="Index.aspx" />
     <Content Include="InternaEmpresa.aspx" />
-    <Content Include="Pagos\Pagar.aspx" />
     <Content Include="Paquete\PaquetesEmpresa.aspx" />
     <Content Include="Personal\HojadeVida.aspx" />
     <Content Include="Properties\DataSources\co.itmasters.academics.vo.AprendizVO1.datasource" />
@@ -1960,13 +1959,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Pagos\Pagar.aspx.cs">
-      <DependentUpon>Pagar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pagos\Pagar.aspx.designer.cs">
-      <DependentUpon>Pagar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Paquete\PaquetesEmpresa.aspx.cs">
       <DependentUpon>PaquetesEmpresa.aspx</DependentUpon>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace co.itmasters.solucion.dao.code
+namespace co.itmasters.solucion.servicios.code
 {
     public static class TipoConsulta
     {
