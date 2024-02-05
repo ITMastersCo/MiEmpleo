@@ -1,19 +1,27 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Collections;
-using System.Configuration;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using co.itmasters.solucion.web.Code;
+using co.itmasters.solucion.web.Components_UI;
+using CrystalDecisions.CrystalReports.Engine;
+using co.itmasters.solucion.vo;
+using System.Configuration;
 using System.Web;
 using System.Web.Security;
-using System.Web.UI;
 using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
-using System.Windows.Forms;
-
 using System.Xml.Linq;
-using co.itmasters.solucion.web.Code;
+using System.Text;
+using System.Xml;
+using System.IO;
+using CrystalDecisions.Shared;
+using co.itmasters.solucion.web.ComunesService;
+using System.Diagnostics;
+
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace co.itmasters.solucion.web
@@ -26,7 +34,6 @@ namespace co.itmasters.solucion.web
         private UserVO user;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //InsertLogOut();
             if (this.IsPostBack)
             {
                 return;
@@ -35,33 +42,69 @@ namespace co.itmasters.solucion.web
             {
                 this.dibujarMenu();
                 user = ((UserVO)Session["UsuarioAutenticado"]);
-                
-                if (user.tipoUsuario == 1 || user.tipoUsuario ==3)
+
+                if (user.tipoUsuario == 1 || user.tipoUsuario == 3)
                 {
                     imgMaster.Src = "~/images/ImgInicio/LOGO-dark.png";
-                    lblButton.Text = "Publicar oferta";
-                    btnLink.HRef = "~/Empresa/PublicarOfertas.aspx";
+                    lblHeader.Text = "Publicar oferta";
+                    
                 }
-                else 
+                else
                 {
                     imgMaster.Src = "~/images/ImgInicio/LOGO.png";
-                    lblButton.Text = "Imprimir hoja de vida";
-                    btnLink.HRef = "~/Index.aspx";
+                    lblHeader.Text = "Imprimir hoja de vida";
                 }
 
-                //lblCorreo.Text = ConfigurationManager.AppSettings.Get("Correo");
-                //lblTelefono.Text = ConfigurationManager.AppSettings.Get("Telefono");
-                //lblUsuario.Text = "" + ((UserVO)Session["UsuarioAutenticado"]).Nombre1 + " " + ((UserVO)Session["UsuarioAutenticado"]).Nombre2 + " " + ((UserVO)Session["UsuarioAutenticado"]).Apellido1 + " " + ((UserVO)Session["UsuarioAutenticado"]).Apellido2;
-                //lblColegio1.Text = "" + ((UserVO)Session["UsuarioAutenticado"]).NomColegio;
-                //lblColegio2.Text = "" + ((UserVO)Session["UsuarioAutenticado"]).NomColegio2;
             }
             else
             {
                 Server.Transfer("~/Index.aspx");
             }
         }
-        
 
+        protected void ImprimirHojaDeVida(int id)
+        {
+            try
+            {
+
+                this.ConfiguraReporte("PDF");
+            }
+            catch (Exception err)
+            {
+
+            }
+        }
+        public List<Parametro> CargarParametrosConsultaReporte()
+        {
+            List<Parametro> parametros = new List<Parametro>();
+            Parametro parm;
+            user = ((UserVO)Session["UsuarioAutenticado"]);
+            //Se setea el colegio
+            parm = new Parametro();
+            parm.Name = "idUsuario";
+            parm.Type = DbType.Int32;
+            parm.Data = user.IdUsuario;
+            parametros.Add(parm);
+                              
+            return parametros;
+        }
+        public void ConfiguraReporte(String Tipo)
+        {
+            AdmonReporte _reporte = new AdmonReporte("");
+
+            string datosReporte = "Reportes//Candidato//HojadeVida.rpt:Rpt_HojaVida";
+
+            try
+            {
+                _reporte.ImprimeReporte(datosReporte, CargarParametrosConsultaReporte().ToArray<Parametro>(), Tipo);
+            }
+            catch (Exception err)
+            {
+
+                LogWeb.Write(err.Message, LogWeb.ERROR);
+                throw;
+            }
+        }
 
         protected void ScriptManager1_AsyncPostBackError(object sender, AsyncPostBackErrorEventArgs e)
         {
@@ -168,6 +211,24 @@ namespace co.itmasters.solucion.web
             HttpContext.Current.Session.Clear();
             FormsAuthentication.SignOut();
             Response.Redirect("~/Index.aspx", true);
+        }
+
+        protected void btnHeader_Click(object sender, EventArgs e)
+        {
+            UserVO user = (UserVO)Session["UsuarioAutenticado"];
+            
+            switch (user.tipoUsuario) {
+                case TipoUsuario.USUARIO_EMPRESA :
+                    break;
+                case TipoUsuario.USUARIO_CANDIDATO :
+                    ImprimirHojaDeVida(user.IdUsuario);
+                    break;
+                case TipoUsuario.USUARIO_ADMINISTRADOR :
+                    break;
+                default :
+                    break;
+
+            }
         }
     }
 }

@@ -33,6 +33,15 @@ namespace co.itmasters.solucion.web
         protected global::System.Web.UI.HtmlControls.HtmlForm frmprincipal;
 
         /// <summary>
+        /// Control ScriptManager1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
         /// Control imgMaster.
         /// </summary>
         /// <remarks>
@@ -42,22 +51,31 @@ namespace co.itmasters.solucion.web
         protected global::System.Web.UI.HtmlControls.HtmlImage imgMaster;
 
         /// <summary>
-        /// Control btnLink.
+        /// Control lblHeader.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnLink;
+        protected global::System.Web.UI.WebControls.Label lblHeader;
 
         /// <summary>
-        /// Control lblButton.
+        /// Control updBtnHeader.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblButton;
+        protected global::System.Web.UI.UpdatePanel updBtnHeader;
+
+        /// <summary>
+        /// Control btnHeader.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnHeader;
 
         /// <summary>
         /// Control lblCerrar.
@@ -103,15 +121,6 @@ namespace co.itmasters.solucion.web
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ContainerBtnCerrar;
-
-        /// <summary>
-        /// Control ScriptManager1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
         /// Control UpdatePanel1.

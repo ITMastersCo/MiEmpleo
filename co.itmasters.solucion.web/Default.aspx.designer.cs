@@ -24,6 +24,15 @@ namespace co.itmasters.solucion.web
         protected global::System.Web.UI.UpdatePanel wraShare;
 
         /// <summary>
+        /// Control btnDescargarHojadeVida.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDescargarHojadeVida;
+
+        /// <summary>
         /// Control txtBuscarCargo.
         /// </summary>
         /// <remarks>
@@ -139,6 +148,15 @@ namespace co.itmasters.solucion.web
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIdPersona;
+
+        /// <summary>
+        /// Control imgRutaAvatar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage imgRutaAvatar;
 
         /// <summary>
         /// Control lblOfferTitle.

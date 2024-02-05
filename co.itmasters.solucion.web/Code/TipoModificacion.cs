@@ -7,6 +7,14 @@ using System.Text;
 
 namespace co.itmasters.solucion.web.Code
 {
+    public static class TipoUsuario
+    {
+
+        public const int USUARIO_EMPRESA = 1;
+        public const int USUARIO_CANDIDATO = 2;
+        public const int USUARIO_ADMINISTRADOR = 3;
+
+    }
     public static class TipoConsulta
     {
 

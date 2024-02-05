@@ -12,7 +12,6 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.IO;
-
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 using co.itmasters.solucion.web.ComunesService;

@@ -10,9 +10,9 @@
 
             <asp:UpdatePanel ID="wraShare" runat="server">
                 <ContentTemplate>
-
+                    <asp:Button Text="Descargar Hoja de Vida" runat="server" ID="btnDescargarHojadeVida" CssClass="button"
+                        OnClick="btnDescargarHojadeVida_Click"/>
                     <div class="flex-col flex-center-h w-100per">
-
                         <asp:UpdatePanel runat="server" class=" flex-col gap-40 w-100per">
                             <ContentTemplate>
                                 <h1 id="titleDisplay" class="text-subtitle text-center max-w-850px">¡Busca ahora la <span class="text-subtitle color-500">oferta de empleo </span>que se adapte a tu perfil!
@@ -89,8 +89,8 @@
                                                                         <div class="line">
                                                                         </div>
                                                                         <div class="avatar-rectangle">
-                                                                            <img src="Images/ImgInicio/AvatarEmpresa.jpg" alt="Alternate Text" />
 
+                                                                            <img src="<%# Eval("rutaAvatar") %>"" alt="Alternate Text" />
                                                                         </div>
                                                                     </div>
 
@@ -215,7 +215,7 @@
                                     <div class="line">
                                     </div>
                                     <div class="avatar-rectangle-80">
-                                        <img src="Images/ImgInicio/AvatarEmpresa.jpg" alt="Alternate Text" />
+                                        <img runat="server" id="imgRutaAvatar" src="." alt="Alternate Text" />
 
                                     </div>
                                 </div>
@@ -319,6 +319,9 @@
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </ContentTemplate>
+                   <Triggers>
+       <asp:PostBackTrigger ControlID="btnDescargarHojadeVida"/>
+   </Triggers>
             </asp:UpdatePanel>
         </section>
      

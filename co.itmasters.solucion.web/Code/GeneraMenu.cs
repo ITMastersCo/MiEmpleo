@@ -143,7 +143,7 @@ namespace co.itmasters.solucion.web.Code
                                           <!--Perfil-->
                                             <div class='menu-profile'>
                                                 <div class='menu-profile-content'>
-                                                    <a href='./{user.WebSite}'>
+                                                    <a href='../{user.WebSite}'>
                                                         <img class='menu-profile-avatar' src='.{user.Avatar}'/>
                                                     </a>
                                                     <div class='menu-profile-info' id='menu-profile-info'>

@@ -27,6 +27,7 @@ namespace co.itmasters.solucion.vo
         public DateTime? fechaPublicacion { get; set; }
         public DateTime? fechaVencimiento { get; set; }
         public int? idNivelEstudiosRequeridos { get; set; }
+        public string NivelEstudios { get; set; }
         public int? idOcupacion { get; set; }
         public int? idOcupacion1 { get; set; }
         public int? idOcupacion2 { get; set; }
@@ -65,6 +66,7 @@ namespace co.itmasters.solucion.vo
         public string usuarioModfica { get; set; }
         public DateTime? fechaModifica { get; set; }
         public string nomEmpresa { get; set; }
+        public string rutaAvatar { get; set; }
         //Campos de ofertas adquiridas
         public DateTime? fechaInicia { get; set; }
         public DateTime? fechaFinaliza { get; set; }

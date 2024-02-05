@@ -36,9 +36,17 @@ namespace co.itmasters.solucion.negocio
         {
            return _oferta.GetOfertaPersona(Oferta);
         }
+        public List<OfertaVO> TraeOfertas(OfertaVO Oferta)
+        {
+            return _oferta.TraeOfertas(Oferta);
+        }
         public void PublicarOferta(OfertaVO Oferta)
         {
             _oferta.PublicarOferta(Oferta);
+        }
+        public void AprobarOfertas(OfertaVO Oferta)
+        {
+            _oferta.AprobarOfertas(Oferta);
         }
         public void AnulaOferta(OfertaVO Oferta)
         {

@@ -9,9 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
 
-    <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/modernizr") %>
-    </asp:PlaceHolder>
       <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />

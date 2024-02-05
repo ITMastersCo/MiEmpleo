@@ -88,6 +88,20 @@ namespace co.itmasters.solucion.servicios
                 throw new FaultException(new FaultReason(err.Message));
             }
         }
+        public List<OfertaVO> TraeOfertas(OfertaVO Oferta)
+        {
+
+            try
+            {
+                _oferta = new OfertaNegocio();
+                return _oferta.TraeOfertas(Oferta);
+            }
+            catch (Exception err)
+            {
+                Log.Write(err.Message, Log.ERROR);
+                throw new FaultException(new FaultReason(err.Message));
+            }
+        }
         public void AnulaOferta(OfertaVO Oferta)
         {
             try
@@ -116,6 +130,21 @@ namespace co.itmasters.solucion.servicios
                 throw new FaultException(new FaultReason(err.Message));
             }
         }
+        public void AprobarOfertas(OfertaVO Oferta)
+        {
+            try
+            {
+
+                _oferta = new OfertaNegocio();
+                _oferta.AprobarOfertas(Oferta);
+            }
+            catch (Exception err)
+            {
+                Log.Write(err.Message, Log.ERROR);
+                throw new FaultException(new FaultReason(err.Message));
+            }
+        }
+        
         public OfertaVO TraeOfertaDetalle(OfertaVO Ofertas)
         {
             try

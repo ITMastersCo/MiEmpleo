@@ -37,6 +37,7 @@ namespace co.itmasters.solucion.vo
         public string usuarioModifica { get; set; }
         public DateTime fechaModifica { get; set; }
         public string typeModify { get; set; }
+        public string nomMaxNivelEducativo { get; set; }
         public List<PersonaAcademiaVO> Academia { get; set; }
         public List<PersonaAptitudVO> Aptitud { get; set; }
         public List<PersonaExperienciaVO> Experiencia { get; set; }

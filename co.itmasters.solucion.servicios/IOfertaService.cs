@@ -29,6 +29,10 @@ namespace co.itmasters.solucion.servicios
         [OperationContract]
         OfertaVO TraerEstadisticasOferta(OfertaVO Ofertas);
         [OperationContract]
+
+        List<OfertaVO> TraeOfertas(OfertaVO Ofertas);
+        [OperationContract]
+        
         List<OfertaVO> TraeOfertaEmpresa(OfertaVO Ofertas);
         [OperationContract]
         List<OfertaVO> TraeEstadoOfertaEmpresa(OfertaVO Estado);
@@ -38,5 +42,7 @@ namespace co.itmasters.solucion.servicios
         void AnulaOferta(OfertaVO Oferta);
         [OperationContract]
         void PublicarOferta(OfertaVO Oferta);
+        [OperationContract]
+        void AprobarOfertas(OfertaVO Oferta);
     }
 }

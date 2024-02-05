@@ -1574,6 +1574,8 @@ items-center{
 
 
 .flex {
+    display:flex;
+
     & .self-start-y{
     justify-self: start;
     }
@@ -2027,26 +2029,30 @@ svg.icon-36 {
     }
 
 .avatar-rectangle {
-    position:relative;
+    position: relative;
     width: 60px;
     height: 60px;
     border-radius: 10px;
-    overflow:hidden;
+    border: solid 2px var(--gray-600);
+    overflow: hidden;
 }
 .avatar-rectangle img, .avatar-rectangle svg {
     width: 60px;
     height: 60px;
+    object-fit: cover;
 }
 .avatar-rectangle-80 {
     position: relative;
     width: 80px;
     height: 80px;
     border-radius: 10px;
+    border: solid 1px var(--gray-600);
     overflow: hidden
 }
     .avatar-rectangle-80 img, .avatar-rectangle-80 svg {
         width: 80px;                                                   
         height: 80px;
+        object-fit:cover;
     }
     .icon-16 {
         width: 16px;

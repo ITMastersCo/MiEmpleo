@@ -11,6 +11,8 @@ using System.Collections.Generic;
 using System.Linq;
 using CsvHelper;
 using System.Web.Management;
+using System.Web.Razor.Generator;
+using System.Data;
 
 namespace co.itmasters.solucion.web
 {
@@ -21,7 +23,7 @@ namespace co.itmasters.solucion.web
         private CargaCombos _carga = new CargaCombos();
         private OfertaServiceClient _OfertaService;
         private static List<ListaVO> listaCiudad;
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -29,18 +31,18 @@ namespace co.itmasters.solucion.web
             user = ((UserVO)Session["UsuarioAutenticado"]);
             if (!IsPostBack)
             {
-                if (user.tipoUsuario !=3)
-                        {
+                if (user.tipoUsuario != 3)
+                {
                     Console.Write("laod");
                     Redirec();
                     DataBind();
                 }
-                
+
             }
-           
+
 
         }
-    
+
 
 
         private void Redirec()
@@ -97,11 +99,11 @@ namespace co.itmasters.solucion.web
             try
             {
                 PersonaVO persona = GetPersona();
-                int porcentaje 
+                int porcentaje
                     = Convert.ToInt32(persona.diligenciaAptitud)
-                    + Convert.ToInt32(persona.diligenciaPerfil) 
-                    + Convert.ToInt32(persona.diligenciaExperiencia) 
-                    + Convert.ToInt32(persona.diligenciaBasicos) 
+                    + Convert.ToInt32(persona.diligenciaPerfil)
+                    + Convert.ToInt32(persona.diligenciaExperiencia)
+                    + Convert.ToInt32(persona.diligenciaBasicos)
                     + Convert.ToInt32(persona.diligenciaAcademia);
                 return porcentaje;
             }
@@ -117,10 +119,11 @@ namespace co.itmasters.solucion.web
             OfertaVO ofertaSearch = new OfertaVO();
             ofertaSearch.idUsuario = user.IdUsuario;
             ofertaSearch.tituloVacante = txtBuscarCargo.Text;
-            if (txtIdCiudadBuscar.Text != "") {
+            if (txtIdCiudadBuscar.Text != "")
+            {
                 ofertaSearch.idCiudadVacante = Convert.ToInt32(txtIdCiudadBuscar.Text);
-            } 
-            
+            }
+
 
 
             _OfertaService = new OfertaServiceClient();
@@ -145,7 +148,7 @@ namespace co.itmasters.solucion.web
         }
         protected void btnBuscarOferta_Click(object sender, EventArgs e)
         {
-                LlenarGrdOfertas();
+            LlenarGrdOfertas();
 
         }
 
@@ -153,20 +156,20 @@ namespace co.itmasters.solucion.web
         {
             try
             {
-            OfertaVO postulacion = new OfertaVO();
-            
-               postulacion.idOferta = Convert.ToInt32(lblIdOferta.Text);
-            postulacion.idPersona = Convert.ToInt32(lblIdPersona.Text);
-               postulacion.typeModify = TipoConsulta.MODIFY_INSERT;
-            postulacion.estado = null;
-           
-            
+                OfertaVO postulacion = new OfertaVO();
 
-            OfertaServiceClient _OfertaService = new OfertaServiceClient();
-            _OfertaService.Postulacion(postulacion);
-            _OfertaService.Close();
-              
-            Master.mostrarMensaje($"Postulacion a hecha exitosamente", Master.EXITO);
+                postulacion.idOferta = Convert.ToInt32(lblIdOferta.Text);
+                postulacion.idPersona = Convert.ToInt32(lblIdPersona.Text);
+                postulacion.typeModify = TipoConsulta.MODIFY_INSERT;
+                postulacion.estado = null;
+
+
+
+                OfertaServiceClient _OfertaService = new OfertaServiceClient();
+                _OfertaService.Postulacion(postulacion);
+                _OfertaService.Close();
+
+                Master.mostrarMensaje($"Postulacion a hecha exitosamente", Master.EXITO);
 
             }
             catch
@@ -208,6 +211,7 @@ namespace co.itmasters.solucion.web
                 _OfertaService.Close();
                 lblIdOferta.Text = viewOferta.idOferta.ToString();
                 lblIdPersona.Text = GetPersona().idPersona.ToString();
+                imgRutaAvatar.Src = $".{viewOferta.rutaAvatar}";
                 lblOfferTitle.Text = viewOferta.tituloVacante;
                 lblOfferSalaryRange.Text = viewOferta.RangoSalario;
                 lblDateCrateOffer.Text = String.Format("{0:yyyy-MM-dd}", viewOferta.fechaPublicacion);
@@ -227,7 +231,7 @@ namespace co.itmasters.solucion.web
 
         protected void txtCiudadBuscar_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
         [WebMethod]
         public static List<ListaVO> GetCiudades()
@@ -245,6 +249,28 @@ namespace co.itmasters.solucion.web
             }
         }
 
+        protected void btnDescargarHojadeVida_Click(object sender, EventArgs e)
+        {
+            UserVO user = (UserVO)Session["UsuarioAutenticado"];
 
+            try
+            {
+                AdmonReporte conex = new AdmonReporte("");
+                String datosReporte = "Reportes//Candidato//HojadeVida.rpt:Rpt_HojaVida";
+                Int32 Idreporte = 5;
+                int Cantidad = datosReporte.IndexOf(":") - 22;
+                Parametro[] valParam = new Parametro[]
+                 {
+                    new Parametro("idUsuario", 2, DbType.Int32),
+                 };
+
+                conex.ImprimeReporte(datosReporte, valParam, "PDF");
+
+            }
+            catch (Exception err)
+            {
+                Master.mostrarMensaje(err.Message, Master.ERROR);
+            }
+        }
     }
 }

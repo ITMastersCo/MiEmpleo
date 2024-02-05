@@ -26,6 +26,8 @@ namespace co.itmasters.solucion.dao
         public const string OFERTA_TRAEROFERTAPERSONA = "Oferta_TraerOfertaPersona";
         public const string OFERTA_TRAEROFERTAPERSONADETALLE = "Oferta_TraerOfertaPersonaDetalle";
         public const string EMPRESA_PLANESADQUIRIDOS = "Empresa_PlanesAdquiridos";
+        public const string OFERTA_TRAEROFERTASAPR = "Oferta_TraerOfertaApr";
+        public const string OFERTA_APROBARPUBLICAR = "Oferta_AprobarPublicar";
         #endregion
 
 
@@ -45,6 +47,8 @@ namespace co.itmasters.solucion.dao
         public const string OFERTA_TIEMPOEXPERIENCIA = "tiempoExperiencia";
         public const string OFERTA_UNIDADMEDIDAEXPERIENCIA = "unidadMedidaExperiencia";
         public const string OFERTA_CANTIDADVACANTES = "cantidadVacantes";
+        public const string OFERTA_CONSUMIDA = "ofertasConsumidas";
+        public const string OFERTA_NIVELESTUDIOS = "NivelEstudiosRequeridos";  
         public const string OFERTA_NROHOJASVIDAAPLICADA = "nroHojasVidaAplicada";
         public const string OFERTA_CARGO = "cargo";
         public const string OFERTA_FECHAPUBLICACION = "fechaPublicacion";
@@ -152,6 +156,8 @@ namespace co.itmasters.solucion.dao
         public const string PERSONA_IDRANGOSALARIO = "idRangoSalario";
         public const string PERSONA_IDMODALIDADTRABAJO = "idModalidadTrabajo";
         public const string PERSONA_NOMMODALIDADTRABAJO = "nomModalidadTrabajo";
+        public const string PERSONA_NOMMAXNIVELEDUCATIVO = "nomMaxNivelEducativo";
+        
         public const string PERSONA_DILIGENCIABASICOS = "diligenciaBasicos";
         public const string PERSONA_DILIGENCIAPERFIL = "diligenciaPerfil";
         public const string PERSONA_DILIGENCIAACADEMIA = "diligenciaAcademia";
@@ -161,6 +167,8 @@ namespace co.itmasters.solucion.dao
         public const string PERSONA_FECHACREA = "fechaCrea";
         public const string PERSONA_USUARIOMODIFICA = "usuarioModifica";
         public const string PERSONA_FECHAMODIFICA = "fechaModifica";
+
+
 
         public const string PERSONA_IDPERSONAACADEMIA = "idPersonaAcademia";
         public const string PERSONA_IDNIVELEDUCATIVO = "idNivelEducativo";
@@ -242,6 +250,8 @@ namespace co.itmasters.solucion.dao
                         persona.correoElectronico = Convert.ToString(dr[PERSONA_CORREOELECTRONICO]);
                         persona.telefono = Convert.ToString(dr[PERSONA_TELEFONO]);
                         persona.ciudadResidencia = Convert.ToString(dr[PERSONA_CIUDADRECIDENCIA]);
+                        persona.nomMaxNivelEducativo = Convert.ToString(dr[PERSONA_NOMMAXNIVELEDUCATIVO]);
+                        persona.fechaCrea = Convert.ToDateTime(dr[PERSONA_FECHACREA]);
                         persona.nomModalidadTrabajo = Convert.ToString(dr[PERSONA_NOMMODALIDADTRABAJO]);
                         rPersona.Add(persona);
                     }
@@ -875,6 +885,7 @@ namespace co.itmasters.solucion.dao
             OfertaVO oferta = new OfertaVO();
             oferta.idOferta = Convert.ToInt32(dr[OFERTA_IDOFERTA]);
             oferta.nomEmpresa = Convert.ToString(dr[OFERTA_NOMEMPRESA]);
+            oferta.rutaAvatar = Convert.ToString(dr[PERSONA_RUTAAVATAR]);
             oferta.tituloVacante = Convert.ToString(dr[OFERTA_TITULOVACANTE]);
             oferta.descripcionVacante = Convert.ToString(dr[OFERTA_DESCRIPCIONVACANTE]);
             oferta.idModalidad = Convert.ToInt32(dr[OFERTA_IDMODALIDAD]);
@@ -930,7 +941,79 @@ namespace co.itmasters.solucion.dao
             return oferta;
 
         }
+        public List<OfertaVO> TraeOfertas(OfertaVO Ofertas)
+        {
+            try
+            {
+                Parametro[] valParam = new Parametro[]
+                {
+                    //Se adicionan los parametros para la busqueda del objeto
+                    new Parametro(OFERTA_IDUSUARIO, Ofertas.idUsuario, DbType.Int32),
 
+                };
+
+                DataTable dt = this.EjecutarStoredProcedureDataTable(OFERTA_TRAEROFERTASAPR, valParam);
+
+                List<OfertaVO> newOferta = new List<OfertaVO>();
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        OfertaVO Oferta = new OfertaVO();
+                        Oferta.idOferta = Convert.ToInt32(dr[OFERTA_IDOFERTA]);
+                        Oferta.tituloVacante = Convert.ToString(dr[OFERTA_TITULOVACANTE]);
+                        Oferta.descripcionVacante = Convert.ToString(dr[OFERTA_DESCRIPCIONVACANTE]);
+                        Oferta.tiempoExperiencia = Convert.ToInt32(dr[OFERTA_TIEMPOEXPERIENCIA]);
+                        Oferta.nomEmpresa = Convert.ToString(dr[OFERTA_NOMEMPRESA]);
+                        Oferta.RangoSalario = Convert.ToString(dr[OFERTA_NOMRANGOSALARIAL]);
+                        Oferta.nomCiudad = Convert.ToString(dr[OFERTA_NOMCIUDAD]);
+                        Oferta.cantidadVacantes = Convert.ToInt32(dr[OFERTA_CANTIDADVACANTES]);
+                        Oferta.ofertasConsumidas = Convert.ToInt32(dr[OFERTA_CONSUMIDA]);
+                        Oferta.fechaInicia = Convert.ToDateTime(dr[OFERTA_FECHAINICIA]);
+                        Oferta.fechaFinaliza = Convert.ToDateTime(dr[OFERTA_FECHAFINALIZA]);
+                        Oferta.cargo = Convert.ToString(dr[OFERTA_CARGO]);
+                        Oferta.fechaPublicacion = Convert.ToDateTime(dr[OFERTA_FECHAPUBLICACION]);
+                        Oferta.fechaVencimiento = Convert.ToDateTime(dr[OFERTA_FECHAVENCIMIENTO]);
+                        Oferta.NivelEstudios = Convert.ToString(dr[OFERTA_NIVELESTUDIOS]);
+                        newOferta.Add(Oferta);
+                    }
+                }
+                return newOferta;
+            }
+            catch (System.Data.SqlClient.SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        public void AprobarOfertas(OfertaVO Oferta)
+        {
+            try
+            {
+                Parametro[] valParam = new Parametro[]
+                {
+                    new Parametro(OFERTA_IDOFERTA, Oferta.idOferta, DbType.Int32),
+                    new Parametro(OFERTA_IDUSUARIO, Oferta.idUsuario, DbType.Int32),
+                    new Parametro(OFERTA_ESTADO, Oferta.estado, DbType.String),
+                    new Parametro(OFERTA_OBSERVACIONES, Oferta.Observaciones, DbType.String),
+
+            };
+                this.EjecutarStoredProcedure(OFERTA_APROBARPUBLICAR, valParam);
+
+            }
+            catch (System.Data.SqlClient.SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
         #endregion
 
 
