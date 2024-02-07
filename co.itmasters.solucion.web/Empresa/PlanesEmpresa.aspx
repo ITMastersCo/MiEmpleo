@@ -3,8 +3,8 @@
 
 <%@ MasterType VirtualPath="../ITMasters.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Main" runat="server">
-          <script  src="https://sdk.mercadopago.com/js/v2"></script>
-    
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
             <h1 class="text-title text-semibold color-gray-800">Planes</h1>
@@ -13,7 +13,7 @@
 
                 <asp:Button ID="btnPublcarOferta" runat="server" Text="PulicarGratis" CssClass="button" />
                 <p>*3 publicaciones disponibles</p>
-      
+
 
             </div>
 
@@ -21,8 +21,8 @@
 
                 <div class="bg-orange-400 rounded">
                     <h2 class="text-title-section text-semibold 
-        color-gray-800 p-16 text-center">Optimiza el alcance de tus ofertas laborales 
-        con alguno de nuestros paquetes
+                      color-gray-800 p-16 text-center">Optimiza el alcance de tus ofertas laborales 
+                         con alguno de nuestros paquetes
         <span class="text-title-section text-semibol 
             color-gray-100 text-underline">Ver comparativo de paquetes
         </span>
@@ -39,6 +39,6 @@
         </ContentTemplate>
     </asp:UpdatePanel>
 
-  
-   
+
+
 </asp:Content>

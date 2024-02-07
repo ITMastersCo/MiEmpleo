@@ -8,6 +8,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace co.itmasters.solucion.servicios
 {
@@ -22,5 +23,6 @@ namespace co.itmasters.solucion.servicios
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json)]
          void ProcessNotification();
+
     }
 }

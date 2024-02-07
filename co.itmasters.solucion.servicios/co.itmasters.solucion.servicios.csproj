@@ -152,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="code\Constantes.cs" />
+    <Compile Include="code\MercadoPagoApi\MercadoPagoApi.cs" />
     <Compile Include="code\tools.cs" />
     <Compile Include="ComunesService.svc.cs">
       <DependentUpon>ComunesService.svc</DependentUpon>

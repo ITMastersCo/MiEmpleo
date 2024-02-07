@@ -18,27 +18,26 @@ namespace co.itmasters.solucion.servicios
         public string Action { get; set; }
     }
 
+    /// <summary>
+    /// Estructura de notificacion tipo pago de Mercado pago.
+    /// </summary>
     [XmlRoot("root")]
     public class PaymentNotification
     {
         [XmlElement("action")]
         public string Action { get; set; }
 
-        [XmlElement("timestamp")]
-        public string Timestamp { get; set; }
-        
-
         [XmlElement("api_version")]
         public string ApiVersion { get; set; }
 
         [XmlElement("data")]
-        public string Data { get; set; }
+        public Paymentnotification_DataObject Data { get; set; }
 
         [XmlElement("date_created")]
-        public string DateCreated { get; set; }
+        public DateTime DateCreated { get; set; }
 
         [XmlElement("id")]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         [XmlElement("live_mode")]
         public bool LiveMode { get; set; }
@@ -46,14 +45,20 @@ namespace co.itmasters.solucion.servicios
         [XmlElement("type")]
         public string Type { get; set; }
 
+        /// <summary>
+        /// Este lo podemos relacionar con el preference_id.
+        /// </summary>
         [XmlElement("user_id")]
-        public long UserId { get; set; }
+        public int UserId { get; set; }
     }
 
+    /// <summary>
+    /// Objeto anidado de la notificacion, aqui se encuentra el payment_id
+    /// </summary>
     public class Paymentnotification_DataObject
     {
         [XmlElement("id")]
-        public string Id { get; set; }
+        public int Id { get; set; }
     }
 
     class XSignatureData
