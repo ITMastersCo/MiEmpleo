@@ -11,6 +11,7 @@ using System.Web.Services;
 using System.IO;
 using co.itmasters.solucion.web.EmpresaService;
 using System.Web.Hosting;
+using System.Data;
 
 namespace co.itmasters.solucion.web.Empresa
 {
@@ -183,7 +184,29 @@ namespace co.itmasters.solucion.web.Empresa
 
         protected void btnViewCandidato_Command(object sender, CommandEventArgs e)
         {
+            Int32 index = Convert.ToInt32(e.CommandArgument) % grdCandidatos.PageSize;
+            GridViewRow row = grdCandidatos.Rows[index];
+            Int32 IdPersona = Convert.ToInt32(((Label)row.FindControl("lblIdPersona")).Text);
 
+            try
+            {
+                AdmonReporte conex = new AdmonReporte("");
+                String datosReporte = "Reportes//Candidato//HojadeVida.rpt:Rpt_HojaVida";
+                Int32 Idreporte = 5;
+                int Cantidad = datosReporte.IndexOf(":") - 22;
+                Parametro[] valParam = new Parametro[]
+                 {
+                      new Parametro("idUsuario", user.IdUsuario, DbType.Int32),
+                    new Parametro("idPersona", IdPersona, DbType.Int32),
+                 };
+
+                conex.ImprimeReporte(datosReporte, valParam, "PDF");
+
+            }
+            catch (Exception err)
+            {
+                Master.mostrarMensaje(err.Message, Master.ERROR);
+            }
         }
     }
 }

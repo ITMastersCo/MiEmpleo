@@ -274,21 +274,21 @@ namespace co.itmasters.solucion.web.Code
                     {
                         if (Column.ColumnName.ToString().Contains("Foto"))
                         {
-                            String rutaFoto = "Fotos/" + valParam[0].Data + "/" + Column.ColumnName.ToString().Replace("Foto", "");
-                            if (rutaFoto.Contains("Personal"))
+                            String rutaFoto = "Fotos/" + Column.ColumnName.ToString().Replace("Foto", "");
+                            if (rutaFoto.Contains("Empresas"))
                             {
-                                rutaFoto += "/" + row.Field<String>("NUMIDENTIFICACION").Trim();
+                                rutaFoto += "/" + Convert.ToString(row.Field<Int32>("NUMIDENTIFICACION")).Trim();
                             }
-                            else if (rutaFoto.Contains("Alumnos"))
+                            else if (rutaFoto.Contains("Candidatos"))
                             {
-                                rutaFoto += "/" + row.Field<String>("IDALUMNOCOL").Trim();
+                                rutaFoto += "/" + Convert.ToString(row.Field<Int32>("NUMIDENTIFICACION")).Trim();
                             }
                             else if (rutaFoto.Contains("QR"))
                             {
-                                rutaFoto += "/" + row.Field<String>("IDALUMNO").Trim();
+                                rutaFoto += "/" + row.Field<String>("NUMIDENTIFICACION").Trim();
                             }
                             rutaFoto += ".JPG";
-                            byte[] imgbyteFoto = (CargarFoto(rutaFoto) == null) ? CargarFoto("Fotos/" + valParam[0].Data + "/Alumnos/Blanco.JPG") : CargarFoto(rutaFoto);
+                            byte[] imgbyteFoto = (CargarFoto(rutaFoto) == null) ? CargarFoto("Fotos/" + "Candidatos/AvatarDefault.JPG") : CargarFoto(rutaFoto);
                             row.SetField<Byte[]>(Column.ColumnName.ToString(), imgbyteFoto);
                             break;
                         }
@@ -439,21 +439,21 @@ namespace co.itmasters.solucion.web.Code
                     {
                         if (Column.ColumnName.ToString().Contains("Foto"))
                         {
-                            String rutaFoto = "Fotos/" + valParam[0].Data + "/" + Column.ColumnName.ToString().Replace("Foto", "");
-                            if (rutaFoto.Contains("Personal"))
+                            String rutaFoto = "Fotos/" + Column.ColumnName.ToString().Replace("Foto", "");
+                            if (rutaFoto.Contains("Empresas"))
                             {
-                                rutaFoto += "/" + row.Field<String>("NUMIDENTIFICACION").Trim();
+                                rutaFoto += "/" + Convert.ToString(row.Field<Int32>("NUMIDENTIFICACION")).Trim();
                             }
-                            else if (rutaFoto.Contains("Alumnos"))
+                            else if (rutaFoto.Contains("Candidatos"))
                             {
-                                rutaFoto += "/" + row.Field<String>("IDALUMNOCOL").Trim();
+                                rutaFoto += "/" + Convert.ToString(row.Field<Int32>("NUMIDENTIFICACION")).Trim();
                             }
                             else if (rutaFoto.Contains("QR"))
                             {
-                                rutaFoto += "/" + row.Field<String>("IDALUMNO").Trim();
+                                rutaFoto += "/" + row.Field<String>("NUMIDENTIFICACION").Trim();
                             }
                             rutaFoto += ".JPG";
-                            byte[] imgbyteFoto = (CargarFoto(rutaFoto) == null) ? CargarFoto("Fotos/" + valParam[0].Data + "/Alumnos/Blanco.JPG") : CargarFoto(rutaFoto);
+                            byte[] imgbyteFoto = (CargarFoto(rutaFoto) == null) ? CargarFoto("Fotos/" + "Candidatos/AvatarDefault.JPG") : CargarFoto(rutaFoto);
                             row.SetField<Byte[]>(Column.ColumnName.ToString(), imgbyteFoto);
                             break;
                         }

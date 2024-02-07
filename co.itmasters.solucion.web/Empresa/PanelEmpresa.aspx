@@ -75,7 +75,8 @@
                                     <asp:Label ID="lblHvVistas" CssClass="text-item text-semibold color-orange-500" runat="server" Text='<%# Eval("hvVista") %>'></asp:Label>
                                 </div>
                             </asp:Label>
-                            <asp:Button ID="btnViewDetailOffer" Text="" CssClass="hidden" runat="server" CommandArgument="<%# Container.DataItemIndex %>"
+                            <asp:Button ID="btnViewDetailOffer" Text="" CssClass="hidden" runat="server" 
+                                CommandArgument="<%# Container.DataItemIndex %>"
                                 OnCommand="btnViewDetailOffer_Command" />
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -191,12 +192,12 @@
                     <h2 class="text-item color-gray-800 text-semibold" >Candidatos postulados</h2>
                     <div runat="server" id="containerCandidatos" class="flex flex-center bg-gray-100 overflow-y-scroll rounded relative"
                         style="height: 70vh;">
-                        <div class="absolute" style="top: 0;">
+                        <div class="absolute ansolute-cente-x"  style="top: 0;">
                             <asp:GridView ID="grdCandidatos" runat="server" AutoGenerateColumns="false" class="flex-col gap-4 ">
                                 <Columns>
                                     <asp:TemplateField Visible="false">
                                         <ItemTemplate>
-                                            <asp:Label ID="idOferta" runat="server" Text='<%# Eval("idPersona") %>'></asp:Label>
+                                            <asp:Label ID="lblIdPersona" runat="server" Text='<%# Eval("idPersona") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
@@ -276,6 +277,7 @@
 
                                                         </div>
                                                     </div>
+
                                                     <asp:Button Text="" runat="server" ID="btnViewCandidato"
                                                         CommandArgument="<%# Container.DataItemIndex %>" CommandName="GET" ToolTip="Ver" OnCommand="btnViewCandidato_Command" />
                                                 </div>
@@ -316,7 +318,7 @@
                                 </Columns>
                             </asp:GridView>
                             <div runat="server" id="noResultsShare" class="p-32" visible="false">
-                                <h3 class="text-center text-item text-regular color-gray-500 p-32">*No se encontraron ofertas ralcionadas a la busqueda.
+                                <h3 class="text-center text-item text-regular color-gray-500 p-32">*No se encontraron candidatos relacionados a la ofeta.
                                 </h3>
                             </div>
                         </div>
@@ -350,5 +352,9 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
         </ContentTemplate>
+            <Triggers>
+        <asp:PostBackTrigger ControlID="grdCandidatos" />
+    </Triggers>
+
     </asp:UpdatePanel>
 </asp:Content>

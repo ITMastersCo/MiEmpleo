@@ -10,8 +10,7 @@
 
             <asp:UpdatePanel ID="wraShare" runat="server">
                 <ContentTemplate>
-                    <asp:Button Text="Descargar Hoja de Vida" runat="server" ID="btnDescargarHojadeVida" CssClass="button"
-                        OnClick="btnDescargarHojadeVida_Click"/>
+                    
                     <div class="flex-col flex-center-h w-100per">
                         <asp:UpdatePanel runat="server" class=" flex-col gap-40 w-100per">
                             <ContentTemplate>
@@ -319,9 +318,6 @@
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </ContentTemplate>
-                   <Triggers>
-       <asp:PostBackTrigger ControlID="btnDescargarHojadeVida"/>
-   </Triggers>
             </asp:UpdatePanel>
         </section>
      

@@ -41,7 +41,7 @@
                 <div class="info-header">
 
 
-                    <asp:Label ID="lblHeader" visible="false" Text="" runat="server" AssociatedControlID="btnHeader" ></asp:Label>
+                    <asp:Label ID="lblHeader"  Text="" runat="server" CssClass="button" AssociatedControlID="btnHeader" ></asp:Label>
                     <asp:UpdatePanel runat="server" ID="updBtnHeader">
                         <ContentTemplate>
                             <asp:UpdatePanel runat="server">

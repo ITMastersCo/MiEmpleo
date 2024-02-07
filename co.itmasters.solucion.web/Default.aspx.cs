@@ -249,28 +249,6 @@ namespace co.itmasters.solucion.web
             }
         }
 
-        protected void btnDescargarHojadeVida_Click(object sender, EventArgs e)
-        {
-            UserVO user = (UserVO)Session["UsuarioAutenticado"];
-
-            try
-            {
-                AdmonReporte conex = new AdmonReporte("");
-                String datosReporte = "Reportes//Candidato//HojadeVida.rpt:Rpt_HojaVida";
-                Int32 Idreporte = 5;
-                int Cantidad = datosReporte.IndexOf(":") - 22;
-                Parametro[] valParam = new Parametro[]
-                 {
-                    new Parametro("idUsuario", 2, DbType.Int32),
-                 };
-
-                conex.ImprimeReporte(datosReporte, valParam, "PDF");
-
-            }
-            catch (Exception err)
-            {
-                Master.mostrarMensaje(err.Message, Master.ERROR);
-            }
-        }
+     
     }
 }

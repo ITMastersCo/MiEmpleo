@@ -11,6 +11,7 @@ using co.itmasters.solucion.vo;
 using System.Web.Services;
 using System.IO;
 using co.itmasters.solucion.web.EmpresaService;
+using System.Data;
 
 
 namespace co.itmasters.solucion.web.Empresa
@@ -198,7 +199,6 @@ namespace co.itmasters.solucion.web.Empresa
                         imgRenew.Enabled = false;
                         imgDup.Enabled = true;
                     }
-
                 }
             }
 
@@ -242,7 +242,8 @@ namespace co.itmasters.solucion.web.Empresa
             }
             if (e.CommandName == "Eliminar")
             {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", "showModal();", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba",
+         $"OpenModal('{ModalBorrarOferta.ClientID}','{openModal.ClientID}')", true);
                 lblIdOfertaDelete.Text = Convert.ToString(((Label)row.FindControl("lblidOferta")).Text);
 
             }
@@ -256,16 +257,15 @@ namespace co.itmasters.solucion.web.Empresa
             }
 
         }
-
         protected void Cancerlar_Click(object sender, EventArgs e)
         {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", $"CloseModal('{detalleOferta.ClientID}', '{openModal.ClientID}')", true);
             Master.OcultarBanda();
             lblIdOfertaDelete.Text = "";
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", "CloseModal();", true);
         }
-
         protected void Anular_Click(object sender, EventArgs e)
         {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", $"CloseModal('{detalleOferta.ClientID}', '{openModal.ClientID}')", true);
             user = ((UserVO)Session["UsuarioAutenticado"]);
             try 
             {
@@ -277,7 +277,6 @@ namespace co.itmasters.solucion.web.Empresa
                 _OfertaService = new OfertaServiceClient();
                 _OfertaService.AnulaOferta(elimina);
                 _OfertaService.Close();
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", "CloseModal();", true);
                 this.traeOfertas(0, Convert.ToDateTime("01/01/1900"), Convert.ToDateTime("12/12/2040"));
                 Master.mostrarMensaje("Oferta anulada con éxito.", Master.EXITO);
             }
@@ -285,6 +284,94 @@ namespace co.itmasters.solucion.web.Empresa
             {
                 Master.mostrarMensaje(err.Message, Master.ERROR);
             }
+        }
+        protected List<PersonaVO> GetPostulados(int idOffer)
+        {
+
+            OfertaVO oferta = new OfertaVO();
+            oferta.idOferta = idOffer;
+            oferta.typeModify = TipoConsulta.GET;
+
+            OfertaServiceClient _OfertaService = new OfertaServiceClient();
+            List<PersonaVO> postulados = _OfertaService.Postulados(oferta).ToList();
+            _OfertaService.Close();
+
+            return postulados;
+
+        }
+        protected void btnViewDetailOffer_Command(object sender, CommandEventArgs e)
+        {
+            Int32 index = Convert.ToInt32(e.CommandArgument) % GrdOfertas.PageSize;
+            GridViewRow row = GrdOfertas.Rows[index];
+            Int32 Id = Convert.ToInt32(((Label)row.FindControl("lblidOferta")).Text);
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba",
+                $"OpenModal('{detalleOferta.ClientID}','{openModal.ClientID}')", true);
+
+            OfertaVO oferta = new OfertaVO();
+            oferta.idOferta = Convert.ToInt32(Id);
+            OfertaServiceClient _OfertaService = new OfertaServiceClient();
+
+            OfertaVO viewOferta = _OfertaService.GetOfertaPersonaDetalle(oferta);
+            _OfertaService.Close();
+            lblIdOferta.Text = viewOferta.idOferta.ToString();
+            imgAvatarEmpresa.Src = $".{viewOferta.rutaAvatar}";
+            lblOfferTitle.Text = viewOferta.tituloVacante;
+            lblOfferSalaryRange.Text = viewOferta.RangoSalario;
+            lblDateCrateOffer.Text = String.Format("{0:yyyy-MM-dd}", viewOferta.fechaPublicacion);
+            lblDateRemoveOffer.Text = String.Format("{0:yyyy-MM-dd}", viewOferta.fechaVencimiento);
+            lblOfferUserWhoPublished.Text = viewOferta.nomEmpresa;
+            lblOfferLocation.Text = viewOferta.nomCiudad;
+            lblDescriptioOffer.Text = viewOferta.descripcionVacante;
+
+            // Trae los Postulados de la ofeta
+
+            List<PersonaVO> postulados = GetPostulados(Id);
+
+            if (postulados.Count > 0)
+            {
+                grdCandidatos.DataSource = postulados;
+                grdCandidatos.DataBind();
+            }
+            else
+            {
+                noResultsShare.Visible = true;
+            }
+
+
+
+
+
+
+        }
+        protected void btnViewCandidato_Command(object sender, CommandEventArgs e)
+        {
+            Int32 index = Convert.ToInt32(e.CommandArgument) % grdCandidatos.PageSize;
+            GridViewRow row = grdCandidatos.Rows[index];
+            Int32 IdPersona = Convert.ToInt32(((Label)row.FindControl("lblIdPersona")).Text);
+
+            try
+            {
+                AdmonReporte conex = new AdmonReporte("");
+                String datosReporte = "Reportes//Candidato//HojadeVida.rpt:Rpt_HojaVida";
+                Int32 Idreporte = 5;
+                int Cantidad = datosReporte.IndexOf(":") - 22;
+                Parametro[] valParam = new Parametro[]
+                 {
+                     new Parametro("idUsuario", user.IdUsuario, DbType.Int32),
+                     new Parametro("idPersona", IdPersona, DbType.Int32),
+                 };
+
+                conex.ImprimeReporte(datosReporte, valParam, "PDF");
+
+            }
+            catch (Exception err)
+            {
+                Master.mostrarMensaje(err.Message, Master.ERROR);
+            }
+        }
+        protected void btnCloseModal_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", $"CloseModal('{detalleOferta.ClientID}', '{openModal.ClientID}')", true);
         }
     }
 }

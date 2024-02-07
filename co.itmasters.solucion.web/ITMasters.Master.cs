@@ -62,47 +62,27 @@ namespace co.itmasters.solucion.web
             }
         }
 
-        protected void ImprimirHojaDeVida(int id)
+        private void ImprimirHojaDeVida(int id)
         {
-            try
-            {
-
-                this.ConfiguraReporte("PDF");
-            }
-            catch (Exception err)
-            {
-
-            }
-        }
-        public List<Parametro> CargarParametrosConsultaReporte()
-        {
-            List<Parametro> parametros = new List<Parametro>();
-            Parametro parm;
-            user = ((UserVO)Session["UsuarioAutenticado"]);
-            //Se setea el colegio
-            parm = new Parametro();
-            parm.Name = "idUsuario";
-            parm.Type = DbType.Int32;
-            parm.Data = user.IdUsuario;
-            parametros.Add(parm);
-                              
-            return parametros;
-        }
-        public void ConfiguraReporte(String Tipo)
-        {
-            AdmonReporte _reporte = new AdmonReporte("");
-
-            string datosReporte = "Reportes//Candidato//HojadeVida.rpt:Rpt_HojaVida";
+            UserVO user = (UserVO)Session["UsuarioAutenticado"];
 
             try
             {
-                _reporte.ImprimeReporte(datosReporte, CargarParametrosConsultaReporte().ToArray<Parametro>(), Tipo);
+                AdmonReporte conex = new AdmonReporte("");
+                String datosReporte = "Reportes//Candidato//HojadeVida.rpt:Rpt_HojaVida";
+                Int32 Idreporte = 5;
+                int Cantidad = datosReporte.IndexOf(":") - 22;
+                Parametro[] valParam = new Parametro[]
+                 {
+                    new Parametro("idUsuario", user.IdUsuario, DbType.Int32),
+                 };
+
+                conex.ImprimeReporte(datosReporte, valParam, "PDF");
+
             }
             catch (Exception err)
             {
-
-                LogWeb.Write(err.Message, LogWeb.ERROR);
-                throw;
+                this.mostrarMensaje(err.Message, this.ERROR);
             }
         }
 
@@ -219,6 +199,7 @@ namespace co.itmasters.solucion.web
             
             switch (user.tipoUsuario) {
                 case TipoUsuario.USUARIO_EMPRESA :
+                    Response.Redirect("~/Empresa/PublicarOfertas.aspx");
                     break;
                 case TipoUsuario.USUARIO_CANDIDATO :
                     ImprimirHojaDeVida(user.IdUsuario);

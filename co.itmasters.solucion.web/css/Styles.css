@@ -2291,6 +2291,11 @@ a {
 }
 .absolute{
     position:absolute;
+    
+}
+.absolute-center-x {
+    left: 50%;
+    transform: translateX(-50%);
 }
 .list-autofill{
     display:flex;
