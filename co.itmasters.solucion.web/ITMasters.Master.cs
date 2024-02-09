@@ -23,6 +23,7 @@ using co.itmasters.solucion.web.ComunesService;
 using System.Diagnostics;
 
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using co.itmasters.solucion.web.PersonaService;
 
 namespace co.itmasters.solucion.web
 {
@@ -32,6 +33,7 @@ namespace co.itmasters.solucion.web
         public String EXITO = "exito";
         public String ERROR = "error";
         private UserVO user;
+        private PersonaServiceClient _ActoresService;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (this.IsPostBack)
@@ -61,7 +63,27 @@ namespace co.itmasters.solucion.web
                 Server.Transfer("~/Index.aspx");
             }
         }
+        private PersonaVO GetPersona()
+        {
+            UserVO user = (UserVO)Session["UsuarioAutenticado"];
+            PersonaVO personaVo = new PersonaVO();
+            try
+            {
+                personaVo.idUsuario = user.IdUsuario;
+                _ActoresService = new PersonaServiceClient();
+                PersonaVO persona = _ActoresService.Buscar_Persona(personaVo);
+                _ActoresService.Close();
+                return persona;
 
+            }
+            catch (Exception err)
+            {
+                this.mostrarMensaje(err.Message, this.ERROR);
+                return null;
+            }
+
+
+        }
         private void ImprimirHojaDeVida(int id)
         {
             UserVO user = (UserVO)Session["UsuarioAutenticado"];
@@ -75,6 +97,7 @@ namespace co.itmasters.solucion.web
                 Parametro[] valParam = new Parametro[]
                  {
                     new Parametro("idUsuario", user.IdUsuario, DbType.Int32),
+                    new Parametro("idPersona", GetPersona().idPersona, DbType.Int32),
                  };
 
                 conex.ImprimeReporte(datosReporte, valParam, "PDF");

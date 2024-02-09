@@ -132,7 +132,6 @@ namespace co.itmasters.solucion.web
             _OfertaService.Close();
 
             if (listOffer.Count > 0)
-
             {
                 containerOfertas.Visible = true;
                 grdOfertasDestacadas.DataSource = listOffer;
@@ -142,7 +141,8 @@ namespace co.itmasters.solucion.web
             else
             {
                 noResultsShare.Visible = true;
-                containerOfertas.Visible = false;
+                containerOfertas.Visible = true;
+                grdOfertasDestacadas.DataBind();
             }
 
         }
@@ -154,6 +154,7 @@ namespace co.itmasters.solucion.web
 
         protected void btnPostularOferta_Click(object sender, EventArgs e)
         {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", $"CloseModal('{detalleOferta.ClientID}', '{openModal.ClientID}')", true);
             try
             {
                 OfertaVO postulacion = new OfertaVO();

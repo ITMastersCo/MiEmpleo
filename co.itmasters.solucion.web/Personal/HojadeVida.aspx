@@ -1073,7 +1073,7 @@
                     <asp:Panel runat="server" ID="modalCV" CssClass="modal-body flex flex-center max-w-850px">
                     </asp:Panel>
 
-                    <div class="flex-center flex-wrap gap-16">
+                    <div class="flex-center flex-wrap gap-16 p-32" >
                         <asp:Button ID="btnModalCacel" Visible="true" runat="server" CssClass="button bg-red-500" Text="Cancelar" OnClick="btnModalCancel_Click" />
                         <asp:Button ID="btnModalAvatarSubmit" Visible="false" runat="server" CssClass="button" Text="Subir Foto" ValidationGroup="avatar" OnClick="btnModalAvatarSubmit_Click" />
                         <asp:Button ID="btnModalSubmmit" Visible="false" runat="server" CssClass="button " Text="Actualizar" ValidationGroup="formDatosBasicos" OnClick="btnModalSubmmit_Click" />

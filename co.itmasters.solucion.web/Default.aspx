@@ -190,11 +190,14 @@
                                                     </asp:TemplateField>
                                                 </Columns>
                                             </asp:GridView>
-                                            <div runat="server" id="noResultsShare" class="p-32" visible="false">
+                    
+
+                                      
+                                        </div>
+                                            <div runat="server" ID="noResultsShare" class="p-32" visible="false" >
                                                 <h3 class="text-center text-item text-regular color-gray-500 p-32">*No se encontraron ofertas ralcionadas a la busqueda.
                                                 </h3>
                                             </div>
-                                        </div>
                                     </div>
                                 </div>
 
