@@ -14,7 +14,7 @@
 </head>
 <body>
     <form id="frmprincipal" runat="server">
-
+        
         <header class="header-master">
             <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" OnAsyncPostBackError="ScriptManager1_AsyncPostBackError">
                 <Scripts>
@@ -46,6 +46,7 @@
                         <ContentTemplate>
                             <asp:UpdatePanel runat="server">
                                 <ContentTemplate>
+                                    <asp:Button ID="btnDefault" CssClass="hidden" Text="" runat="server" />
                                     <asp:Button ID="btnHeader" CssClass="hidden" Text="" runat="server" OnClick="btnHeader_Click" />
 
                                 </ContentTemplate>

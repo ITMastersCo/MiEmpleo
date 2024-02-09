@@ -69,6 +69,15 @@ namespace co.itmasters.solucion.web
         protected global::System.Web.UI.UpdatePanel updBtnHeader;
 
         /// <summary>
+        /// Control btnDefault.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDefault;
+
+        /// <summary>
         /// Control btnHeader.
         /// </summary>
         /// <remarks>

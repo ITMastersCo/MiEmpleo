@@ -60,20 +60,7 @@
     <asp:UpdatePanel ID="UpdatePanelform" runat="server" class="flex-center"  UpdateMode="Conditional">
         <ContentTemplate>
 
-            <div>
-                <asp:UpdatePanel runat="server">
-                    <ContentTemplate>
-
-                        <uc:ModalUserControl runat="server" ID="ucModal"
-                            ModalSize="medium" hasButton=" true" Visible="false" />
-
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-            </div>
-
-
-
-            <section class="cv-wrapper" runat="server" id="WrpCv">
+            <div class="cv-wrapper" runat="server" id="WrpCv">
 
                 <header class="cv-header">
                     <div runat="server" id="wrpPersonalInfo" class="cv-i-edit">
@@ -740,7 +727,7 @@
                         </h1>
                     </div>
 
-                    <div class="flex-col hidden" runat="server" id="formPersonalInfo">
+                    <asp:Panel class="flex-col hidden" runat="server" id="formPersonalInfo" DefaultButton="btnModalSubmmit">
                         <asp:UpdatePanel runat="server">
                             <ContentTemplate>
                                 <div class="flex-col gap-16">
@@ -839,7 +826,7 @@
 
                             </ContentTemplate>
                         </asp:UpdatePanel>
-                    </div>
+                    </asp:Panel>
                     <div class="flex-col hidden" runat="server" id="formEstudios" visible="true">
                         <asp:UpdatePanel runat="server" ID="udpEstudios" UpdateMode="Conditional">
                             <ContentTemplate>
@@ -1062,7 +1049,7 @@
                         bmodal.appendChild(form);
 
                     }
-                    function CloseModal() {
+                    function CloseModall() {
                         const bmodal = document.querySelector(".modal-body")
                         const modal = document.getElementById('Main_openModal');
                         const wrapperHidden = document.querySelector('#wrapperHidden');
@@ -1072,14 +1059,15 @@
                         modal.style.display = 'none';
                         
                     }
-                </script>    </section>
+                </script>    </div>
 
            
+            
 
             <asp:UpdatePanel id="openModal" class="modalDialog overflow-y-scroll" runat="server" MaintainScrollPositionOnPostback="true" UpdateMode="Conditional">
                 <ContentTemplate>
                 <div class="flex-col flex-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" onclick="javascript:CloseModal();" class="icon-24 pointer color-gray-700 closed" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <svg xmlns="http://www.w3.org/2000/svg" onclick="javascript:CloseModall();" class="icon-24 pointer color-gray-700 closed" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                     <asp:Panel runat="server" ID="modalCV" CssClass="modal-body flex flex-center max-w-850px">
@@ -1097,6 +1085,7 @@
                 </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
+            
 
         </ContentTemplate>
         <Triggers>

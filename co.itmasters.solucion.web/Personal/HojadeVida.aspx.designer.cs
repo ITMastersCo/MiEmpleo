@@ -24,15 +24,6 @@ namespace co.itmasters.solucion.web.Personal
         protected global::System.Web.UI.UpdatePanel UpdatePanelform;
 
         /// <summary>
-        /// Control ucModal.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::co.itmasters.solucion.web.Components_UI.ModalUserControl ucModal;
-
-        /// <summary>
         /// Control WrpCv.
         /// </summary>
         /// <remarks>
@@ -975,7 +966,7 @@ namespace co.itmasters.solucion.web.Personal
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl formPersonalInfo;
+        protected global::System.Web.UI.WebControls.Panel formPersonalInfo;
 
         /// <summary>
         /// Control lblIdPersona.

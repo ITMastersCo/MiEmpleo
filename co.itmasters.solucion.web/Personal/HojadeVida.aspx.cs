@@ -38,7 +38,7 @@ namespace co.itmasters.solucion.web.Personal
         protected void Page_Load(object sender, EventArgs e)
         {
             user = ((UserVO)Session["UsuarioAutenticado"]);
-
+            Master.OcultarBanda();
             PersonaVO persona = GetPersona();
             MODALPERSONALINFO = $"showModal('{formPersonalInfo.ClientID}')";
             MODALACADEMIA = $"showModal('{formEstudios.ClientID}')";
@@ -455,14 +455,7 @@ namespace co.itmasters.solucion.web.Personal
         }
         protected void btnEditPersonalInfo_Click(object sender, EventArgs e)
         {
-            UserControlBuildForm FormPersonalInfo = BuildFormPersonalInfo(GetPersona());
-            ucModal.ModalTitle = "Informacion Personal";
-            ucModal.hasButton = true;
-            ucModal.FunctionAccept = GetData;
-            ShowModal(ucModal, FormPersonalInfo);
-            void GetData()
-            {
-            }
+       
 
 
         }
