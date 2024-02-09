@@ -66,13 +66,10 @@
                         <%--<button class="button item-center" type="submit"> Crear Cuenta</button>--%>
                           <br />
                         <br />
-                        
+                        <div class="flex flex-col gap-8">
+
                         <asp:LinkButton ID="lnkRegistroValida" runat="server" Visible="true" CssClass="button item-center" ValidationGroup="ValidaRegistro" OnClick="lnkRegistro_Click"> Valida Cuenta</asp:LinkButton>
-
-
-                       
-                        <br />
-                        <br />
+              
                                 <asp:LinkButton ID="lnkRegistro" runat="server" CssClass="button item-center"  Visible="false" ValidationGroup="Registro" OnClick="lnkAutRegistro_Click">Crear Cuenta</asp:LinkButton>
                         
                         <p class="text-small text-semibold item-center">
@@ -81,6 +78,8 @@
                 pointer">Ingresa
                     </a>
                         </p>
+
+                        </div>
 
                         <div id="openModal" class="modalDialog" runat="server" style="display: none">
 

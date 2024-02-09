@@ -121,8 +121,9 @@
 
                                 <input type="text" name="" class="input" placeholder="Cargo u ocupación" id="" />
                                 <input type="text" name="" class="input" placeholder="Ciudad" id="" />
-                                <a href="#">
-                                    <button class="button text-normal">Buscar Oferta</button></a>
+                                <a href="./Home/LogIn.aspx" class="button text-normal color-white">
+                                    Buscar Oferta
+                                </a>
 
 
                             </div>

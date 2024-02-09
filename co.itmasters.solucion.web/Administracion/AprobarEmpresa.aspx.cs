@@ -86,6 +86,7 @@ namespace co.itmasters.solucion.web.Administracion
                 _ActoresService = new EmpresaServiceClient();
                 _ActoresService.AprobarEmpresas(aprobar);
                 Master.mostrarMensaje("La empresa fue actualizada con éxito", Master.EXITO);
+                GrdEmpresa.DataBind();
             }
             catch(Exception err)
             {

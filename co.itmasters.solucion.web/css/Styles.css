@@ -154,19 +154,30 @@ p, a, span, label {
 svg {
     width: 48px;
 }
+#ui-datepicker-div {
+    position: absolute;
+    top: 994px;
+    left: 313px;
+    z-index: 1;
+    background-color: white;
+    box-shadow: 0 0 4px 1px var(--gray-500);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
 
-.header-master{
+}
+
+.header-master {
     position: fixed;
-    display:flex;
-    justify-content:space-between;
-    gap:16px;
-    align-items:center;
-    width:calc(100% - 100px);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+    width: calc(100% - 100px);
     left: 100px;
     top: 0;
-    padding:1rem;
-    background-color:var(--white);
-    z-index:50;
+    padding: 1rem;
+    background-color: var(--white);
+    z-index: 50;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25);
 }
     .header-master info-header {

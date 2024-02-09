@@ -263,6 +263,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administracion\AprobarEmpresa.aspx" />
+    <Content Include="Administracion\AprobarOfertas.aspx" />
     <Content Include="Administracion\DetallePagina.aspx" />
     <Content Include="Administracion\DetalleRegistro.aspx" />
     <Content Include="Administracion\XML\Administracion.xml" />
@@ -1690,6 +1691,13 @@
     </Compile>
     <Compile Include="Administracion\AprobarEmpresa.aspx.designer.cs">
       <DependentUpon>AprobarEmpresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\AprobarOfertas.aspx.cs">
+      <DependentUpon>AprobarOfertas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administracion\AprobarOfertas.aspx.designer.cs">
+      <DependentUpon>AprobarOfertas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administracion\DetallePagina.aspx.cs">
       <DependentUpon>DetallePagina.aspx</DependentUpon>
