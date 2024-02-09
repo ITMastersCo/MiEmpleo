@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MercadoPago.Resource.Payment;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,14 @@ namespace co.itmasters.solucion.vo
     [Serializable]
     public class OfertaVO
     {
+        
+
         public int idEmpresa { get; set; }
         public int  idPersona { get; set; }
         public int? idUsuario { get; set; }
         public int? idOferta { get; set; }
         public int? idPlan { get; set; }
+        public int? idPago { get; set; }
         public int? idPlanAdquirido { get; set; }
         public string tituloVacante { get; set; }
         public string numIdentificacion { get; set; }
@@ -100,7 +104,11 @@ namespace co.itmasters.solucion.vo
 
         //Campos de Mercado Pago
 
-        public string preference_id { get; set; }
+        public string preference_id;
+        public string payment_id { get; set; }
+        public string payment_method { get; set; }
+        public int valorPago { get; set; }
+
 
     }
 }

@@ -7,6 +7,12 @@
       <xsd:import schemaLocation="http://localhost:3487/OfertaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IOfertaService_ModifyPagos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyPagos" />
+  </wsdl:message>
+  <wsdl:message name="IOfertaService_ModifyPagos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyPagosResponse" />
+  </wsdl:message>
   <wsdl:message name="IOfertaService_Postulados_InputMessage">
     <wsdl:part name="parameters" element="tns:Postulados" />
   </wsdl:message>
@@ -49,6 +55,12 @@
   <wsdl:message name="IOfertaService_TraerEstadisticasOferta_OutputMessage">
     <wsdl:part name="parameters" element="tns:TraerEstadisticasOfertaResponse" />
   </wsdl:message>
+  <wsdl:message name="IOfertaService_TraeOfertas_InputMessage">
+    <wsdl:part name="parameters" element="tns:TraeOfertas" />
+  </wsdl:message>
+  <wsdl:message name="IOfertaService_TraeOfertas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TraeOfertasResponse" />
+  </wsdl:message>
   <wsdl:message name="IOfertaService_TraeOfertaEmpresa_InputMessage">
     <wsdl:part name="parameters" element="tns:TraeOfertaEmpresa" />
   </wsdl:message>
@@ -79,7 +91,17 @@
   <wsdl:message name="IOfertaService_PublicarOferta_OutputMessage">
     <wsdl:part name="parameters" element="tns:PublicarOfertaResponse" />
   </wsdl:message>
+  <wsdl:message name="IOfertaService_AprobarOfertas_InputMessage">
+    <wsdl:part name="parameters" element="tns:AprobarOfertas" />
+  </wsdl:message>
+  <wsdl:message name="IOfertaService_AprobarOfertas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AprobarOfertasResponse" />
+  </wsdl:message>
   <wsdl:portType name="IOfertaService">
+    <wsdl:operation name="ModifyPagos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOfertaService/ModifyPagos" message="tns:IOfertaService_ModifyPagos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOfertaService/ModifyPagosResponse" message="tns:IOfertaService_ModifyPagos_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Postulados">
       <wsdl:input wsaw:Action="http://tempuri.org/IOfertaService/Postulados" message="tns:IOfertaService_Postulados_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOfertaService/PostuladosResponse" message="tns:IOfertaService_Postulados_OutputMessage" />
@@ -108,6 +130,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IOfertaService/TraerEstadisticasOferta" message="tns:IOfertaService_TraerEstadisticasOferta_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOfertaService/TraerEstadisticasOfertaResponse" message="tns:IOfertaService_TraerEstadisticasOferta_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="TraeOfertas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOfertaService/TraeOfertas" message="tns:IOfertaService_TraeOfertas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOfertaService/TraeOfertasResponse" message="tns:IOfertaService_TraeOfertas_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="TraeOfertaEmpresa">
       <wsdl:input wsaw:Action="http://tempuri.org/IOfertaService/TraeOfertaEmpresa" message="tns:IOfertaService_TraeOfertaEmpresa_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOfertaService/TraeOfertaEmpresaResponse" message="tns:IOfertaService_TraeOfertaEmpresa_OutputMessage" />
@@ -128,9 +154,22 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IOfertaService/PublicarOferta" message="tns:IOfertaService_PublicarOferta_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOfertaService/PublicarOfertaResponse" message="tns:IOfertaService_PublicarOferta_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="AprobarOfertas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOfertaService/AprobarOfertas" message="tns:IOfertaService_AprobarOfertas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOfertaService/AprobarOfertasResponse" message="tns:IOfertaService_AprobarOfertas_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IOfertaService" type="tns:IOfertaService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ModifyPagos">
+      <soap:operation soapAction="http://tempuri.org/IOfertaService/ModifyPagos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Postulados">
       <soap:operation soapAction="http://tempuri.org/IOfertaService/Postulados" style="document" />
       <wsdl:input>
@@ -194,6 +233,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="TraeOfertas">
+      <soap:operation soapAction="http://tempuri.org/IOfertaService/TraeOfertas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="TraeOfertaEmpresa">
       <soap:operation soapAction="http://tempuri.org/IOfertaService/TraeOfertaEmpresa" style="document" />
       <wsdl:input>
@@ -232,6 +280,15 @@
     </wsdl:operation>
     <wsdl:operation name="PublicarOferta">
       <soap:operation soapAction="http://tempuri.org/IOfertaService/PublicarOferta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AprobarOfertas">
+      <soap:operation soapAction="http://tempuri.org/IOfertaService/AprobarOfertas" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

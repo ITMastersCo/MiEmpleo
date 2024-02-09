@@ -17,11 +17,11 @@ using System.Security.Policy;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Web;
-using System.Text;
-using System.Text.Json;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Serialization;
 using System.Threading.Tasks;
+using System.Runtime.Remoting.Messaging;
+using MercadoPago.Resource.AdvancedPayment;
 
 namespace co.itmasters.solucion.servicios
 {
@@ -29,13 +29,14 @@ namespace co.itmasters.solucion.servicios
     // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione MercadoPagoNotification.svc o MercadoPagoNotification.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class MercadoPagoNotification : IMercadoPagoNotification
     {
-             /// <summary>
+        private MercadoPagoService _MercadoPago;
+        /// <summary>
         /// Recibe la notificaion de mercado pago, la prosesa y envia una respuesta.
         /// </summary>
         /// <exception cref="FaultException"></exception>
         public void ProcessNotification()
         {
-        MercadoPagoConfig.AccessToken = "APP_USR-2148574929506385-013011-2a326a05936b10aaeafa5b0b78b61be6-1660977390";
+            MercadoPagoConfig.AccessToken = "APP_USR-2148574929506385-013011-2a326a05936b10aaeafa5b0b78b61be6-1660977390";
 
 
             // Acceder al contexto de la operación actual
@@ -43,7 +44,8 @@ namespace co.itmasters.solucion.servicios
 
             // Obtener el mensaje de la solicitud
             Message message = context.RequestContext.RequestMessage;
-         
+
+             // Tranforma XML en un Tipo PaymentNotification
             XmlSerializer serializer = new XmlSerializer(typeof(PaymentNotification));
             using (TextReader reader = new StringReader(message.ToString()))
             {
@@ -53,29 +55,10 @@ namespace co.itmasters.solucion.servicios
                     {
                         if (notification != null)
                         {
-
-                            Payment payment = MercadoPagoApi.GetItem(notification.Id);
-                            if (payment != null)
-                            {
-                                WebOperationContext.Current.OutgoingResponse.StatusCode = HttpStatusCode.OK;
-                            }
-                            else
-                            {
-                                 WebOperationContext.Current.OutgoingResponse.StatusCode = HttpStatusCode.NotFound;
-                            }
+                            WebOperationContext.Current.OutgoingResponse.StatusCode = HttpStatusCode.OK;
+                            ProcessValidNotification(notification);
                             
-                                 
-                                
-
-
-                            }
-                            else
-                            {
-                                WebOperationContext.Current.OutgoingResponse.StatusCode = HttpStatusCode.Accepted;
-                            }
-
-
-
+                        }
                     }
                     catch (Exception err)
                     {
@@ -86,7 +69,7 @@ namespace co.itmasters.solucion.servicios
             }
         }
         
-        public void  ProcessValidNotificationAsync(PaymentNotification notification)
+        public void  ProcessValidNotification(PaymentNotification notification)
         {
             try
             {
@@ -94,9 +77,11 @@ namespace co.itmasters.solucion.servicios
                 switch (notification.Type)
                 {
                     case "payment":
-                        
-                        
-                        //ProcessPaymentNotification(notification.Data);
+                        //Consulta el pago en la Api
+                        co.itmasters.solucion.servicios.code.MercadoPagoApi.Models.Payment payment =
+                            MercadoPagoApi.GetPayment(notification.Data.Id);
+                        if(payment != null) 
+                        ProcessPaymentNotification(payment); 
                         break;
                     // Add other cases for other topics if needed
                     default:
@@ -113,15 +98,30 @@ namespace co.itmasters.solucion.servicios
 
         }
 
-        private void ProcessPaymentNotification(Payment payment)
+        private void ProcessPaymentNotification(co.itmasters.solucion.servicios.code.MercadoPagoApi.Models.Payment payment)
         {
-            try
+            
+          try
             {
-                if (payment.Status == PaymentStatus.Approved)
+                switch (payment.status)
                 {
-                    // Handle approved payment
+                    case PaymentStatus.Approved:
+                        MercadoPagoService _MercadoPagoServiceApproved = new MercadoPagoService();
+                        _MercadoPagoServiceApproved.UpdatePayment(payment, EstadoPago.ESTADO_CONSOLIDADO);
+                        break;
+                    case PaymentStatus.InProcess:
+                        MercadoPagoService _MercadoPagoServiceInProcess = new MercadoPagoService();
+                        _MercadoPagoServiceInProcess.UpdatePayment(payment, EstadoPago.ESTADO_PENDIENTE);
+                        break; 
+                    case PaymentStatus.Rejected:
+                        MercadoPagoService _MercadoPagoServiceRejected = new MercadoPagoService();
+                        _MercadoPagoServiceRejected.UpdatePayment(payment, EstadoPago.ESTADO_RECHAZADO);
+                        break;
+                    default:
+                        MercadoPagoService _MercadoPagoServiceOther = new MercadoPagoService();
+                        _MercadoPagoServiceOther.UpdatePayment(payment, payment.status);
+                        break;
                 }
-                // Add other cases for other payment statuses if needed
             }
             catch (Exception err)
             {

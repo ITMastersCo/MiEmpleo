@@ -143,15 +143,18 @@ namespace co.itmasters.solucion.web.Components_UI
             try
             {
 
-            MercadoPagoConfig.AccessToken = "APP_USR-2148574929506385-013011-2a326a05936b10aaeafa5b0b78b61be6-1660977390";
+                MercadoPagoConfig.AccessToken = "APP_USR-2148574929506385-013011-2a326a05936b10aaeafa5b0b78b61be6-1660977390";
 
                 //Crea el objeto de request de la preference
+                string idPlanAdquirido =  CreaPlanAdquirido();
                 var request = new PreferenceRequest
                 {
-                    Items = new List<PreferenceItemRequest>
+
+                Items = new List<PreferenceItemRequest>
                       {
                           new PreferenceItemRequest
                           {
+                              Id = idPlanAdquirido,
                               Title = namePlan.InnerText ,
                               Quantity = 1,
                               CurrencyId = "COP",
@@ -175,7 +178,7 @@ namespace co.itmasters.solucion.web.Components_UI
                 {
                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba"
                     , $"payMercadoPago_{this.ClientID}('{preference.Id}','{wallet_container.ClientID}')", true);
-                    CreatePlanAdquirido(preference.Id);
+                    AddPreferenceIdToPlanesAdquiridos(int.Parse(idPlanAdquirido), preference.Id);
                 }
                 
                 
@@ -186,7 +189,7 @@ namespace co.itmasters.solucion.web.Components_UI
             }
 
         }
-        protected object CreatePlanAdquirido(string preferenceId)
+        protected string CreaPlanAdquirido()
         {
              user = ((UserVO)Session["UsuarioAutenticado"]);
              try { 
@@ -195,26 +198,48 @@ namespace co.itmasters.solucion.web.Components_UI
 
              newEmpresa.typeModify = TipoConsulta.MODIFY_INSERT;
              newEmpresa.idUsuario = user.IdUsuario;
-             newEmpresa.idEmpresa = IdEmpresa;
-             newPlan.idPlan = Convert.ToInt32( PlanId);
-             newPlan.preference_id = preferenceId;
+             newPlan.idPlan = Convert.ToInt32(PlanId);
              newPlan.vigenciaPlan = VigenciaPlan;
              newPlan.numeroOfertas = NumerodeOfertas;
              newPlan.valorPlan = PlanPrice;
               newEmpresa.Oferta = newPlan;
 
              _Empresa = new EmpresaServiceClient();
-             _Empresa.CreatePlanAdquirido(newEmpresa);
+             string idPlanAdquirido =  _Empresa.CreatePlanAdquirido(newEmpresa);
              _Empresa.Close();
-                 return newEmpresa;
+                 return idPlanAdquirido;
              }catch (Exception e) {
                 throw new Exception(e.Message);
             }
         }
+        protected void AddPreferenceIdToPlanesAdquiridos(int idPlanAdquirido, string preference_id)
+        {
+
+            user = ((UserVO)Session["UsuarioAutenticado"]);
+            try
+            {
+                EmpresaVO newEmpresa = new EmpresaVO();
+                OfertaVO newPlan = new OfertaVO();
+
+                newEmpresa.typeModify = TipoConsulta.MODIFY_UPDATE;
+                newEmpresa.idUsuario = user.IdUsuario;
+                newPlan.preference_id = preference_id;
+                newPlan.idPlanAdquirido = idPlanAdquirido;
+                newEmpresa.Oferta = newPlan;
+
+                _Empresa = new EmpresaServiceClient();
+                _Empresa.CreatePlanAdquirido(newEmpresa);
+                _Empresa.Close();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+        }
 
         protected void btnSubmitPay_Click(object sender, EventArgs e)
         {
-            CreatePlanAdquirido("a");
         }
         
     }

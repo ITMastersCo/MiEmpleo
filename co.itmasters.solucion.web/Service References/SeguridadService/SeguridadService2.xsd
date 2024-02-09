@@ -1,80 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="UsuarioVO">
-    <xs:sequence>
-      <xs:element name="_x003C_Apellido1_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_Apellido2_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_Avatar_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_Dominio_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_Formulario_x003E_k__BackingField" nillable="true" type="tns:ArrayOfFormularioVO" />
-      <xs:element name="_x003C_IdEmpresa_x003E_k__BackingField" type="xs:int" />
-      <xs:element name="_x003C_IdUsuario_x003E_k__BackingField" type="xs:int" />
-      <xs:element name="_x003C_NomEmpresa2_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_NomEmpresa_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_NomUsuario_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_Nombre1_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_Nombre2_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_NombreCompleto_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_NumIdentificacion_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_Rol_x003E_k__BackingField" nillable="true" type="tns:ArrayOfRolVO" />
-      <xs:element name="_x003C_TipIdentificacion_x003E_k__BackingField" type="xs:int" />
-      <xs:element name="_x003C_Token_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_WebSite_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_desPregunta_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_esAdmon_x003E_k__BackingField" type="xs:int" />
-      <xs:element name="_x003C_idPregunta1Retornar_x003E_k__BackingField" type="xs:int" />
-      <xs:element name="_x003C_idPregunta2Retornar_x003E_k__BackingField" type="xs:int" />
-      <xs:element name="_x003C_idPregunta3Retornar_x003E_k__BackingField" type="xs:int" />
-      <xs:element name="_x003C_idPregunta_x003E_k__BackingField" type="xs:int" />
-      <xs:element name="_x003C_numRespuestasIncorrectas_x003E_k__BackingField" type="xs:int" />
-      <xs:element name="_x003C_pasword1_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_pasword2_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_respuesta1_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_respuesta2_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_respuesta3_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_resultadoEnvioRespuestas_x003E_k__BackingField" type="xs:int" />
-      <xs:element name="_x003C_tipoUsuario_x003E_k__BackingField" type="xs:int" />
-      <xs:element name="_x003C_valorRespuesta1_x003E_k__BackingField" type="xs:int" />
-      <xs:element name="_x003C_valorRespuesta2_x003E_k__BackingField" type="xs:int" />
-      <xs:element name="_x003C_valorRespuesta3_x003E_k__BackingField" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="UsuarioVO" nillable="true" type="tns:UsuarioVO" />
-  <xs:complexType name="ArrayOfFormularioVO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="FormularioVO" nillable="true" type="tns:FormularioVO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfFormularioVO" nillable="true" type="tns:ArrayOfFormularioVO" />
-  <xs:complexType name="FormularioVO">
-    <xs:sequence>
-      <xs:element name="_x003C_Direccion_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_IdFormulario_x003E_k__BackingField" type="xs:int" />
-      <xs:element name="_x003C_IdPadre_x003E_k__BackingField" nillable="true" type="xs:int" />
-      <xs:element name="_x003C_NomFormulario_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_RutaIcono_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_Visible_x003E_k__BackingField" type="xs:boolean" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="FormularioVO" nillable="true" type="tns:FormularioVO" />
-  <xs:complexType name="ArrayOfRolVO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="RolVO" nillable="true" type="tns:RolVO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfRolVO" nillable="true" type="tns:ArrayOfRolVO" />
-  <xs:complexType name="RolVO">
-    <xs:sequence>
-      <xs:element name="_x003C_IdRol_x003E_k__BackingField" type="xs:int" />
-      <xs:element name="_x003C_Nombre_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_tipoUsuario_x003E_k__BackingField" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="RolVO" nillable="true" type="tns:RolVO" />
-  <xs:complexType name="ArrayOfUsuarioVO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="UsuarioVO" nillable="true" type="tns:UsuarioVO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfUsuarioVO" nillable="true" type="tns:ArrayOfUsuarioVO" />
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:3487/SeguridadService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" />
+  <xs:element name="RegistroUsuarioTokenEmpresa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Actor" nillable="true" type="q1:UsuarioVO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroUsuarioTokenEmpresaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroUsuarioEmpresa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Actor" nillable="true" type="q2:UsuarioVO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroUsuarioEmpresaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroUsuarioCandidato">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Actor" nillable="true" type="q3:UsuarioVO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroUsuarioCandidatoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualizaContrasena">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Actor" nillable="true" type="q4:UsuarioVO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualizaContrasenaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="validarToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="token" nillable="true" type="q5:UsuarioVO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="validarTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="validarTokenResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestablecerContrasena">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Actor" nillable="true" type="q6:UsuarioVO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestablecerContrasenaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="validarUsuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="clave" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="validarUsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="validarUsuarioResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUsuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreUsuario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getUsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="getUsuarioResult" nillable="true" type="q7:UsuarioVO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="buscarPreguntas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Usuario" nillable="true" type="q8:UsuarioVO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="buscarPreguntasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="buscarPreguntasResult" nillable="true" type="q9:ArrayOfUsuarioVO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarRespuestas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Usuario" nillable="true" type="q10:UsuarioVO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnviarRespuestasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="EnviarRespuestasResult" nillable="true" type="q11:ArrayOfUsuarioVO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

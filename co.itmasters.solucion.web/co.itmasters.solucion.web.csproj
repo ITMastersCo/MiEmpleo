@@ -12,7 +12,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>co.itmasters.solucion.web</RootNamespace>
     <AssemblyName>co.itmasters.solucion.web</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>4.0</OldToolsVersion>
@@ -1441,7 +1441,6 @@
     <Content Include="Empresa\OfertasActivas.aspx" />
     <Content Include="Empresa\OfertasPendientes.aspx" />
     <Content Include="Empresa\OfertasVencidas.aspx" />
-    <Content Include="Empresa\PagoAprobado.aspx" />
     <Content Include="Empresa\PanelEmpresa.aspx" />
     <Content Include="Empresa\PlanesEmpresa.aspx" />
     <Content Include="Empresa\PublicarOfertas.aspx" />
@@ -1635,6 +1634,13 @@
     <None Include="Service References\EmpresaService\EmpresaService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\MercadoPagoNotification\MercadoPagoNotification.disco" />
+    <None Include="Service References\MercadoPagoNotification\configuration91.svcinfo" />
+    <None Include="Service References\MercadoPagoNotification\configuration.svcinfo" />
+    <None Include="Service References\MercadoPagoNotification\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Service References\OfertaService\OfertaService.wsdl" />
     <None Include="Service References\OfertaService\OfertaService.xsd">
       <SubType>Designer</SubType>
@@ -1644,26 +1650,6 @@
     </None>
     <None Include="Service References\OfertaService\OfertaService2.xsd">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PersonaService\PersonaService.wsdl" />
-    <None Include="Service References\PersonaService\PersonaService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PersonaService\PersonaService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PersonaService\PersonaService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PersonaService\PersonaService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\SeguridadService\SeguridadService.disco" />
-    <None Include="Service References\SeguridadService\configuration91.svcinfo" />
-    <None Include="Service References\SeguridadService\configuration.svcinfo" />
-    <None Include="Service References\SeguridadService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\PersonaService\PersonaService.disco" />
     <None Include="Service References\PersonaService\configuration91.svcinfo" />
@@ -1683,6 +1669,13 @@
     <None Include="Service References\OfertaService\configuration91.svcinfo" />
     <None Include="Service References\OfertaService\configuration.svcinfo" />
     <None Include="Service References\OfertaService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\SeguridadService\SeguridadService.disco" />
+    <None Include="Service References\SeguridadService\configuration91.svcinfo" />
+    <None Include="Service References\SeguridadService\configuration.svcinfo" />
+    <None Include="Service References\SeguridadService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -1805,13 +1798,6 @@
     </Compile>
     <Compile Include="Empresa\OfertasVencidas.aspx.designer.cs">
       <DependentUpon>OfertasVencidas.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Empresa\PagoAprobado.aspx.cs">
-      <DependentUpon>PagoAprobado.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Empresa\PagoAprobado.aspx.designer.cs">
-      <DependentUpon>PagoAprobado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Empresa\PanelEmpresa.aspx.cs">
       <DependentUpon>PanelEmpresa.aspx</DependentUpon>
@@ -2039,6 +2025,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\MercadoPagoNotification\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\OfertaService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2166,6 +2157,12 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Site.Master" />
+    <Content Include="Site.Mobile.Master" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\web.config" />
     <None Include="Service References\ComunesService\ComunesService.wsdl" />
     <None Include="Service References\ComunesService\ComunesService.xsd">
       <SubType>Designer</SubType>
@@ -2185,6 +2182,23 @@
     <None Include="Service References\ComunesService\ComunesService5.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\MercadoPagoNotification\MercadoPagoNotification.wsdl" />
+    <None Include="Service References\MercadoPagoNotification\MercadoPagoNotification.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonaService\PersonaService.wsdl" />
+    <None Include="Service References\PersonaService\PersonaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonaService\PersonaService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonaService\PersonaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonaService\PersonaService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\SeguridadService\SeguridadService.wsdl" />
     <None Include="Service References\SeguridadService\SeguridadService.xsd">
       <SubType>Designer</SubType>
@@ -2195,12 +2209,6 @@
     <None Include="Service References\SeguridadService\SeguridadService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Site.Master" />
-    <Content Include="Site.Mobile.Master" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\web.config" />
     <None Include="Web References\com.zonapagos.www\pagos_v3.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -2281,13 +2289,6 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ComunesService\" />
-    <WCFMetadataStorage Include="Service References\EmpresaService\" />
-    <WCFMetadataStorage Include="Service References\OfertaService\" />
-    <WCFMetadataStorage Include="Service References\PersonaService\" />
-    <WCFMetadataStorage Include="Service References\SeguridadService\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\co.itmasters.solucion.vo\co.itmasters.solucion.vo.csproj">
       <Project>{7fde8f90-790f-4549-8e36-82f157151c06}</Project>
       <Name>co.itmasters.solucion.vo</Name>
@@ -2322,6 +2323,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Facturacion1.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ComunesService\" />
+    <WCFMetadataStorage Include="Service References\EmpresaService\" />
+    <WCFMetadataStorage Include="Service References\MercadoPagoNotification\" />
+    <WCFMetadataStorage Include="Service References\OfertaService\" />
+    <WCFMetadataStorage Include="Service References\PersonaService\" />
+    <WCFMetadataStorage Include="Service References\SeguridadService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

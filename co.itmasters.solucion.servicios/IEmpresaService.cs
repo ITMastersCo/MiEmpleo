@@ -14,7 +14,7 @@ namespace co.itmasters.solucion.servicios
     public interface IEmpresaService
     {
         [OperationContract]
-        void CreatePlanAdquirido(EmpresaVO empresa);
+        string CreatePlanAdquirido(EmpresaVO empresa);
         [OperationContract]
         void GuardarDatosEmpresa(EmpresaVO Empresa);
         [OperationContract]

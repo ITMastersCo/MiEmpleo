@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="f07649ef-49bc-432e-94d2-ee1d3ae12392" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="f8208f5d-9320-4544-b2e6-faca4ecca36e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="http://localhost:3487/OfertaService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="OfertaService.disco" MetadataType="Disco" ID="0fddf074-a6a1-4cdb-90fa-63b08de5cea2" SourceId="1" SourceUrl="http://localhost:3487/OfertaService.svc?disco" />
-    <MetadataFile FileName="OfertaService.xsd" MetadataType="Schema" ID="7f5f24f3-5330-43c6-bca6-3c3588136d17" SourceId="1" SourceUrl="http://localhost:3487/OfertaService.svc?xsd=xsd1" />
-    <MetadataFile FileName="OfertaService.wsdl" MetadataType="Wsdl" ID="3a4337fc-c55c-4b88-80d5-815aa7432ff1" SourceId="1" SourceUrl="http://localhost:3487/OfertaService.svc?wsdl" />
-    <MetadataFile FileName="OfertaService1.xsd" MetadataType="Schema" ID="e919c654-5546-44a1-a36a-9d3220b8c127" SourceId="1" SourceUrl="http://localhost:3487/OfertaService.svc?xsd=xsd2" />
-    <MetadataFile FileName="OfertaService2.xsd" MetadataType="Schema" ID="cbe07f1b-aef6-4814-9e0e-5a511ccd6a99" SourceId="1" SourceUrl="http://localhost:3487/OfertaService.svc?xsd=xsd0" />
+    <MetadataFile FileName="OfertaService.disco" MetadataType="Disco" ID="204cab72-954c-4711-b9dd-9cb8cf7023c3" SourceId="1" SourceUrl="http://localhost:3487/OfertaService.svc?disco" />
+    <MetadataFile FileName="OfertaService.xsd" MetadataType="Schema" ID="0df2d417-43c9-4823-8f40-38f51e2b3350" SourceId="1" SourceUrl="http://localhost:3487/OfertaService.svc?xsd=xsd1" />
+    <MetadataFile FileName="OfertaService.wsdl" MetadataType="Wsdl" ID="662c2b26-0e98-4a9d-a3ee-cd3d25579645" SourceId="1" SourceUrl="http://localhost:3487/OfertaService.svc?wsdl" />
+    <MetadataFile FileName="OfertaService1.xsd" MetadataType="Schema" ID="c1dc897e-26a8-4aa9-92cd-ee8009da8ded" SourceId="1" SourceUrl="http://localhost:3487/OfertaService.svc?xsd=xsd2" />
+    <MetadataFile FileName="OfertaService2.xsd" MetadataType="Schema" ID="4d43a32b-b832-4006-a790-d5593fa1174c" SourceId="1" SourceUrl="http://localhost:3487/OfertaService.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

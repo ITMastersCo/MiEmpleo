@@ -16,7 +16,19 @@ namespace co.itmasters.solucion.servicios
     {
         private OfertaNegocio _oferta;
 
-
+        public void ModifyPagos(OfertaVO pago)
+        {
+            try
+            {
+                _oferta = new OfertaNegocio();
+                _oferta.ModifyPagos(pago);
+            }
+            catch (Exception err)
+            {
+                Log.Write(err.Message, Log.ERROR);
+                throw new FaultException(new FaultReason(err.Message));
+            }
+        }
         public List<PersonaVO> Postulados(OfertaVO oferta)
         {
 

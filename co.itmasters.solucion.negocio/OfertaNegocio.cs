@@ -16,6 +16,11 @@ namespace co.itmasters.solucion.negocio
             _oferta = new OfertaDao();
         }
 
+        public void ModifyPagos(OfertaVO pago)
+        {
+            _oferta.ModifyPagos(pago);
+        }
+
         public List<PersonaVO> Postulados(OfertaVO oferta)
         {
            return _oferta.Postulados(oferta);

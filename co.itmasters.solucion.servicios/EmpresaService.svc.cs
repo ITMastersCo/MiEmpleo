@@ -16,13 +16,13 @@ namespace co.itmasters.solucion.servicios
     {
         private EmpresaNegocio _empresa;
 
-        public void CreatePlanAdquirido(EmpresaVO empresa)
+        public string CreatePlanAdquirido(EmpresaVO empresa)
         {
             try
             {
 
                 _empresa = new EmpresaNegocio();
-                 _empresa.CreatePlanAdquirido(empresa);
+                return _empresa.CreatePlanAdquirido(empresa);
             }
             catch (Exception err)
             {

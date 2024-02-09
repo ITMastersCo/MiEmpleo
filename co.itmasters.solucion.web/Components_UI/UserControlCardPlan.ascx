@@ -112,7 +112,7 @@
             
         window[`payMercadoPago_<%= this.ClientID%>`] = function (PreferenceId, walletContainer) {
                 // Pass the preference ID to the Mercado Pago button
-                const mp = new MercadoPago('APP_USR-c06e83e5-e43c-44a6-9874-4781ff66c9d6');
+            const mp = new MercadoPago('APP_USR-c06e83e5-e43c-44a6-9874-4781ff66c9d6');
                 const bricksBuilder = mp.bricks();
                 
                 const renderComponent = () => {

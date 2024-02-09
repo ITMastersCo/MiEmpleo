@@ -4,8 +4,6 @@ using System.Diagnostics.Contracts;
 using System.IO;
 using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Xml.Serialization;
 
 namespace co.itmasters.solucion.servicios
@@ -37,7 +35,7 @@ namespace co.itmasters.solucion.servicios
         public DateTime DateCreated { get; set; }
 
         [XmlElement("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         [XmlElement("live_mode")]
         public bool LiveMode { get; set; }
@@ -49,7 +47,7 @@ namespace co.itmasters.solucion.servicios
         /// Este lo podemos relacionar con el preference_id.
         /// </summary>
         [XmlElement("user_id")]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
     }
 
     /// <summary>
@@ -58,7 +56,7 @@ namespace co.itmasters.solucion.servicios
     public class Paymentnotification_DataObject
     {
         [XmlElement("id")]
-        public int Id { get; set; }
+        public string Id { get; set; }
     }
 
     class XSignatureData

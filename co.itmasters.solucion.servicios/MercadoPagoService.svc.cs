@@ -1,4 +1,6 @@
-﻿using MercadoPago.Client.Preference;
+﻿using MercadoPago.Resource.Payment;
+
+using MercadoPago.Client.Preference;
 using MercadoPago.Config;
 using MercadoPago.Resource.Preference;
 using System.Collections.Generic;
@@ -8,6 +10,7 @@ using co.itmasters.solucion.vo;
 using MercadoPago.Resource.User;
 using co.itmasters.solucion.servicios.code;
 using System.Numerics;
+using co.itmasters.solucion.servicios.code.MercadoPagoApi.Models;
 
 namespace co.itmasters.solucion.servicios
 {
@@ -16,6 +19,7 @@ namespace co.itmasters.solucion.servicios
     public class MercadoPagoService : IMercadoPagoService
     {    
         EmpresaService _Empresa;
+        OfertaService _Oferta;
         public async Task<Preference> CrearPreferencia(EmpresaVO newPlanAdquirido)
         {
 
@@ -47,33 +51,56 @@ namespace co.itmasters.solucion.servicios
             // Crea la preferencia usando el client
             var client = new PreferenceClient();
             Preference preference = await client.CreateAsync(request);
-            CreatePlanAdquirido(newPlanAdquirido, preference.Id);
             return preference;
         }
-        private void CreatePlanAdquirido(EmpresaVO empresa, string preferenceId)
+        public void UpdatePayment(co.itmasters.solucion.servicios.code.MercadoPagoApi.Models.Payment payment, string estadoPago)
         {
             try
             {
                 EmpresaVO newEmpresa = new EmpresaVO();
                 OfertaVO newPlan = new OfertaVO();
-
-                newEmpresa.typeModify = TipoConsulta.MODIFY_INSERT;
-                newEmpresa.idUsuario = empresa.idUsuario;
-                newEmpresa.idEmpresa = empresa.idEmpresa;
-                newPlan.idPlan = Convert.ToInt32(empresa.Oferta.idPlan);
-                newPlan.preference_id = preferenceId;
-                newPlan.vigenciaPlan = empresa.Oferta.vigenciaPlan;
-                newPlan.numeroOfertas = empresa.Oferta.numeroOfertas;
-                newPlan.valorPlan = empresa.Oferta.valorPlan;
+                newEmpresa.typeModify = TipoConsulta.MODIFY_UPDATE;
+                newPlan.idPlanAdquirido = Convert.ToInt32(payment.additional_info.items[0].id);
+                newPlan.estado = estadoPago;
+                newPlan.payment_id = payment.id.ToString();
+                
                 newEmpresa.Oferta = newPlan;
 
                 _Empresa = new EmpresaService();
                 _Empresa.CreatePlanAdquirido(newEmpresa);
+
+
+
+                var newPago = new OfertaVO();
+                newPago.typeModify = TipoConsulta.MODIFY_INSERT;
+                newPago.payment_id = payment.id.ToString() ;
+                newPago.payment_method = payment.payment_method.ToString();
+                newPago.idPlanAdquirido = Convert.ToInt16(payment.additional_info.items[0].id);
+                switch (payment.status)
+                {
+                    case PaymentStatus.Approved:
+                        newPago.estado = EstadoPago.ESTADO_CONSOLIDADO;
+
+                        break;
+                    case PaymentStatus.InProcess:
+                        newPago.estado = EstadoPago.ESTADO_PENDIENTE;
+                        break;
+                    case PaymentStatus.Rejected:
+                        newPago.estado = EstadoPago.ESTADO_RECHAZADO;
+                        break;
+                    default:
+                        break;
+                }
+                newPago.valorPago = Convert.ToInt32(payment.transaction_amount);
+
+                _Oferta = new OfertaService();
+                //_Oferta.ModifyPagos(newPago);
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
         }
+    
     }
 }

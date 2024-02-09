@@ -1,6 +1,7 @@
 ﻿using co.itmasters.solucion.vo;
 using MercadoPago.Client.Preference;
 using MercadoPago.Resource.Preference;
+using co.itmasters.solucion.servicios.code.MercadoPagoApi.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,6 +20,9 @@ namespace co.itmasters.solucion.servicios
     {
         [OperationContract]
         Task<Preference>  CrearPreferencia(EmpresaVO newPlanAdquirido);
+
+        [OperationContract]
+        void UpdatePayment(Payment payment, string estadoPago);
 
         
     }

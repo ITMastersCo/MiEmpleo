@@ -28,6 +28,7 @@ namespace co.itmasters.solucion.dao
         public const string EMPRESA_PLANESADQUIRIDOS = "Empresa_PlanesAdquiridos";
         public const string OFERTA_TRAEROFERTASAPR = "Oferta_TraerOfertaApr";
         public const string OFERTA_APROBARPUBLICAR = "Oferta_AprobarPublicar";
+        public const string OFERTA_PAGOS = "Oferta_Pagos";
         #endregion
 
 
@@ -40,6 +41,8 @@ namespace co.itmasters.solucion.dao
         public const string OFERTA_IDOFERTA = "idOferta";
         public const string OFERTA_IDEMPRESA = "idEmpresa";
         public const string OFERTA_IDPLAN = "idPlan";
+        public const string OFERTA_IDPAGO = "idPago";
+        public const string OFERTA_VALORPAGO = "valor";
         public const string OFERTA_IDPLANADQUIRIDO = "idPlanAdquirido";
         public const string OFERTA_TITULOVACANTE = "tituloVacante";
         public const string OFERTA_DESCRIPCIONVACANTE = "descripcionVacante";
@@ -125,13 +128,14 @@ namespace co.itmasters.solucion.dao
         public const string OFERTA_HVVISTAS = "HvVistas";
         public const string OFERTA_NOMRANGOSALARIAL = "nomRangoSalarial";
         public const string ACTORES_NUMIDENTIFICACION = "numIdentificacion";
+
+        #endregion
+
+        #region Constantes Mercado Pago
         // Mercado Pago
-        public const string MERCADOPAGO_PREFERENCEID = "preference_id";
 
-
-
-
-
+        public const string MERCADOPAGO_PAYMENT_ID = "payment_id";
+        public const string MERCADOPAGO_PREFERENCE_ID = "preference_id";
 
         #endregion
 
@@ -196,6 +200,35 @@ namespace co.itmasters.solucion.dao
 
         #region  [Metodos Expuestos]
 
+        public void ModifyPagos(OfertaVO pago)
+        {
+            try
+            {
+                Parametro[] valParam = new Parametro[]
+                {
+                    new Parametro(OFERTA_TYPEMODIFY, pago.typeModify, DbType.String),
+                    new Parametro(OFERTA_IDPAGO, pago.idPago, DbType.Int32),
+                    new Parametro(OFERTA_IDUSUARIO, pago.idUsuario, DbType.Int32),
+                    new Parametro(OFERTA_IDPLAN, pago.idPlan, DbType.Int32),
+                    new Parametro(OFERTA_IDPLANADQUIRIDO, pago.idPlanAdquirido, DbType.Int32),
+                    new Parametro(OFERTA_IDOFERTA, pago.idOferta, DbType.Int32),
+                    new Parametro(MERCADOPAGO_PAYMENT_ID, pago.payment_id, DbType.Int32),
+                    new Parametro(MERCADOPAGO_PREFERENCE_ID, pago.payment_method, DbType.Int32),
+                    new Parametro(OFERTA_ESTADO, pago.estado, DbType.String),
+                    new Parametro(OFERTA_VALORPAGO, pago.valorPago, DbType.Int32),
+                };
+                this.EjecutarStoredProcedure(OFERTA_PAGOS, valParam);
+
+            }
+            catch (System.Data.SqlClient.SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
         public void Postulacion(OfertaVO postulacion)
         {
 
@@ -279,12 +312,14 @@ namespace co.itmasters.solucion.dao
                     new Parametro(OFERTA_TYPEMODIFY, oferta.typeModify, DbType.String),
                     new Parametro(OFERTA_IDUSUARIO, oferta.idUsuario, DbType.Int32),
                     new Parametro(OFERTA_IDEMPRESA, oferta.idEmpresa, DbType.Int32),
+                    new Parametro(OFERTA_ESTADO, oferta.estado, DbType.String),
                     new Parametro(OFERTA_IDPLAN, oferta.idPlan, DbType.Int32),
+                    new Parametro(OFERTA_IDPLANADQUIRIDO, oferta.idPlanAdquirido, DbType.Int32),
+                    new Parametro(MERCADOPAGO_PAYMENT_ID, oferta.payment_id,DbType.String ),
+                    new Parametro(MERCADOPAGO_PREFERENCE_ID, oferta.preference_id,DbType.String ),
                     new Parametro(OFERTA_VIGENCIAPLAN, oferta.vigenciaPlan, DbType.Int32),
                     new Parametro(OFERTA_NUMEROOFERTAS, oferta.numeroOfertas, DbType.Int32),
                     new Parametro(OFERTA_VALORPLAN, oferta.valorPlan, DbType.Int32),
-                    new Parametro(OFERTA_ESTADO, oferta.estado, DbType.String),
-                    new Parametro(MERCADOPAGO_PREFERENCEID, oferta.preference_id, DbType.String),
 
             };
 

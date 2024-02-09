@@ -60,11 +60,13 @@ namespace co.itmasters.solucion.dao
         // Planes
         public const string EMPRESA_TYPEMODIFY = "typeModify";
         public const string PLAN_IDPLAN = "idPlan";
+        public const string PLAN_IDPLANADQUIRIDO = "idPlanAdquirido";
         public const string PLAN_VIGENCIAPLAN = "vigenciaPlan";
         public const string PLAN_NUMEROOFERTAS = "numeroOfertas";
         public const string PLAN_VALORPLAN = "valorPlan";
         // Mercado Pago
-        public const string MERCADOPAGO_PREFERENCEID = "preference_id";
+        public const string MERCADOPAGO_PAYMENT_ID = "payment_id";
+        public const string MERCADOPAGO_PREFERENCE_ID = "preference_id";
 
 
         /*************************Proceso de formulario****************************************************/
@@ -73,7 +75,7 @@ namespace co.itmasters.solucion.dao
         #endregion
 
         #region  [Metodos Expuestos]
-        public void CreatePlanAdquirido(EmpresaVO empresa) {
+        public string CreatePlanAdquirido(EmpresaVO empresa) {
 
             try
             {
@@ -82,15 +84,17 @@ namespace co.itmasters.solucion.dao
                     new Parametro(EMPRESA_TYPEMODIFY, empresa.typeModify, DbType.String),
                     new Parametro(EMPRESA_IDUSUARIO, empresa.idUsuario, DbType.Int32),
                     new Parametro(EMPRESA_IDEMPRESA, empresa.idEmpresa, DbType.Int32),
+                    new Parametro(EMPRESA_ESTADO, empresa.Oferta.estado, DbType.String),
                     new Parametro(PLAN_IDPLAN, empresa.Oferta.idPlan, DbType.Int32),
+                    new Parametro(PLAN_IDPLANADQUIRIDO, empresa.Oferta.idPlanAdquirido, DbType.Int32),
+                    new Parametro(MERCADOPAGO_PAYMENT_ID, empresa.Oferta.payment_id,DbType.String ),
+                    new Parametro(MERCADOPAGO_PREFERENCE_ID, empresa.Oferta.preference_id,DbType.String ),
                     new Parametro(PLAN_VIGENCIAPLAN, empresa.Oferta.vigenciaPlan, DbType.Int32),
                     new Parametro(PLAN_NUMEROOFERTAS, empresa.Oferta.numeroOfertas, DbType.Int32),
                     new Parametro(PLAN_VALORPLAN, empresa.Oferta.valorPlan, DbType.Int32),
-                    new Parametro(EMPRESA_ESTADO, empresa.estado, DbType.String),
-                    new Parametro(MERCADOPAGO_PREFERENCEID, empresa.Oferta.preference_id, DbType.String),
             };
-                this.EjecutarStoredProcedure(EMPRESA_PLANESADQUIRIDOS, valParam);
-
+                string idPlanAdquirido = this.EjecutarStoredProcedureRetornaValor(EMPRESA_PLANESADQUIRIDOS, valParam).ToString();
+                return idPlanAdquirido;
             }
             catch (System.Data.SqlClient.SqlException e)
             {

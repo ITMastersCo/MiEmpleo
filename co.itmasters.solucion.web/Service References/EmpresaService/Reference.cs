@@ -16,30 +16,35 @@ namespace co.itmasters.solucion.web.EmpresaService {
     public interface IEmpresaService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmpresaService/CreatePlanAdquirido", ReplyAction="http://tempuri.org/IEmpresaService/CreatePlanAdquiridoResponse")]
-        void CreatePlanAdquirido(co.itmasters.solucion.vo.EmpresaVO empresa);
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.EmpresaVO[]))]
+        string CreatePlanAdquirido(co.itmasters.solucion.vo.EmpresaVO empresa);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmpresaService/CreatePlanAdquirido", ReplyAction="http://tempuri.org/IEmpresaService/CreatePlanAdquiridoResponse")]
-        System.Threading.Tasks.Task CreatePlanAdquiridoAsync(co.itmasters.solucion.vo.EmpresaVO empresa);
+        System.Threading.Tasks.Task<string> CreatePlanAdquiridoAsync(co.itmasters.solucion.vo.EmpresaVO empresa);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmpresaService/GuardarDatosEmpresa", ReplyAction="http://tempuri.org/IEmpresaService/GuardarDatosEmpresaResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.EmpresaVO[]))]
         void GuardarDatosEmpresa(co.itmasters.solucion.vo.EmpresaVO Empresa);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmpresaService/GuardarDatosEmpresa", ReplyAction="http://tempuri.org/IEmpresaService/GuardarDatosEmpresaResponse")]
         System.Threading.Tasks.Task GuardarDatosEmpresaAsync(co.itmasters.solucion.vo.EmpresaVO Empresa);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmpresaService/TraeEmpresas", ReplyAction="http://tempuri.org/IEmpresaService/TraeEmpresasResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.EmpresaVO[]))]
         co.itmasters.solucion.vo.EmpresaVO[] TraeEmpresas(co.itmasters.solucion.vo.EmpresaVO empresa);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmpresaService/TraeEmpresas", ReplyAction="http://tempuri.org/IEmpresaService/TraeEmpresasResponse")]
         System.Threading.Tasks.Task<co.itmasters.solucion.vo.EmpresaVO[]> TraeEmpresasAsync(co.itmasters.solucion.vo.EmpresaVO empresa);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmpresaService/DatosEmpresa", ReplyAction="http://tempuri.org/IEmpresaService/DatosEmpresaResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.EmpresaVO[]))]
         co.itmasters.solucion.vo.EmpresaVO DatosEmpresa(co.itmasters.solucion.vo.EmpresaVO Empresa);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmpresaService/DatosEmpresa", ReplyAction="http://tempuri.org/IEmpresaService/DatosEmpresaResponse")]
         System.Threading.Tasks.Task<co.itmasters.solucion.vo.EmpresaVO> DatosEmpresaAsync(co.itmasters.solucion.vo.EmpresaVO Empresa);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmpresaService/AprobarEmpresas", ReplyAction="http://tempuri.org/IEmpresaService/AprobarEmpresasResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.EmpresaVO[]))]
         void AprobarEmpresas(co.itmasters.solucion.vo.EmpresaVO Empresa);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEmpresaService/AprobarEmpresas", ReplyAction="http://tempuri.org/IEmpresaService/AprobarEmpresasResponse")]
@@ -73,11 +78,11 @@ namespace co.itmasters.solucion.web.EmpresaService {
                 base(binding, remoteAddress) {
         }
         
-        public void CreatePlanAdquirido(co.itmasters.solucion.vo.EmpresaVO empresa) {
-            base.Channel.CreatePlanAdquirido(empresa);
+        public string CreatePlanAdquirido(co.itmasters.solucion.vo.EmpresaVO empresa) {
+            return base.Channel.CreatePlanAdquirido(empresa);
         }
         
-        public System.Threading.Tasks.Task CreatePlanAdquiridoAsync(co.itmasters.solucion.vo.EmpresaVO empresa) {
+        public System.Threading.Tasks.Task<string> CreatePlanAdquiridoAsync(co.itmasters.solucion.vo.EmpresaVO empresa) {
             return base.Channel.CreatePlanAdquiridoAsync(empresa);
         }
         

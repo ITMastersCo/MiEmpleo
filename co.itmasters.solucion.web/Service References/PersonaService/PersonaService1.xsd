@@ -13,6 +13,7 @@
       <xs:element name="_x003C_diligenciaBasicos_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_diligenciaExperiencia_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_diligenciaPerfil_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_edad_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_fechaCrea_x003E_k__BackingField" type="xs:dateTime" />
       <xs:element name="_x003C_fechaModifica_x003E_k__BackingField" type="xs:dateTime" />
       <xs:element name="_x003C_fechaNac_x003E_k__BackingField" nillable="true" type="xs:dateTime" />
@@ -24,6 +25,8 @@
       <xs:element name="_x003C_idSexo_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_idTipoIde_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_idUsuario_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_nomMaxNivelEducativo_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_nomModalidadTrabajo_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_nomPersona_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_numeroIde_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_perfil_x003E_k__BackingField" nillable="true" type="xs:string" />

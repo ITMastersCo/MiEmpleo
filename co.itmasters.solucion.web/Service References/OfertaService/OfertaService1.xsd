@@ -2,6 +2,7 @@
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:complexType name="OfertaVO">
     <xs:sequence>
+      <xs:element name="_x003C_NivelEstudios_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_Observaciones_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_RangoSalario_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_activas_x003E_k__BackingField" nillable="true" type="xs:int" />
@@ -44,6 +45,7 @@
       <xs:element name="_x003C_idOcupacion9_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_idOcupacion_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_idOferta_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_idPago_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_idPersona_x003E_k__BackingField" type="xs:int" />
       <xs:element name="_x003C_idPlanAdquirido_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_idPlan_x003E_k__BackingField" nillable="true" type="xs:int" />
@@ -72,9 +74,11 @@
       <xs:element name="_x003C_ofertaConfidencial_x003E_k__BackingField" nillable="true" type="xs:boolean" />
       <xs:element name="_x003C_ofertaDestacada_x003E_k__BackingField" nillable="true" type="xs:boolean" />
       <xs:element name="_x003C_ofertasConsumidas_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_payment_id_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_payment_method_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_pendientes_x003E_k__BackingField" nillable="true" type="xs:int" />
-      <xs:element name="_x003C_preference_id_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_preguntasDeFiltro_x003E_k__BackingField" nillable="true" type="xs:boolean" />
+      <xs:element name="_x003C_rutaAvatar_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_seguidores_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_tiempoExperiencia_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_tituloVacante_x003E_k__BackingField" nillable="true" type="xs:string" />
@@ -83,9 +87,11 @@
       <xs:element name="_x003C_unidadMedidaExperiencia_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_usuarioCrea_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_usuarioModfica_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_valorPago_x003E_k__BackingField" type="xs:int" />
       <xs:element name="_x003C_valorPlan_x003E_k__BackingField" nillable="true" type="xs:double" />
       <xs:element name="_x003C_vencidas_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_vigenciaPlan_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="preference_item_id" nillable="true" type="xs:anyType" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="OfertaVO" nillable="true" type="tns:OfertaVO" />
@@ -120,6 +126,7 @@
       <xs:element name="_x003C_idSexo_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_idTipoIde_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_idUsuario_x003E_k__BackingField" nillable="true" type="xs:int" />
+      <xs:element name="_x003C_nomMaxNivelEducativo_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_nomModalidadTrabajo_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_nomPersona_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_numeroIde_x003E_k__BackingField" nillable="true" type="xs:int" />

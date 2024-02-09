@@ -5,21 +5,37 @@ using System.Linq;
 using System.Net;
 using Newtonsoft.Json;
 using System.Web;
-using MercadoPago.Resource.Payment;
+using co.itmasters.solucion.servicios.code.MercadoPagoApi.Models;
+using System.Web.UI.WebControls;
 
 namespace co.itmasters.solucion.servicios.code.MercadoPagoApi
 {
+    /// <summary>
+    /// Api de mecado pago.
+    /// </summary>
     public class MercadoPagoApi
     {
-        public static Payment GetItem(int id)
+        protected static string ApiUrl = "https://api.mercadopago.com/v1/";
+        protected static string AccesToken = "APP_USR-2148574929506385-013011-2a326a05936b10aaeafa5b0b78b61be6-1660977390";
+
+        /// <summary>
+        /// Consulta GET de un pago.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public static Payment GetPayment(string id)
         {
+            // Activa SSL para entorno de desarrollo 
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
-            var url = $"https://api.mercadopago.com/v1/payments/7147657461";
+
+
+            var url = $"{ApiUrl}payments/{id}";
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "GET";
             request.ContentType = "application/json";
             request.Accept = "application/json";
-            request.Headers["Authorization"] = "Bearer APP_USR-2148574929506385-013011-2a326a05936b10aaeafa5b0b78b61be6-1660977390";
+            request.Headers["Authorization"] = $"Bearer {AccesToken}";
 
             try
             {
@@ -34,6 +50,7 @@ namespace co.itmasters.solucion.servicios.code.MercadoPagoApi
 
                             Payment payment = JsonConvert.DeserializeObject<Payment>(responseBody);
 
+
                             return payment;
                         }
                     }
@@ -41,11 +58,11 @@ namespace co.itmasters.solucion.servicios.code.MercadoPagoApi
             }
             catch (WebException ex)
             {
-                // Handle error
                 return null;
+                throw new Exception();
             }
         }
-
+        //Examples api
         private static void GetItems()
         {
             var url = $"http://localhost:8080/items";

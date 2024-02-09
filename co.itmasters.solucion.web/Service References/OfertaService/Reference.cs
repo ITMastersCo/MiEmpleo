@@ -15,77 +15,230 @@ namespace co.itmasters.solucion.web.OfertaService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="OfertaService.IOfertaService")]
     public interface IOfertaService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/ModifyPagos", ReplyAction="http://tempuri.org/IOfertaService/ModifyPagosResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.OfertaVO[]))]
+        void ModifyPagos(co.itmasters.solucion.vo.OfertaVO pago);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/ModifyPagos", ReplyAction="http://tempuri.org/IOfertaService/ModifyPagosResponse")]
+        System.Threading.Tasks.Task ModifyPagosAsync(co.itmasters.solucion.vo.OfertaVO pago);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/Postulados", ReplyAction="http://tempuri.org/IOfertaService/PostuladosResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.OfertaVO[]))]
         co.itmasters.solucion.vo.PersonaVO[] Postulados(co.itmasters.solucion.vo.OfertaVO oferta);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/Postulados", ReplyAction="http://tempuri.org/IOfertaService/PostuladosResponse")]
         System.Threading.Tasks.Task<co.itmasters.solucion.vo.PersonaVO[]> PostuladosAsync(co.itmasters.solucion.vo.OfertaVO oferta);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/Postulacion", ReplyAction="http://tempuri.org/IOfertaService/PostulacionResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.OfertaVO[]))]
         void Postulacion([System.ServiceModel.MessageParameterAttribute(Name="postulacion")] co.itmasters.solucion.vo.OfertaVO postulacion1);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/Postulacion", ReplyAction="http://tempuri.org/IOfertaService/PostulacionResponse")]
         System.Threading.Tasks.Task PostulacionAsync(co.itmasters.solucion.vo.OfertaVO postulacion);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/TraePlanesAdquiridosEmpresa", ReplyAction="http://tempuri.org/IOfertaService/TraePlanesAdquiridosEmpresaResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.OfertaVO[]))]
         co.itmasters.solucion.vo.OfertaVO[] TraePlanesAdquiridosEmpresa(co.itmasters.solucion.vo.OfertaVO Oferta);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/TraePlanesAdquiridosEmpresa", ReplyAction="http://tempuri.org/IOfertaService/TraePlanesAdquiridosEmpresaResponse")]
         System.Threading.Tasks.Task<co.itmasters.solucion.vo.OfertaVO[]> TraePlanesAdquiridosEmpresaAsync(co.itmasters.solucion.vo.OfertaVO Oferta);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/GetOfertaPersonaDetalle", ReplyAction="http://tempuri.org/IOfertaService/GetOfertaPersonaDetalleResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.OfertaVO[]))]
         co.itmasters.solucion.vo.OfertaVO GetOfertaPersonaDetalle(co.itmasters.solucion.vo.OfertaVO Ofertas);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/GetOfertaPersonaDetalle", ReplyAction="http://tempuri.org/IOfertaService/GetOfertaPersonaDetalleResponse")]
         System.Threading.Tasks.Task<co.itmasters.solucion.vo.OfertaVO> GetOfertaPersonaDetalleAsync(co.itmasters.solucion.vo.OfertaVO Ofertas);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/GetOfertaPersona", ReplyAction="http://tempuri.org/IOfertaService/GetOfertaPersonaResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.OfertaVO[]))]
         co.itmasters.solucion.vo.OfertaVO[] GetOfertaPersona(co.itmasters.solucion.vo.OfertaVO Ofertas);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/GetOfertaPersona", ReplyAction="http://tempuri.org/IOfertaService/GetOfertaPersonaResponse")]
         System.Threading.Tasks.Task<co.itmasters.solucion.vo.OfertaVO[]> GetOfertaPersonaAsync(co.itmasters.solucion.vo.OfertaVO Ofertas);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/TraeOfertaDetalle", ReplyAction="http://tempuri.org/IOfertaService/TraeOfertaDetalleResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.OfertaVO[]))]
         co.itmasters.solucion.vo.OfertaVO TraeOfertaDetalle(co.itmasters.solucion.vo.OfertaVO Ofertas);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/TraeOfertaDetalle", ReplyAction="http://tempuri.org/IOfertaService/TraeOfertaDetalleResponse")]
         System.Threading.Tasks.Task<co.itmasters.solucion.vo.OfertaVO> TraeOfertaDetalleAsync(co.itmasters.solucion.vo.OfertaVO Ofertas);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/TraerEstadisticasOferta", ReplyAction="http://tempuri.org/IOfertaService/TraerEstadisticasOfertaResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.OfertaVO[]))]
         co.itmasters.solucion.vo.OfertaVO TraerEstadisticasOferta(co.itmasters.solucion.vo.OfertaVO Ofertas);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/TraerEstadisticasOferta", ReplyAction="http://tempuri.org/IOfertaService/TraerEstadisticasOfertaResponse")]
         System.Threading.Tasks.Task<co.itmasters.solucion.vo.OfertaVO> TraerEstadisticasOfertaAsync(co.itmasters.solucion.vo.OfertaVO Ofertas);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/TraeOfertas", ReplyAction="http://tempuri.org/IOfertaService/TraeOfertasResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.OfertaVO[]))]
+        co.itmasters.solucion.vo.OfertaVO[] TraeOfertas(co.itmasters.solucion.vo.OfertaVO Ofertas);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/TraeOfertas", ReplyAction="http://tempuri.org/IOfertaService/TraeOfertasResponse")]
+        System.Threading.Tasks.Task<co.itmasters.solucion.vo.OfertaVO[]> TraeOfertasAsync(co.itmasters.solucion.vo.OfertaVO Ofertas);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/TraeOfertaEmpresa", ReplyAction="http://tempuri.org/IOfertaService/TraeOfertaEmpresaResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.OfertaVO[]))]
         co.itmasters.solucion.vo.OfertaVO[] TraeOfertaEmpresa(co.itmasters.solucion.vo.OfertaVO Ofertas);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/TraeOfertaEmpresa", ReplyAction="http://tempuri.org/IOfertaService/TraeOfertaEmpresaResponse")]
         System.Threading.Tasks.Task<co.itmasters.solucion.vo.OfertaVO[]> TraeOfertaEmpresaAsync(co.itmasters.solucion.vo.OfertaVO Ofertas);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/TraeEstadoOfertaEmpresa", ReplyAction="http://tempuri.org/IOfertaService/TraeEstadoOfertaEmpresaResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.OfertaVO[]))]
         co.itmasters.solucion.vo.OfertaVO[] TraeEstadoOfertaEmpresa(co.itmasters.solucion.vo.OfertaVO Estado);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/TraeEstadoOfertaEmpresa", ReplyAction="http://tempuri.org/IOfertaService/TraeEstadoOfertaEmpresaResponse")]
         System.Threading.Tasks.Task<co.itmasters.solucion.vo.OfertaVO[]> TraeEstadoOfertaEmpresaAsync(co.itmasters.solucion.vo.OfertaVO Estado);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/TraeEstadoOferta", ReplyAction="http://tempuri.org/IOfertaService/TraeEstadoOfertaResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.OfertaVO[]))]
         co.itmasters.solucion.vo.OfertaVO[] TraeEstadoOferta(co.itmasters.solucion.vo.OfertaVO Estado);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/TraeEstadoOferta", ReplyAction="http://tempuri.org/IOfertaService/TraeEstadoOfertaResponse")]
         System.Threading.Tasks.Task<co.itmasters.solucion.vo.OfertaVO[]> TraeEstadoOfertaAsync(co.itmasters.solucion.vo.OfertaVO Estado);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/AnulaOferta", ReplyAction="http://tempuri.org/IOfertaService/AnulaOfertaResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.OfertaVO[]))]
         void AnulaOferta(co.itmasters.solucion.vo.OfertaVO Oferta);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/AnulaOferta", ReplyAction="http://tempuri.org/IOfertaService/AnulaOfertaResponse")]
         System.Threading.Tasks.Task AnulaOfertaAsync(co.itmasters.solucion.vo.OfertaVO Oferta);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/PublicarOferta", ReplyAction="http://tempuri.org/IOfertaService/PublicarOfertaResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.OfertaVO[]))]
         void PublicarOferta(co.itmasters.solucion.vo.OfertaVO Oferta);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/PublicarOferta", ReplyAction="http://tempuri.org/IOfertaService/PublicarOfertaResponse")]
         System.Threading.Tasks.Task PublicarOfertaAsync(co.itmasters.solucion.vo.OfertaVO Oferta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/AprobarOfertas", ReplyAction="http://tempuri.org/IOfertaService/AprobarOfertasResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAcademiaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaAptitudVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PersonaExperienciaVO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.OfertaVO[]))]
+        void AprobarOfertas(co.itmasters.solucion.vo.OfertaVO Oferta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/AprobarOfertas", ReplyAction="http://tempuri.org/IOfertaService/AprobarOfertasResponse")]
+        System.Threading.Tasks.Task AprobarOfertasAsync(co.itmasters.solucion.vo.OfertaVO Oferta);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -113,6 +266,14 @@ namespace co.itmasters.solucion.web.OfertaService {
         
         public OfertaServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public void ModifyPagos(co.itmasters.solucion.vo.OfertaVO pago) {
+            base.Channel.ModifyPagos(pago);
+        }
+        
+        public System.Threading.Tasks.Task ModifyPagosAsync(co.itmasters.solucion.vo.OfertaVO pago) {
+            return base.Channel.ModifyPagosAsync(pago);
         }
         
         public co.itmasters.solucion.vo.PersonaVO[] Postulados(co.itmasters.solucion.vo.OfertaVO oferta) {
@@ -171,6 +332,14 @@ namespace co.itmasters.solucion.web.OfertaService {
             return base.Channel.TraerEstadisticasOfertaAsync(Ofertas);
         }
         
+        public co.itmasters.solucion.vo.OfertaVO[] TraeOfertas(co.itmasters.solucion.vo.OfertaVO Ofertas) {
+            return base.Channel.TraeOfertas(Ofertas);
+        }
+        
+        public System.Threading.Tasks.Task<co.itmasters.solucion.vo.OfertaVO[]> TraeOfertasAsync(co.itmasters.solucion.vo.OfertaVO Ofertas) {
+            return base.Channel.TraeOfertasAsync(Ofertas);
+        }
+        
         public co.itmasters.solucion.vo.OfertaVO[] TraeOfertaEmpresa(co.itmasters.solucion.vo.OfertaVO Ofertas) {
             return base.Channel.TraeOfertaEmpresa(Ofertas);
         }
@@ -209,6 +378,14 @@ namespace co.itmasters.solucion.web.OfertaService {
         
         public System.Threading.Tasks.Task PublicarOfertaAsync(co.itmasters.solucion.vo.OfertaVO Oferta) {
             return base.Channel.PublicarOfertaAsync(Oferta);
+        }
+        
+        public void AprobarOfertas(co.itmasters.solucion.vo.OfertaVO Oferta) {
+            base.Channel.AprobarOfertas(Oferta);
+        }
+        
+        public System.Threading.Tasks.Task AprobarOfertasAsync(co.itmasters.solucion.vo.OfertaVO Oferta) {
+            return base.Channel.AprobarOfertasAsync(Oferta);
         }
     }
 }

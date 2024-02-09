@@ -13,6 +13,9 @@ using co.itmasters.solucion.web.EmpresaService;
 using co.itmasters.solucion.web.Components_UI;
 using System.Web.UI.HtmlControls;
 using System.Runtime;
+using MercadoPago.Resource.Preference;
+using MercadoPago.Client.Preference;
+using MercadoPago.Resource.Payment;
 
 
 namespace co.itmasters.solucion.web.Facturacion
@@ -64,7 +67,7 @@ namespace co.itmasters.solucion.web.Facturacion
             OfertaVO datosConsulta = new OfertaVO();
             datosConsulta.typeModify = TipoConsulta.GET;
             datosConsulta.idUsuario = user.IdUsuario;
-            datosConsulta.estado = EstadoPago.ESTADO_CONSOLIDADO;
+            datosConsulta.estado = EstadoPago.ESTADO_CONSILIADO;
 
             _OfertaService = new OfertaServiceClient();
             List<OfertaVO> resultado = _OfertaService.TraePlanesAdquiridosEmpresa(datosConsulta).ToList();
@@ -116,23 +119,28 @@ namespace co.itmasters.solucion.web.Facturacion
         }
         protected void ProcesarPago()
         {
-            if (Request.QueryString["preference_id"] != null && Request.QueryString["status"] != null)
+            if (Request.QueryString["preference_id"] != null 
+                && Request.QueryString["status"] != null 
+                && Request.QueryString["payment_id"] != null)
             {
                 string preferenceId = Request.QueryString["preference_id"];
                 string status = Request.QueryString["status"];
+                string paymentId = Request.QueryString["payment_id"];
+
+                
                 switch (status)
                 {
-                    case EstadoPago.MECADOPAGO_APROBADO:
+                    case PaymentStatus.Approved:
                         Master.mostrarMensaje("Plan Adquirido con Exito", Master.EXITO);
-                        UpdatePlanAdquirido(preferenceId, EstadoPago.ESTADO_CONSOLIDADO);
+                        UpdatePlanAdquirido(preferenceId, paymentId, EstadoPago.ESTADO_CONSILIADO);
                         break;
-                    case EstadoPago.MECADOPAGO_PENDIENTE:
+                    case PaymentStatus.InProcess:
                         Master.mostrarMensaje("En unas horas validaremos el pago", Master.INFORMACION);
-                        UpdatePlanAdquirido(preferenceId, EstadoPago.ESTADO_PENDIENTE);
+                        UpdatePlanAdquirido(preferenceId, paymentId, EstadoPago.ESTADO_PENDIENTE);
                         break;
-                    case EstadoPago.MECADOPAGO_RECHAZADO:
+                    case PaymentStatus.Rejected:
                         Master.mostrarMensaje("No logramos procesar el pago intentalo nuevamente", Master.ERROR);
-                        UpdatePlanAdquirido(preferenceId, EstadoPago.ESTADO_RECHAZADO);
+                        UpdatePlanAdquirido(preferenceId, paymentId, EstadoPago.ESTADO_RECHAZADO);
                         break;
                     default:
                         break;
@@ -143,7 +151,7 @@ namespace co.itmasters.solucion.web.Facturacion
 
             }
         }
-        protected object UpdatePlanAdquirido(string preferenceId, string estado)
+        protected object UpdatePlanAdquirido(string preferenceId,string paymentId , string estado)
         {
             user = ((UserVO)Session["UsuarioAutenticado"]);
             try
@@ -153,7 +161,8 @@ namespace co.itmasters.solucion.web.Facturacion
 
                 newEmpresa.typeModify = TipoConsulta.MODIFY_UPDATE;
                 newEmpresa.idUsuario = user.IdUsuario;
-                newEmpresa.estado = estado;
+                newPlan.estado = estado;
+                newPlan.payment_id = paymentId;
                 newPlan.preference_id = preferenceId;
                 newEmpresa.Oferta = newPlan;
 
