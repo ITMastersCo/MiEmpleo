@@ -11,6 +11,7 @@ using MercadoPago.Resource.User;
 using co.itmasters.solucion.servicios.code;
 using System.Numerics;
 using co.itmasters.solucion.servicios.code.MercadoPagoApi.Models;
+using System.Web.Configuration;
 
 namespace co.itmasters.solucion.servicios
 {
@@ -70,31 +71,21 @@ namespace co.itmasters.solucion.servicios
                 _Empresa.CreatePlanAdquirido(newEmpresa);
 
 
+                if (estadoPago == EstadoPago.ESTADO_CONSOLIDADO) {
 
-                var newPago = new OfertaVO();
-                newPago.typeModify = TipoConsulta.MODIFY_INSERT;
-                newPago.payment_id = payment.id.ToString() ;
-                newPago.payment_method = payment.payment_method.ToString();
-                newPago.idPlanAdquirido = Convert.ToInt16(payment.additional_info.items[0].id);
-                switch (payment.status)
-                {
-                    case PaymentStatus.Approved:
-                        newPago.estado = EstadoPago.ESTADO_CONSOLIDADO;
+                    var newPago = new OfertaVO();
+                    newPago.typeModify = TipoConsulta.MODIFY_INSERT;
+                    newPago.descripcionPago = payment.description;
+                    newPago.payment_id = payment.id.ToString();
+                    newPago.payment_method = payment.payment_type_id;
+                    newPago.idPlanAdquirido = Convert.ToInt16(payment.additional_info.items[0].id);
+                    newPago.estado = EstadoPago.ESTADO_CONSOLIDADO;
+                    newPago.valorPago = Convert.ToInt32(payment.transaction_amount);
 
-                        break;
-                    case PaymentStatus.InProcess:
-                        newPago.estado = EstadoPago.ESTADO_PENDIENTE;
-                        break;
-                    case PaymentStatus.Rejected:
-                        newPago.estado = EstadoPago.ESTADO_RECHAZADO;
-                        break;
-                    default:
-                        break;
+                    _Oferta = new OfertaService();
+                    _Oferta.ModifyPagos(newPago);
                 }
-                newPago.valorPago = Convert.ToInt32(payment.transaction_amount);
-
-                _Oferta = new OfertaService();
-                //_Oferta.ModifyPagos(newPago);
+                
             }
             catch (Exception e)
             {

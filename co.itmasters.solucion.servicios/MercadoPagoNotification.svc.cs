@@ -112,6 +112,10 @@ namespace co.itmasters.solucion.servicios
                     case PaymentStatus.InProcess:
                         MercadoPagoService _MercadoPagoServiceInProcess = new MercadoPagoService();
                         _MercadoPagoServiceInProcess.UpdatePayment(payment, EstadoPago.ESTADO_PENDIENTE);
+                        break;
+                    case PaymentStatus.Pending:
+                        MercadoPagoService _MercadoPagoServicePending= new MercadoPagoService();
+                        _MercadoPagoServicePending.UpdatePayment(payment, EstadoPago.ESTADO_PENDIENTE);
                         break; 
                     case PaymentStatus.Rejected:
                         MercadoPagoService _MercadoPagoServiceRejected = new MercadoPagoService();

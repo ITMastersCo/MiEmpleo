@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -198,6 +199,7 @@ namespace co.itmasters.solucion.servicios.code.MercadoPagoApi.Models
         public string operation_type { get; set; }
         public Object order { get; set; }
         public PaymentMethod payment_method { get;  set; }
+        public string  payment_type_id { get; set; }
         public string status { get;  set; }
         public int? transaction_amount { get;  set; }
     }

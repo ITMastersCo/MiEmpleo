@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Permissions;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,6 +20,7 @@ namespace co.itmasters.solucion.vo
         public int? idOferta { get; set; }
         public int? idPlan { get; set; }
         public int? idPago { get; set; }
+        public string descripcionPago {  get; set; }
         public int? idPlanAdquirido { get; set; }
         public string tituloVacante { get; set; }
         public string numIdentificacion { get; set; }

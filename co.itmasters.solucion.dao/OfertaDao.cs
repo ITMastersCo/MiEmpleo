@@ -42,6 +42,7 @@ namespace co.itmasters.solucion.dao
         public const string OFERTA_IDEMPRESA = "idEmpresa";
         public const string OFERTA_IDPLAN = "idPlan";
         public const string OFERTA_IDPAGO = "idPago";
+        public const string OFERTA_DESCRIPCIONPAGO = "descripcion";
         public const string OFERTA_VALORPAGO = "valor";
         public const string OFERTA_IDPLANADQUIRIDO = "idPlanAdquirido";
         public const string OFERTA_TITULOVACANTE = "tituloVacante";
@@ -135,6 +136,7 @@ namespace co.itmasters.solucion.dao
         // Mercado Pago
 
         public const string MERCADOPAGO_PAYMENT_ID = "payment_id";
+        public const string MERCADOPAGO_PAYMENT_METHOD = "payment_method";
         public const string MERCADOPAGO_PREFERENCE_ID = "preference_id";
 
         #endregion
@@ -212,8 +214,9 @@ namespace co.itmasters.solucion.dao
                     new Parametro(OFERTA_IDPLAN, pago.idPlan, DbType.Int32),
                     new Parametro(OFERTA_IDPLANADQUIRIDO, pago.idPlanAdquirido, DbType.Int32),
                     new Parametro(OFERTA_IDOFERTA, pago.idOferta, DbType.Int32),
-                    new Parametro(MERCADOPAGO_PAYMENT_ID, pago.payment_id, DbType.Int32),
-                    new Parametro(MERCADOPAGO_PREFERENCE_ID, pago.payment_method, DbType.Int32),
+                    new Parametro(OFERTA_DESCRIPCIONPAGO, pago.descripcionPago, DbType.String),
+                    new Parametro(MERCADOPAGO_PAYMENT_ID, pago.payment_id, DbType.String),
+                    new Parametro(MERCADOPAGO_PAYMENT_METHOD, pago.payment_method, DbType.String),
                     new Parametro(OFERTA_ESTADO, pago.estado, DbType.String),
                     new Parametro(OFERTA_VALORPAGO, pago.valorPago, DbType.Int32),
                 };
