@@ -102,7 +102,7 @@ namespace co.itmasters.solucion.web.Administracion
             {
                 lblError.Text = "";
                 divObservacion.Style["display"] = "block";
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", "showModal();", true);
+             
                 if (txtObservacion.Text.Length >10)
                 {
                     

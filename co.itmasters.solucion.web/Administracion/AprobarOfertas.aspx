@@ -2,16 +2,7 @@
 
 <%@ MasterType VirtualPath="../ITMasters.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Main" runat="server">
-    <script type="text/javascript">
-
-        function showModal() {
-            document.getElementById('Main_openModal').style.display = 'flex';
-        }
-        function CloseModal2() {
-            document.getElementById('Main_openModal').style.display = 'none';
-        }
-
-    </script>
+    
     <style type="text/css">
         .modalDialog {
             position: fixed;
@@ -224,4 +215,14 @@
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
+    <script type="text/javascript">
+
+        function showModal() {
+            document.getElementById('Main_openModal').style.display = 'flex';
+        }
+        function CloseModal2() {
+            document.getElementById('Main_openModal').style.display = 'none';
+        }
+
+    </script>
 </asp:Content>

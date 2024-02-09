@@ -35,12 +35,7 @@ namespace co.itmasters.solucion.web.Reportes
             {
                 
             }
-
-           
-
            Master.OcultarBanda();
-            
-
         }
 
 
