@@ -1151,6 +1151,205 @@ bg-red-100 {
 .p-r-5rem{
     padding-right:5rem;
 }
+/* Padding Utilities */
+.pad-0 {
+    padding: 0;
+}
+
+.pad-1 {
+    padding: 0.25rem;
+}
+
+.pad-2 {
+    padding: 0.5rem;
+}
+
+.pad-3 {
+    padding: 0.75rem;
+}
+
+.pad-4 {
+    padding: 1rem;
+}
+
+.pad-5 {
+    padding: 1.25rem;
+}
+
+.pad-6 {
+    padding: 1.5rem;
+}
+
+.pad-8 {
+    padding: 2rem;
+}
+
+.pad-10 {
+    padding: 2.5rem;
+}
+
+.pad-12 {
+    padding: 3rem;
+}
+
+.pad-16 {
+    padding: 4rem;
+}
+
+.pad-20 {
+    padding: 5rem;
+}
+
+.pad-24 {
+    padding: 6rem;
+}
+
+.pad-32 {
+    padding: 8rem;
+}
+
+/* Horizontal Padding Utilities */
+.pad-x-0 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.pad-x-1 {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+}
+
+.pad-x-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.pad-x-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.pad-x-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.pad-x-5 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+.pad-x-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.pad-x-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.pad-x-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+.pad-x-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.pad-x-16 {
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.pad-x-20 {
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.pad-x-24 {
+    padding-left: 6rem;
+    padding-right: 6rem;
+}
+
+.pad-x-32 {
+    padding-left: 8rem;
+    padding-right: 8rem;
+}
+
+/* Vertical Padding Utilities */
+.pad-y-0 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.pad-y-1 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.pad-y-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.pad-y-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.pad-y-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.pad-y-5 {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+}
+
+.pad-y-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.pad-y-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.pad-y-10 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+.pad-y-12 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.pad-y-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.pad-y-20 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.pad-y-24 {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+.pad-y-32 {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}
+
 
 
 .text-box:active, .text-box:focus-visible, .text-box:focus, .text-box:target {

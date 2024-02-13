@@ -70,16 +70,7 @@
                                     <br />
                                     <asp:ImageButton ID="ImgRenovar" runat="Server" Style="height: 25px; width: 25px;" CommandArgument="<% # Container.DataItemIndex %>" CommandName="Renovar" ImageUrl="~/Images/Actualizar.svg" ToolTip="Renovar oferta." />
                                     <asp:ImageButton ID="ImgDuplicar" runat="Server" Style="height: 25px; width: 25px;" CommandArgument="<% # Container.DataItemIndex %>" CommandName="Duplicar" ImageUrl="~/Images/Duplicar.svg" ToolTip="Duplicar oferta" />
-                                    <br />
-                                    <asp:Label ID="Label2" runat="server" AssociatedControlID="CheckBox1" CssClass="check-box">
-                                        <p>Destacada</p>
-                                        <span>
-                                            <asp:CheckBox ID="CheckBox1" runat="server" Enabled="true" CssClass="" />
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                                            </svg>
-                                        </span>
-                                    </asp:Label>
+                                    
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

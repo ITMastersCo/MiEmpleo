@@ -37,6 +37,7 @@
                             <asp:TemplateField Visible="false">
                                 <ItemTemplate>
                                     <asp:Label ID="lblidOferta" runat="server" Text='<%# Eval("idOferta") %>'></asp:Label>
+                                    <asp:Label ID="lblEsDestacada" runat="server" Text='<%# Eval("esDestacada") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField Visible="true">
@@ -65,7 +66,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField Visible="true">
                                 <ItemTemplate>
-                                       <div class="flex gap-16" >
+                                       <div class="flex gap-16 flex-center w-100per" >
                                       <div>
 
                                     <asp:ImageButton ID="imgEditar" runat="Server" Style="height: 25px; width: 25px;" CommandArgument="<% # Container.DataItemIndex %>" CommandName="Editar" ImageUrl="~/Images/Editar.svg    " ToolTip="Editar la oferta." />
@@ -76,7 +77,7 @@
                                     </div>
                                         <div class="flex flex-col">
 
-                                            <asp:Label Text="Destacar" runat="server" CssClass="button text-normal pointer" Style="z-index: 20;" AssociatedControlID="btnDestacarOferta" />
+                                            <asp:Label ID="lblDestacarOferta"  Text="Destacar" runat="server" CssClass="button text-normal pointer" Style="z-index: 20;" AssociatedControlID="btnDestacarOferta" />
 
                                             <asp:Button Text="" runat="server" ID="btnDestacarOferta" CssClass="hidden"
                                                 OnCommand="btnDestacarOferta_Command" CommandArgument="<% # Container.DataItemIndex %>" />

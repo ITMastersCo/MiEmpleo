@@ -135,7 +135,7 @@ namespace co.itmasters.solucion.web.Facturacion
                 switch (status)
                 {
                     case PaymentStatus.Approved:
-                        Master.mostrarMensaje("Plan Adquirido con Exito", Master.EXITO);
+                        
                         UpdatePlanAdquirido(preferenceId, paymentId, EstadoPago.ESTADO_CONCILIADO);
                         UpdatePago(paymentId, EstadoPago.ESTADO_CONCILIADO);
                         break;
@@ -195,10 +195,12 @@ namespace co.itmasters.solucion.web.Facturacion
             newPago.payment_method = payment.payment_type_id;
             if (payment.description.Contains("Oferta"))
             {
+                Master.mostrarMensaje("Oferta destacada con Exito", Master.EXITO);
                 newPago.idOferta = Convert.ToInt16(payment.additional_info.items[0].id);
             }
             else
             {
+                Master.mostrarMensaje("Plan Adquirido con Exito", Master.EXITO);
                 newPago.idPlanAdquirido = Convert.ToInt16(payment.additional_info.items[0].id);
             }
             newPago.estado = EstadoPago.ESTADO_CONCILIADO;

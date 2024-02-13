@@ -202,6 +202,12 @@ namespace co.itmasters.solucion.web.Empresa
                         imgDelete.Enabled = true;
                         imgRenew.Enabled = false;
                         imgDup.Enabled = true;
+                        if (Convert.ToBoolean(((Label)rowPro.FindControl("lblEsDestacada")).Text) == true)
+                        {
+                            ((Label)rowPro.FindControl("lblDestacarOferta")).Text = "Destacada";
+                            ((Label)rowPro.FindControl("lblDestacarOferta")).CssClass = "bg-green-400 text-mediumn rounded pad-x-3 pad-y-1 color-gary-700";
+                            ((Button)rowPro.FindControl("btnDestacarOferta")).Enabled = false;
+                        }
                     }
                 }
             }
