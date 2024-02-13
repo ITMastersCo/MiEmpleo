@@ -76,7 +76,55 @@ namespace co.itmasters.solucion.servicios
 
         public void UpdatePayment(PaymentVO payment, string estadoPago)
         {
+            if (payment.description.Contains("Oferta"))
+            {
+                PagoOfertaDestacada(payment, estadoPago);
+            }else
+            {
+                PagoPlanAdquirido(payment, estadoPago);
+            }
+
+
+
+        }
+        private void PagoPlanAdquirido(PaymentVO payment, string estadoPago)
+        {
             try
+            {
+                UpdatePlanAdquirido( payment, estadoPago ); 
+                if(estadoPago == EstadoPago.ESTADO_CONSOLIDADO)
+                {
+                    int idPlanAdquirido = Convert.ToInt16(payment.additional_info.items[0].id);
+                    int? idOferta = null;
+
+                    UpdatePago(payment,idPlanAdquirido , idOferta);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        private void PagoOfertaDestacada(PaymentVO payment, string estadoPago)
+        {
+            try
+            {
+                if (estadoPago == EstadoPago.ESTADO_CONSOLIDADO)
+                {
+                    int idOferta = Convert.ToInt16(payment.additional_info.items[0].id);
+                    int? idPlanAdquirido = null;
+
+                    UpdatePago(payment, idPlanAdquirido,idOferta);
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        private void UpdatePlanAdquirido(PaymentVO payment, string estadoPago)
+        { try
             {
                 EmpresaVO newEmpresa = new EmpresaVO();
                 OfertaVO newPlan = new OfertaVO();
@@ -84,34 +132,41 @@ namespace co.itmasters.solucion.servicios
                 newPlan.idPlanAdquirido = Convert.ToInt32(payment.additional_info.items[0].id);
                 newPlan.estado = estadoPago;
                 newPlan.payment_id = payment.id.ToString();
-                
+
                 newEmpresa.Oferta = newPlan;
 
                 _Empresa = new EmpresaService();
                 _Empresa.CreatePlanAdquirido(newEmpresa);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
 
-
-                if (estadoPago == EstadoPago.ESTADO_CONSOLIDADO) {
-
+        }
+        private void UpdatePago(PaymentVO payment,int? idPlanAdquirido, int? idOferta)
+        {
+            try
+            {
                     var newPago = new OfertaVO();
                     newPago.typeModify = TipoConsulta.MODIFY_INSERT;
                     newPago.descripcionPago = payment.description;
                     newPago.payment_id = payment.id.ToString();
                     newPago.payment_method = payment.payment_type_id;
-                    newPago.idPlanAdquirido = Convert.ToInt16(payment.additional_info.items[0].id);
+                    newPago.idPlanAdquirido = idPlanAdquirido;
+                    newPago.idOferta = idOferta;    
                     newPago.estado = EstadoPago.ESTADO_CONSOLIDADO;
                     newPago.valorPago = Convert.ToInt32(payment.transaction_amount);
 
                     _Oferta = new OfertaService();
-                    _Oferta.ModifyPagos(newPago);
-                }
-                
+                _Oferta.ModifyPagos(newPago);
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
         }
+
     
     }
 }
