@@ -15,22 +15,7 @@ namespace co.itmasters.solucion.web.Code
         public const int USUARIO_ADMINISTRADOR = 3;
 
     }
-    public static class TipoConsulta
-    {
-
-        public const string MODIFY_TYPE = "modifyType";
-        public const string GET = "GET";
-        public const string MODIFY_INSERT = "INS";
-        public const string MODIFY_UPDATE = "UPD";
-        public const string MODIFY_DELETE = "DEL";
-
-    }
-    public static class EstadoPago
-    {
-        public const string ESTADO_CONSILIADO = "CON";
-        public const string ESTADO_PENDIENTE = "PEN";
-        public const string ESTADO_RECHAZADO = "REC";
-    }
+   
 }
 
 

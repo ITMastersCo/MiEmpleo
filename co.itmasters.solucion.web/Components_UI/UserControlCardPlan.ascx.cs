@@ -18,6 +18,7 @@ using System.Drawing;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using co.itmasters.solucion.web.Empresa;
 using MercadoPago.Client.Payment;
+using co.itmasters.solucion.vo.constantes;
 
 namespace co.itmasters.solucion.web.Components_UI
 {

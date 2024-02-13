@@ -12,6 +12,7 @@ using System.IO;
 using co.itmasters.solucion.web.EmpresaService;
 using System.Web.Hosting;
 using System.Data;
+using co.itmasters.solucion.vo.constantes;
 
 namespace co.itmasters.solucion.web.Empresa
 {

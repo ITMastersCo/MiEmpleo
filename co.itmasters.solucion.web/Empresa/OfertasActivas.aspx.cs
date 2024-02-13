@@ -12,6 +12,10 @@ using System.Web.Services;
 using System.IO;
 using co.itmasters.solucion.web.EmpresaService;
 using System.Data;
+using MercadoPago.Client.Preference;
+using MercadoPago.Config;
+using MercadoPago.Resource.Preference;
+using co.itmasters.solucion.vo.constantes;
 
 
 namespace co.itmasters.solucion.web.Empresa
@@ -373,10 +377,79 @@ namespace co.itmasters.solucion.web.Empresa
         {
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", $"CloseModal('{detalleOferta.ClientID}', '{openModal.ClientID}')", true);
         }
-
-        protected void btnDestacarOferta_Command(object sender, CommandEventArgs e)
+        protected async void CreatePreferenceAsync(int idOferta)
         {
 
+            user = ((UserVO)Session["UsuarioAutenticado"]);
+            try
+            {
+
+                MercadoPagoConfig.AccessToken = "APP_USR-2148574929506385-013011-2a326a05936b10aaeafa5b0b78b61be6-1660977390";
+
+                //Url dominio
+                string fullUrl = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
+
+
+
+                string idPlanAdquirido = lblIdOferta.Text;
+
+                var request = new PreferenceRequest
+                {
+
+                    Items = new List<PreferenceItemRequest>
+                      {
+                          new PreferenceItemRequest
+                          {
+                              Id = idPlanAdquirido,
+                              Title = "Destacar Oferta" ,
+                              Quantity = 1,
+                              CurrencyId = "COP",
+                              UnitPrice = 50000,
+                          },
+
+                      },
+                    BackUrls = new PreferenceBackUrlsRequest
+                    {
+                        Success = $"{fullUrl}/Facturacion/Facturacion.aspx",
+                        Failure = $"{fullUrl}/Facturacion/Facturacion.aspx",
+                        Pending = $"{fullUrl}/Facturacion/Facturacion.aspx",
+                    },
+                    AutoReturn = "approved",
+                };
+
+                // Crea la preferencia usando el client
+                var client = new PreferenceClient();
+                Preference preference = await client.CreateAsync(request);
+                if (preference != null)
+                {
+
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba"
+                     , $"payMercadoPago('{preference.Id}','M{idOferta}_wallet_container')", true);
+                }
+
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+        }
+        protected void btnDestacarOferta_Command(object sender, CommandEventArgs e)
+        {
+            try
+            {
+                Int32 index = Convert.ToInt32(e.CommandArgument) % GrdOfertas.PageSize;
+                GridViewRow row = GrdOfertas.Rows[index];
+                Int32 Id = Convert.ToInt32(((Label)row.FindControl("lblidOferta")).Text);
+
+                CreatePreferenceAsync(Id);
+
+            }
+            catch (Exception err)
+            {
+                throw new Exception(err.Message);
+            }
         }
     }
 }

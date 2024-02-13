@@ -11,6 +11,7 @@ using co.itmasters.solucion.vo;
 using System.IO;
 using System.Web.Services;
 using System.Web;
+using co.itmasters.solucion.vo.constantes;
 
 
 namespace co.itmasters.solucion.web.Personal

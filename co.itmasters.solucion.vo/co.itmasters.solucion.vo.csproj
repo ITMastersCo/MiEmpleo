@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutocompleteFormulario.cs" />
+    <Compile Include="Constantes.cs" />
     <Compile Include="OfertaVO.cs" />
     <Compile Include="EmpresaVO.cs" />
     <Compile Include="MessageVo.cs" />

@@ -16,7 +16,8 @@ using System.Runtime;
 using MercadoPago.Resource.Preference;
 using MercadoPago.Client.Preference;
 using MercadoPago.Resource.Payment;
-
+using co.itmasters.solucion.vo.constantes;
+using co.itmasters.solucion.web.MercadoPagoService;
 
 namespace co.itmasters.solucion.web.Facturacion
 {
@@ -67,7 +68,7 @@ namespace co.itmasters.solucion.web.Facturacion
             OfertaVO datosConsulta = new OfertaVO();
             datosConsulta.typeModify = TipoConsulta.GET;
             datosConsulta.idUsuario = user.IdUsuario;
-            datosConsulta.estado = EstadoPago.ESTADO_CONSILIADO;
+            datosConsulta.estado = EstadoPago.ESTADO_CONCILIADO;
 
             _OfertaService = new OfertaServiceClient();
             List<OfertaVO> resultado = _OfertaService.TraePlanesAdquiridosEmpresa(datosConsulta).ToList();
@@ -119,6 +120,7 @@ namespace co.itmasters.solucion.web.Facturacion
         }
         protected void ProcesarPago()
         {
+
             if (Request.QueryString["preference_id"] != null 
                 && Request.QueryString["status"] != null 
                 && Request.QueryString["payment_id"] != null)
@@ -126,13 +128,12 @@ namespace co.itmasters.solucion.web.Facturacion
                 string preferenceId = Request.QueryString["preference_id"];
                 string status = Request.QueryString["status"];
                 string paymentId = Request.QueryString["payment_id"];
-
                 
                 switch (status)
                 {
                     case PaymentStatus.Approved:
                         Master.mostrarMensaje("Plan Adquirido con Exito", Master.EXITO);
-                        UpdatePlanAdquirido(preferenceId, paymentId, EstadoPago.ESTADO_CONSILIADO);
+                        UpdatePlanAdquirido(preferenceId, paymentId, EstadoPago.ESTADO_CONCILIADO);
                         break;
                     case PaymentStatus.InProcess:
                         Master.mostrarMensaje("En unas horas validaremos el pago", Master.INFORMACION);
