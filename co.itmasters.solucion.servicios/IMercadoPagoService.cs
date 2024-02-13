@@ -18,12 +18,13 @@ namespace co.itmasters.solucion.servicios
     [ServiceContract]
     public interface IMercadoPagoService
     {
-        [OperationContract]
-        Task<Preference>  CrearPreferencia(EmpresaVO newPlanAdquirido);
 
         [OperationContract]
         void UpdatePayment(PaymentVO payment, string estadoPago);
 
+        [OperationContract]
+        PaymentVO GetPayment(string id);
+
     }
- 
+
 }

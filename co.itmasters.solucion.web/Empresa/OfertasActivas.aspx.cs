@@ -373,5 +373,10 @@ namespace co.itmasters.solucion.web.Empresa
         {
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", $"CloseModal('{detalleOferta.ClientID}', '{openModal.ClientID}')", true);
         }
+
+        protected void btnDestacarOferta_Command(object sender, CommandEventArgs e)
+        {
+
+        }
     }
 }

@@ -12,48 +12,68 @@ using co.itmasters.solucion.servicios.code;
 using System.Numerics;
 using co.itmasters.solucion.servicios.code.MercadoPagoApi.Models;
 using System.Web.Configuration;
+using Newtonsoft.Json;
+using System.IO;
+using System.Net;
 
 namespace co.itmasters.solucion.servicios
 {
     // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "MercadoPago" en el código, en svc y en el archivo de configuración a la vez.
     // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione MercadoPago.svc o MercadoPago.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class MercadoPagoService : IMercadoPagoService
-    {    
+    {
         EmpresaService _Empresa;
         OfertaService _Oferta;
-        public async Task<Preference> CrearPreferencia(EmpresaVO newPlanAdquirido)
+
+
+        /// <summary>
+        /// Consulta GET de un pago.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public PaymentVO GetPayment(string id)
         {
+            // Activa SSL para entorno de desarrollo 
+            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
 
-            MercadoPagoConfig.AccessToken = "APP_USR-2148574929506385-013011-2a326a05936b10aaeafa5b0b78b61be6-1660977390";
+            string ApiUrl = "https://api.mercadopago.com/v1/";
+            string AccesToken = "APP_USR-2148574929506385-013011-2a326a05936b10aaeafa5b0b78b61be6-1660977390";
 
-            //Crea el objeto de request de la preference
-            var request = new PreferenceRequest
+
+            var url = $"{ApiUrl}payments/72315965066";
+            var request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "GET";
+            request.ContentType = "application/json";
+            request.Accept = "application/json";
+            request.Headers["Authorization"] = $"Bearer {AccesToken}";
+
+            try
             {
-                Items = new List<PreferenceItemRequest>
-                      {
-                        new PreferenceItemRequest
-                        {
-                            Title = newPlanAdquirido.Oferta.nomPlan,
-                            Quantity = 1,
-                            CurrencyId = "COP",
-                            UnitPrice = Convert.ToInt32(newPlanAdquirido.Oferta.valorPlan),
-                        }
-
-                },
-                BackUrls = new PreferenceBackUrlsRequest
+                using (WebResponse response = request.GetResponse())
                 {
-                    Success = "http://localhost:8080/Empresa/PagoAprobado.aspx",
-                    Failure = "http://localhost:8080/Empresa/PagoAprobado.aspx",
-                    Pending = "http://localhost:8080/Empresa/PagoAprobado.aspx",
-                },
-                AutoReturn = "approved",
-            };
+                    using (Stream strReader = response.GetResponseStream())
+                    {
+                        if (strReader == null) return null; ;
+                        using (StreamReader objReader = new StreamReader(strReader))
+                        {
+                            string responseBody = objReader.ReadToEnd();
 
-            // Crea la preferencia usando el client
-            var client = new PreferenceClient();
-            Preference preference = await client.CreateAsync(request);
-            return preference;
+                            PaymentVO payment = JsonConvert.DeserializeObject<PaymentVO>(responseBody);
+
+
+                            return payment;
+                        }
+                    }
+                }
+            }
+            catch (WebException ex)
+            {
+                return null;
+                throw new Exception();
+            }
         }
+
         public void UpdatePayment(PaymentVO payment, string estadoPago)
         {
             try

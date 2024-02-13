@@ -78,8 +78,7 @@ namespace co.itmasters.solucion.servicios
                 {
                     case "payment":
                         //Consulta el pago en la Api
-                        PaymentVO payment =
-                            MercadoPagoApi.GetPayment(notification.Data.Id);
+                        PaymentVO payment = MercadoPagoApi.GetPayment(notification.Data.Id);
                         if(payment != null) 
                         ProcessPaymentNotification(payment); 
                         break;

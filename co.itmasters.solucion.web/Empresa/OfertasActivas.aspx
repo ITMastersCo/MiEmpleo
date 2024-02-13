@@ -1,4 +1,5 @@
-﻿<%@ Page Title="Ofertas Activas" Language="C#" MasterPageFile="~/ITMasters.Master" AutoEventWireup="true" CodeBehind="OfertasActivas.aspx.cs" Inherits="co.itmasters.solucion.web.Empresa.OfertasActivas" %>
+﻿<%@ Page Title="Ofertas Activas" Language="C#" MasterPageFile="~/ITMasters.Master" AutoEventWireup="true" 
+    CodeBehind="OfertasActivas.aspx.cs" Inherits="co.itmasters.solucion.web.Empresa.OfertasActivas"   Async="true" %>
 
 <%@ MasterType VirtualPath="../ITMasters.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Main" runat="server">
@@ -27,7 +28,7 @@
                 <asp:Button ID="btnBuscar" Visible="false" runat="server" CssClass="button" Text="Buscar" OnClick="btnBuscar_Click" />
 
             </div>
-
+            <div runat="server" ID="wallet_container" ></div>
             <%-- Lista de Ofertas activas --%>
             <div class="flex gap-16 flex-center m-auto">
                 <div class="flex-center">
@@ -64,21 +65,23 @@
                             </asp:TemplateField>
                             <asp:TemplateField Visible="true">
                                 <ItemTemplate>
+                                       <div class="flex gap-16" >
+                                      <div>
+
                                     <asp:ImageButton ID="imgEditar" runat="Server" Style="height: 25px; width: 25px;" CommandArgument="<% # Container.DataItemIndex %>" CommandName="Editar" ImageUrl="~/Images/Editar.svg    " ToolTip="Editar la oferta." />
                                     <asp:ImageButton ID="ImgBorrar" runat="Server" Style="height: 25px; width: 25px;" CommandArgument="<% # Container.DataItemIndex %>" CommandName="Eliminar" ImageUrl="~/Images/Eliminar.svg" ToolTip="Eliminar oferta." />
                                     <br />
                                     <asp:ImageButton ID="ImgRenovar" runat="Server" Style="height: 25px; width: 25px;" CommandArgument="<% # Container.DataItemIndex %>" CommandName="Renovar" ImageUrl="~/Images/Actualizar.svg" ToolTip="No disponible." />
                                     <asp:ImageButton ID="ImgDuplicar" runat="Server" Style="height: 25px; width: 25px;" CommandArgument="<% # Container.DataItemIndex %>" CommandName="Duplicar" ImageUrl="~/Images/Duplicar.svg" ToolTip="Duplicar oferta." />
-                                    <br />
-                                    <asp:Label ID="Label2" runat="server" AssociatedControlID="CheckBox1" CssClass="check-box">
-                                        <p>Destacada</p>
-                                        <span>
-                                            <asp:CheckBox ID="CheckBox1" runat="server" Enabled="true" CssClass="" />
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                                            </svg>
-                                        </span>
-                                    </asp:Label>
+                                    </div>
+                                        <div class="flex flex-col">
+
+                                            <asp:Label Text="Destacar" runat="server" CssClass="button text-normal pointer" Style="z-index: 20;" AssociatedControlID="btnDestacarOferta" />
+                                            <asp:Button Text="" runat="server" ID="btnDestacarOferta" CssClass="hidden"
+                                                OnCommand="btnDestacarOferta_Command" CommandArgument="<% # Container.DataItemIndex %>" />
+                                            <div id='M<%# Eval("idOferta") %>_wallet_container'></div>
+                                        </div>
+                                    </div>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
@@ -392,6 +395,42 @@
 
     </asp:UpdatePanel>
 
+    <script type="text/javascript">
+
+
+// Call the CreatePreference method and pass the reference ID
+
+    
+    function payMercadoPago(PreferenceId, walletContainer) {
+         console.log("pay")
+        // Pass the preference ID to the Mercado Pago button
+    const mp = new MercadoPago('APP_USR-c06e83e5-e43c-44a6-9874-4781ff66c9d6');
+        const bricksBuilder = mp.bricks();
+        
+        const renderComponent = () => {
+            //if (windows.checkoutButton) window.checkoutButton.unmount();
+            bricksBuilder.create("wallet", walletContainer, {
+                initialization: {
+                    preferenceId: PreferenceId,
+                    redirectMode: "blank",
+                },
+                callbacks: {
+                    onReady: () => {
+                    },
+                    onSubmit: () => { },
+                     onError: (error) => { console.error(error) }
+                 }
+             });
+        }
+        renderComponent();
+        
+    };
+
+
+    
+
+
+</script>
 
 
 </asp:Content>

@@ -157,6 +157,7 @@
 
     </form>
 
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
     <script type="text/javascript" src="../Scripts/MenuAcordeon.js"></script>
     <script type="text/javascript" src="../Scripts/MiEmpleo.js"></script>
 </body>

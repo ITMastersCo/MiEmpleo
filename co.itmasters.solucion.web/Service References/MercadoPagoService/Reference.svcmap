@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="dee442af-c257-4c72-805d-1e565ae07bf8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:3487/MercadoPagoService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MercadoPagoService.wsdl" MetadataType="Wsdl" ID="24393b6e-0fdd-439d-a19d-d09764e04213" SourceId="1" SourceUrl="http://localhost:3487/MercadoPagoService.svc?wsdl" />
+    <MetadataFile FileName="MercadoPagoService.disco" MetadataType="Disco" ID="f6a2c6d7-0a00-452a-ad66-d4e8b4804159" SourceId="1" SourceUrl="http://localhost:3487/MercadoPagoService.svc?disco" />
+    <MetadataFile FileName="MercadoPagoService.xsd" MetadataType="Schema" ID="b584efd6-1751-4933-ad5e-98b0dbf46421" SourceId="1" SourceUrl="http://localhost:3487/MercadoPagoService.svc?xsd=xsd2" />
+    <MetadataFile FileName="MercadoPagoService1.xsd" MetadataType="Schema" ID="09f5aa31-d3df-45b1-a9a8-30e7a786c797" SourceId="1" SourceUrl="http://localhost:3487/MercadoPagoService.svc?xsd=xsd3" />
+    <MetadataFile FileName="MercadoPagoService2.xsd" MetadataType="Schema" ID="d757ef01-2c43-4a08-825e-cbbb25e5aaaf" SourceId="1" SourceUrl="http://localhost:3487/MercadoPagoService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MercadoPagoService3.xsd" MetadataType="Schema" ID="d772908f-745e-42d9-8c74-dbae8248ee00" SourceId="1" SourceUrl="http://localhost:3487/MercadoPagoService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
