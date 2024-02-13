@@ -18,6 +18,8 @@ using MercadoPago.Client.Preference;
 using MercadoPago.Resource.Payment;
 using co.itmasters.solucion.vo.constantes;
 using co.itmasters.solucion.web.MercadoPagoService;
+using Newtonsoft.Json;
+using System.Net;
 
 namespace co.itmasters.solucion.web.Facturacion
 {
@@ -26,6 +28,7 @@ namespace co.itmasters.solucion.web.Facturacion
         private OfertaServiceClient _OfertaService;
         private UserVO user;
         private EmpresaServiceClient _Empresa;
+        private MercadoPagoServiceClient _MercadoPagoService;
         protected void Page_Load(object sender, EventArgs e)
         {
             user = ((UserVO)Session["UsuarioAutenticado"]);
@@ -134,6 +137,7 @@ namespace co.itmasters.solucion.web.Facturacion
                     case PaymentStatus.Approved:
                         Master.mostrarMensaje("Plan Adquirido con Exito", Master.EXITO);
                         UpdatePlanAdquirido(preferenceId, paymentId, EstadoPago.ESTADO_CONCILIADO);
+                        UpdatePago(paymentId, EstadoPago.ESTADO_CONCILIADO);
                         break;
                     case PaymentStatus.InProcess:
                         Master.mostrarMensaje("En unas horas validaremos el pago", Master.INFORMACION);
@@ -152,7 +156,7 @@ namespace co.itmasters.solucion.web.Facturacion
 
             }
         }
-        protected object UpdatePlanAdquirido(string preferenceId,string paymentId , string estado)
+        protected object UpdatePlanAdquirido(string preferenceId, string paymentId, string estado)
         {
             user = ((UserVO)Session["UsuarioAutenticado"]);
             try
@@ -175,6 +179,75 @@ namespace co.itmasters.solucion.web.Facturacion
             catch (Exception e)
             {
                 throw new Exception(e.Message);
+            }
+        }
+        private void UpdatePago(string id, string estadoPago)
+        {
+            
+            //api
+            PaymentVO payment = GetPayment(id);
+
+            var newPago = new OfertaVO();
+            newPago.typeModify = TipoConsulta.MODIFY_INSERT;
+            newPago.idUsuario = user.IdUsuario;
+            newPago.descripcionPago = payment.description;
+            newPago.payment_id = payment.id.ToString();
+            newPago.payment_method = payment.payment_type_id;
+            if (payment.description.Contains("Oferta"))
+            {
+                newPago.idOferta = Convert.ToInt16(payment.additional_info.items[0].id);
+            }
+            else
+            {
+                newPago.idPlanAdquirido = Convert.ToInt16(payment.additional_info.items[0].id);
+            }
+            newPago.estado = EstadoPago.ESTADO_CONCILIADO;
+
+            newPago.valorPago = Convert.ToInt32(payment.transaction_amount);
+
+            _OfertaService = new OfertaServiceClient();
+            _OfertaService.ModifyPagos(newPago);
+            _OfertaService.Close();
+        }
+        private PaymentVO GetPayment(string id)
+        {
+            // Activa SSL para entorno de desarrollo 
+            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+
+            string ApiUrl = "https://api.mercadopago.com/v1/";
+            string AccesToken = "APP_USR-2148574929506385-013011-2a326a05936b10aaeafa5b0b78b61be6-1660977390";
+
+
+            var url = $"{ApiUrl}payments/{id}";
+            var request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "GET";
+            request.ContentType = "application/json";
+            request.Accept = "application/json";
+            request.Headers["Authorization"] = $"Bearer {AccesToken}";
+
+            try
+            {
+                using (WebResponse response = request.GetResponse())
+                {
+                    using (Stream strReader = response.GetResponseStream())
+                    {
+                        if (strReader == null) return null; ;
+                        using (StreamReader objReader = new StreamReader(strReader))
+                        {
+                            string responseBody = objReader.ReadToEnd();
+
+                            PaymentVO payment = JsonConvert.DeserializeObject<PaymentVO>(responseBody);
+
+
+                            return payment;
+                        }
+                    }
+                }
+            }
+            catch (WebException ex)
+            {
+                return null;
+                throw new Exception();
             }
         }
     }

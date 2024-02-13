@@ -14,16 +14,35 @@
   <wsdl:message name="IMercadoPagoService_UpdatePayment_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdatePaymentResponse" />
   </wsdl:message>
+  <wsdl:message name="IMercadoPagoService_GetPayment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPayment" />
+  </wsdl:message>
+  <wsdl:message name="IMercadoPagoService_GetPayment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMercadoPagoService">
     <wsdl:operation name="UpdatePayment">
       <wsdl:input wsaw:Action="http://tempuri.org/IMercadoPagoService/UpdatePayment" message="tns:IMercadoPagoService_UpdatePayment_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMercadoPagoService/UpdatePaymentResponse" message="tns:IMercadoPagoService_UpdatePayment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMercadoPagoService/GetPayment" message="tns:IMercadoPagoService_GetPayment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMercadoPagoService/GetPaymentResponse" message="tns:IMercadoPagoService_GetPayment_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMercadoPagoService" type="tns:IMercadoPagoService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="UpdatePayment">
       <soap:operation soapAction="http://tempuri.org/IMercadoPagoService/UpdatePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayment">
+      <soap:operation soapAction="http://tempuri.org/IMercadoPagoService/GetPayment" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

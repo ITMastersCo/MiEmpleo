@@ -77,6 +77,7 @@
                                         <div class="flex flex-col">
 
                                             <asp:Label Text="Destacar" runat="server" CssClass="button text-normal pointer" Style="z-index: 20;" AssociatedControlID="btnDestacarOferta" />
+
                                             <asp:Button Text="" runat="server" ID="btnDestacarOferta" CssClass="hidden"
                                                 OnCommand="btnDestacarOferta_Command" CommandArgument="<% # Container.DataItemIndex %>" />
                                             <div id='M<%# Eval("idOferta") %>_wallet_container'></div>

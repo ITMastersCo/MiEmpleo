@@ -35,6 +35,27 @@ namespace co.itmasters.solucion.web.MercadoPagoService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMercadoPagoService/UpdatePayment", ReplyAction="http://tempuri.org/IMercadoPagoService/UpdatePaymentResponse")]
         System.Threading.Tasks.Task UpdatePaymentAsync(co.itmasters.solucion.vo.PaymentVO payment, string estadoPago);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMercadoPagoService/GetPayment", ReplyAction="http://tempuri.org/IMercadoPagoService/GetPaymentResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.AdditionalInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.Item[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.Item))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.Card))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.Cardholder))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.Identification))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.ChargesDetails[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.ChargesDetails))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.Accounts))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.Amounts))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.PaymentMethod))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.Data))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(co.itmasters.solucion.vo.RoutingData))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, object>))]
+        co.itmasters.solucion.vo.PaymentVO GetPayment(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMercadoPagoService/GetPayment", ReplyAction="http://tempuri.org/IMercadoPagoService/GetPaymentResponse")]
+        System.Threading.Tasks.Task<co.itmasters.solucion.vo.PaymentVO> GetPaymentAsync(string id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -70,6 +91,14 @@ namespace co.itmasters.solucion.web.MercadoPagoService {
         
         public System.Threading.Tasks.Task UpdatePaymentAsync(co.itmasters.solucion.vo.PaymentVO payment, string estadoPago) {
             return base.Channel.UpdatePaymentAsync(payment, estadoPago);
+        }
+        
+        public co.itmasters.solucion.vo.PaymentVO GetPayment(string id) {
+            return base.Channel.GetPayment(id);
+        }
+        
+        public System.Threading.Tasks.Task<co.itmasters.solucion.vo.PaymentVO> GetPaymentAsync(string id) {
+            return base.Channel.GetPaymentAsync(id);
         }
     }
 }

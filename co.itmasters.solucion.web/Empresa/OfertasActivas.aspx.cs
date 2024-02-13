@@ -391,7 +391,6 @@ namespace co.itmasters.solucion.web.Empresa
 
 
 
-                string idPlanAdquirido = lblIdOferta.Text;
 
                 var request = new PreferenceRequest
                 {
@@ -400,7 +399,7 @@ namespace co.itmasters.solucion.web.Empresa
                       {
                           new PreferenceItemRequest
                           {
-                              Id = idPlanAdquirido,
+                              Id = idOferta.ToString(),
                               Title = "Destacar Oferta" ,
                               Quantity = 1,
                               CurrencyId = "COP",

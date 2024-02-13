@@ -41,7 +41,7 @@ namespace co.itmasters.solucion.servicios
             string AccesToken = "APP_USR-2148574929506385-013011-2a326a05936b10aaeafa5b0b78b61be6-1660977390";
 
 
-            var url = $"{ApiUrl}payments/72315965066";
+            var url = $"{ApiUrl}payments/{id}";
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "GET";
             request.ContentType = "application/json";
