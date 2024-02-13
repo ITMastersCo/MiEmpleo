@@ -54,7 +54,7 @@ namespace co.itmasters.solucion.servicios
             Preference preference = await client.CreateAsync(request);
             return preference;
         }
-        public void UpdatePayment(co.itmasters.solucion.servicios.code.MercadoPagoApi.Models.Payment payment, string estadoPago)
+        public void UpdatePayment(PaymentVO payment, string estadoPago)
         {
             try
             {
