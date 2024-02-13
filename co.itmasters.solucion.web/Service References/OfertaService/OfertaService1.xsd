@@ -10,6 +10,7 @@
       <xs:element name="_x003C_cantidadVacantes_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_capacitaciones_x003E_k__BackingField" nillable="true" type="xs:boolean" />
       <xs:element name="_x003C_cargo_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_descripcionPago_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_descripcionVacante_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_diasPublicacionOferta_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_disponibilidadViajar_x003E_k__BackingField" nillable="true" type="xs:boolean" />
@@ -74,7 +75,7 @@
       <xs:element name="_x003C_ofertaConfidencial_x003E_k__BackingField" nillable="true" type="xs:boolean" />
       <xs:element name="_x003C_ofertaDestacada_x003E_k__BackingField" nillable="true" type="xs:boolean" />
       <xs:element name="_x003C_ofertasConsumidas_x003E_k__BackingField" nillable="true" type="xs:int" />
-      <xs:element name="_x003C_payment_id_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_payment_id_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_payment_method_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_pendientes_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_preguntasDeFiltro_x003E_k__BackingField" nillable="true" type="xs:boolean" />
@@ -91,7 +92,7 @@
       <xs:element name="_x003C_valorPlan_x003E_k__BackingField" nillable="true" type="xs:double" />
       <xs:element name="_x003C_vencidas_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_vigenciaPlan_x003E_k__BackingField" nillable="true" type="xs:int" />
-      <xs:element name="preference_item_id" nillable="true" type="xs:anyType" />
+      <xs:element name="preference_id" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="OfertaVO" nillable="true" type="tns:OfertaVO" />

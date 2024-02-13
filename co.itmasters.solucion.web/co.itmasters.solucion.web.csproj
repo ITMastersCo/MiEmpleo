@@ -12,7 +12,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>co.itmasters.solucion.web</RootNamespace>
     <AssemblyName>co.itmasters.solucion.web</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>4.0</OldToolsVersion>
@@ -1713,10 +1713,6 @@
     <Compile Include="Administracion\DetalleRegistro.aspx.designer.cs">
       <DependentUpon>DetalleRegistro.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Code\PantallaDinamica.cs" />
     <Compile Include="Code\TipoLista.cs" />
     <Compile Include="Code\TipoModificacion.cs" />
@@ -1906,7 +1902,6 @@
       <DependentUpon>Ayuda.aspx</DependentUpon>
     </Compile>
     <Compile Include="Code\Downloader.cs" />
-    <Compile Include="Code\Q10.cs" />
     <Compile Include="App_GlobalResources\Etiquetas.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

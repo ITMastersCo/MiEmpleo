@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>co.itmasters.solucion.vo</RootNamespace>
     <AssemblyName>co.itmasters.solucion.vo</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -108,6 +108,7 @@
     <Compile Include="FormularioVO.cs" />
     <Compile Include="FuncionarioVO.cs" />
     <Compile Include="Parametro.cs" />
+    <Compile Include="PaymentVO.cs" />
     <Compile Include="PersonaVO.cs" />
     <Compile Include="RelacionParamVO.cs" />
     <Compile Include="RolVO.cs" />

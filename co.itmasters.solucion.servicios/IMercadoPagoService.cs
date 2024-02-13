@@ -24,7 +24,6 @@ namespace co.itmasters.solucion.servicios
         [OperationContract]
         void UpdatePayment(Payment payment, string estadoPago);
 
-        
     }
  
 }

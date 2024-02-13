@@ -5,8 +5,8 @@ using System.Linq;
 using System.Net;
 using Newtonsoft.Json;
 using System.Web;
-using co.itmasters.solucion.servicios.code.MercadoPagoApi.Models;
 using System.Web.UI.WebControls;
+using co.itmasters.solucion.vo;
 
 namespace co.itmasters.solucion.servicios.code.MercadoPagoApi
 {
@@ -15,8 +15,8 @@ namespace co.itmasters.solucion.servicios.code.MercadoPagoApi
     /// </summary>
     public class MercadoPagoApi
     {
-        protected static string ApiUrl = "https://api.mercadopago.com/v1/";
-        protected static string AccesToken = "APP_USR-2148574929506385-013011-2a326a05936b10aaeafa5b0b78b61be6-1660977390";
+        
+        
 
         /// <summary>
         /// Consulta GET de un pago.
@@ -24,8 +24,10 @@ namespace co.itmasters.solucion.servicios.code.MercadoPagoApi
         /// <param name="id"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public static Payment GetPayment(string id)
+        public static PaymentVO GetPayment(string id)
         {
+            const string ApiUrl = "https://api.mercadopago.com/v1/";
+            const string AccesToken = "APP_USR-2148574929506385-013011-2a326a05936b10aaeafa5b0b78b61be6-1660977390";
             // Activa SSL para entorno de desarrollo 
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
 
@@ -48,7 +50,7 @@ namespace co.itmasters.solucion.servicios.code.MercadoPagoApi
                         {
                             string responseBody = objReader.ReadToEnd();
 
-                            Payment payment = JsonConvert.DeserializeObject<Payment>(responseBody);
+                            PaymentVO payment = JsonConvert.DeserializeObject<PaymentVO>(responseBody);
 
 
                             return payment;
