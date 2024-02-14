@@ -145,6 +145,9 @@ namespace co.itmasters.solucion.web.Components_UI
             {
 
                 MercadoPagoConfig.AccessToken = "APP_USR-2148574929506385-013011-2a326a05936b10aaeafa5b0b78b61be6-1660977390";
+                string fullUrl = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
+                string ruta = "MiEmpleo";
+
 
                 //Crea el objeto de request de la preference
                 string idPlanAdquirido =  CreaPlanAdquirido();
@@ -165,9 +168,9 @@ namespace co.itmasters.solucion.web.Components_UI
                       },
                     BackUrls = new PreferenceBackUrlsRequest
                     {
-                        Success = "http://localhost:8080/Facturacion/Facturacion.aspx",
-                        Failure = "http://localhost:8080/Facturacion/Facturacion.aspx",
-                        Pending = "http://localhost:8080/Facturacion/Facturacion.aspx",
+                        Success = $"{fullUrl}/{ruta}Facturacion/Facturacion.aspx",
+                        Failure = $"{fullUrl}/{ruta}Facturacion/Facturacion.aspx",
+                        Pending = $"{fullUrl}/{ruta}Facturacion/Facturacion.aspx",
                     },
                     AutoReturn = "approved",
                 };
