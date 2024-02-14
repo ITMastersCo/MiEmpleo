@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
@@ -10,7 +11,9 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using co.itmasters.solucion.vo;
 using co.itmasters.solucion.web.Code;
+using co.itmasters.solucion.web.SeguridadService;
 //using SpeechLib;
 
 
@@ -18,6 +21,8 @@ namespace co.itmasters.solucion.web.Home
 {
     public partial class Login : System.Web.UI.Page
     {
+
+
         /// <summary>
         /// Orden de los eventos disparados.
         /// 1.LoggingIn event
@@ -40,8 +45,11 @@ namespace co.itmasters.solucion.web.Home
 
         protected void cLogin_LoggedIn(object sender, EventArgs e)
         {
+
+
             UserVO user = (UserVO)Membership.GetUser(cLogin.UserName+"/2");
             Session["UsuarioAutenticado"] = user;
+        
         }
 
         protected void cLogin_Authenticate(object sender, AuthenticateEventArgs e)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
@@ -13,6 +14,21 @@ namespace co.itmasters.solucion.servicios
     public class SeguridadService : ISeguridadService, IDisposable
     {
         private SeguridadNegocio _seguridad;
+
+        public List<CredencialesVO> GetCredenciales(int idUser)
+        {
+            try
+            {
+
+                _seguridad = new SeguridadNegocio();
+                return _seguridad.GetCredenciales(idUser);
+            }
+            catch (Exception err)
+            {
+                Log.Write(err.Message, Log.ERROR);
+                throw new FaultException(new FaultReason(err.Message));
+            }
+        }
         public void RegistroUsuarioTokenEmpresa(UsuarioVO Actor)
         {
             try

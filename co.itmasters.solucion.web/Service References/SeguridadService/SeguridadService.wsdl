@@ -7,6 +7,12 @@
       <xsd:import schemaLocation="http://localhost:3487/SeguridadService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="ISeguridadService_GetCredenciales_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCredenciales" />
+  </wsdl:message>
+  <wsdl:message name="ISeguridadService_GetCredenciales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCredencialesResponse" />
+  </wsdl:message>
   <wsdl:message name="ISeguridadService_RegistroUsuarioTokenEmpresa_InputMessage">
     <wsdl:part name="parameters" element="tns:RegistroUsuarioTokenEmpresa" />
   </wsdl:message>
@@ -68,6 +74,10 @@
     <wsdl:part name="parameters" element="tns:EnviarRespuestasResponse" />
   </wsdl:message>
   <wsdl:portType name="ISeguridadService">
+    <wsdl:operation name="GetCredenciales">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISeguridadService/GetCredenciales" message="tns:ISeguridadService_GetCredenciales_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISeguridadService/GetCredencialesResponse" message="tns:ISeguridadService_GetCredenciales_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="RegistroUsuarioTokenEmpresa">
       <wsdl:input wsaw:Action="http://tempuri.org/ISeguridadService/RegistroUsuarioTokenEmpresa" message="tns:ISeguridadService_RegistroUsuarioTokenEmpresa_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISeguridadService/RegistroUsuarioTokenEmpresaResponse" message="tns:ISeguridadService_RegistroUsuarioTokenEmpresa_OutputMessage" />
@@ -111,6 +121,15 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ISeguridadService" type="tns:ISeguridadService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCredenciales">
+      <soap:operation soapAction="http://tempuri.org/ISeguridadService/GetCredenciales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="RegistroUsuarioTokenEmpresa">
       <soap:operation soapAction="http://tempuri.org/ISeguridadService/RegistroUsuarioTokenEmpresa" style="document" />
       <wsdl:input>

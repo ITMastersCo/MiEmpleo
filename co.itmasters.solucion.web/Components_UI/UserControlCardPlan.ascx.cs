@@ -19,6 +19,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using co.itmasters.solucion.web.Empresa;
 using MercadoPago.Client.Payment;
 using co.itmasters.solucion.vo.constantes;
+using System.Security.Cryptography.X509Certificates;
 
 namespace co.itmasters.solucion.web.Components_UI
 {
@@ -26,7 +27,10 @@ namespace co.itmasters.solucion.web.Components_UI
     {
         private EmpresaServiceClient _Empresa;
         private UserVO user ;
+        private String AccesToken;
+        private String PublicToken;
         
+
         private string IconState(Boolean state)
         {
             if (state == true)
@@ -54,7 +58,11 @@ namespace co.itmasters.solucion.web.Components_UI
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) { user = ((UserVO)Session["UsuarioAutenticado"]); }
+            if (!IsPostBack) {
+                user = ((UserVO)Session["UsuarioAutenticado"]);
+                AccesToken = (Session["AccesToken"].ToString());
+                PublicToken = (Session["PublicToken"].ToString());
+            }
             PlanesEmpresa page = Page as PlanesEmpresa;
             if (page != null)
             {
@@ -141,10 +149,13 @@ namespace co.itmasters.solucion.web.Components_UI
         {
 
             user = ((UserVO)Session["UsuarioAutenticado"]);
+            AccesToken = (Session["AccesToken"].ToString());
+            PublicToken = (Session["PublicToken"].ToString());
+
             try
             {
 
-                MercadoPagoConfig.AccessToken = "APP_USR-2148574929506385-013011-2a326a05936b10aaeafa5b0b78b61be6-1660977390";
+                MercadoPagoConfig.AccessToken = AccesToken;
 
                 //Crea el objeto de request de la preference
                 string idPlanAdquirido =  CreaPlanAdquirido();
@@ -178,7 +189,7 @@ namespace co.itmasters.solucion.web.Components_UI
                 if (preference != null)
                 {
                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba"
-                    , $"payMercadoPago_{this.ClientID}('{preference.Id}','{wallet_container.ClientID}')", true);
+                    , $"payMercadoPago_{this.ClientID}('{preference.Id}','{wallet_container.ClientID}','{PublicToken}')", true);
                     AddPreferenceIdToPlanesAdquiridos(int.Parse(idPlanAdquirido), preference.Id);
                 }
                 

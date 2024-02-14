@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System.Web;
 using System.Web.UI.WebControls;
 using co.itmasters.solucion.vo;
+using System.Runtime.CompilerServices;
 
 namespace co.itmasters.solucion.servicios.code.MercadoPagoApi
 {
@@ -15,7 +16,17 @@ namespace co.itmasters.solucion.servicios.code.MercadoPagoApi
     /// </summary>
     public class MercadoPagoApi
     {
-        
+        private string AccesToken;
+        private SeguridadService _SeguridadService;
+
+        public MercadoPagoApi()
+        {
+            _SeguridadService = new SeguridadService();
+            List<CredencialesVO> credenciales = _SeguridadService.GetCredenciales(0);
+
+            this.AccesToken = credenciales.Find(e => e.nombre.Contains("AccesToken")).valor;
+
+            }
         
 
         /// <summary>
@@ -24,13 +35,12 @@ namespace co.itmasters.solucion.servicios.code.MercadoPagoApi
         /// <param name="id"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public static PaymentVO GetPayment(string id)
+        public PaymentVO GetPayment(string id)
         {
             const string ApiUrl = "https://api.mercadopago.com/v1/";
-            const string AccesToken = "APP_USR-2148574929506385-013011-2a326a05936b10aaeafa5b0b78b61be6-1660977390";
+            
             // Activa SSL para entorno de desarrollo 
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
-
 
             var url = $"{ApiUrl}payments/{id}";
             var request = (HttpWebRequest)WebRequest.Create(url);

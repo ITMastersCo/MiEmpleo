@@ -15,6 +15,7 @@ using System.Web.Configuration;
 using Newtonsoft.Json;
 using System.IO;
 using System.Net;
+using System.Linq;
 
 namespace co.itmasters.solucion.servicios
 {
@@ -22,9 +23,19 @@ namespace co.itmasters.solucion.servicios
     // NOTA: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione MercadoPago.svc o MercadoPago.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class MercadoPagoService : IMercadoPagoService
     {
-        EmpresaService _Empresa;
-        OfertaService _Oferta;
+        private EmpresaService _Empresa;
+        private OfertaService _Oferta;
+        private SeguridadService _SeguridadService;
+        public String AccesToken { get; }
 
+        public MercadoPagoService()
+        {
+            _SeguridadService =  new SeguridadService();
+            List<CredencialesVO>  credenciales = _SeguridadService.GetCredenciales(0);
+
+            this.AccesToken = credenciales.Find(e => e.nombre.Contains("AccesToken")).valor;
+
+        }
 
         /// <summary>
         /// Consulta GET de un pago.
@@ -34,11 +45,13 @@ namespace co.itmasters.solucion.servicios
         /// <exception cref="Exception"></exception>
         public PaymentVO GetPayment(string id)
         {
+
+
             // Activa SSL para entorno de desarrollo 
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
 
             string ApiUrl = "https://api.mercadopago.com/v1/";
-            string AccesToken = "APP_USR-2148574929506385-013011-2a326a05936b10aaeafa5b0b78b61be6-1660977390";
+            string AccesToken = this.AccesToken;
 
 
             var url = $"{ApiUrl}payments/{id}";

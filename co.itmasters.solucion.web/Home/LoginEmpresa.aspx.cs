@@ -1,11 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Security;
 using System.Web.UI.WebControls;
+using co.itmasters.solucion.vo;
 using co.itmasters.solucion.web.Code;
+using co.itmasters.solucion.web.SeguridadService;
 namespace co.itmasters.solucion.web.Home
 {
     public partial class LoginEmpresa : System.Web.UI.Page
     {
+        SeguridadServiceClient _SeguridadService;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -29,6 +34,16 @@ namespace co.itmasters.solucion.web.Home
         {
             UserVO user = (UserVO)Membership.GetUser(cLogin.UserName + "/1");
             Session["UsuarioAutenticado"] = user;
+
+            _SeguridadService = new SeguridadServiceClient();
+            List<CredencialesVO> credenciales = _SeguridadService.GetCredenciales(user.IdUsuario).ToList();
+            _SeguridadService.Close();
+
+            var AccesToken = credenciales.Find(element => element.nombre.Contains("AccesToken")).valor;
+            var PublicToken = credenciales.Find(element => element.nombre.Contains("PublicToken")).valor;
+
+            Session["AccesToken"] = AccesToken;
+            Session["PublicToken"] = PublicToken;
         }
 
         protected void cLogin_Authenticate(object sender, AuthenticateEventArgs e)

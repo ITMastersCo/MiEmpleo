@@ -110,9 +110,9 @@
         // Call the CreatePreference method and pass the reference ID
 
             
-        window[`payMercadoPago_<%= this.ClientID%>`] = function (PreferenceId, walletContainer) {
+        window[`payMercadoPago_<%= this.ClientID%>`] = function (PreferenceId, walletContainer,publicKey) {
                 // Pass the preference ID to the Mercado Pago button
-            const mp = new MercadoPago('APP_USR-c06e83e5-e43c-44a6-9874-4781ff66c9d6');
+            const mp = new MercadoPago(publicKey);
                 const bricksBuilder = mp.bricks();
                 
                 const renderComponent = () => {

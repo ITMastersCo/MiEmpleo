@@ -7,9 +7,12 @@ using System.Threading.Tasks;
 namespace co.itmasters.solucion.vo
 {
      [Serializable]
-     class CredencialesVO
+     public class CredencialesVO
     {
         public string id { get; set; }
+        public string servicio { get; set; }
+        public string nombre { get; set; }  
+        public string valor { get; set;}
 
     }
 }

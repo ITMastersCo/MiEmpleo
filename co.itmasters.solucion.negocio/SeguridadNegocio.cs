@@ -12,6 +12,11 @@ namespace co.itmasters.solucion.negocio
     public class SeguridadNegocio
     {
         SeguridadDao seguridad;
+
+        public List<CredencialesVO> GetCredenciales(int idUser)
+        {
+            return seguridad.GetCredenciales(idUser);
+        }
         public void RegistroUsuarioTokenEmpresa(UsuarioVO Actor)
         {
             seguridad.RegistroUsuarioTokenEmpresa(Actor);
