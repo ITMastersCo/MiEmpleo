@@ -1604,6 +1604,7 @@
     <Content Include="Properties\DataSources\co.itmasters.solucion.vo.EmpresaVO.datasource" />
     <Content Include="Properties\DataSources\co.itmasters.solucion.vo.OfertaVO.datasource" />
     <Content Include="Properties\DataSources\co.itmasters.solucion.vo.PaymentVO.datasource" />
+    <Content Include="Properties\DataSources\co.itmasters.solucion.vo.CredencialesVO.datasource" />
     <None Include="Properties\PublishProfiles\Profile1.pubxml" />
     <Content Include="Reportes\Facturacion\Facturacion.xml" />
     <Content Include="Reportes\VisorReportes.aspx" />

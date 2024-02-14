@@ -25,6 +25,9 @@ namespace co.itmasters.solucion.web.Empresa
         private OfertaServiceClient _OfertaService;
         private UserVO user;
         private CargaCombos _carga = new CargaCombos();
+        private String AccesToken;
+        private String PublicToken;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -387,10 +390,12 @@ namespace co.itmasters.solucion.web.Empresa
         {
 
             user = ((UserVO)Session["UsuarioAutenticado"]);
+            AccesToken = (Session["AccesToken"].ToString());
+            PublicToken = (Session["PublicToken"].ToString());
             try
             {
 
-                MercadoPagoConfig.AccessToken = "APP_USR-2148574929506385-013011-2a326a05936b10aaeafa5b0b78b61be6-1660977390";
+                MercadoPagoConfig.AccessToken = AccesToken;
 
                 //Url dominio
                 string fullUrl = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
@@ -429,7 +434,7 @@ namespace co.itmasters.solucion.web.Empresa
                 {
 
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba"
-                     , $"payMercadoPago('{preference.Id}','M{idOferta}_wallet_container')", true);
+                     , $"payMercadoPago('{preference.Id}','M{idOferta}_wallet_container','{PublicToken}')", true);
                 }
 
 

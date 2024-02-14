@@ -12,6 +12,9 @@ namespace co.itmasters.solucion.servicios
     public interface ISeguridadService
     {
         [OperationContract]
+        List<CredencialesVO> GetCredenciales(int idUser);
+
+        [OperationContract]
         void RegistroUsuarioTokenEmpresa(UsuarioVO Actor);
 
         [OperationContract]

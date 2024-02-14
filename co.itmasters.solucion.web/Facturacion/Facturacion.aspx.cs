@@ -29,9 +29,13 @@ namespace co.itmasters.solucion.web.Facturacion
         private UserVO user;
         private EmpresaServiceClient _Empresa;
         private MercadoPagoServiceClient _MercadoPagoService;
+        private String AccesToken;
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             user = ((UserVO)Session["UsuarioAutenticado"]);
+            AccesToken = (Session["AccesToken"].ToString());
             
 
             if (!Page.IsPostBack)
@@ -216,8 +220,11 @@ namespace co.itmasters.solucion.web.Facturacion
             // Activa SSL para entorno de desarrollo 
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
 
+            this.AccesToken = (Session["AccesToken"].ToString());
+            
+
             string ApiUrl = "https://api.mercadopago.com/v1/";
-            string AccesToken = "APP_USR-2148574929506385-013011-2a326a05936b10aaeafa5b0b78b61be6-1660977390";
+            string AccesToken = this.AccesToken;
 
 
             var url = $"{ApiUrl}payments/{id}";

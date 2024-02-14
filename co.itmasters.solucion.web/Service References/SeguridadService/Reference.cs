@@ -15,6 +15,12 @@ namespace co.itmasters.solucion.web.SeguridadService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SeguridadService.ISeguridadService")]
     public interface ISeguridadService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISeguridadService/GetCredenciales", ReplyAction="http://tempuri.org/ISeguridadService/GetCredencialesResponse")]
+        co.itmasters.solucion.vo.CredencialesVO[] GetCredenciales(int idUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISeguridadService/GetCredenciales", ReplyAction="http://tempuri.org/ISeguridadService/GetCredencialesResponse")]
+        System.Threading.Tasks.Task<co.itmasters.solucion.vo.CredencialesVO[]> GetCredencialesAsync(int idUser);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISeguridadService/RegistroUsuarioTokenEmpresa", ReplyAction="http://tempuri.org/ISeguridadService/RegistroUsuarioTokenEmpresaResponse")]
         void RegistroUsuarioTokenEmpresa(co.itmasters.solucion.vo.UsuarioVO Actor);
         
@@ -101,6 +107,14 @@ namespace co.itmasters.solucion.web.SeguridadService {
         
         public SeguridadServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public co.itmasters.solucion.vo.CredencialesVO[] GetCredenciales(int idUser) {
+            return base.Channel.GetCredenciales(idUser);
+        }
+        
+        public System.Threading.Tasks.Task<co.itmasters.solucion.vo.CredencialesVO[]> GetCredencialesAsync(int idUser) {
+            return base.Channel.GetCredencialesAsync(idUser);
         }
         
         public void RegistroUsuarioTokenEmpresa(co.itmasters.solucion.vo.UsuarioVO Actor) {

@@ -25,6 +25,8 @@ namespace co.itmasters.solucion.dao
         private const String SEGURIDAD_REGISTROPERSONAS = "SeguridadRegistroPersonas";
         private const String SEGURIDAD_ENVIARRESPUESTAS = "sp_Seguridad_EnviarRespuestas";
         private const String SEGURIDAD_BUSCARPREGUNTAS = "SeguridadBuscarPreguntas";
+        private const String SEGURIDAD_BASICAS_CREDENCIALES = "SeguridadBasicas_Credenciales";
+
         // Constantes Entidad Seguridad
         public const string SEGURIDAD_NOMBREUSUARIO = "nombreUsuario";
         public const string SEGURIDAD_CLAVE = "clave";
@@ -79,10 +81,62 @@ namespace co.itmasters.solucion.dao
         public const string PREGUNTA_IDPREGUNTA3RETORNAR = "idPreguntaRetornar3";
         public const string PREGUNTA_NUMRESPUESTASINCORRECTAS = "numRespuestasIncorrectas";
 
+
+        //contante de credenciales 
+        public const string CREDENCIALES_ID = "id";
+        public const string CREDENCIALES_SERVICIO = "valor";
+        public const string CREDENCIALES_NOMBRE = "nombre";
+        public const string CREDENCIALES_VALOR = "valor";
+
+
         #endregion
 
         #region  [Metodos Expuestos]
 
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public List<CredencialesVO> GetCredenciales(int idUser)
+        {
+
+            try
+            {
+                Parametro[] valParam = new Parametro[]
+                {
+                     new Parametro(SEGURIDAD_IDUSUARIO, idUser , DbType.Int32),
+                };
+                DataTable dt = this.EjecutarStoredProcedureDataTable(SEGURIDAD_BASICAS_CREDENCIALES, valParam);
+                List<CredencialesVO> rPersona = new List<CredencialesVO>();
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        CredencialesVO credencial = new CredencialesVO();
+                        credencial.id = Convert.ToString(dr[CREDENCIALES_ID]);
+                        credencial.nombre = Convert.ToString(dr[CREDENCIALES_NOMBRE]);
+                        credencial.servicio = Convert.ToString(dr[CREDENCIALES_SERVICIO]);
+                        credencial.valor = Convert.ToString(dr[CREDENCIALES_VALOR]);
+                        
+                        rPersona.Add(credencial);
+                    }
+                }
+                return rPersona;
+
+            }
+            catch (System.Data.SqlClient.SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+        }
         /// <summary>
         /// Se Actualiza en log de tredenciales del usuario para el acceso temporal.
         /// </summary>

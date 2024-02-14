@@ -403,10 +403,10 @@
 // Call the CreatePreference method and pass the reference ID
 
     
-    function payMercadoPago(PreferenceId, walletContainer) {
+    function payMercadoPago(PreferenceId, walletContainer , publicToken) {
          console.log("pay")
         // Pass the preference ID to the Mercado Pago button
-    const mp = new MercadoPago('APP_USR-c06e83e5-e43c-44a6-9874-4781ff66c9d6');
+        const mp = new MercadoPago(publicToken);
         const bricksBuilder = mp.bricks();
         
         const renderComponent = () => {
@@ -432,7 +432,7 @@
     
 
 
-</script>
+    </script>
 
 
 </asp:Content>
