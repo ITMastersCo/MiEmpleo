@@ -160,7 +160,7 @@ namespace co.itmasters.solucion.web.Facturacion
 
             }
         }
-        protected object UpdatePlanAdquirido(string preferenceId, string paymentId, string estado)
+        protected void UpdatePlanAdquirido(string preferenceId, string paymentId, string estado)
         {
             user = ((UserVO)Session["UsuarioAutenticado"]);
             try
@@ -178,7 +178,8 @@ namespace co.itmasters.solucion.web.Facturacion
                 _Empresa = new EmpresaServiceClient();
                 _Empresa.CreatePlanAdquirido(newEmpresa);
                 _Empresa.Close();
-                return newEmpresa;
+
+
             }
             catch (Exception e)
             {
@@ -214,6 +215,11 @@ namespace co.itmasters.solucion.web.Facturacion
             _OfertaService = new OfertaServiceClient();
             _OfertaService.ModifyPagos(newPago);
             _OfertaService.Close();
+
+            if (payment.description != "Oferta" )
+            {
+                Response.Redirect("~/Empresa/PublicarOfertas.aspx");
+            }
         }
         private PaymentVO GetPayment(string id)
         {
