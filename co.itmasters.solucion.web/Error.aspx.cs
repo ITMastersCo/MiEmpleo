@@ -32,7 +32,7 @@ namespace co.itmasters.solucion.web
         protected void lnkAtras_Click(object sender, EventArgs e)
         {
             //Response.Redirect("~/default.aspx");
-            Server.Transfer("~/default.aspx");
+            Server.Transfer("~/Index.aspx");
         }
 
 

@@ -180,7 +180,7 @@ namespace co.itmasters.solucion.web
   
         protected void ImgInicio_Click(object sender, ImageClickEventArgs e)
         {
-            Server.Transfer("~/default.aspx");
+            Server.Transfer("~/Index.aspx");
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)
