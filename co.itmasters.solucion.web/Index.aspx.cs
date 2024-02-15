@@ -92,6 +92,7 @@ namespace co.itmasters.solucion.web
                 OfertaVO viewOferta = _OfertaService.GetOfertaPersonaDetalle(oferta);
                 _OfertaService.Close();
                 lblOfferTitle.Text = viewOferta.tituloVacante;
+                imgAvatarOffer.Src = $".{viewOferta.rutaAvatar}";
                 lblOfferSalaryRange.Text = viewOferta.RangoSalario;
                 lblDateCrateOffer.Text = String.Format("{0:yyyy-MM-dd}", viewOferta.fechaPublicacion);
                 lblDateRemoveOffer.Text = String.Format("{0:yyyy-MM-dd}", viewOferta.fechaVencimiento);

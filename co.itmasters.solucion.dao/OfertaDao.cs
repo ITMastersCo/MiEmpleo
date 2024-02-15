@@ -423,6 +423,7 @@ namespace co.itmasters.solucion.dao
                         Oferta.RangoSalario = Convert.ToString(dr[OFERTA_NOMRANGOSALARIAL]);
                         Oferta.nomCiudad = Convert.ToString(dr[OFERTA_NOMCIUDAD]);
                         Oferta.cantidadVacantes = Convert.ToInt32(dr[OFERTA_CANTIDADVACANTES]);
+                        Oferta.rutaAvatar = Convert.ToString(dr[PERSONA_RUTAAVATAR]);
                         newOferta.Add(Oferta);
                     }
                 }

@@ -51,6 +51,15 @@ namespace co.itmasters.solucion.web
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl detalleOferta;
 
         /// <summary>
+        /// Control imgAvatarOffer.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage imgAvatarOffer;
+
+        /// <summary>
         /// Control lblOfferTitle.
         /// </summary>
         /// <remarks>
