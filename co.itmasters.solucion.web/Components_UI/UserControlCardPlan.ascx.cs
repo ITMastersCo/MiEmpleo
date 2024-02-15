@@ -157,7 +157,7 @@ namespace co.itmasters.solucion.web.Components_UI
 
 
                 string fullUrl = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
-                string ruta = "MiEmpleo/";
+                string ruta = "MiEmpleo";
 
 
                 MercadoPagoConfig.AccessToken = AccesToken;
@@ -182,9 +182,9 @@ namespace co.itmasters.solucion.web.Components_UI
                       },
                     BackUrls = new PreferenceBackUrlsRequest
                     {
-                        Success = $"{fullUrl}/{ruta}Facturacion/Facturacion.aspx",
-                        Failure = $"{fullUrl}/{ruta}Facturacion/Facturacion.aspx",
-                        Pending = $"{fullUrl}/{ruta}Facturacion/Facturacion.aspx",
+                        Success = $"{fullUrl}/{ruta}/Facturacion/Facturacion.aspx",
+                        Failure = $"{fullUrl}/{ruta}/Facturacion/Facturacion.aspx",
+                        Pending = $"{fullUrl}/{ruta}/Facturacion/Facturacion.aspx",
                     },
                     AutoReturn = "approved",
                 };
