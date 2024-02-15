@@ -158,7 +158,7 @@ namespace co.itmasters.solucion.web.Components_UI
 
                 MercadoPagoConfig.AccessToken = "APP_USR-2148574929506385-013011-2a326a05936b10aaeafa5b0b78b61be6-1660977390";
                 string fullUrl = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
-                string ruta = "MiEmpleo";
+                string ruta = "MiEmpleo/";
 
 
                 MercadoPagoConfig.AccessToken = AccesToken;
