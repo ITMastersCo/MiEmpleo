@@ -155,7 +155,7 @@
                                                 <div class="line">
                                                 </div>
                                                 <div class="avatar-rectangle">
-                                                    <img src="Images/ImgInicio/AvatarEmpresa.jpg" alt="Alternate Text" />
+                                                    <img src=".<%# Eval("rutaAvatar") %>" alt="Alternate Text" />
 
                                                 </div>
                                             </div>
@@ -381,7 +381,7 @@
                                 <div class="line">
                                 </div>
                                 <div class="avatar-rectangle-80">
-                                    <img src="Images/ImgInicio/AvatarEmpresa.jpg" alt="Alternate Text" />
+                                    <img runat="server" ID="imgAvatarOffer" src="." alt="Alternate Text" />
 
                                 </div>
                             </div>
