@@ -1437,7 +1437,7 @@
     <Content Include="css\Styles.css" />
     <Content Include="css\utilities.css" />
     <Content Include="css\variables.css" />
-    <Content Include="Default.aspx" />
+    <Content Include="Home\Default.aspx" />
     <Content Include="Empresa\DatosBasicosEmpresa.aspx" />
     <Content Include="Empresa\OfertasActivas.aspx" />
     <Content Include="Empresa\OfertasPendientes.aspx" />
@@ -1954,11 +1954,11 @@
     <Compile Include="Code\ReporteVO.cs" />
     <Compile Include="Code\TipoCombo.cs" />
     <Compile Include="Code\UserVO.cs" />
-    <Compile Include="Default.aspx.cs">
+    <Compile Include="Home\Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
+    <Compile Include="Home\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">

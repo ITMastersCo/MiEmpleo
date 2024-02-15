@@ -41,7 +41,7 @@
                      });
                  });
              </script>
-             <asp:Login ID="cLogin" runat="server" DisplayRememberMe="False" DestinationPageUrl="~/Default.aspx"
+             <asp:Login ID="cLogin" runat="server" DisplayRememberMe="False" DestinationPageUrl="../Home/Default.aspx"
                     FailureText="Usuario o clave incorrectas" OnLoggedIn="cLogin_LoggedIn" LoginButtonStyle-Height="45px"
                     LoginButtonStyle-CssClass="button item-center" PasswordRequiredErrorMessage="Password Requerido."
                     UserNameRequiredErrorMessage="Usuario Requerido." LoginButtonText="Iniciar Sesión" LoginButtonStyle-Width="200px"
