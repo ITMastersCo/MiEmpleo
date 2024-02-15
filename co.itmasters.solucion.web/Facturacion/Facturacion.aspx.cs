@@ -220,7 +220,6 @@ namespace co.itmasters.solucion.web.Facturacion
             {
                 Response.Redirect("~/Empresa/PublicarOfertas.aspx");
             }
-
         }
         private PaymentVO GetPayment(string id)
         {

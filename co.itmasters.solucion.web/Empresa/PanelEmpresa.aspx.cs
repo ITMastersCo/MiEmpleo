@@ -45,8 +45,9 @@ namespace co.itmasters.solucion.web.Empresa
                 btnOfertasVencidas.Text = _resultado.vencidas.ToString();
                 btnSeguidores.Text = "Total: " + _resultado.seguidores.ToString() + " seguidores";
                 btnHvRecibidas.Text = "Total: " + _resultado.hojasdeVida.ToString() + " Hv";
-                lblPorcentajeSeg.Text = "36%";
-                lblPorcentajeHv.Text = "46%";
+                lblPorcentajeSeg.Text = "0%";
+                lblPorcentajeHv.Text = "0%";
+
             }
             catch (Exception err)
             {
