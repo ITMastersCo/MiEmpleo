@@ -52,7 +52,6 @@
 
         .closed {
             /*background: red;*/
-            color: red;
             line-height: 20px;
             position: center;
             bottom: 12px;
@@ -278,21 +277,30 @@
 
                 <asp:Button ID="btnPublicarOferta" runat="server" Text="Publicar Oferta" ValidationGroup="Oferta" CssClass="button" OnClick="btnPublicarOferta_Click" />
             </section>
-            <div id="openModal" class="modalDialog" runat="server" style="display: none">
-                <div>
-                    <a href="#close" title="Cerrar sin grabar" class="closed" onclick="javascript:CloseModal();">Cerrar</a>
-                    <h3 class="text-subtitle">¡Estimado usuario! <span class="text-highlighted text-subtitle">Su oferta fue creada exitósamente, mi empleo revisará su oferta para ser publicada.</span> Gracias por contar con nosotros
-                    </h3>
+            <div id="openModal" class="modal-dialog" runat="server" >
+                <div class="flex-col flex-center">
+                   
+                    <asp:Panel runat="server" ID="modalCV" CssClass="modal-body flex flex-center max-w-850px">
 
-                    <div class="flex-center">
-                        <asp:Button ID="Nuevo" Visible="true" runat="server" CssClass="button-cerrar" Text="Crear una nueva Oferta" OnClick="Volver_Click" />
-                        <asp:Button ID="Panel" Visible="true" runat="server" CssClass="button" Text="Volver al Panel Empresa" OnClick="Panel_Click" />
+</asp:Panel>
+                    <div runat="server" ID="modalOfertaCreada" >
+
+
+                        <div class="flex flex-col gap-32">
+                            <h3 class="text-subtitle">¡Estimado usuario! <span class="text-highlighted text-subtitle">Su oferta fue creada exitósamente, mi empleo revisará su oferta para ser publicada.</span> Gracias por contar con nosotros
+                            </h3>
+
+                            <div class="flex-center gap-8">
+                                <asp:Button ID="Nuevo" Visible="true" runat="server" CssClass="button" Text="Crear una nueva Oferta" OnClick="Volver_Click" />
+                                <asp:Button ID="Panel" Visible="true" runat="server" CssClass="button bg-gray-500" Text="Volver al Panel Empresa" OnClick="Panel_Click" />
+                            </div>
+                        </div>
+                        <div id="variable" runat="server" style="display: none">
+                            <asp:Label ID="lblIdOfertaDelete" runat="server" Text=""></asp:Label>
+                            <asp:Label ID="lblEstadoOferta" runat="server" Text=""></asp:Label>
+
+                        </div>
                     </div>
-                </div>
-                <div id="variable" runat="server" style="display: none">
-                    <asp:Label ID="lblIdOfertaDelete" runat="server" Text=""></asp:Label>
-                    <asp:Label ID="lblEstadoOferta" runat="server" Text=""></asp:Label>
-
                 </div>
             </div>
             <asp:UpdatePanel ID="UpdatePanelModal2" runat="server" UpdateMode="Conditional">
