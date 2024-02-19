@@ -329,7 +329,7 @@
             <h2 class="text-subtitle color-gray-800 max-w-850px">Avance de <span class="text-subtitle color-500">Mi perfil</span>
             </h2>
 
-            <a href="./Personal/HojadeVida.aspx" id="loaderContainer" runat="server" class="loader-container pointer">
+            <a href="../Personal/HojadeVida.aspx" id="loaderContainer" runat="server" class="loader-container pointer">
 
                 <div class="loader">
                     <div class="progress" id="progress">

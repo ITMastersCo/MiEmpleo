@@ -179,8 +179,9 @@ namespace co.itmasters.solucion.web.Empresa
                 }
                 if (resultado.estado =="ACT")
                     {
+                        
                         txtFechaPublicacion.ReadOnly = false;
-                        txtFechaPublicacion.Enabled = false;
+                        txtFechaPublicacion.Enabled = true;
                     }
                  if (ViewState["Estado"].ToString() == "Duplicar" )
                   {
@@ -361,7 +362,8 @@ namespace co.itmasters.solucion.web.Empresa
                 _OfertaService.Close();
                 if (lblEstadoOferta.Text != "ACT" || ViewState["Estado"].ToString() =="Duplicar")
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", "showModal();", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba",
+               $"OpenModal('{modalOfertaCreada.ClientID}','{openModal.ClientID}')", true);
                 }
                 else
                 {
@@ -382,13 +384,15 @@ namespace co.itmasters.solucion.web.Empresa
         }
         protected void Volver_Click(object sender, EventArgs e)
         {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", $"CloseModal('{modalOfertaCreada.ClientID}', '{openModal.ClientID}')", true);
             Response.Redirect("~/Empresa/PublicarOfertas.aspx");
+
         }
 
         protected void Panel_Click(object sender, EventArgs e)
         {
             lblIdOfertaDelete.Text = "";
-            Response.Redirect("~/Default.aspx");
+            Response.Redirect("~/Home/Default.aspx");
         }
         protected void Adquirir_Click(object sender, EventArgs e)
         {
@@ -462,6 +466,11 @@ namespace co.itmasters.solucion.web.Empresa
                 Master.mostrarMensaje(err.Message, Master.ERROR);
 
             }
+        }
+
+        protected void btnCloseModal_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", $"CloseModal('{modalOfertaCreada.ClientID}', '{openModal.ClientID}')", true);
         }
     }
 }
