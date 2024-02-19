@@ -179,8 +179,9 @@ namespace co.itmasters.solucion.web.Empresa
                 }
                 if (resultado.estado =="ACT")
                     {
+                        
                         txtFechaPublicacion.ReadOnly = false;
-                        txtFechaPublicacion.Enabled = false;
+                        txtFechaPublicacion.Enabled = true;
                     }
                  if (ViewState["Estado"].ToString() == "Duplicar" )
                   {

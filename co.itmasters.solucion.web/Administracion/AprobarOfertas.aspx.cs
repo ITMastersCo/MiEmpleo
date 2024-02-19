@@ -78,7 +78,7 @@ namespace co.itmasters.solucion.web.Administracion
             {
                 OfertaVO aprobar = new OfertaVO();
                 aprobar.idOferta = Convert.ToInt32(LabelIdOferta.Text);
-                aprobar.estado = "APR";
+                aprobar.estado = "ACT";
                 aprobar.idUsuario = user.IdUsuario;
                 aprobar.Observaciones = "";
                 _ActoresService = new OfertaServiceClient();
