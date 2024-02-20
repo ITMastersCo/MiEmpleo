@@ -149,6 +149,7 @@ namespace co.itmasters.solucion.web
         }
         protected void btnBuscarOferta_Click(object sender, EventArgs e)
         {
+            Master.OcultarBanda();
             LlenarGrdOfertas();
 
         }
@@ -197,6 +198,7 @@ namespace co.itmasters.solucion.web
         protected void btnViewOffer_Command(object sender, CommandEventArgs e)
         {
 
+            Master.OcultarBanda();
             List<PersonaVO> postulados = GetPostulados();
 
             if (e.CommandName == "GET")
