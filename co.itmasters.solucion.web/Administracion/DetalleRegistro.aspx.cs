@@ -102,15 +102,12 @@ namespace co.itmasters.solucion.web.Administracion
                     //etiqueta.Font.Size = 10;
                     etiqueta.Text = item.Texto;
                     pFiltros.Controls.Add(etiqueta);
-                    if (item.Requerido)
-                    {
-                        pFiltros.Controls.Add(new LiteralControl("<img alt=\"Oblogatorio\" src=\"" + this.UrlBasePath() + "Images/Obligatorio.gif\" />"));
-                    }
+                 
 
                     pFiltros.Controls.Add(new LiteralControl("</td><td style=\"width: 70%;\" align=\"Left\" >"));
 
                     TextBox textoFiltro = new TextBox();
-                    
+                    textoFiltro.CssClass = "text-box";
                     //Tamaniio de la Caja de Texto, si no se define en el XML llega 0.
                     if(item.Tamano > 0)
                         textoFiltro.MaxLength = item.Tamano;
@@ -151,6 +148,7 @@ namespace co.itmasters.solucion.web.Administracion
                     if (item.Requerido)
                     {
                         RequiredFieldValidator validador = new RequiredFieldValidator();
+                        validador.CssClass = "required-field-validator";
                         validador.ID = "RFV" + textoFiltro.ID;
                         validador.SetFocusOnError = true;
                         validador.Enabled = true;
@@ -187,14 +185,11 @@ namespace co.itmasters.solucion.web.Administracion
                     etiqueta.Text = item.Texto;
                     pFiltros.Controls.Add(etiqueta);
                     
-                    if (item.Requerido)
-                    {
-                        pFiltros.Controls.Add(new LiteralControl("<img alt=\"\" src=\"" + this.UrlBasePath() + "Images/Obligatorio.gif\" />"));
-                    }
-
+                  
                     pFiltros.Controls.Add(new LiteralControl("</td><td style=\"width: 88%;\" align=\"Left\" >"));
 
                     DropDownList filtro = new DropDownList();
+                    filtro.CssClass = "drop-down-list";
                     filtro.ID = item.Parametro;
                     filtro.Style["width"] = "90%";
 
@@ -227,13 +222,14 @@ namespace co.itmasters.solucion.web.Administracion
                     if (item.Requerido)
                     {
                         RequiredFieldValidator validador = new RequiredFieldValidator();
+                        validador.CssClass = "required-field-validator";
                         validador.ID = "RFV" + filtro.ID;
+                        validador.CssClass = "required-field-validator";
                         validador.InitialValue = "-1";
                         validador.Enabled = true;
                         validador.SetFocusOnError = true;
                         //validador.ValidationGroup = "Exportar";
                         validador.Style["Width"] = "10%";
-                        validador.Text = "<img alt=\"\" src=\"" + this.UrlBasePath() + "Images/exclamation.gif\" />";
                         validador.ControlToValidate = filtro.ID;
                         pFiltros.Controls.Add(validador);
                     }
@@ -469,5 +465,28 @@ namespace co.itmasters.solucion.web.Administracion
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", "var b = parent.document.getElementById('btnele'); $(b).trigger('click');", true);
         }
 
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.IngresaParametros();
+                String varJs = "";
+                //varJs += "var z = parent.document.getElementById('ctl00_Main_btnRecalcular'); z.click(); ";
+                varJs += "var z = parent.document.getElementById('Main_btnRecalcular'); z.click(); ";
+                varJs += "var b = parent.document.getElementById('btnele'); $(b).trigger('click');";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", varJs, true);
+            }
+            catch (Exception err)
+            {
+                lblError.Visible = true;
+                lblError.Text = err.Message;
+
+            }
+        }
+
+        protected void btnCerrar_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", "var b = parent.document.getElementById('btnele'); $(b).trigger('click');", true);
+        }
     }
 }

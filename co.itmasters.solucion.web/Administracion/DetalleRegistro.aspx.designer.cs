@@ -96,22 +96,22 @@ namespace co.itmasters.solucion.web.Administracion
         protected global::System.Web.UI.UpdatePanel uAdd;
 
         /// <summary>
-        /// Control imgGuardar.
+        /// Control btnGuardar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgGuardar;
+        protected global::System.Web.UI.WebControls.Button btnGuardar;
 
         /// <summary>
-        /// Control imgCerrar.
+        /// Control btnCerrar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgCerrar;
+        protected global::System.Web.UI.WebControls.Button btnCerrar;
 
         /// <summary>
         /// Control lblError.
