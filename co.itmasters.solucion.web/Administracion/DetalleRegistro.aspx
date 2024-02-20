@@ -15,6 +15,7 @@
     <script type="text/javascript" src="../Scripts/jquery-1.3.2.min.js"></script>
     <script type="text/javascript" src="../Scripts/jquery-ui-1.7.2.custom.min.js"></script>
     <script type="text/javascript" src="../Scripts/jquery-Aplicacion.js"></script>
+    <script type="text/javascript" src="../Scripts/MiEmpleo.js"></script>
     
 
     <script type="text/javascript">
@@ -68,7 +69,7 @@
                     <asp:Label Text="Guardar" CssClass="button" runat="server" AssociatedControlID="btnGuardar" />
                     <asp:Button id="btnGuardar" Text="text" runat="server" OnClick="btnGuardar_Click" CssClass="hidden" CausesValidation="true" />
                  
-                    <asp:Label Text="Cancelar" runat="server" class="button bg-red-400"/>
+                    <asp:Label Text="Cancelar" runat="server" class="button bg-red-400" AssociatedControlID="btnCerrar"/>
                     <asp:Button Text="" ID="btnCerrar" runat="server" CssClass="hidden" OnClick="btnCerrar_Click" CausesValidation="False"/>
                     </div>
 
