@@ -74,3 +74,11 @@ function showContainer( btn , event, container){
 function closeModal(containerModal) {
     containerModal.remove()
 }
+function closeEmergente(containerEmergente) {
+    const emergente = parent.document.getElementById(containerEmergente)
+    console.log(emergente)
+    emergente.remove();
+    console.log("cerrado")
+
+}
+

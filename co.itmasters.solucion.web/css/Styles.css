@@ -71,7 +71,7 @@
     --border-input: 1.5px solid var(--gray-300);
     --border-button: solid 1.5px var(--color-500);
     /* Shadows */
-    --shadow-button: 0px 2px 7px 0px rgba(4, 4, 4, 0.26);
+    --shadow-button: 0px 2px 2px 0px rgba(4, 4, 4, 0.15);
     /* Colors */
 
     --gray-100: #EAEAEA;
@@ -164,6 +164,11 @@ svg {
     border-radius: 0.5rem;
     padding: 0.5rem;
 
+}
+#simplemodal-container.simplemodal-container {
+    border-radius: var(--rounded-frame);
+    overflow: hidden;
+    box-shadow: var(--shadow);
 }
 
 .header-master {
