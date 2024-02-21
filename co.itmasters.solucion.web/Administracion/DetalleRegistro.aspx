@@ -6,6 +6,7 @@
     <title></title>
 
     <link rel="stylesheet" href="~/css/Styles.css" />
+    <link rel="stylesheet" href="~/css/Empresa.css" />
 
     <%--<link href="../Estilos/jquery-ui-1.7.2.custom.css" rel="stylesheet" type="text/css" />--%>
 
@@ -14,6 +15,7 @@
     <script type="text/javascript" src="../Scripts/jquery-1.3.2.min.js"></script>
     <script type="text/javascript" src="../Scripts/jquery-ui-1.7.2.custom.min.js"></script>
     <script type="text/javascript" src="../Scripts/jquery-Aplicacion.js"></script>
+    <script type="text/javascript" src="../Scripts/MiEmpleo.js"></script>
     
 
     <script type="text/javascript">
@@ -42,79 +44,41 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
 
-        <div id="ventanaEmergente" class="h-group" style="width: 100%">
-            <table width="100%">
-                <tr>
-                    <td valign="middle">
-                        <h1 class="text-subtitle"><span class="text-normal text-highlighted" />
-                            <asp:Label ID="lblTitulo" runat="server" Text="" Width="100%" Height="100%"></asp:Label>
-                        </h1>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center">
-                        <h1 class="text-subtitle"><span class="text-normal text-highlighted" />
-                            <asp:Label ID="lblSubtitulo" runat="server" Width="100%" Height="100%" Text=""></asp:Label>
-                        </h1>
-                    </td>
-                </tr>
-            </table>
-        </div>
 
 
-        <div style="border: 1px solid #808080; padding: 5px">
+        <div id="ventanaEmergente" class="flex flex-col  p-32 gap-16" >
+            <div class="flex flex-col flex-center gap-4">
+            <asp:Label ID="lblTitulo" CssClass="text-item color-gray-900 text-semibold" runat="server" Text="" ></asp:Label>
+            <asp:Label ID="lblSubtitulo" CssClass="color-gray-600 text-semibold" runat="server" Text=""></asp:Label>
+            </div>
             <asp:UpdatePanel ID="upComponente" runat="server">
                 <ContentTemplate>
-                    <fieldset>
-                        <%-- <legend style="font-size: medium"><span style="font-size: small"><b>INFORMACION</b>
-                    </span></legend>--%>
-                        <asp:Panel ID="pFiltros" runat="server" Width="100%">
-                        </asp:Panel>
+                    <asp:Panel ID="pFiltros" runat="server" Width="100%">
 
-                        <table width="100%" class="tabla">
-                            <tr class="modo1">
-                                <td style="width: 90%" align="right">
-                                    <asp:Label ID="lblEstado" runat="server" Text="Estado" Style="font-weight: 700;"></asp:Label>
-                                </td>
-                                <td style="width: 10%" align="center">
-                                    <asp:CheckBox ID="chkEstado" runat="server" Checked="True" />
-                                </td>
-                            </tr>
-                        </table>
-                    </fieldset>
+                    </asp:Panel>
+
+                    <asp:Label ID="lblEstado" runat="server" Text="Estado" Style="font-weight: 700;"></asp:Label>
+                    <asp:CheckBox ID="chkEstado" runat="server" Checked="True" />
                 </ContentTemplate>
             </asp:UpdatePanel>
-        </div>
 
-        <div style="border: 1px solid #808080; padding: 5px">
             <asp:UpdatePanel ID="uAdd" runat="server">
                 <ContentTemplate>
-                    <center>
-                        <table width="100%" class="tabla">
-                            <tr class="modo1">
-                                <td style="width: 50%" align="center">
-                                    <asp:ImageButton ID="imgGuardar" CausesValidation="true" runat="server"
-                                        ImageUrl="~/Images/Guardar.gif" ToolTip="Guardar"
-                                        OnClick="imgGuardar_Click" Height="20px" />
-                                </td>
-                                <td style="width: 50%" align="center">
-                                    <asp:ImageButton ID="imgCerrar" runat="server" ImageUrl="~/Images/Cancelar.gif"
-                                        ToolTip="Cancelar" OnClick="imgCerrar_Click" CausesValidation="False"
-                                        Height="20px" />
-                                </td>
-                            </tr>
+                    <div class="flex flex-center gap-8">
 
-                            <tr>
-                                <td colspan = "2" style="width:100%">
-                                    <asp:Label ID="lblError" runat="server" Text="" Visible="false"></asp:Label>
-                                </td>
-                            </tr>
+                    <asp:Label Text="Guardar" CssClass="button" runat="server" AssociatedControlID="btnGuardar" />
+                    <asp:Button id="btnGuardar" Text="text" runat="server" OnClick="btnGuardar_Click" CssClass="hidden" CausesValidation="true" />
+                 
+                    <asp:Label Text="Cancelar" runat="server" class="button bg-red-400" AssociatedControlID="btnCerrar"/>
+                    <asp:Button Text="" ID="btnCerrar" runat="server" CssClass="hidden" OnClick="btnCerrar_Click" CausesValidation="False"/>
+                    </div>
 
-                        </table>
-                    </center>
+                    <asp:Label ID="lblError" runat="server" Text="" Visible="false"></asp:Label>
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>
+
+
     </form>
 </body>
 </html>

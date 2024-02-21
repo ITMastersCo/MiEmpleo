@@ -154,7 +154,20 @@
                 </nav>
             </div>
         </footer>
+        <input type="hidden" id="btnele" value="evento" />
+        <script type="text/javascript" >
+            $(document).ready(
 
+                function () {
+                    /*document.getElementById('Contenedor').style.display = 'none';*/
+                    ocultarPantalla('btnele');
+                    //var fecha = new Date();
+                    //var anio = fecha.getFullYear();
+                    //$("#fecha").text(anio);
+
+                });
+
+        </script>
     </form>
 
     <script src="https://sdk.mercadopago.com/js/v2"></script>

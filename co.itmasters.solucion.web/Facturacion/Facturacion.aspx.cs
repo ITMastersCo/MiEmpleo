@@ -126,6 +126,7 @@ namespace co.itmasters.solucion.web.Facturacion
             lash.Attributes.Add("class", "pestana");
         }
         protected void ProcesarPago()
+        
         {
 
             if (Request.QueryString["preference_id"] != null 
@@ -216,7 +217,7 @@ namespace co.itmasters.solucion.web.Facturacion
             _OfertaService.ModifyPagos(newPago);
             _OfertaService.Close();
 
-            if (payment.description != "Oferta" )
+            if (!payment.description.Contains("Oferta") )
             {
                 Response.Redirect("~/Empresa/PublicarOfertas.aspx");
             }
