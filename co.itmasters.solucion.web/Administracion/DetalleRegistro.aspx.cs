@@ -475,7 +475,6 @@ namespace co.itmasters.solucion.web.Administracion
                 varJs += "var z = parent.document.getElementById('Main_btnRecalcular'); z.click(); ";
                 varJs += "var b = parent.document.getElementById('btnele'); $(b).trigger('click');";
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", varJs, true);
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", $"closeEmergente('simplemodal-container')", true);
 
             }
             catch (Exception err)
@@ -488,9 +487,7 @@ namespace co.itmasters.solucion.web.Administracion
 
         protected void btnCerrar_Click(object sender, EventArgs e)
         {
-
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", $"closeEmergente('simplemodal-overlay')", true);
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", $"closeEmergente('simplemodal-container')", true);
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", "var b = parent.document.getElementById('btnele'); $(b).trigger('click');", true);
         }
     }
 }

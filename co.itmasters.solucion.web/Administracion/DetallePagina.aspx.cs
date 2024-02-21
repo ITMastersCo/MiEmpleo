@@ -307,8 +307,6 @@ namespace co.itmasters.solucion.web.Administracion
         protected void btnRecalcular_Click(object sender, EventArgs e)
         {
             this.ActualizaDatos(-1);
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", $"closeEmergente('simplemodal-overlay')", true);
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", $"closeEmergente('simplemodal-container')", true);
         }
     }
 }
