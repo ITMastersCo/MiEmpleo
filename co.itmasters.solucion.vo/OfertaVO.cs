@@ -66,7 +66,7 @@ namespace co.itmasters.solucion.vo
         public Boolean? esConfidencial { get; set; }
         public string estado { get; set; }
         public string nomCiudad { get; set; }
-        public DateTime fechaAprobacion { get; set; }
+        public DateTime? fechaAprobacion { get; set; }
         public string Observaciones { get; set; }
         public string  usuarioCrea { get; set; }
         public DateTime? fechaCrea { get; set; }
@@ -110,7 +110,7 @@ namespace co.itmasters.solucion.vo
         public string preference_id;
         public string payment_id { get; set; }
         public string payment_method { get; set; }
-        public int valorPago { get; set; }
+        public int? valorPago { get; set; }
 
 
     }
