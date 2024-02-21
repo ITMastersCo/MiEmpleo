@@ -158,14 +158,7 @@ namespace co.itmasters.solucion.web.Personal
         private void ShowPersonalInfo(PersonaVO persona)
         {
             wrpPersonalInfo.ID = persona.idPersona.ToString();
-            if (user.Avatar != "")
-            {
-                imgAvatar.Src = $".{user.Avatar}";
-            }
-            else
-            {
-                imgAvatar.Src = "../Images/AvatarDefault.png";
-            }
+            imgAvatar.Src = $".{user.Avatar}";
             userName.InnerText = $"{persona.nomPersona} {persona.apePersona}";
             userEmail.Text = persona.correoElectronico;
             userPhone.Text = persona.telefono;

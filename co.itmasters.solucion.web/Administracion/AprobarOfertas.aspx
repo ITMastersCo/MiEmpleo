@@ -104,9 +104,9 @@
                                                     </div>
                                                 </header>
                                                 <div class="cv-item-info">
-                                                    <p class='text-normal text-regular color-gray-600' runat="server" id="itemContent"><%# Eval("descripcionVacante") %></p>
+                                                    <p class='text-normal text-regular color-gray-600 truncate ' runat="server" id="itemContent" style="width: 30rem;"><%# Eval("descripcionVacante") %></p>
                                                     <p class='text-normal text-regular color-gray-600' runat="server" id="itemDate"><%# String.Format("{0:yyyy-MM-dd}", Eval("fechaPublicacion")) %></p>
-                                                    <p class='text-normal text-regular color-gray-600' runat="server" id="P1"><%# Eval("nomEmpresa") %></p>
+                                                    <p class='text-normal text-regular color-gray-600 truncate' runat="server" id="P1" style="width: 30rem;"  ><%# Eval("nomEmpresa") %></p>
                                                 </div>
                                             </article>
                                         </ItemTemplate>

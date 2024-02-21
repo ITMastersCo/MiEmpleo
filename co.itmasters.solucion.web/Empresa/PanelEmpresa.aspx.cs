@@ -136,40 +136,48 @@ namespace co.itmasters.solucion.web.Empresa
 
         protected void btnViewDetailOffer_Command(object sender, CommandEventArgs e)
         {
-            Int32 index = Convert.ToInt32(e.CommandArgument) % GrdOfertas.PageSize;
-            GridViewRow row = GrdOfertas.Rows[index];
-            Int32 Id = Convert.ToInt32(((Label)row.FindControl("lblidOferta")).Text);
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba",
-                $"OpenModal('{detalleOferta.ClientID}','{openModal.ClientID}')", true);
-
-            OfertaVO oferta = new OfertaVO();
-            oferta.idOferta = Convert.ToInt32(Id);
-            OfertaServiceClient _OfertaService = new OfertaServiceClient();
-
-            OfertaVO viewOferta = _OfertaService.GetOfertaPersonaDetalle(oferta);
-            _OfertaService.Close();
-            lblIdOferta.Text = viewOferta.idOferta.ToString();
-            imgAvatarEmpresa.Src = $".{viewOferta.rutaAvatar}";
-            lblOfferTitle.Text = viewOferta.tituloVacante;
-            lblOfferSalaryRange.Text = viewOferta.RangoSalario;
-            lblDateCrateOffer.Text = String.Format("{0:yyyy-MM-dd}", viewOferta.fechaPublicacion);
-            lblDateRemoveOffer.Text = String.Format("{0:yyyy-MM-dd}", viewOferta.fechaVencimiento);
-            lblOfferUserWhoPublished.Text = viewOferta.nomEmpresa;
-            lblOfferLocation.Text = viewOferta.nomCiudad;
-            lblDescriptioOffer.Text = viewOferta.descripcionVacante;
-
-            // Trae los Postulados de la ofeta
-
-            List<PersonaVO> postulados = GetPostulados(Id);
-
-            if(postulados.Count > 0)
+            try
             {
-                grdCandidatos.DataSource = postulados;
-                grdCandidatos.DataBind();
+                Int32 index = Convert.ToInt32(e.CommandArgument) % GrdOfertas.PageSize;
+                GridViewRow row = GrdOfertas.Rows[index];
+                Int32 Id = Convert.ToInt32(((Label)row.FindControl("lblidOferta")).Text);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba",
+                    $"OpenModal('{detalleOferta.ClientID}','{openModal.ClientID}')", true);
+
+                OfertaVO oferta = new OfertaVO();
+                oferta.idOferta = Convert.ToInt32(Id);
+                OfertaServiceClient _OfertaService = new OfertaServiceClient();
+
+                OfertaVO viewOferta = _OfertaService.GetOfertaPersonaDetalle(oferta);
+                _OfertaService.Close();
+                lblIdOferta.Text = viewOferta.idOferta.ToString();
+                imgAvatarEmpresa.Src = $".{viewOferta.rutaAvatar}";
+                lblOfferTitle.Text = viewOferta.tituloVacante;
+                lblOfferSalaryRange.Text = viewOferta.RangoSalario;
+                lblDateCrateOffer.Text = String.Format("{0:yyyy-MM-dd}", viewOferta.fechaPublicacion);
+                lblDateRemoveOffer.Text = String.Format("{0:yyyy-MM-dd}", viewOferta.fechaVencimiento);
+                lblOfferUserWhoPublished.Text = viewOferta.nomEmpresa;
+                lblOfferLocation.Text = viewOferta.nomCiudad;
+                lblDescriptioOffer.Text = viewOferta.descripcionVacante;
+
+                // Trae los Postulados de la ofeta
+
+                List<PersonaVO> postulados = GetPostulados(Id);
+
+                if (postulados.Count > 0)
+                {
+                    grdCandidatos.DataSource = postulados;
+                    grdCandidatos.DataBind();
+                }
+                else
+                {
+                    noResultsShare.Visible = true;
+                }
+
             }
-            else
+            catch(Exception err)
             {
-                noResultsShare.Visible = true;
+                Master.mostrarMensaje(err.ToString(), Master.ERROR);
             }
             
 
