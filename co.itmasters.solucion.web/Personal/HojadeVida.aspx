@@ -154,7 +154,7 @@
 
                     <div class="cv-title_i">
 
-                        <h3 class="text-section color-gray-800">Description</h3>
+                        <h3 class="text-section color-gray-800">Perfil profecional</h3>
 
                         <div class="flex cv-icons">
 
