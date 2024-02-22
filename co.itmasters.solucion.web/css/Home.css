@@ -21,7 +21,7 @@ main {
 
 .banner {
     display: flex;
-    padding: 2rem;
+    
     text-align: center;
     background-image: url(../Images/ImgInicio/vector-21.png);
     background-size: 150%;
@@ -31,7 +31,8 @@ main {
     justify-content: center;
     width: 100%;
     height: 90dvh;
-    padding-top: 54px;
+    padding-top: 64px;
+    align-items:center;
 }
 
 .info-banner {
@@ -53,7 +54,7 @@ main {
     background: var(--green-100);
 }
 
-.banner img {
+.banner #imgBanner {
     display: none;
 }
 
@@ -224,7 +225,7 @@ section.benefit {
 
         .banner h1 {
             width: 600px;
-            margin-bottom: 3rem;
+            margin-bottom: .5rem;
         }
 
     .loginIcon {
@@ -268,7 +269,7 @@ section.benefit {
             display: none;
         }
 
-        .banner img.desktop {
+        .banner #imgBanner.desktop {
             display: block;
         }
 
