@@ -180,26 +180,16 @@ namespace co.itmasters.solucion.web
                 Master.mostrarMensaje("Usted ya ha postulado a esta oferta", Master.INFORMACION);
             }
         }
-        protected List<PersonaVO> GetPostulados()
-        {
 
-            OfertaVO oferta = new OfertaVO();
-            oferta.idOferta = 23;
-            oferta.typeModify = TipoConsulta.GET;
-
-            OfertaServiceClient _OfertaService = new OfertaServiceClient();
-            List<PersonaVO> postulados = _OfertaService.Postulados(oferta).ToList();
-            _OfertaService.Close();
-
-            return postulados;
-
-        }
 
         protected void btnViewOffer_Command(object sender, CommandEventArgs e)
         {
 
+<<<<<<< HEAD
             Master.OcultarBanda();
             List<PersonaVO> postulados = GetPostulados();
+=======
+>>>>>>> add-seeker-index
 
             if (e.CommandName == "GET")
             {
