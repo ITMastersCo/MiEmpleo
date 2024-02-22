@@ -185,11 +185,7 @@ namespace co.itmasters.solucion.web
         protected void btnViewOffer_Command(object sender, CommandEventArgs e)
         {
 
-<<<<<<< HEAD
             Master.OcultarBanda();
-            List<PersonaVO> postulados = GetPostulados();
-=======
->>>>>>> add-seeker-index
 
             if (e.CommandName == "GET")
             {
