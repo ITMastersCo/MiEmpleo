@@ -426,7 +426,22 @@ svg {
     }
 
 
+.required-field-validator {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-medium);
+    color: var(--red-500);
+    margin-left: 8px;
+    line-height: normal;
+}
 
+.required-field-validator::after {
+    content: "*";
+}
+
+.required-field-validator[style*="visibility: hidden;" ],
+.required-field-validator[style*="visibility:hidden;" ] {
+    display: none;
+}
 
 
 /* Clases con borde redondeado */
@@ -2484,20 +2499,7 @@ a {
     border:none;
     background:none;
 }
-.required-field-validator {
-    font-size: var(--font-size-small);
-    font-weight:var(--font-weight-medium);
-    color: var(--red-500);
-    margin-left: 8px;
-    line-height: normal;
-}
-.required-field-validator::after{
-    content:"*";
-}
-.required-field-validator[style*="visibility: hidden;" ],
-.required-field-validator[style*="visibility:hidden;" ] {
-    display: none;
-}
+
 .active {
     border: solid 1px var(--color-500);
 }
