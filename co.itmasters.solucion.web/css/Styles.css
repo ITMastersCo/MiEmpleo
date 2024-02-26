@@ -58,8 +58,8 @@
     src: url(../fonts/static/Inter-Regular.ttf);
     font-weight: 400;
     font-style: normal;
+    
 }
-
 :root {
     --p-button: .8em 2em;
     --p-16: 16px;
@@ -68,8 +68,9 @@
     --rounded-button: 1.5em;
     --rounded-frame: 10px;
     --rounded-input: .5em 1.25em;
-    --border-input: 1.5px solid var(--gray-300);
-    --border-button: solid 1.5px var(--color-500);
+    --border-width:1.5px;
+    --border-input: var(--border-width) solid var(--gray-300);
+    --border-button: solid var(--border-width) var(--color-500);
     /* Shadows */
     --shadow-button: 0px 2px 2px 0px rgba(4, 4, 4, 0.15);
     /* Colors */
@@ -129,7 +130,7 @@
     --font-weight-regular: 400;
     --line-height-title: 160%;
     --line-height-norma: 200%;
-    --z-index-modal:100;
+    --z-index-modal: 100;
 }
 
 @media screen and (min-width:1200px) {
@@ -1373,7 +1374,7 @@ bg-red-100 {
 
 
 .text-box:active, .text-box:focus-visible, .text-box:focus, .text-box:target {
-   border: 1.5px solid var(--color-300);
+   border:  solid var(--color-300);
 }
 .drop-down-list {
     border:var(--border-input);
@@ -1387,7 +1388,7 @@ bg-red-100 {
     width:100%;
 }
 .drop-down-list:active, .drop-down-list:focus-visible, .drop-down-list:focus, .drop-down-list:target {
-    border: 2px solid var(--color-300);
+    border: var(--border-width) solid var(--color-300);
 }
 .text-area {
     border:var(--border-input);
@@ -2536,7 +2537,7 @@ a {
     background-color:var(--color-300);
 }
 .list-autofill:active, .text-box:focus-visible, .text-box:focus, .text-box:target {
-    border: 2px solid var(--color-300);
+    border: var(--border-width) solid var(--color-300);
 }
 
 .border-solid {

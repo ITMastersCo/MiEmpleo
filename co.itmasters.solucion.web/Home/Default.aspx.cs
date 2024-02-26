@@ -50,29 +50,30 @@ namespace co.itmasters.solucion.web
         {
             if (user != null)
             {
-                if (user.tipoUsuario == 1)
+                switch (user.tipoUsuario)
                 {
-                    if (user.diligenciaFormulario == 0)
-                    {
-                        Response.Redirect("~/Empresa/DatosBasicosEmpresa.aspx", true);
-                    }
-                    else
-                    {
-                        Response.Redirect("~/Empresa/PanelEmpresa.aspx", true);
-                    }
+                    case 1:
+                         if (user.diligenciaFormulario == 0)
+                         {
+                             Response.Redirect("~/Empresa/DatosBasicosEmpresa.aspx", true);
+                         }
+                         else
+                         {
+                             Response.Redirect("~/Empresa/PanelEmpresa.aspx", true);
+                         }
+                    break;
+                    case 2:
+                        PersonaVO persona = GetPersona();
+                        if (persona.diligenciaBasicos == 0){Response.Redirect("~/Personal/HojadeVida.aspx");}
+                        break;
+                    case 4:
+                        {
+                            Response.Redirect("~/Empresa/PanelEmpresa.aspx", true);
+                        }
+                        break;
+                        
                 }
-                else if (user.tipoUsuario == 2)
-                {
-                    PersonaVO persona = GetPersona();
-                    if (persona.diligenciaBasicos == 0)
-                    {
-                        Response.Redirect("~/Personal/HojadeVida.aspx");
-                    }
-                    else
-                    {
-
-                    }
-                }
+                
             }
         }
         private PersonaVO GetPersona()

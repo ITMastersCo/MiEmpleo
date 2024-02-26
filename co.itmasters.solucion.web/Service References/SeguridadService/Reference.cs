@@ -27,6 +27,12 @@ namespace co.itmasters.solucion.web.SeguridadService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISeguridadService/RegistroUsuarioTokenEmpresa", ReplyAction="http://tempuri.org/ISeguridadService/RegistroUsuarioTokenEmpresaResponse")]
         System.Threading.Tasks.Task RegistroUsuarioTokenEmpresaAsync(co.itmasters.solucion.vo.UsuarioVO Actor);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISeguridadService/RegistroUsuarioFuncionario", ReplyAction="http://tempuri.org/ISeguridadService/RegistroUsuarioFuncionarioResponse")]
+        void RegistroUsuarioFuncionario(co.itmasters.solucion.vo.UsuarioVO Actor);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISeguridadService/RegistroUsuarioFuncionario", ReplyAction="http://tempuri.org/ISeguridadService/RegistroUsuarioFuncionarioResponse")]
+        System.Threading.Tasks.Task RegistroUsuarioFuncionarioAsync(co.itmasters.solucion.vo.UsuarioVO Actor);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISeguridadService/RegistroUsuarioEmpresa", ReplyAction="http://tempuri.org/ISeguridadService/RegistroUsuarioEmpresaResponse")]
         void RegistroUsuarioEmpresa(co.itmasters.solucion.vo.UsuarioVO Actor);
         
@@ -123,6 +129,14 @@ namespace co.itmasters.solucion.web.SeguridadService {
         
         public System.Threading.Tasks.Task RegistroUsuarioTokenEmpresaAsync(co.itmasters.solucion.vo.UsuarioVO Actor) {
             return base.Channel.RegistroUsuarioTokenEmpresaAsync(Actor);
+        }
+        
+        public void RegistroUsuarioFuncionario(co.itmasters.solucion.vo.UsuarioVO Actor) {
+            base.Channel.RegistroUsuarioFuncionario(Actor);
+        }
+        
+        public System.Threading.Tasks.Task RegistroUsuarioFuncionarioAsync(co.itmasters.solucion.vo.UsuarioVO Actor) {
+            return base.Channel.RegistroUsuarioFuncionarioAsync(Actor);
         }
         
         public void RegistroUsuarioEmpresa(co.itmasters.solucion.vo.UsuarioVO Actor) {

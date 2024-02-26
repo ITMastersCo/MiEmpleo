@@ -23,6 +23,7 @@ namespace co.itmasters.solucion.dao
         private const String SEGURIDAD_REGISTROUSUARIOEMPRESA = "SeguridadRegistroEmpresa";
         private const String SEGURIDAD_REGISTROUSUARIOTOKENEMPRESA = "SeguridadRegistroTokenEmpresa";  
         private const String SEGURIDAD_REGISTROPERSONAS = "SeguridadRegistroPersonas";
+        private const String SEGURIDAD_REGISTROFUNCIONARIO = "SeguridadRegistroFuncionario";
         private const String SEGURIDAD_ENVIARRESPUESTAS = "sp_Seguridad_EnviarRespuestas";
         private const String SEGURIDAD_BUSCARPREGUNTAS = "SeguridadBuscarPreguntas";
         private const String SEGURIDAD_BASICAS_CREDENCIALES = "SeguridadBasicas_Credenciales";
@@ -30,8 +31,9 @@ namespace co.itmasters.solucion.dao
         // Constantes Entidad Seguridad
         public const string SEGURIDAD_NOMBREUSUARIO = "nombreUsuario";
         public const string SEGURIDAD_CLAVE = "clave";
-
         //Constantes para cargar VO Usuario
+        public const string SEGURIDAD_NOMUSUARIO = "nomUsuario"; /*Correo*/
+        public const string SEGURIDAD_IDROL  = "idRol";      
         public const string SEGURIDAD_IDEMPRESA = "idEmpresa";
         public const string SEGURIDAD_NOMEMPRESA= "nomEmpresa";
         public const string SEGURIDAD_NOMEMPRESA2 = "nomEmpresa2";
@@ -167,6 +169,33 @@ namespace co.itmasters.solucion.dao
             }
 
         }
+        public void RegistroUsuarioFuncionario(UsuarioVO Actor)
+        {
+            try
+            {
+                Parametro[] valParam = new Parametro[]
+                   {
+
+                         
+                         new Parametro(SEGURIDAD_IDUSUARIO, Actor.IdUsuario, DbType.Int32),
+                         new Parametro(SEGURIDAD_NOMBRECOMPLETO, Actor.NombreCompleto, DbType.String),
+                         new Parametro(SEGURIDAD_NOMBREUSUARIO, Actor.NomUsuario, DbType.String), /*Correo*/
+                         new Parametro(SEGURIDAD_IDROL, Actor.idRol, DbType.Int32), 
+                         new Parametro(SEGURIDAD_PASSWORD1, Actor.pasword1, DbType.String),
+                         new Parametro(SEGURIDAD_PASSWORD2, Actor.pasword2, DbType.String),
+                   };
+                this.EjecutarStoredProcedure(SEGURIDAD_REGISTROFUNCIONARIO, valParam);
+            }
+            catch (System.Data.SqlClient.SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+        }
         public void RegistroUsuarioEmpresa(UsuarioVO Actor)
         {
             try
@@ -263,6 +292,7 @@ namespace co.itmasters.solucion.dao
                          new Parametro(SEGURIDAD_TOKEN, token.Token, DbType.String),
                          new Parametro(SEGURIDAD_TIPOUSUARIO, token.tipoUsuario, DbType.Int32),
                          new Parametro(SEGURIDAD_NUMIDENTIFICACION, token.NumIdentificacion, DbType.String),
+                         new Parametro(SEGURIDAD_NOMUSUARIO, token.NomUsuario, DbType.String), /*Correo*/
                    };
 
                 DataRow dr = this.EjecutarStoredProcedureDataRow(SEGURIDAD_VALIDARTOKEN, valParam);

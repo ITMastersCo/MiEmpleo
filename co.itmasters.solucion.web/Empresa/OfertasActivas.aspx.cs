@@ -20,7 +20,7 @@ using co.itmasters.solucion.vo.constantes;
 
 namespace co.itmasters.solucion.web.Empresa
 {
-    public partial class OfertasActivas : System.Web.UI.Page
+    public partial class OfertasActivas : PageBase
     {
         private OfertaServiceClient _OfertaService;
         private UserVO user;

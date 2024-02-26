@@ -19,6 +19,12 @@
   <wsdl:message name="ISeguridadService_RegistroUsuarioTokenEmpresa_OutputMessage">
     <wsdl:part name="parameters" element="tns:RegistroUsuarioTokenEmpresaResponse" />
   </wsdl:message>
+  <wsdl:message name="ISeguridadService_RegistroUsuarioFuncionario_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroUsuarioFuncionario" />
+  </wsdl:message>
+  <wsdl:message name="ISeguridadService_RegistroUsuarioFuncionario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroUsuarioFuncionarioResponse" />
+  </wsdl:message>
   <wsdl:message name="ISeguridadService_RegistroUsuarioEmpresa_InputMessage">
     <wsdl:part name="parameters" element="tns:RegistroUsuarioEmpresa" />
   </wsdl:message>
@@ -82,6 +88,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISeguridadService/RegistroUsuarioTokenEmpresa" message="tns:ISeguridadService_RegistroUsuarioTokenEmpresa_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISeguridadService/RegistroUsuarioTokenEmpresaResponse" message="tns:ISeguridadService_RegistroUsuarioTokenEmpresa_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="RegistroUsuarioFuncionario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISeguridadService/RegistroUsuarioFuncionario" message="tns:ISeguridadService_RegistroUsuarioFuncionario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISeguridadService/RegistroUsuarioFuncionarioResponse" message="tns:ISeguridadService_RegistroUsuarioFuncionario_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="RegistroUsuarioEmpresa">
       <wsdl:input wsaw:Action="http://tempuri.org/ISeguridadService/RegistroUsuarioEmpresa" message="tns:ISeguridadService_RegistroUsuarioEmpresa_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISeguridadService/RegistroUsuarioEmpresaResponse" message="tns:ISeguridadService_RegistroUsuarioEmpresa_OutputMessage" />
@@ -132,6 +142,15 @@
     </wsdl:operation>
     <wsdl:operation name="RegistroUsuarioTokenEmpresa">
       <soap:operation soapAction="http://tempuri.org/ISeguridadService/RegistroUsuarioTokenEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistroUsuarioFuncionario">
+      <soap:operation soapAction="http://tempuri.org/ISeguridadService/RegistroUsuarioFuncionario" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -43,6 +43,20 @@ namespace co.itmasters.solucion.servicios
                 throw new FaultException(new FaultReason(err.Message));
             }
         }
+        public void RegistroUsuarioFuncionario(UsuarioVO Actor)
+        {
+            try
+            {
+
+                _seguridad = new SeguridadNegocio();
+                _seguridad.RegistroUsuarioFuncionario(Actor);
+            }
+            catch (Exception err)
+            {
+                Log.Write(err.Message, Log.ERROR);
+                throw new FaultException(new FaultReason(err.Message));
+            }
+        }
         public void RegistroUsuarioEmpresa(UsuarioVO Actor)
         {
             try

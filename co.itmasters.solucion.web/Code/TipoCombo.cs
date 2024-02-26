@@ -23,6 +23,8 @@ namespace co.itmasters.solucion.web.Code
         public const string CMBRANGOSALARIAL= "cmbRangoSalarial";
         public const string CMBMODALIDADEMPLEO = "cmbModalidadEmpleo";
         public const string CMBSEXO= "cmbSexo";
+        public const string CMBROLESEMPRESA = "cmbRolesEmpresa";
+        
 
     }
 }

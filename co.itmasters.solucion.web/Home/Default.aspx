@@ -341,8 +341,8 @@
         </section>
     </div>
         <script type="text/javascript">
-           
-            
+
+
             PageMethods.GetCiudades(on, onError);
 
             let listCityes;
@@ -352,7 +352,7 @@
             function showAutocompleteCitys(event) {
                 const listAutocomplete = listCityes
 
-                showAutocomplete(event , listAutocomplete)
+                showAutocomplete(event, listAutocomplete)
 
 
             }
@@ -375,15 +375,15 @@
                     return charPositionA < charPositionB ? -1 : (charPositionA > charPositionB ? 1 : 0);
                 });
 
-                onSuccess(resultSorted,event)
+                onSuccess(resultSorted, event)
             }
-            
-            
-            
+
+
+
             function onSuccess(result, event) {
                 const parent = event.target.parentNode
                 const select = parent.querySelector("select")
-                 
+
                 select.innerHTML = '';
 
                 // Iterar sobre la lista filtrada y mostrar los resultados
@@ -453,17 +453,17 @@
                 let width = 0;
                 let percent = 0;
                 let num = <%# GetPorcentaje()%>;
-                 function updateProgress() {
-                     if (width < num) {
-                         width += 1;
-                         percent = Math.round(width) + "%";
-                         progress.style.width = percent;
-                         circle.textContent = percent;
-                         requestAnimationFrame(updateProgress);
-                     }
-                 }
+                function updateProgress() {
+                    if (width < num) {
+                        width += 1;
+                        percent = Math.round(width) + "%";
+                        progress.style.width = percent;
+                        circle.textContent = percent;
+                        requestAnimationFrame(updateProgress);
+                    }
+                }
 
-                 updateProgress();
+                updateProgress();
             });
 
 

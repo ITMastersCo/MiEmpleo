@@ -121,7 +121,7 @@ namespace co.itmasters.solucion.web.Code
             string SelectStyle ()
             {
                 string htmlLinkCss;
-                if (user.tipoUsuario == 1 || user.tipoUsuario == 3)
+                if (user.tipoUsuario == 1 || user.tipoUsuario == 3 || user.tipoUsuario == 4)
                 {
                     htmlLinkCss = "<link rel='stylesheet' href='../css/Empresa.css'>";
                 }
