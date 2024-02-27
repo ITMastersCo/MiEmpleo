@@ -32,13 +32,8 @@ namespace co.itmasters.solucion.web
             user = ((UserVO)Session["UsuarioAutenticado"]);
             if (!IsPostBack)
             {
-                if (user.tipoUsuario != 3)
-                {
-                    Console.Write("laod");
-                    Redirec();
-                    DataBind();
-                }
-
+                Redirec();
+                
             }
 
 
@@ -63,8 +58,12 @@ namespace co.itmasters.solucion.web
                          }
                     break;
                     case 2:
+                        DataBind();
                         PersonaVO persona = GetPersona();
                         if (persona.diligenciaBasicos == 0){Response.Redirect("~/Personal/HojadeVida.aspx");}
+                        break;
+                     case 3:
+                        DataBind();
                         break;
                     case 4:
                         {
@@ -74,6 +73,9 @@ namespace co.itmasters.solucion.web
                         
                 }
                 
+            }else
+            {
+                Response.Redirect("~/Index.aspx");
             }
         }
         private PersonaVO GetPersona()
