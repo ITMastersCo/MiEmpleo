@@ -83,7 +83,7 @@
 </div>
 <script type="text/javascript">
     const inputUserName = document.getElementById('cLogin_UserName')
-    inputUserName.setAttribute('placeholder', 'Usuario')
+    inputUserName.setAttribute('placeholder', 'Correo')
     const inputUserPW = document.getElementById('cLogin_Password')
     inputUserPW.setAttribute('placeholder', 'Contraseña')
     const inputSubmmit = document.querySelector('#cLogin_LoginButton')

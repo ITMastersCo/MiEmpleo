@@ -42,7 +42,7 @@
 
                         <div id="divClave" runat="server" style="display: none">
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"   ControlToValidate="txtPassword" ErrorMessage="" ValidationGroup="Registro" ForeColor="#CC0000" CssClass="text">La contraseña debe ser alfanumérica y un caracter especial.</asp:RequiredFieldValidator>
-                            <asp:TextBox ID="txtPassword" TextMode="Password" placeholder="Contraseña" onblur="validarContrasena()" runat="server" CssClass="input"></asp:TextBox>
+                            <asp:TextBox ID="txtPassword" TextMode="Password" placeholder="Contraseña" onblur="validarPassword()" runat="server" CssClass="input"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"  ControlToValidate="TxtPassword2" ErrorMessage="" ValidationGroup="Registro" ForeColor="#CC0000" CssClass="text">la contraseña debe ser igual a la nueva contraseña.</asp:RequiredFieldValidator>
                             <asp:TextBox ID="TxtPassword2" TextMode="Password" placeholder="Confirmar contraseña" onblur="validarPassword()" runat="server" CssClass="input"></asp:TextBox>
                         </div>
@@ -123,10 +123,12 @@
 
     <script type="text/javascript">
         document.getElementById("txtNumIdentificacion").focus();
+        var inuput1 = document.getElementById("txtPassword");
+        var inuput2 = document.getElementById("TxtPassword2");
         function validarPassword() {
-
             var p1 = document.getElementById("txtPassword").value;
             var p2 = document.getElementById("TxtPassword2").value;
+
             var espacios = false;
             var cont = 0;
 
@@ -137,25 +139,24 @@
                     espacios = true;
                 cont++;
             }
-
+            validarContrasena();
             if (espacios) {
                 alert("La contraseña no puede contener espacios en blanco");
+                inuput1.value = "";
+                inuput2.value = "";
                 return false;
             }
 
-            if (p1.length == 0 || p2.length == 0) {
-                alert("Los campos de la contraseñas no pueden quedar vacios");
-                return false;
-            }
+
 
             if (p1 != p2) {
                 alert("Las contraseñas deben de coincidir");
-                document.getElementById("txtPassword").value = "";
-                document.getElementById("txtPassword2").value = "";
+
+                inuput2.value = "";
                 return false;
             } else {
                 //alert("Todo esta correcto");
-              
+
                 return true
             }
         }
@@ -188,7 +189,8 @@
                 }
                 else {
                     alert("La contraseña debe contener mínimo 8 caracteres, de los cuales deben incluir al menos una mayúscula, números y un carácter especial.");
-                    document.getElementById("txtPassword").value = "";
+                    inuput1.value = "";
+                    inuput2.value = "";
                 }
             }
         }
