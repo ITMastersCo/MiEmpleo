@@ -148,16 +148,20 @@ namespace co.itmasters.solucion.web.Empresa
                         _Actores.RegistroUsuarioFuncionario(_registro);
                         _Actores.Close();
 
+                        txtCorreo.Text = "";
+                        txtCorreo.Enabled = true;
+                        txtNombre.Text = "";
+                        txtNombre.Enabled = true;
                         txtPassword.Text = "";
                         txtPassword2.Text = "";
-//                        Response.Redirect("../Home/Login.aspx");
-                        //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", "showModal();", true);
+                        Master.mostrarMensaje("Funcionario creado exitosamente", Master.EXITO);
 
                     }
                     else
                     {
                         lblError.Text = "Por favor valide todos los campos obligatorios.";
                         lblError.Visible = true;
+                        Master.mostrarMensaje("Algo fallo al intentar crear el Funcionario, intentelo nuevamente", Master.EXITO);
                     }
                 }
 

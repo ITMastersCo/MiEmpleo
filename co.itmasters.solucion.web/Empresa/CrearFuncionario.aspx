@@ -7,7 +7,7 @@
         <ContentTemplate>
             <%--Fitulo--%>
             <h1 class="text-subtitle text-semibold color-gray-800 text-center">Crear 
-                <span class="text-subtitle text-semibold color-500">Funcionario</span> 
+                <span class="text-subtitle text-semibold color-500">Funcionario</span>
             </h1>
 
             <asp:RegularExpressionValidator
@@ -19,44 +19,54 @@
             <asp:Panel runat="server" class="flex flex-col gap-8 m-auto" DefaultButton="btnCrearFuncionario">
                 <div class="flex flex-col">
                     <asp:TextBox runat="server" ID="txtCorreo" CssClass="text-box" TextMode="Email" placeholder="Correo" />
-                    <asp:RequiredFieldValidator runat="server" CssClass="required-field-validator" 
+                    <asp:RequiredFieldValidator runat="server" CssClass="required-field-validator"
                         ErrorMessage="Ingrese un correo valido" ControlToValidate="txtCorreo" ValidationGroup="crearFuncionario" />
                 </div>
                 <div class="flex flex-col">
-                    <asp:TextBox runat="server" ID="txtNombre" CssClass="text-box"  placeholder="Nombre Completo"/>
-                    <asp:RequiredFieldValidator runat="server" CssClass="required-field-validator" 
-                        ErrorMessage="Ingrese un nombre" ControlToValidate="txtNombre" ValidationGroup="crearFuncionario"  />
+                    <asp:TextBox runat="server" ID="txtNombre" CssClass="text-box" placeholder="Nombre Completo" />
+                    <asp:RequiredFieldValidator runat="server" CssClass="required-field-validator"
+                        ErrorMessage="Ingrese un nombre" ControlToValidate="txtNombre" ValidationGroup="crearFuncionario" />
                 </div>
-                <div runat="server"  class="flex flex-col">
+                <div runat="server" class="flex flex-col">
 
                     <asp:DropDownList runat="server" ID="cmbRol" CssClass="drop-down-list" />
                     <asp:RangeValidator ErrorMessage="" ControlToValidate="cmbRol" runat="server" Type="Integer"
-                         CssClass="required-field-validator" MinimumValue="1" MaximumValue="20" ValidationGroup="crearFuncionario" >
+                        CssClass="required-field-validator" MinimumValue="1" MaximumValue="20" ValidationGroup="crearFuncionario">
                         Seleccione un rol
                     </asp:RangeValidator>
 
                 </div>
                 <div runat="server" id="divClave" class="hidden flex flex-col gap-8">
 
-                <div class="flex flex-col">
-                    <asp:TextBox runat="server" ID="txtPassword" CssClass="text-box" TextMode="Password" placeholder="Contraseña"/>
-                    <asp:RequiredFieldValidator runat="server" CssClass="required-field-validator" 
-                        ErrorMessage="Ingrese una contraseña " ControlToValidate="txtPassword"  ValidationGroup="crearFuncionario"/>
-                    
-                </div>
-                <div class="flex flex-col">
-                    <asp:TextBox runat="server" ID="txtPassword2" CssClass="text-box" TextMode="Password" placeholder="Confirmar ontraseña"/>
-                    <asp:RequiredFieldValidator runat="server" CssClass="required-field-validator" 
-                        ErrorMessage="Ingrese una contraseña valida" ControlToValidate="txtPassword2" ValidationGroup="crearFuncionario" />
-                </div>
+                    <div class="flex flex-col">
+                        <asp:TextBox runat="server" ID="txtPassword" CssClass="text-box" TextMode="Password" placeholder="Contraseña" />
+                        <asp:RequiredFieldValidator runat="server" CssClass="required-field-validator"
+                            ErrorMessage="Ingrese una contraseña " ControlToValidate="txtPassword" ValidationGroup="crearFuncionario" />
+
+                    </div>
+                    <div class="flex flex-col">
+
+                        <asp:TextBox runat="server" ID="txtPassword2" CssClass="text-box" TextMode="Password"
+                            oninput="IsValidConfirmPassword()" placeholder="Confirmar ontraseña" />
+                        <asp:RequiredFieldValidator runat="server" CssClass="required-field-validator" 
+                            ErrorMessage="Ingrese una contraseña valida" ControlToValidate="txtPassword2" ValidationGroup="crearFuncionario" />
+
+
+                        <%-- Valida que las contraseñas sean iguales --%>
+                        <asp:TextBox runat="server" ID="txtIsValidConfirmPassword" TextMode="Number" CssClass="hidden text-box" />
+                        <asp:RangeValidator runat="server" CssClass="required-field-validator" MinimumValue="1" MaximumValue="1"
+                            ErrorMessage="Las contraseñas no coinciden" ControlToValidate="txtIsValidConfirmPassword" Type="Integer"
+                            ValidationGroup="crearFuncionario" />
+
+                    </div>
 
                 </div>
                 <asp:Label ID="lblError" runat="server" Text="err" CssClass="text" Visible="false" ForeColor="Red"></asp:Label>
             </asp:Panel>
             <asp:Button Text="Siguiente" runat="server" ID="btnValidaCorreo" Visible="true"
-                CssClass="button" ValidationGroup="validaFuncionario" OnClick="btnValidaCorreo_Click"/>
+                CssClass="button" ValidationGroup="validaFuncionario" OnClick="btnValidaCorreo_Click" />
             <asp:Button Text="Crear Funcionario" runat="server" ID="btnCrearFuncionario" Visible="false"
-                CssClass="button" ValidationGroup="crearFuncionario" OnClick="btnCrearFuncionario_Click"/>
+                CssClass="button" ValidationGroup="crearFuncionario" OnClick="btnCrearFuncionario_Click" />
 
             <asp:UpdatePanel ID="openModal" class="modal-dialog overflow-y-scroll" runat="server" MaintainScrollPositionOnPostback="true" UpdateMode="Conditional">
                 <ContentTemplate>
@@ -100,6 +110,29 @@
 
         </ContentTemplate>
     </asp:UpdatePanel>
+
+    <script type="text/javascript">
+
+
+        //const ClearConfirmPassword = () => {
+        //    confirmPassword.value = ""
+        //}
+
+        const IsValidConfirmPassword = () => {
+        const password = document.getElementById('<%= txtPassword.ClientID %>'),
+              confirmPassword = document.getElementById('<%= txtPassword2.ClientID %>'),
+              isEqualsPassword = document.getElementById('<%= txtIsValidConfirmPassword.ClientID %>');
+
+            console.log(password.value)
+            console.log(confirmPassword.value)
+            password.value === confirmPassword.value
+                ? isEqualsPassword.value = 1
+                : isEqualsPassword.value = 0
+            console.log(isEqualsPassword.value)
+        }
+
+
+    </script>
 
 
 </asp:Content>
