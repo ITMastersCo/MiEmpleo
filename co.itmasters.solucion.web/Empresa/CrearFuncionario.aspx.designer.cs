@@ -15,6 +15,15 @@ namespace co.itmasters.solucion.web.Empresa
     {
 
         /// <summary>
+        /// Control panelRegistroFuncionario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelRegistroFuncionario;
+
+        /// <summary>
         /// Control txtCorreo.
         /// </summary>
         /// <remarks>
@@ -147,7 +156,7 @@ namespace co.itmasters.solucion.web.Empresa
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl valida;
+        protected global::System.Web.UI.WebControls.Panel valida;
 
         /// <summary>
         /// Control RequiredFieldValidator5.
@@ -177,13 +186,13 @@ namespace co.itmasters.solucion.web.Empresa
         protected global::System.Web.UI.WebControls.LinkButton LnkValidar;
 
         /// <summary>
-        /// Control volver.
+        /// Control generarToken.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor volver;
+        protected global::System.Web.UI.WebControls.Button generarToken;
 
         /// <summary>
         /// Propiedad Master.

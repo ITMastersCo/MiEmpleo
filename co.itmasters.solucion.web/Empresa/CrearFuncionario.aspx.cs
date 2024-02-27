@@ -68,12 +68,15 @@ namespace co.itmasters.solucion.web.Empresa
                     txtCorreo.Enabled = false;
                     txtNombre.Enabled = false;
                     cmbRol.Enabled = false;
+                    panelRegistroFuncionario.DefaultButton = btnCrearFuncionario.ID;
                 }
                 else
                 {
                     lblError.Text = "El token no es válido o ya cumplio su limite de tiempo, por favor intente nuevamente.";
                     txtToken.Text = "";
                     lblError.Visible = true;
+                    btnValidaCorreo.Enabled = true;
+                    panelRegistroFuncionario.DefaultButton = btnValidaCorreo.ID;
                 }
             }
             catch (Exception err)
@@ -87,9 +90,12 @@ namespace co.itmasters.solucion.web.Empresa
 
         protected void btnValidaCorreo_Click(object sender, EventArgs e)
         {
+            GenerarToken();
+        }
+
+        protected void GenerarToken()
+        {
             try
-
-
             {
                 Random r = new Random();
 
@@ -119,11 +125,7 @@ namespace co.itmasters.solucion.web.Empresa
                 lblError.Text = err.Message.ToString();
                 lblError.Visible = true;
             }
-
-
         }
-
-
         protected void btnCrearFuncionario_Click(object sender, EventArgs e)
         {
             try
@@ -152,8 +154,16 @@ namespace co.itmasters.solucion.web.Empresa
                         txtCorreo.Enabled = true;
                         txtNombre.Text = "";
                         txtNombre.Enabled = true;
+                        cmbRol.SelectedIndex = 0;
+                        cmbRol.Enabled = true;
+                        divClave.Attributes["class"] = divClave.Attributes["class"].Insert(0, "hidden");
                         txtPassword.Text = "";
                         txtPassword2.Text = "";
+                        btnValidaCorreo.Visible=true;   
+                        btnValidaCorreo.Enabled = true;
+                        btnCrearFuncionario.Visible=false;
+                        btnCrearFuncionario.Enabled = false;
+                        panelRegistroFuncionario.DefaultButton = btnValidaCorreo.ID;
                         Master.mostrarMensaje("Funcionario creado exitosamente", Master.EXITO);
 
                     }
@@ -175,6 +185,13 @@ namespace co.itmasters.solucion.web.Empresa
         protected void btnCloseModal_Click(object sender, EventArgs e)
         {
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", $"CloseModal('{valida.ClientID}', '{openModal.ClientID}')", true);
+            btnValidaCorreo.Enabled = true;
+            panelRegistroFuncionario.DefaultButton = btnValidaCorreo.ID;
+        }
+
+        protected void generarToken_Click(object sender, EventArgs e)
+        {
+            GenerarToken();
         }
     }
 }

@@ -18,7 +18,7 @@
       <xs:element name="_x003C_esConfidencial_x003E_k__BackingField" nillable="true" type="xs:boolean" />
       <xs:element name="_x003C_esDestacada_x003E_k__BackingField" nillable="true" type="xs:boolean" />
       <xs:element name="_x003C_estado_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_fechaAprobacion_x003E_k__BackingField" type="xs:dateTime" />
+      <xs:element name="_x003C_fechaAprobacion_x003E_k__BackingField" nillable="true" type="xs:dateTime" />
       <xs:element name="_x003C_fechaCrea_x003E_k__BackingField" nillable="true" type="xs:dateTime" />
       <xs:element name="_x003C_fechaFinaliza_x003E_k__BackingField" nillable="true" type="xs:dateTime" />
       <xs:element name="_x003C_fechaInicia_x003E_k__BackingField" nillable="true" type="xs:dateTime" />
@@ -88,7 +88,7 @@
       <xs:element name="_x003C_unidadMedidaExperiencia_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_usuarioCrea_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_usuarioModfica_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_valorPago_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_valorPago_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_valorPlan_x003E_k__BackingField" nillable="true" type="xs:double" />
       <xs:element name="_x003C_vencidas_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_vigenciaPlan_x003E_k__BackingField" nillable="true" type="xs:int" />

@@ -16,7 +16,7 @@
                 runat="server" ValidationExpression="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$" ValidationGroup="crearFuncionario" />
 
             <%--Formulario--%>
-            <asp:Panel runat="server" class="flex flex-col gap-8 m-auto" DefaultButton="btnCrearFuncionario">
+            <asp:Panel runat="server"  ID="panelRegistroFuncionario" class="flex flex-col gap-8 m-auto" DefaultButton="btnValidaCorreo">
                 <div class="flex flex-col">
                     <asp:TextBox runat="server" ID="txtCorreo" CssClass="text-box" TextMode="Email" placeholder="Correo" />
                     <asp:RequiredFieldValidator runat="server" CssClass="required-field-validator"
@@ -87,7 +87,7 @@
             <div id="wrapperHidden" class="hidden">
 
 
-                <div id="valida" runat="server" class="flex-col flex-center gap-16 hidden">
+                <asp:Panel id="valida" runat="server" CssClass="flex-col flex-center gap-16 hidden" DefaultButton="LnkValidar">
                     <p class="text-item text-semibold item-center">
                         ¡ESTIMADO(A) USUARIO(A)! 
                     </p>
@@ -99,11 +99,10 @@
 
                     <asp:LinkButton ID="LnkValidar" runat="server" CssClass="button item-center" OnClick="lnkValidar_Click" ValidationGroup="Token"> Validar Token</asp:LinkButton>
 
-                    <a href="../Home/RegisroEmpresa.aspx" id="volver" runat="server" class="text-small-14 text-600 text-highlighted text-underline
-                       pointer">Volver a generar token
-                    </a>
+                    <asp:Button Text="Volver a generar token" id="generarToken" runat="server" class="text-small-14 color-600  text-underline pointer" OnClick="generarToken_Click"/>  
+                       
 
-                </div>
+                </asp:Panel>
 
 
             </div>
@@ -123,15 +122,18 @@
               confirmPassword = document.getElementById('<%= txtPassword2.ClientID %>'),
               isEqualsPassword = document.getElementById('<%= txtIsValidConfirmPassword.ClientID %>');
 
-            console.log(password.value)
-            console.log(confirmPassword.value)
             password.value === confirmPassword.value
                 ? isEqualsPassword.value = 1
                 : isEqualsPassword.value = 0
-            console.log(isEqualsPassword.value)
+            validarFormulario()
         }
 
-
+        function validarFormulario() {
+            // Llama a la función de validación generada por ASP.NET
+            if (typeof Page_ClientValidate === 'function') {
+                Page_ClientValidate();
+            }
+        }
     </script>
 
 
