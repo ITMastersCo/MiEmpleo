@@ -14,6 +14,7 @@ using System.Web.Management;
 using System.Web.Razor.Generator;
 using System.Data;
 using co.itmasters.solucion.vo.constantes;
+using System.Runtime.Remoting.Messaging;
 
 namespace co.itmasters.solucion.web
 {
@@ -30,7 +31,7 @@ namespace co.itmasters.solucion.web
         {
 
             listaCiudad = _carga.TablasBasicas(TipoLista.LISTACIUDADESTADOPAIS);
-            listaOcupacion = _carga.TablasBasicas(TipoLista.LISTAOCUPACION);
+            listaOcupacion = _carga.TablasBasicas(TipoLista.LISTAOCUPACIONES_EN_USO);
             user = ((UserVO)Session["UsuarioAutenticado"]);
             if (!IsPostBack)
             {
@@ -125,10 +126,14 @@ namespace co.itmasters.solucion.web
             OfertaVO ofertaSearch = new OfertaVO();
             ofertaSearch.idUsuario = user.IdUsuario;
             ofertaSearch.tituloVacante = txtBuscarCargo.Text;
-            if (txtIdCiudadBuscar.Text != "")
-            {
-                ofertaSearch.idCiudadVacante = Convert.ToInt32(txtIdCiudadBuscar.Text);
-            }
+
+            _ = txtIdCiudadBuscar.Text != ""
+                ? ofertaSearch.idCiudadVacante = Convert.ToInt32(txtIdCiudadBuscar.Text)
+                : ofertaSearch.idCiudadVacante = null;
+
+            _ = txtIdOcupacion.Text != ""
+                ? ofertaSearch.idOcupacion = Convert.ToInt32(txtIdOcupacion.Text)
+                : ofertaSearch.idOcupacion = null;
 
 
 

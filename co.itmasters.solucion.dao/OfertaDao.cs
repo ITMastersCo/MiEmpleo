@@ -406,6 +406,7 @@ namespace co.itmasters.solucion.dao
                     new Parametro(OFERTA_IDUSUARIO, Ofertas.idUsuario, DbType.Int32),
                     new Parametro(OFERTA_TITULOVACANTE, Ofertas.tituloVacante, DbType.String),
                     new Parametro(OFERTA_IDCIUDADVACANTE, Ofertas.idCiudadVacante, DbType.Int32),
+                    new Parametro(OFERTA_IDOCUPACION, Ofertas.idOcupacion, DbType.Int32),
                 };
 
                 DataTable dt = this.EjecutarStoredProcedureDataTable(OFERTA_TRAEROFERTAPERSONA, valParam);

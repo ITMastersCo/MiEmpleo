@@ -2541,7 +2541,7 @@ a {
     
 }
 .list-autofill:active, .text-box:focus-visible, .text-box:focus, .text-box:target {
-    border: var(--border-width) solid var(--color-100);
+    border: var(--border-width) solid var(--color-500);
 }
 .option-label:before {
     display: block;

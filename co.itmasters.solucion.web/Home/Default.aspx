@@ -29,8 +29,8 @@
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                                     </svg>
                                                     <asp:TextBox runat="server" ID="txtBuscarCargo" CssClass="truncate" autocomplete="off"
-                                                        placeholder="Cargo u Ocupación" oninput="validatAndShowAutoComplete(event,showAutocompleteOcupations); validateShare(event)"/>
-                                                    <asp:TextBox ID="idOcupacion" Text="" runat="server" CssClass="hidden" />
+                                                        placeholder="Cargo u Ocupación" oninput="validatAndShowAutoComplete(event,showAutocompleteOcupations);"/>
+                                                    <asp:TextBox ID="txtIdOcupacion" Text="" runat="server" CssClass="hidden" />
 
                                                     <select size="4" id="selAutocompletadoOcupations" runat="server" style="display: none" class="list-autofill"
                                                         onchange="seleccionarAutocomplete(event)" onmouseleave="ocultarAutocomplete(event)">
@@ -380,7 +380,7 @@
 
             function showAutocompleteOcupations(event) {
                 const listAutocompleteOcupations = listOcupations
-                console.log(listAutocompleteOcupations)
+                
 
                 showAutocomplete(event, listAutocompleteOcupations,beforeTextOcupations)
 
@@ -390,12 +390,15 @@
                 
                 const listAutocompleteCity = listCityes
 
-                console.log(listAutocompleteCity)
+                
 
                 showAutocomplete(event, listAutocompleteCity,null)
             }
 
             function showAutocomplete(event, listAutocomplete, beforeText) {
+                const parent = event.target.parentNode
+                const select = parent.querySelector("select")
+
                 let resultFiltered = listAutocomplete.filter(e => e.Nombre.toLowerCase().includes(event.target.value.toLowerCase()))
 
                 let resultSorted = resultFiltered.sort((a, b) => {
@@ -413,7 +416,8 @@
                     return charPositionA < charPositionB ? -1 : (charPositionA > charPositionB ? 1 : 0);
                 });
 
-                onSuccess(resultSorted, event, beforeText)
+                resultSorted.length > 0
+                    ? onSuccess(resultSorted, event, beforeText) : select.style.display = 'none';
             }
 
 
@@ -469,8 +473,15 @@
             }
             function validatAndShowAutoComplete(event,showAutocomplete) {
                 validateShare(event)
+                clearAfterQuery(event)
                 showAutocomplete(event)
-                //showAutocompleteCitys(event)
+                
+            }
+            function clearAfterQuery(event) {
+                const parent = event.target.parentNode
+                const select = parent.querySelector("select")
+                const txtIdSearch = (Array.from(parent.children).filter(e => e.localName === "input")[1]);
+                txtIdSearch.value = null;
             }
             function validateShare(event) {
                 const txtValidate = document.getElementById('<%= txtSearch.ClientID %>')

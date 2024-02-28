@@ -33,13 +33,13 @@ namespace co.itmasters.solucion.web
         protected global::System.Web.UI.WebControls.TextBox txtBuscarCargo;
 
         /// <summary>
-        /// Control idOcupacion.
+        /// Control txtIdOcupacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idOcupacion;
+        protected global::System.Web.UI.WebControls.TextBox txtIdOcupacion;
 
         /// <summary>
         /// Control selAutocompletadoOcupations.
