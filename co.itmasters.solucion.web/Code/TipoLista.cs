@@ -10,7 +10,9 @@ namespace co.itmasters.solucion.web.Code
         /*** BASICAS LISTA ***/
         public const string LISTACIUDAD = "listaCiudad";
         public const string LISTACIUDADESTADOPAIS = "listaCiudadEstadoPais";
-        
+        public const string LISTAOCUPACION = "listaOcupacion";
+
+
 
     }
 }

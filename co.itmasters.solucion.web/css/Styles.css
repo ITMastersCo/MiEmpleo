@@ -1374,7 +1374,7 @@ bg-red-100 {
 
 
 .text-box:active, .text-box:focus-visible, .text-box:focus, .text-box:target {
-   border:  solid var(--color-300);
+   border: solid var(--border-width) var(--color-300);
 }
 .drop-down-list {
     border:var(--border-input);
@@ -2519,26 +2519,37 @@ a {
     display:flex;
     position:absolute;
     top:105%;
+    left:0;
     border-radius:10px;
     padding:.5em;
     border:var(--border-input);
     z-index:50;
+    width:100%;
 }
-    .list-autofill option {
-        padding:.4em;
-        border-radius:.5em;
-        cursor:pointer;
-        font-size: var(--font-size-small);
-        font-family: var(--font-family-normal);
-        font-weight:var(--font-weight-medium);
-        color:var(--gray-800);
+.list-autofill option {
+    padding:.4em;
+    border-radius:.5em;
+    cursor:pointer;
+    font-size: var(--font-size-small);
+    font-family: var(--font-family-normal);
+    font-weight:var(--font-weight-medium);
+    color:var(--gray-800);
+    width:100%;
 }
 .list-autofill option:hover {
-    background-color:var(--color-300);
+    background-color:var(--color-100);
+    
 }
 .list-autofill:active, .text-box:focus-visible, .text-box:focus, .text-box:target {
-    border: var(--border-width) solid var(--color-300);
+    border: var(--border-width) solid var(--color-100);
 }
+.option-label:before {
+    display: block;
+    padding: .5em 0;
+    
+    color: var(--color-600);
+}
+
 
 .border-solid {
     border-style: solid;

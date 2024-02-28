@@ -28,8 +28,13 @@
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                                     </svg>
-                                                    <asp:TextBox runat="server" ID="txtBuscarCargo" CssClass="truncate"
-                                                        placeholder="Cargo u Ocupación" oninput="validateShare(event)" />
+                                                    <asp:TextBox runat="server" ID="txtBuscarCargo" CssClass="truncate" autocomplete="off"
+                                                        placeholder="Cargo u Ocupación" oninput="validatAndShowAutoComplete(event,showAutocompleteOcupations); validateShare(event)"/>
+                                                    <asp:TextBox ID="idOcupacion" Text="" runat="server" CssClass="hidden" />
+
+                                                    <select size="4" id="selAutocompletadoOcupations" runat="server" style="display: none" class="list-autofill"
+                                                        onchange="seleccionarAutocomplete(event)" onmouseleave="ocultarAutocomplete(event)">
+ </select>
                                                 </div>
 
                                                 <asp:TextBox ID="txtSearch" runat="server" CssClass="hidden" />
@@ -45,12 +50,12 @@
                                                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                                         </svg>
                                                         <asp:TextBox runat="server" ID="txtCiudadBuscar" class="truncate" autocomplete="off"
-                                                            oninput="validatAndShowAutoComplete(event)" placeholder="Ciudad" ValidationGroup="search">
+                                                            oninput="validatAndShowAutoComplete(event,showAutocompleteCitys)" placeholder="Ciudad" ValidationGroup="search">
                                                         </asp:TextBox>
                                                         <asp:TextBox ID="txtIdCiudadBuscar" Text="" runat="server" CssClass="hidden" />
 
                                                         <select size="4" id="selAutocompletado" runat="server" style="display: none" class="list-autofill"
-                                                            onchange="seleccionarCiudad(event)" onmouseleave="ocultarAutocomplete(event)">
+                                                            onchange="seleccionarAutocomplete(event)" onmouseleave="ocultarAutocomplete(event)">
                                                         </select>
                                                     </div>
                                                 </div>
@@ -60,8 +65,8 @@
                                                 AssociatedControlID="btnBuscarOferta"
                                                 OnClientClick="showSearcher(event)" />
 
-                                            <asp:Button Text="Buscar" runat="server" ID="btnBuscarOferta" CssClass="hidden"
-                                                OnClick="btnBuscarOferta_Click" ValidationGroup="search" />
+                                            <asp:Button Text="Buscar" runat="server" ID="btnBuscarOferta" CssClass="hidden" autocomplete="off"
+                                                OnClick="btnBuscarOferta_Click"  ValidationGroup="search" />
                                         </div>
                                         <asp:RequiredFieldValidator ErrorMessage="Agrega una Ciudad un cargo u ocupacion"
                                             ControlToValidate="txtSearch" CssClass="required-field-validator" runat="server" ValidationGroup="search" />
@@ -343,21 +348,54 @@
         <script type="text/javascript">
 
 
-            PageMethods.GetCiudades(on, onError);
+            PageMethods.GetCiudades(onCity, onError);
+            PageMethods.GetOcupaciones(onOcupation, onError);
+
+            const beforeTextOcupations = "OCUPACIÓN"
+
+            function writerBeforeOption(beforeText){
+                if (beforeText !== null) {
+                    // Crear una nueva hoja de estilo
+                    var styleSheet = document.createElement('style');
+                    document.body.appendChild(styleSheet);
+
+                    // Definir el nuevo contenido del pseudo-elemento :before
+                    var newContent = `${beforeText}`;
+
+                    // Agregar una regla CSS para el pseudo-elemento :before
+                    styleSheet.innerHTML = `.option-label.${beforeText}:before { content:'${newContent}'}`
+                }
+            }
+            
 
             let listCityes;
-            function on(result) { listCityes = result }
+            function onCity(result) { listCityes = result }
+
+            let listOcupations;
+            function onOcupation(result) {
+                listOcupations = result
+                writerBeforeOption(beforeTextOcupations)
+            }
 
 
-            function showAutocompleteCitys(event) {
-                const listAutocomplete = listCityes
+            function showAutocompleteOcupations(event) {
+                const listAutocompleteOcupations = listOcupations
+                console.log(listAutocompleteOcupations)
 
-                showAutocomplete(event, listAutocomplete)
-
+                showAutocomplete(event, listAutocompleteOcupations,beforeTextOcupations)
 
             }
 
-            function showAutocomplete(event, listAutocomplete) {
+            function showAutocompleteCitys(event) {
+                
+                const listAutocompleteCity = listCityes
+
+                console.log(listAutocompleteCity)
+
+                showAutocomplete(event, listAutocompleteCity,null)
+            }
+
+            function showAutocomplete(event, listAutocomplete, beforeText) {
                 let resultFiltered = listAutocomplete.filter(e => e.Nombre.toLowerCase().includes(event.target.value.toLowerCase()))
 
                 let resultSorted = resultFiltered.sort((a, b) => {
@@ -375,21 +413,27 @@
                     return charPositionA < charPositionB ? -1 : (charPositionA > charPositionB ? 1 : 0);
                 });
 
-                onSuccess(resultSorted, event)
+                onSuccess(resultSorted, event, beforeText)
             }
 
 
 
-            function onSuccess(result, event) {
+            function onSuccess(result, event, beforeText) {
                 const parent = event.target.parentNode
                 const select = parent.querySelector("select")
 
                 select.innerHTML = '';
 
+                
+                // Crear la clase para el Option
+                const cssClass = beforeText = null ? "truncate" : `option-label ${beforeText} truncate`
+
                 // Iterar sobre la lista filtrada y mostrar los resultados
 
                 for (let i = 0; i < result.length; i++) {
                     let option = document.createElement('option');
+
+                    option.setAttribute("class", cssClass);
                     option.text = result[i].Nombre;
                     option.value = result[i].Id;
                     select.add(option);
@@ -403,7 +447,8 @@
                 console.log(result);
             }
 
-            function seleccionarCiudad(event) {
+
+            function seleccionarAutocomplete(event) {
                 const parent = event.target.parentNode
                 const select = parent.querySelector("select")
                 const inputSearch = (Array.from(parent.children).filter(e => e.localName === "input")[0]);
@@ -422,15 +467,15 @@
                 const select = parent.querySelector("select")
                 select.style.display = 'none';
             }
-            function validatAndShowAutoComplete(event) {
+            function validatAndShowAutoComplete(event,showAutocomplete) {
                 validateShare(event)
-                showAutocompleteCitys(event)
+                showAutocomplete(event)
+                //showAutocompleteCitys(event)
             }
             function validateShare(event) {
                 const txtValidate = document.getElementById('<%= txtSearch.ClientID %>')
                 const txtCargo = document.getElementById('<%= txtBuscarCargo.ClientID %>')
                 const txtCiudad = document.getElementById('<%= txtCiudadBuscar.ClientID %>')
-                console.log(txtValidate)
 
                 txtValidate.value = txtCargo.value + txtCiudad.value
             }

@@ -24,11 +24,13 @@ namespace co.itmasters.solucion.web
         private CargaCombos _carga = new CargaCombos();
         private OfertaServiceClient _OfertaService;
         private static List<ListaVO> listaCiudad;
+        private static List<ListaVO> listaOcupacion;
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
             listaCiudad = _carga.TablasBasicas(TipoLista.LISTACIUDADESTADOPAIS);
+            listaOcupacion = _carga.TablasBasicas(TipoLista.LISTAOCUPACION);
             user = ((UserVO)Session["UsuarioAutenticado"]);
             if (!IsPostBack)
             {
@@ -241,6 +243,22 @@ namespace co.itmasters.solucion.web
                 return list;
             }
         }
+        [WebMethod]
+        public static List<ListaVO> GetOcupaciones()
+        {
+            try
+            {
+
+                // Filtrar la lista de ocupaciones
+                return listaOcupacion;
+            }
+            catch
+            {
+                List<ListaVO> list = new List<ListaVO>();
+                return list;
+            }
+        }
+       
 
      
     }
