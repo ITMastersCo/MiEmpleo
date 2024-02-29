@@ -2266,6 +2266,9 @@ svg.icon-36 {
     border-radius: 10px;
     border: solid 2px var(--gray-600);
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .avatar-rectangle img, .avatar-rectangle svg {
     width: 60px;

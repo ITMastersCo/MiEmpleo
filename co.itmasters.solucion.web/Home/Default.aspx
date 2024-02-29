@@ -34,7 +34,7 @@
 
                                                     <select size="4" id="selAutocompletadoOcupations" runat="server" style="display: none" class="list-autofill"
                                                         onchange="seleccionarAutocomplete(event)" onmouseleave="ocultarAutocomplete(event)">
- </select>
+                                                    </select>
                                                 </div>
 
                                                 <asp:TextBox ID="txtSearch" runat="server" CssClass="hidden" />
