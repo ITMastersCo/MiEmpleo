@@ -348,6 +348,7 @@ namespace co.itmasters.solucion.web.Empresa
                 }
                 else
                 {
+                    grdCandidatos.DataBind();
                     noResultsShare.Visible = true;
                 }
             }

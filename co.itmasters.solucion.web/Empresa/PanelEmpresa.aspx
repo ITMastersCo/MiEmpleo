@@ -84,7 +84,7 @@
             </asp:GridView>
 
             <div id="wrapperHidden" class="hidden">
-                <div runat="server" id="detalleOferta" class="flex-col gap-32">
+                <div runat="server" id="detalleOferta" class="flex-col gap-32 w-100per">
 
                     <article class="flex-col gap-32">
                         <div class="hidden">
@@ -193,7 +193,7 @@
                     <div runat="server" id="containerCandidatos" class="flex flex-center bg-gray-100 overflow-y-scroll rounded relative"
                         style="height: 70vh;">
                         <div class="absolute ansolute-cente-x"  style="top: 0;">
-                            <asp:GridView ID="grdCandidatos" runat="server" AutoGenerateColumns="false" class="flex-col gap-4 ">
+                            <asp:GridView ID="grdCandidatos" runat="server" AutoGenerateColumns="false" class="flex-col flex-center gap-4 ">
                                 <Columns>
                                     <asp:TemplateField Visible="false">
                                         <ItemTemplate>
@@ -337,7 +337,7 @@
                             </svg>
                             <asp:Button ID="btnCloseModal" Text="" runat="server" CssClass="hidden" OnClick="btnCloseModal_Click" />
                         </asp:Label>
-                        <asp:Panel runat="server" ID="modalCV" CssClass="modal-body flex flex-center max-w-850px">
+                        <asp:Panel runat="server" ID="modalCV" CssClass="modal-body flex flex-center w-100per max-w-850px">
                         </asp:Panel>
 
                         <%--<div class="flex-center flex-wrap gap-16">
