@@ -75,7 +75,7 @@
                                     <div runat="server" id="containerOfertas" class="flex flex-center bg-gray-100 overflow-y-scroll rounded relative" 
                                         style="height:70vh;" visible="false">
                                         <div class="absolute" style="top :0;" >
-                                            <asp:GridView ID="grdOfertasDestacadas" runat="server" AutoGenerateColumns="false" class="flex-col gap-4 " >
+                                            <asp:GridView ID="grdOfertasDestacadas" runat="server" AutoGenerateColumns="false" class="flex-col gap-4 " PageSize="99999" >
                                                 <Columns>
                                                     <asp:TemplateField Visible="false">
                                                         <ItemTemplate>
@@ -461,7 +461,7 @@
                 let selectedValue = select.options[select.selectedIndex].value;
                 inputSearch.value = selectedText;
                 txtIdSearch.value = selectedValue;
-
+                validateShare(event)
                 // Ocultar la lista de autocompletado después de seleccionar un elemento
 
                 select.style.display = 'none';

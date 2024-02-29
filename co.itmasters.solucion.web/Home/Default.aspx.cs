@@ -106,6 +106,9 @@ namespace co.itmasters.solucion.web
             try
             {
                 PersonaVO persona = GetPersona();
+                if(persona != null)
+                {
+
                 int porcentaje
                     = Convert.ToInt32(persona.diligenciaAptitud)
                     + Convert.ToInt32(persona.diligenciaPerfil)
@@ -113,6 +116,11 @@ namespace co.itmasters.solucion.web
                     + Convert.ToInt32(persona.diligenciaBasicos)
                     + Convert.ToInt32(persona.diligenciaAcademia);
                 return porcentaje;
+                }
+                else
+                {
+                    return 0;
+                }
             }
             catch
             {
