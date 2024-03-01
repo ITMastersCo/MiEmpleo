@@ -24,7 +24,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace co.itmasters.solucion.web.Empresa
 {
-    public partial class PlanesEmpresa : System.Web.UI.Page
+    public partial class PlanesEmpresa : PageBase
     {
         private OfertaServiceClient _OfertaService;
         private EmpresaServiceClient _Empresa;

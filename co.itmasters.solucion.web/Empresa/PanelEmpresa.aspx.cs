@@ -119,6 +119,7 @@ namespace co.itmasters.solucion.web.Empresa
         {
 
             OfertaVO oferta = new OfertaVO();
+            oferta.idPersona = user.IdUsuario;
             oferta.idOferta = idOffer;
             oferta.typeModify = TipoConsulta.GET;
 
@@ -171,6 +172,7 @@ namespace co.itmasters.solucion.web.Empresa
                 }
                 else
                 {
+                    grdCandidatos.DataBind();
                     noResultsShare.Visible = true;
                 }
 

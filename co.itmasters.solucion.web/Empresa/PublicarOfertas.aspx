@@ -82,7 +82,7 @@
                 <span class="text-subtitle color-orange-500">oferta</span>
                 laboral
             </h1>
-            <section class="form-column min-w-80per flex-col flex-center " id="Formulario" runat="server">
+            <div class="form-column min-w-80per flex-col flex-center " id="Formulario" runat="server">
                 <asp:Label ID="lblTituloVacante" runat="server" Text="Título de la vacante"
                     AssociatedControlID="txtTituloVacante"
                     CssClass="text-title-section text-medium color-gray-700 flex-col gap-4 w-100per item-center max-w-850px ">
@@ -121,21 +121,27 @@
                         placeholder="Digite una descripcion del crago o cargos." TextMode="MultiLine">
                     </asp:TextBox>
                 </asp:Label>
+                
                 <asp:Label ID="lblFechaPublicación" runat="server" Text="Fecha de Publicación"
-                    AssociatedControlID="txtFechaPublicacion"
-                    CssClass="text-title-section text-medium color-gray-700 flex-col gap-4 w-100per item-center max-w-850px ">
+                    AssociatedControlID="txtFechaPublicacion" 
+                    CssClass="text-title-section text-medium color-gray-700 flex-col gap-4 w-100per item-center max-w-850px  ">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtFechaPublicacion" ErrorMessage="Seleccione la fecha de publicación" ValidationGroup="Oferta" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator>
-                    <asp:TextBox ID="txtFechaPublicacion" runat="server" CssClass="text-box"
-                        placeholder="DD/MM/AAAA   Fecha a partir de la cual se publica la vacante">
+                    <asp:TextBox ID="txtFechaPublicacion" runat="server" CssClass="text-box" AutoPostBack="true"
+                         TextMode="Date" OnTextChanged="txtFechaPublicacion_TextChanged" > 
                     </asp:TextBox>
+                    <asp:RangeValidator CssClass="required-field-validator" runat="server" ID="rvFechaPublicacion" errormessage="No puede superar la fecha de vencimiento del plan" Type="Date"
+                        controltovalidate="txtFechaPublicacion"  />
                 </asp:Label>
+                <asp:Label Text="" runat="server" ID="lblDiasOferta" Visible="false"/>
                 <asp:Label ID="lblFechaVencimiento" runat="server" Text="Fecha de Vencimiento"
                     AssociatedControlID="txtFechaVencimiento"
                     CssClass="text-title-section text-medium color-gray-700 flex-col gap-4 w-100per item-center max-w-850px ">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtFechaVencimiento" ErrorMessage="Seleccione la fecha de vencimiento." ValidationGroup="Oferta" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator>
                     <asp:TextBox ID="txtFechaVencimiento" runat="server" CssClass="text-box"
-                        placeholder="DD/MM/AAAA   Fecha de terminación de la vigencia de la oferta">
+                        TextMode="Date" >
                     </asp:TextBox>
+                     <asp:RangeValidator CssClass="required-field-validator" runat="server" ID="rvFechaVencimiento" errormessage="No puede superar la fecha de vencimiento del plan" Type="Date"
+                        controltovalidate="txtFechaVencimiento"  />
                 </asp:Label>
                 <asp:Label ID="lblNivelEstudiosRequeridos" runat="server" Text="Nivel de estudios requeridos"
                     AssociatedControlID="cmbNivelEstudiosRequeridos"
@@ -276,7 +282,7 @@
 
 
                 <asp:Button ID="btnPublicarOferta" runat="server" Text="Publicar Oferta" ValidationGroup="Oferta" CssClass="button" OnClick="btnPublicarOferta_Click" />
-            </section>
+            </div>
             <div id="openModal" class="modal-dialog" runat="server" >
                 <div class="flex-col flex-center">
                    
@@ -322,31 +328,6 @@
         </ContentTemplate>
 
     </asp:UpdatePanel>
-    <script type="text/javascript">
-        // -- función para desplegar el calendario --
-        function DesplegaCalendar(h) {
-            $(h).datepicker(
-                {
-                    dateFormat: 'dd/mm/yy',
-                    maxViewMode: 0,
-                    keyboardNavigation: false,
-                    forceParse: false,
-                    daysOfWeekDisabled: "0,6",
-                    daysOfWeekHighlighted: "0,6",
-                    todayHighlight: true,
-                    changeMonth: true,
-                    changeYear: true,
-                    numberOfMonths: 1,
-                    dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
-                    monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-                    monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
-                    
-                });
-        }
-        // -- Carga los calendarios cuando se inicia la página
-        DesplegaCalendar('#Main_txtFechaPublicacion');
-        DesplegaCalendar('#Main_txtFechaVencimiento');
-
-    </script>
+   
  
 </asp:Content>

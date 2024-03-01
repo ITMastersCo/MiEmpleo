@@ -12,6 +12,7 @@ using co.itmasters.solucion.web.PersonaService;
 using System.IO;
 using System.Web.Services;
 using co.itmasters.solucion.web.OfertaService;
+using MercadoPago.Resource.User;
 
 
 namespace co.itmasters.solucion.web
@@ -20,12 +21,14 @@ namespace co.itmasters.solucion.web
     {
         private OfertaServiceClient _OfertaService;
         private static List<ListaVO> listaCiudad;
+        private static List<ListaVO> listaOcupacion;
         private CargaCombos _carga = new CargaCombos();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 listaCiudad = _carga.TablasBasicas(TipoLista.LISTACIUDADESTADOPAIS);
+                listaOcupacion = _carga.TablasBasicas(TipoLista.LISTAOCUPACIONES_EN_USO);
                 LlenarGrdOfertasDestacadas();
             }
         }
@@ -115,12 +118,18 @@ namespace co.itmasters.solucion.web
         {
 
 
+
             OfertaVO ofertaSearch = new OfertaVO();
+            ofertaSearch.idUsuario = 0;
             ofertaSearch.tituloVacante = txtBuscarCargo.Text;
-            if (txtIdCiudadBuscar.Text != "")
-            {
-                ofertaSearch.idCiudadVacante = Convert.ToInt32(txtIdCiudadBuscar.Text);
-            }
+
+            _ = txtIdCiudadBuscar.Text != ""
+                ? ofertaSearch.idCiudadVacante = Convert.ToInt32(txtIdCiudadBuscar.Text)
+                : ofertaSearch.idCiudadVacante = null;
+
+            _ = txtIdOcupacion.Text != ""
+                ? ofertaSearch.idOcupacion = Convert.ToInt32(txtIdOcupacion.Text)
+                : ofertaSearch.idOcupacion = null;
 
 
 
@@ -202,6 +211,21 @@ namespace co.itmasters.solucion.web
 
                 // Filtrar la lista de ciudades
                 return listaCiudad;
+            }
+            catch
+            {
+                List<ListaVO> list = new List<ListaVO>();
+                return list;
+            }
+        }
+        [WebMethod]
+        public static List<ListaVO> GetOcupaciones()
+        {
+            try
+            {
+
+                // Filtrar la lista de ocupaciones
+                return listaOcupacion;
             }
             catch
             {

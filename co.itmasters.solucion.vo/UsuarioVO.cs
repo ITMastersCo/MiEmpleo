@@ -10,6 +10,7 @@ namespace co.itmasters.solucion.vo
     {
         public String Avatar  { get; set; }
         public Int32 IdEmpresa { get; set; }
+        public Int32 idRol { get; set; }
         public String NomEmpresa { get; set; }
         public String NomEmpresa2 { get; set; }
         public String WebSite { get; set; }

@@ -265,7 +265,7 @@ namespace co.itmasters.solucion.dao
                 Parametro[] valParam = new Parametro[]
                 {
                     new Parametro(OFERTA_IDOFERTA, oferta.idOferta, DbType.Int32),
-                    new Parametro(OFERTA_IDPERSONA, 0, DbType.Int32),
+                    new Parametro(OFERTA_IDPERSONA, oferta.idPersona, DbType.Int32),
                     new Parametro(OFERTA_TYPEMODIFY, oferta.typeModify, DbType.String),
                     new Parametro(OFERTA_ESTADO, null, DbType.String),
                 };
@@ -406,6 +406,7 @@ namespace co.itmasters.solucion.dao
                     new Parametro(OFERTA_IDUSUARIO, Ofertas.idUsuario, DbType.Int32),
                     new Parametro(OFERTA_TITULOVACANTE, Ofertas.tituloVacante, DbType.String),
                     new Parametro(OFERTA_IDCIUDADVACANTE, Ofertas.idCiudadVacante, DbType.Int32),
+                    new Parametro(OFERTA_IDOCUPACION, Ofertas.idOcupacion, DbType.Int32),
                 };
 
                 DataTable dt = this.EjecutarStoredProcedureDataTable(OFERTA_TRAEROFERTAPERSONA, valParam);

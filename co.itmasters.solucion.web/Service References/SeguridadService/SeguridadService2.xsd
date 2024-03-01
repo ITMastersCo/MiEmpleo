@@ -27,10 +27,22 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="RegistroUsuarioEmpresa">
+  <xs:element name="RegistroUsuarioFuncionario">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Actor" nillable="true" type="q3:UsuarioVO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroUsuarioFuncionarioResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroUsuarioEmpresa">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Actor" nillable="true" type="q4:UsuarioVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -42,7 +54,7 @@
   <xs:element name="RegistroUsuarioCandidato">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Actor" nillable="true" type="q4:UsuarioVO" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Actor" nillable="true" type="q5:UsuarioVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -54,7 +66,7 @@
   <xs:element name="ActualizaContrasena">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Actor" nillable="true" type="q5:UsuarioVO" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Actor" nillable="true" type="q6:UsuarioVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -66,7 +78,7 @@
   <xs:element name="validarToken">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="token" nillable="true" type="q6:UsuarioVO" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="token" nillable="true" type="q7:UsuarioVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -80,7 +92,7 @@
   <xs:element name="RestablecerContrasena">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Actor" nillable="true" type="q7:UsuarioVO" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Actor" nillable="true" type="q8:UsuarioVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -114,35 +126,35 @@
   <xs:element name="getUsuarioResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="getUsuarioResult" nillable="true" type="q8:UsuarioVO" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="getUsuarioResult" nillable="true" type="q9:UsuarioVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="buscarPreguntas">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Usuario" nillable="true" type="q9:UsuarioVO" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Usuario" nillable="true" type="q10:UsuarioVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="buscarPreguntasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="buscarPreguntasResult" nillable="true" type="q10:ArrayOfUsuarioVO" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="buscarPreguntasResult" nillable="true" type="q11:ArrayOfUsuarioVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EnviarRespuestas">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Usuario" nillable="true" type="q11:UsuarioVO" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Usuario" nillable="true" type="q12:UsuarioVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EnviarRespuestasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="EnviarRespuestasResult" nillable="true" type="q12:ArrayOfUsuarioVO" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="EnviarRespuestasResult" nillable="true" type="q13:ArrayOfUsuarioVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

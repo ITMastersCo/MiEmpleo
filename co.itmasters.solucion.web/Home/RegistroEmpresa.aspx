@@ -42,9 +42,9 @@
 
                         <div id="divClave" runat="server" style="display: none">
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"   ControlToValidate="txtPassword" ErrorMessage="" ValidationGroup="Registro" ForeColor="#CC0000" CssClass="text">La contraseña debe ser alfanumérica y un caracter especial.</asp:RequiredFieldValidator>
-                            <asp:TextBox ID="txtPassword" TextMode="Password" placeholder="Contraseña" onblur="validarPassword()" runat="server" CssClass="input"></asp:TextBox>
+                            <asp:TextBox ID="txtPassword" TextMode="Password" placeholder="Contraseña" onchange="validarPassword()" runat="server" CssClass="input"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"  ControlToValidate="TxtPassword2" ErrorMessage="" ValidationGroup="Registro" ForeColor="#CC0000" CssClass="text">la contraseña debe ser igual a la nueva contraseña.</asp:RequiredFieldValidator>
-                            <asp:TextBox ID="TxtPassword2" TextMode="Password" placeholder="Confirmar contraseña" onblur="validarPassword()" runat="server" CssClass="input"></asp:TextBox>
+                            <asp:TextBox ID="TxtPassword2" TextMode="Password" placeholder="Confirmar contraseña" onchange="validarPassword()" runat="server" CssClass="input"></asp:TextBox>
                         </div>
 
                         <p class="text-small text-regular gray-500">

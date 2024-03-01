@@ -20,7 +20,7 @@ using co.itmasters.solucion.vo.constantes;
 
 namespace co.itmasters.solucion.web.Empresa
 {
-    public partial class OfertasActivas : System.Web.UI.Page
+    public partial class OfertasActivas : PageBase
     {
         private OfertaServiceClient _OfertaService;
         private UserVO user;
@@ -303,6 +303,7 @@ namespace co.itmasters.solucion.web.Empresa
 
             OfertaVO oferta = new OfertaVO();
             oferta.idOferta = idOffer;
+            oferta.idPersona = user.IdUsuario;
             oferta.typeModify = TipoConsulta.GET;
 
             OfertaServiceClient _OfertaService = new OfertaServiceClient();
@@ -347,6 +348,7 @@ namespace co.itmasters.solucion.web.Empresa
             }
             else
             {
+                grdCandidatos.DataBind();
                 noResultsShare.Visible = true;
             }
 

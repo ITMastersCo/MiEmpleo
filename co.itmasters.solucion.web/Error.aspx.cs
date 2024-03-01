@@ -31,8 +31,9 @@ namespace co.itmasters.solucion.web
 
         protected void lnkAtras_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("~/default.aspx");
-            Server.Transfer("~/Index.aspx");
+          
+                Response.Redirect("~/Home/Default.aspx");
+            
         }
 
 

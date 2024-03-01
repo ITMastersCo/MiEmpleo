@@ -42,6 +42,7 @@
       <xs:element name="_x003C_idPregunta2Retornar_x003E_k__BackingField" type="xs:int" />
       <xs:element name="_x003C_idPregunta3Retornar_x003E_k__BackingField" type="xs:int" />
       <xs:element name="_x003C_idPregunta_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_idRol_x003E_k__BackingField" type="xs:int" />
       <xs:element name="_x003C_numRespuestasIncorrectas_x003E_k__BackingField" type="xs:int" />
       <xs:element name="_x003C_pasword1_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_pasword2_x003E_k__BackingField" nillable="true" type="xs:string" />

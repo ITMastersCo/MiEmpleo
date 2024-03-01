@@ -213,6 +213,24 @@ namespace co.itmasters.solucion.web.Empresa
         protected global::System.Web.UI.WebControls.TextBox txtFechaPublicacion;
 
         /// <summary>
+        /// Control rvFechaPublicacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator rvFechaPublicacion;
+
+        /// <summary>
+        /// Control lblDiasOferta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDiasOferta;
+
+        /// <summary>
         /// Control lblFechaVencimiento.
         /// </summary>
         /// <remarks>
@@ -238,6 +256,15 @@ namespace co.itmasters.solucion.web.Empresa
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaVencimiento;
+
+        /// <summary>
+        /// Control rvFechaVencimiento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator rvFechaVencimiento;
 
         /// <summary>
         /// Control lblNivelEstudiosRequeridos.

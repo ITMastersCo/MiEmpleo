@@ -16,7 +16,7 @@ using co.itmasters.solucion.vo.constantes;
 
 namespace co.itmasters.solucion.web.Empresa
 {
-    public partial class OfertasVencidas : System.Web.UI.Page
+    public partial class OfertasVencidas : PageBase
     {
         private OfertaServiceClient _OfertaService;
         private UserVO user;
@@ -348,6 +348,7 @@ namespace co.itmasters.solucion.web.Empresa
                 }
                 else
                 {
+                    grdCandidatos.DataBind();
                     noResultsShare.Visible = true;
                 }
             }

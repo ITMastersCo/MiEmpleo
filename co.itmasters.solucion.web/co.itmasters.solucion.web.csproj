@@ -1437,6 +1437,7 @@
     <Content Include="css\Styles.css" />
     <Content Include="css\utilities.css" />
     <Content Include="css\variables.css" />
+    <Content Include="Empresa\CrearFuncionario.aspx" />
     <Content Include="Home\Default.aspx" />
     <Content Include="Empresa\DatosBasicosEmpresa.aspx" />
     <Content Include="Empresa\OfertasActivas.aspx" />
@@ -1800,6 +1801,13 @@
     </Compile>
     <Compile Include="Components_UI\UserControlCvItem.ascx.designer.cs">
       <DependentUpon>UserControlCvItem.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Empresa\CrearFuncionario.aspx.cs">
+      <DependentUpon>CrearFuncionario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empresa\CrearFuncionario.aspx.designer.cs">
+      <DependentUpon>CrearFuncionario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Empresa\DatosBasicosEmpresa.aspx.cs">
       <DependentUpon>DatosBasicosEmpresa.aspx</DependentUpon>

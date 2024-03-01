@@ -14,6 +14,9 @@ using System.IO;
 using co.itmasters.solucion.web.EmpresaService;
 using static System.Net.Mime.MediaTypeNames;
 using Microsoft.Win32;
+using co.itmasters.solucion.vo.constantes;
+using CrystalDecisions.Data;
+using System.Data;
 
 namespace co.itmasters.solucion.web.Empresa
 {
@@ -22,19 +25,23 @@ namespace co.itmasters.solucion.web.Empresa
         private OfertaServiceClient _OfertaService;
         private EmpresaServiceClient _ActoresService;
         private UserVO user;
+        
         private CargaCombos _carga = new CargaCombos();
         private List<Control> tags = new List<Control>();
         private List<Label> tagsNames = new List<Label>();
+        private List<Label> tagsId = new List<Label>();
 
 
 
         protected void Page_Load(object sender, EventArgs e)
-        {  
-           
+        {
+
             if (!Page.IsPostBack)
 
             {
+                RangeDate();
                 user = ((UserVO)Session["UsuarioAutenticado"]);
+                
                 if (Request.QueryString["idOferta"] == null)
                 {
                     ViewState["IdOferta"] = "0";
@@ -54,6 +61,36 @@ namespace co.itmasters.solucion.web.Empresa
             }
             this.FillList();
 
+
+        }
+        protected void RangeDate()
+        {
+            user = ((UserVO)Session["UsuarioAutenticado"]);
+            OfertaVO datosConsulta = new OfertaVO();
+            datosConsulta.typeModify = TipoConsulta.GET;
+            datosConsulta.idUsuario = user.IdUsuario;
+            datosConsulta.estado = EstadoPago.ESTADO_CONCILIADO;
+
+            _OfertaService = new OfertaServiceClient();
+            List<OfertaVO> resultado = _OfertaService.TraePlanesAdquiridosEmpresa(datosConsulta).ToList();
+            _OfertaService.Close();
+
+
+            OfertaVO plan = resultado.FindLast(e => e.ofertasConsumidas < e.nroOfertas );
+
+            lblDiasOferta.Text = plan.diasPublicacionOferta.ToString();
+
+            rvFechaPublicacion.MinimumValue = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
+            txtFechaPublicacion.Attributes["min"] = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
+            rvFechaPublicacion.MaximumValue = String.Format("{0:yyyy-MM-dd}", plan.fechaFinaliza);
+            txtFechaPublicacion.Attributes["max"] = String.Format("{0:yyyy-MM-dd}", plan.fechaFinaliza);
+
+
+            rvFechaVencimiento.MinimumValue = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
+            txtFechaVencimiento.Attributes["min"] = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
+            rvFechaVencimiento.MaximumValue = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
+            txtFechaVencimiento.Attributes["max"] = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
+            
 
         }
         protected void cargarCombos()
@@ -88,6 +125,11 @@ namespace co.itmasters.solucion.web.Empresa
             tagsNames.Add(nameTagOcupacion3);
             tagsNames.Add(nameTagOcupacion4);
             tagsNames.Add(nameTagOcupacion5);
+            tagsId.Add(idTagOcupacion);
+            tagsId.Add(idTagOcupacion2);
+            tagsId.Add(idTagOcupacion3);
+            tagsId.Add(idTagOcupacion4);
+            tagsId.Add(idTagOcupacion5);
         }
         protected void validaOferta()
 
@@ -273,6 +315,7 @@ namespace co.itmasters.solucion.web.Empresa
                 if (tagsNames[i].Text == "" && tags[i].Visible == false && contentCmbOcupacion != "Seleccione un elemento")
                 {
                     tagsNames[i].Text = contentCmbOcupacion;
+                    tagsId[i].Text = cmbOcupacion.SelectedValue;
                     tags[i].Visible = true;
                     break;
                 }
@@ -471,6 +514,15 @@ namespace co.itmasters.solucion.web.Empresa
         protected void btnCloseModal_Click(object sender, EventArgs e)
         {
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", $"CloseModal('{modalOfertaCreada.ClientID}', '{openModal.ClientID}')", true);
+        }
+
+        protected void txtFechaPublicacion_TextChanged(object sender, EventArgs e)
+        {
+            DateTime fechaPublicacion = Convert.ToDateTime(txtFechaPublicacion.Text);
+            Int32 diasOferta = Convert.ToInt32(lblDiasOferta.Text);
+            DateTime fechaMaxima = fechaPublicacion + TimeSpan.FromDays(diasOferta);
+            rvFechaVencimiento.MaximumValue = String.Format("{0:yyyy-MM-dd}", fechaMaxima);
+            txtFechaVencimiento.Attributes["max"] = String.Format("{0:yyyy-MM-dd}", fechaMaxima);
         }
     }
 }

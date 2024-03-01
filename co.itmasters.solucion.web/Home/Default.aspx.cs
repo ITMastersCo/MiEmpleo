@@ -14,6 +14,7 @@ using System.Web.Management;
 using System.Web.Razor.Generator;
 using System.Data;
 using co.itmasters.solucion.vo.constantes;
+using System.Runtime.Remoting.Messaging;
 
 namespace co.itmasters.solucion.web
 {
@@ -24,21 +25,18 @@ namespace co.itmasters.solucion.web
         private CargaCombos _carga = new CargaCombos();
         private OfertaServiceClient _OfertaService;
         private static List<ListaVO> listaCiudad;
+        private static List<ListaVO> listaOcupacion;
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
             listaCiudad = _carga.TablasBasicas(TipoLista.LISTACIUDADESTADOPAIS);
+            listaOcupacion = _carga.TablasBasicas(TipoLista.LISTAOCUPACIONES_EN_USO);
             user = ((UserVO)Session["UsuarioAutenticado"]);
             if (!IsPostBack)
             {
-                if (user.tipoUsuario != 3)
-                {
-                    Console.Write("laod");
-                    Redirec();
-                    DataBind();
-                }
-
+                Redirec();
+                
             }
 
 
@@ -50,29 +48,37 @@ namespace co.itmasters.solucion.web
         {
             if (user != null)
             {
-                if (user.tipoUsuario == 1)
+                switch (user.tipoUsuario)
                 {
-                    if (user.diligenciaFormulario == 0)
-                    {
-                        Response.Redirect("~/Empresa/DatosBasicosEmpresa.aspx", true);
-                    }
-                    else
-                    {
-                        Response.Redirect("~/Empresa/PanelEmpresa.aspx", true);
-                    }
+                    case 1:
+                         if (user.diligenciaFormulario == 0)
+                         {
+                             Response.Redirect("~/Empresa/DatosBasicosEmpresa.aspx", true);
+                         }
+                         else
+                         {
+                             Response.Redirect("~/Empresa/PanelEmpresa.aspx", true);
+                         }
+                    break;
+                    case 2:
+                        DataBind();
+                        PersonaVO persona = GetPersona();
+                        if (persona.diligenciaBasicos == 0){Response.Redirect("~/Personal/HojadeVida.aspx");}
+                        break;
+                     case 3:
+                        DataBind();
+                        break;
+                    case 4:
+                        {
+                            Response.Redirect("~/Empresa/PanelEmpresa.aspx", true);
+                        }
+                        break;
+                        
                 }
-                else if (user.tipoUsuario == 2)
-                {
-                    PersonaVO persona = GetPersona();
-                    if (persona.diligenciaBasicos == 0)
-                    {
-                        Response.Redirect("~/Personal/HojadeVida.aspx");
-                    }
-                    else
-                    {
-
-                    }
-                }
+                
+            }else
+            {
+                Response.Redirect("~/Index.aspx");
             }
         }
         private PersonaVO GetPersona()
@@ -100,6 +106,9 @@ namespace co.itmasters.solucion.web
             try
             {
                 PersonaVO persona = GetPersona();
+                if(persona != null)
+                {
+
                 int porcentaje
                     = Convert.ToInt32(persona.diligenciaAptitud)
                     + Convert.ToInt32(persona.diligenciaPerfil)
@@ -107,6 +116,11 @@ namespace co.itmasters.solucion.web
                     + Convert.ToInt32(persona.diligenciaBasicos)
                     + Convert.ToInt32(persona.diligenciaAcademia);
                 return porcentaje;
+                }
+                else
+                {
+                    return 0;
+                }
             }
             catch
             {
@@ -120,10 +134,14 @@ namespace co.itmasters.solucion.web
             OfertaVO ofertaSearch = new OfertaVO();
             ofertaSearch.idUsuario = user.IdUsuario;
             ofertaSearch.tituloVacante = txtBuscarCargo.Text;
-            if (txtIdCiudadBuscar.Text != "")
-            {
-                ofertaSearch.idCiudadVacante = Convert.ToInt32(txtIdCiudadBuscar.Text);
-            }
+
+            _ = txtIdCiudadBuscar.Text != ""
+                ? ofertaSearch.idCiudadVacante = Convert.ToInt32(txtIdCiudadBuscar.Text)
+                : ofertaSearch.idCiudadVacante = null;
+
+            _ = txtIdOcupacion.Text != ""
+                ? ofertaSearch.idOcupacion = Convert.ToInt32(txtIdOcupacion.Text)
+                : ofertaSearch.idOcupacion = null;
 
 
 
@@ -238,6 +256,22 @@ namespace co.itmasters.solucion.web
                 return list;
             }
         }
+        [WebMethod]
+        public static List<ListaVO> GetOcupaciones()
+        {
+            try
+            {
+
+                // Filtrar la lista de ocupaciones
+                return listaOcupacion;
+            }
+            catch
+            {
+                List<ListaVO> list = new List<ListaVO>();
+                return list;
+            }
+        }
+       
 
      
     }

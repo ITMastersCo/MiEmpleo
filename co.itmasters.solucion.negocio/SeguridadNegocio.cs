@@ -21,6 +21,10 @@ namespace co.itmasters.solucion.negocio
         {
             seguridad.RegistroUsuarioTokenEmpresa(Actor);
         }
+        public void RegistroUsuarioFuncionario(UsuarioVO Actor)
+        {
+            seguridad.RegistroUsuarioFuncionario(Actor);
+        }
         public void RegistroUsuarioEmpresa(UsuarioVO Actor)
         {
 

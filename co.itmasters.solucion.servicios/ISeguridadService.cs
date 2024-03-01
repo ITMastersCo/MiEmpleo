@@ -16,7 +16,8 @@ namespace co.itmasters.solucion.servicios
 
         [OperationContract]
         void RegistroUsuarioTokenEmpresa(UsuarioVO Actor);
-
+        [OperationContract]
+        void RegistroUsuarioFuncionario(UsuarioVO Actor);
         [OperationContract]
         void RegistroUsuarioEmpresa(UsuarioVO Actor);
         [OperationContract]

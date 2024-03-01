@@ -7,255 +7,129 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace co.itmasters.solucion.web
+namespace co.itmasters.solucion.web.Empresa
 {
 
 
-    public partial class _Default
+    public partial class CrearFuncionario
     {
 
         /// <summary>
-        /// Control wraShare.
+        /// Control titleMessageNot.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel wraShare;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl titleMessageNot;
 
         /// <summary>
-        /// Control txtBuscarCargo.
+        /// Control updForm.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBuscarCargo;
+        protected global::System.Web.UI.UpdatePanel updForm;
 
         /// <summary>
-        /// Control txtIdOcupacion.
+        /// Control panelRegistroFuncionario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdOcupacion;
+        protected global::System.Web.UI.WebControls.Panel panelRegistroFuncionario;
 
         /// <summary>
-        /// Control selAutocompletadoOcupations.
+        /// Control txtCorreo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect selAutocompletadoOcupations;
+        protected global::System.Web.UI.WebControls.TextBox txtCorreo;
 
         /// <summary>
-        /// Control txtSearch.
+        /// Control txtNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSearch;
+        protected global::System.Web.UI.WebControls.TextBox txtNombre;
 
         /// <summary>
-        /// Control txtCiudadBuscar.
+        /// Control cmbRol.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCiudadBuscar;
+        protected global::System.Web.UI.WebControls.DropDownList cmbRol;
 
         /// <summary>
-        /// Control txtIdCiudadBuscar.
+        /// Control divClave.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdCiudadBuscar;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divClave;
 
         /// <summary>
-        /// Control selAutocompletado.
+        /// Control txtPassword.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect selAutocompletado;
+        protected global::System.Web.UI.WebControls.TextBox txtPassword;
 
         /// <summary>
-        /// Control lblBuscarOferta.
+        /// Control txtPassword2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBuscarOferta;
+        protected global::System.Web.UI.WebControls.TextBox txtPassword2;
 
         /// <summary>
-        /// Control btnBuscarOferta.
+        /// Control txtIsValidConfirmPassword.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscarOferta;
+        protected global::System.Web.UI.WebControls.TextBox txtIsValidConfirmPassword;
 
         /// <summary>
-        /// Control containerOfertas.
+        /// Control lblError.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl containerOfertas;
+        protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
-        /// Control grdOfertasDestacadas.
+        /// Control btnValidaCorreo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdOfertasDestacadas;
+        protected global::System.Web.UI.WebControls.Button btnValidaCorreo;
 
         /// <summary>
-        /// Control noResultsShare.
+        /// Control btnCrearFuncionario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl noResultsShare;
-
-        /// <summary>
-        /// Control detalleOferta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl detalleOferta;
-
-        /// <summary>
-        /// Control lblIdOferta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdOferta;
-
-        /// <summary>
-        /// Control lblIdPersona.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdPersona;
-
-        /// <summary>
-        /// Control imgRutaAvatar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage imgRutaAvatar;
-
-        /// <summary>
-        /// Control lblOfferTitle.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOfferTitle;
-
-        /// <summary>
-        /// Control lblOfferUserWhoPublished.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOfferUserWhoPublished;
-
-        /// <summary>
-        /// Control lblOfferSalaryRange.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOfferSalaryRange;
-
-        /// <summary>
-        /// Control lblOfferLocation.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOfferLocation;
-
-        /// <summary>
-        /// Control lblOfferEdit.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOfferEdit;
-
-        /// <summary>
-        /// Control btnOfferEdit.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOfferEdit;
-
-        /// <summary>
-        /// Control btnPostularOferta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPostularOferta;
-
-        /// <summary>
-        /// Control lblDateCrateOffer.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDateCrateOffer;
-
-        /// <summary>
-        /// Control lblDateRemoveOffer.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDateRemoveOffer;
-
-        /// <summary>
-        /// Control lblDescriptioOffer.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescriptioOffer;
+        protected global::System.Web.UI.WebControls.Button btnCrearFuncionario;
 
         /// <summary>
         /// Control openModal.
@@ -294,13 +168,49 @@ namespace co.itmasters.solucion.web
         protected global::System.Web.UI.WebControls.Panel modalCV;
 
         /// <summary>
-        /// Control loaderContainer.
+        /// Control valida.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor loaderContainer;
+        protected global::System.Web.UI.WebControls.Panel valida;
+
+        /// <summary>
+        /// Control RequiredFieldValidator5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+
+        /// <summary>
+        /// Control txtToken.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtToken;
+
+        /// <summary>
+        /// Control LnkValidar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LnkValidar;
+
+        /// <summary>
+        /// Control generarToken.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button generarToken;
 
         /// <summary>
         /// Propiedad Master.
