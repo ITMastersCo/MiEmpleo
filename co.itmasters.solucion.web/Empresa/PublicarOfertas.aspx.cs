@@ -28,6 +28,7 @@ namespace co.itmasters.solucion.web.Empresa
         private CargaCombos _carga = new CargaCombos();
         private List<Control> tags = new List<Control>();
         private List<Label> tagsNames = new List<Label>();
+        private List<Label> tagsId = new List<Label>();
 
 
 
@@ -123,6 +124,11 @@ namespace co.itmasters.solucion.web.Empresa
             tagsNames.Add(nameTagOcupacion3);
             tagsNames.Add(nameTagOcupacion4);
             tagsNames.Add(nameTagOcupacion5);
+            tagsId.Add(idTagOcupacion);
+            tagsId.Add(idTagOcupacion2);
+            tagsId.Add(idTagOcupacion3);
+            tagsId.Add(idTagOcupacion4);
+            tagsId.Add(idTagOcupacion5);
         }
         protected void validaOferta()
 
@@ -308,6 +314,7 @@ namespace co.itmasters.solucion.web.Empresa
                 if (tagsNames[i].Text == "" && tags[i].Visible == false && contentCmbOcupacion != "Seleccione un elemento")
                 {
                     tagsNames[i].Text = contentCmbOcupacion;
+                    tagsId[i].Text = cmbOcupacion.SelectedValue;
                     tags[i].Visible = true;
                     break;
                 }

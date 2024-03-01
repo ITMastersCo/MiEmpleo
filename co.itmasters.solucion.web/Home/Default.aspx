@@ -94,7 +94,7 @@
                                                                         </div>
                                                                         <div class="avatar-rectangle">
 
-                                                                            <img src=".<%# Eval("rutaAvatar") %>"" alt="Alternate Text" />
+                                                                            <img src=".<%# Eval("rutaAvatar") %>" alt="Alternate Text" />
                                                                         </div>
                                                                     </div>
 
