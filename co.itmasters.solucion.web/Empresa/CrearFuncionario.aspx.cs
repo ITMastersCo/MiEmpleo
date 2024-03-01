@@ -41,9 +41,10 @@ namespace co.itmasters.solucion.web.Empresa
                 if (currentPlan.Any())
                 {
                     // Ordena la lista por fecha de modificación en orden descendente
-                    var planMasReciente = currentPlan.First();
+                    var planTieneMultiUsuario = currentPlan.Find(o => o.multiusuario == true);
 
-                    switch (planMasReciente.multiusuario)
+                    if (planTieneMultiUsuario?.multiusuario != null )
+                    switch (planTieneMultiUsuario.multiusuario)
                     {
                         case true:
                             updForm.Visible = true;

@@ -16,6 +16,7 @@ using static System.Net.Mime.MediaTypeNames;
 using Microsoft.Win32;
 using co.itmasters.solucion.vo.constantes;
 using CrystalDecisions.Data;
+using System.Data;
 
 namespace co.itmasters.solucion.web.Empresa
 {
@@ -75,7 +76,7 @@ namespace co.itmasters.solucion.web.Empresa
             _OfertaService.Close();
 
 
-            OfertaVO plan = resultado.Find(e => e.fechaFinaliza > DateTime.Now && e.fechaInicia < DateTime.Now);
+            OfertaVO plan = resultado.FindLast(e => e.ofertasConsumidas < e.nroOfertas );
 
             lblDiasOferta.Text = plan.diasPublicacionOferta.ToString();
 
