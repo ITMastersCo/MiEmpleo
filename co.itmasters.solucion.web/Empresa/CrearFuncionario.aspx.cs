@@ -1,5 +1,7 @@
 ﻿using co.itmasters.solucion.vo;
+using co.itmasters.solucion.vo.constantes;
 using co.itmasters.solucion.web.Code;
+using co.itmasters.solucion.web.OfertaService;
 using co.itmasters.solucion.web.SeguridadService;
 using CrystalDecisions.ReportAppServer.CommonControls;
 using System;
@@ -18,14 +20,42 @@ namespace co.itmasters.solucion.web.Empresa
         private UserVO user;
         private SeguridadServiceClient _Actores;
         private CargaCombos _cargaCombos;
+        private OfertaServiceClient _ofertaService;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 user = ((UserVO)Session["UsuarioAutenticado"]);
                 CargarCombos();
-                
-                
+
+
+                OfertaVO plan = new OfertaVO();
+
+                plan.typeModify = TipoConsulta.GET;
+                plan.idUsuario = user.IdUsuario;
+                plan.estado = EstadoPago.ESTADO_CONCILIADO;
+
+                _ofertaService = new OfertaServiceClient();
+                var currentPlan = _ofertaService.TraePlanesAdquiridosEmpresa(plan).ToList();
+                _ofertaService.Close();
+                if (currentPlan.Any())
+                {
+                    // Ordena la lista por fecha de modificación en orden descendente
+                    var planMasReciente = currentPlan.First();
+
+                    switch (planMasReciente.multiusuario)
+                    {
+                        case true:
+                            updForm.Visible = true;
+                            titleMessageNot.Visible = false;
+                                ; break;
+                        default:
+                            updForm.Visible = false;
+                            titleMessageNot.Visible = true;
+                            break;
+                    }
+
+                }
             }
         }
         private void CargarCombos()

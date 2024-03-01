@@ -3,11 +3,16 @@
 <%@ MasterType VirtualPath="../ITMasters.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Main" runat="server">
 
-    <asp:UpdatePanel runat="server" class="m-auto flex flex-col flex-center-v gap-56">
+    
+        <h2 id="titleMessageNot" runat="server" class="text-subtitle"> 
+            No cuenta con un plan para crear <span class="color-500 text-subtitle" > Subusuarios</span>
+        </h2>
+
+    <asp:UpdatePanel id="updForm" runat="server" class="m-auto flex flex-col flex-center-v gap-56" Visible ="false">
         <ContentTemplate>
             <%--Fitulo--%>
             <h1 class="text-subtitle text-semibold color-gray-800 text-center">Crear 
-                <span class="text-subtitle text-semibold color-500">Funcionario</span>
+                <span class="text-subtitle text-semibold color-500">Subusuario</span>
             </h1>
 
             <asp:RegularExpressionValidator

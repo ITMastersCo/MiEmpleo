@@ -15,6 +15,24 @@ namespace co.itmasters.solucion.web.Empresa
     {
 
         /// <summary>
+        /// Control titleMessageNot.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl titleMessageNot;
+
+        /// <summary>
+        /// Control updForm.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updForm;
+
+        /// <summary>
         /// Control panelRegistroFuncionario.
         /// </summary>
         /// <remarks>
