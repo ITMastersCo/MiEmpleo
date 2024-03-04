@@ -1,0 +1,36 @@
+name: Build and Publish
+
+on:
+  push:
+    branches:
+      - main  # Especifica la rama en la que deseas que se desencadene el flujo de trabajo
+
+jobs:
+  build-and-publish:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2  # Descarga tu código fuente en la máquina de GitHub Actions
+
+    - name: Setup .NET Framework
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '4.6.1'  # Especifica la versión de .NET Framework que necesitas
+
+    - name: Restore dependencies
+      run: nuget restore
+
+    - name: Build
+      run: msbuild /p:Configuration=Release  # Compila el proyecto en modo Release
+
+    - name: Prepare ZIP file
+      run: Compress-Archive -Path "path/to/your/application" -DestinationPath "published-app.zip"
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: published-app
+        path: ./published-app.zip  # Sube el archivo ZIP como artefacto
+    
+    # Aquí podrías agregar pasos adicionales para despliegue o notificaciones
