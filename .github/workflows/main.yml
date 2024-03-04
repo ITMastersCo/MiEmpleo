@@ -13,16 +13,25 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2  # Descarga tu código fuente en la máquina de GitHub Actions
 
-    - name: Setup .NET Framework
+    - name: Install Chocolatey
       run: |
-        choco install dotnetfx --version=4.6.1 -y
-        dotnet --version
+        Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+    - name: Install Visual Studio Build Tools
+      run: |
+        choco install visualstudio2019buildtools --package-parameters "--add Microsoft.VisualStudio.Component.MSBuild --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --includeRecommended --quiet --limit-output --timeout=0"
+
+    - name: Setup MSBuild Environment
+      run: |
+        RefreshEnv.cmd
+        vswhere.exe -products * -latest -requires Microsoft.Component.MSBuild -property installationPath
+        SET "PATH=%PATH%;%installationPath%\MSBuild\Current\Bin"
 
     - name: Restore dependencies
       run: nuget restore
 
     - name: Build
-      run: "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\msbuild.exe /p:Configuration=Release"  # Compila el proyecto en modo Release
+      run: msbuild /p:Configuration=Release  # Compila el proyecto en modo Release
 
     - name: Prepare ZIP file
       run: Compress-Archive -Path "path/to/your/application" -DestinationPath "published-app.zip"
