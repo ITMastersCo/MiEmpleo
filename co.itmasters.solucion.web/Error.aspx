@@ -2,26 +2,37 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" >
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>Untitled Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Error</title>
+    <link rel="stylesheet" href="~/css/error-pages.css" />
 </head>
 <body>
     <form id="form1" runat="server">
-    <div style="text-align: center">
-            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/error.gif" 
-                style="text-align: center" />
-            <br />
-            <br />
-            <br />
-            <asp:Label ID="lblMensaje" runat="server" Text="Mensaje" style="font-size: small; font-weight: 700"></asp:Label>
-    
-            <br />
-            <br />
-            <asp:LinkButton ID="lnkAtras" runat="server" onclick="lnkAtras_Click">Volver a ITMasters</asp:LinkButton>
-            <br />
-    
-    </div>
+        <header class="header">
+            <nav class="nav">
+                <a class="wrapper-logo" href="~/Home/Default.aspx">
+                    <asp:Image runat="server" class="logo" ImageUrl="~/Images/ImgInicio/LOGO.png" AlternateText = "Logo" />
+                </a>
+            </nav>
+        </header>
+        <main>
+            <section class="content">
+                <div class="header-error">
+                    <figure>
+                        <asp:Image ImageUrl="~/Images/ErrorGenerico.webp" runat="server" CssClass="img-error" ID="imgError"  AlternateText="Error Image"/>
+                    </figure>
+                    <h1 class="cod-error text-bold" id="codError" runat="server"></h1>
+                </div>
+                <article class="info-error">
+                    <h2 class="title-error text-bold text-title" id="titleError" runat="server"></h2>
+                    <p class="text-error text-bold text-regular" id="textError" runat="server"></p>
+                </article>
+                <a runat="server" class="button text-bold text-normal" href="~/Home/Default.aspx">Salir de aquí</a>
+            </section>
+        </main>
     </form>
 </body>
 </html>
