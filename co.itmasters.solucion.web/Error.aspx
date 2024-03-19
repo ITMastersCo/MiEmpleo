@@ -14,7 +14,7 @@
         <header class="header">
             <nav class="nav">
                 <a class="wrapper-logo" href="~/Home/Default.aspx">
-                    <asp:Image runat="server" class="logo" ImageUrl="~/Images/ImgInicio/LOGO.png" AlternateText = "Logo" />
+                    <asp:Image runat="server" class="logo" ImageUrl="~/Images/ImgInicio/LOGO.webp" AlternateText = "Logo" />
                 </a>
             </nav>
         </header>
