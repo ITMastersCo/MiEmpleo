@@ -153,7 +153,7 @@
             var emailField = document.getElementById('TxtEmail');
 
             // Define our regular expression.
-            var validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+            var validEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
             // Using test we can check if the text match the pattern
             if (validEmail.test(emailField.value)) {
