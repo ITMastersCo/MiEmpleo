@@ -9,6 +9,10 @@ using System.Security.Cryptography;
 using System.Text;
 using co.itmasters.solucion.web.SeguridadService;
 using CsvHelper;
+using Newtonsoft.Json.Linq;
+using System.Configuration;
+using System.IO;
+using System.Net;
 
 namespace co.itmasters.solucion.web.Home
 {
@@ -24,10 +28,32 @@ namespace co.itmasters.solucion.web.Home
 
             }
          }
+        private bool IsReCaptchValid()
+        {
+            var result = false;
+            var captchaResponse = Request.Form["g-recaptcha-response"];
+            var secretKey = ConfigurationManager.AppSettings["SecretKeyCaptcha"];
+            var apiUrl = "https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}";
+            var requestUri = string.Format(apiUrl, secretKey, captchaResponse);
+            var request = (HttpWebRequest)WebRequest.Create(requestUri);
 
+            using (WebResponse response = request.GetResponse())
+            {
+                using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+                {
+                    JObject jResponse = JObject.Parse(stream.ReadToEnd());
+                    var isSuccess = jResponse.Value<bool>("success");
+                    result = (isSuccess) ? true : false;
+                }
+            }
+            return result;
+        }
         protected void lnkRegistro_Click(object sender, EventArgs e)
         {
-            try 
+            if (IsReCaptchValid())
+            {
+
+                try 
 
          
                 { 
@@ -66,7 +92,14 @@ namespace co.itmasters.solucion.web.Home
                 lblError.Text = err.Message.ToString();
                 lblError.Visible = true;
             }
-            
+            }
+            else
+            {
+                lblError.Text = "Por favor valide el captcha.";
+                lblError.Visible = true;
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", "onloadCallback();", true);
+            }
+
 
         }
 
