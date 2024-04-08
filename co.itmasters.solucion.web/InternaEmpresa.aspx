@@ -28,8 +28,9 @@
                 <li><a class="item-menu" href="#">Centro de Ayuda</a></li>
             </ul>
         </nav>
-        <a href="./Index.aspx" class="logo center">
-            <img src="./images/ImgInicio/LOGO-dark.png" alt=""/>
+        <a href="./Index.aspx" class="logo center tooltip">
+            <img src="./images/ImgInicio/LOGO-dark.png" alt="Home"/>
+            <span class="tooltiptext">Inicio</span>
         </a>
 
 
