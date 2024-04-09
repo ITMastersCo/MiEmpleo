@@ -98,7 +98,7 @@
 
                         <asp:Label runat="server" class="text-small text-semibold item-center">
                             ¿Ya tienes una?
-                                <a href="./Login.aspx" class="text-small text-highlighted text-underline pointer">Ingresa</a>
+                                <a href="./Login.aspx" class="text-small text-highlighted text-underline pointer color-500">Ingresa</a>
                         </asp:Label>
                         </div>
                         

@@ -44,7 +44,7 @@
             <img src="./images/ImgInicio/user-empresa.svg" alt=""/>
             
         </a>
-        <a href="#" class="header-button"><span class="button text-normal">Publicar oferta gratis</span></a>
+        <a href="./Home/RegistroEmpresa.aspx" class="header-button"><span class="button text-normal">Publicar oferta gratis</span></a>
     </header>
     <main>
         <!-- Banner -->

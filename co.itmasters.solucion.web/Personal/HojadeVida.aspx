@@ -705,8 +705,8 @@
                     <h1 class="text-subtitle color-gray-800 p-16">Seleccione una imagen</h1>
                     <div>
                     <asp:Label Text="" runat="server" CssClass="file-upload" AssociatedControlID="fuAvatar">
+                        <asp:FileUpload runat="server" id="fuAvatar" onchange="setFileName(event)"/>
                         <span>Seleccionar</span>
-                        <asp:FileUpload runat="server" id="fuAvatar"/>
                     </asp:Label>
                         <asp:Label ID="lblFuAvatar" Text="" runat="server" />
                     </div>
@@ -752,6 +752,12 @@
                                 <div class="flex-col gap-4">
                                     <asp:Label ID="lblNombres" runat="server" Text="Nombres" CssClass="text-item text-semibold text-gray-700 text-center" />
                                     <asp:TextBox ID="txtNombres" runat="server" CssClass="text-box" />
+                                       <asp:RegularExpressionValidator ErrorMessage="Nombre no valido" 
+                                         ControlToValidate="txtNombres" 
+                                         runat="server" 
+                                         ValidationExpression="^[a-zA-Z\s]+$" 
+                                         CssClass="required-field-validator"
+                                         />
                                     <asp:RequiredFieldValidator ID="rfvNombres" ValidationGroup="formDatosBasicos" runat="server" ControlToValidate="txtNombres" ErrorMessage="Ingrese Nombres" CssClass="required-field-validator" />
                                 </div>
 
@@ -759,6 +765,12 @@
                                     <asp:Label ID="lblApellidos" runat="server" Text="Apellidos" CssClass="text-item text-semibold text-gray-700 text-center" />
                                     <asp:TextBox ID="txtApellidos" runat="server" CssClass="text-box" />
                                     <asp:RequiredFieldValidator ValidationGroup="formDatosBasicos" ID="rfvApellidos" runat="server" ControlToValidate="txtApellidos" ErrorMessage="Ingrese Apellidos" CssClass="required-field-validator" />
+                                    <asp:RegularExpressionValidator ErrorMessage="Apellido no valido" 
+                                     ControlToValidate="txtApellidos" 
+                                     runat="server" 
+                                     ValidationExpression="^[a-zA-Z\s]+$" 
+                                     CssClass="required-field-validator"
+                                     />
                                 </div>
 
                                 <div class="flex-col gap-4">
@@ -776,6 +788,12 @@
                                 <div class="flex-col gap-4">
                                     <asp:Label ID="lblNumeroTelefonico" runat="server" Text="Número Telefónico" CssClass="text-item text-semibold text-gray-700 text-center" />
                                     <asp:TextBox ID="txtNumeroTelefonico" runat="server" TextMode="Number" CssClass="text-box" />
+                                     <asp:RegularExpressionValidator ErrorMessage="Número no valido" 
+                                    ControlToValidate="txtNumeroTelefonico" 
+                                    runat="server" 
+                                    ValidationExpression="^\d{7}$|^\d{10}$" 
+                                    CssClass="required-field-validator"
+       />
                                     <asp:RequiredFieldValidator ValidationGroup="formDatosBasicos" ID="rfvNumeroTelefonico" runat="server" ControlToValidate="txtNumeroTelefonico" ErrorMessage="Ingrese el número telefónico" CssClass="required-field-validator" />
                                 </div>
 
@@ -986,11 +1004,7 @@
                                 <asp:UpdatePanel runat="server" ID="updFechas" >
                                     <ContentTemplate>
 
-                                        <div class="flex-col gap-4">
-                                            <asp:Label ID="lblTiempoCargo" runat="server" Text="Tiempo Cargo" CssClass="text-item text-semibold text-gray-700 text-center" />
-                                            <asp:TextBox ID="txtTiempoCargo" runat="server" CssClass="text-box" />
-                                            <asp:RequiredFieldValidator ValidationGroup="formExperiencia" ID="rfvTiempoCargo" runat="server" ControlToValidate="txtPerfilProfecional" ErrorMessage="Ingrese el Tiempo del cargo" CssClass="required-field-validator" />
-                                        </div>
+                                     
 
 
                                         <div class="flex-col gap-4">
@@ -1003,6 +1017,12 @@
                                             <asp:Label ID="lblFechaFinExperiencia" runat="server" Text="Fecha de Fin" CssClass="text-item text-semibold text-gray-700 text-center" />
                                             <asp:TextBox ID="txtFechaFinExperiencia" runat="server" TextMode="Date" CssClass="text-box" />
                                             <asp:RequiredFieldValidator ValidationGroup="formExperiencia" ID="rfvFechaFinExperiencia" runat="server" ControlToValidate="txtFechaFinExperiencia" ErrorMessage="Ingrese la fecha de Fin" CssClass="required-field-validator" />
+                                        </div>
+
+                                        <div class="flex-col gap-4">
+                                            <asp:Label ID="lblTiempoCargo" runat="server" Text="Tiempo Cargo" CssClass="text-item text-semibold text-gray-700 text-center" />
+                                            <asp:TextBox ID="txtTiempoCargo" runat="server" CssClass="text-box" />
+                                            <asp:RequiredFieldValidator ValidationGroup="formExperiencia" ID="rfvTiempoCargo" runat="server" ControlToValidate="txtPerfilProfecional" ErrorMessage="Ingrese el Tiempo del cargo" CssClass="required-field-validator" />
                                         </div>
                                     </ContentTemplate>
                                 </asp:UpdatePanel>
@@ -1093,4 +1113,11 @@
             <asp:PostBackTrigger ControlID="btnModalAvatarSubmit" />
         </Triggers>
     </asp:UpdatePanel>
+    <script>
+        function setFileName(e) {
+      const file = e.target.files[0];
+      const htmlSpan = e.target.parentNode.querySelector('span')
+      htmlSpan.innerText= file?.name
+  }
+    </script>
 </asp:Content>
