@@ -209,6 +209,10 @@
                 console.error('El elemento de marcador de posición de reCAPTCHA no es válido.');
             }
         };
+        function confirmaRegistro() {
+            alert('Su cuenta fue creada con exito.')
+            window.location.href = "../Home/LoginEmpresa.aspx";
+        }
     </script>
         <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
     async defer>

@@ -80,6 +80,7 @@ namespace co.itmasters.solucion.web.Home
                         openModal.Style["display"] = "block";
                         lnkRegistroValida.Enabled = false;
                         divCapcha.Visible = false;
+                        
 
                     }
                     else
@@ -126,12 +127,9 @@ namespace co.itmasters.solucion.web.Home
                         _Actores = new SeguridadServiceClient();
                         _Actores.RegistroUsuarioCandidato(_registro);
                         _Actores.Close();
-
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", "confirmaRegistro();", true);
                         txtPassword.Text = "";
                         TxtPassword2.Text = "";
-                        Response.Redirect("../Home/Login.aspx");
-                        //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", "showModal();", true);
-
                     }
                     else
                     {

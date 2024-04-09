@@ -187,6 +187,11 @@
                 }
             }
         }
+        function confirmaRegistro() {
+            alert("Registro realizado exitosamente")
+            console.log("Registro realizado exitosamente")
+            window.location.href = "../Home/Login.aspx";
+        }
         var onloadCallback = function () {
             const recaptchaPlaceholder = document.getElementById('html_element');
             if (recaptchaPlaceholder) {
@@ -197,6 +202,7 @@
                 console.error('El elemento de marcador de posición de reCAPTCHA no es válido.');
             }
         };
+
     </script>
         <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
     async defer>

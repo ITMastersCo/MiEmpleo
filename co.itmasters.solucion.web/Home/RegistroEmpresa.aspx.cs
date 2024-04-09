@@ -126,8 +126,7 @@ namespace co.itmasters.solucion.web.Home
 
                         txtPassword.Text = "";
                         TxtPassword2.Text = "";
-                         Response.Redirect("../Home/LoginEmpresa.aspx");
-                        //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", "showModal();", true);
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", "confirmaRegistro();", true);
 
                     }
                     else
