@@ -1007,21 +1007,22 @@
                                      
 
 
-                                        <div class="flex-col gap-4">
+                                        <div class="flex-col gap-4" >
                                             <asp:Label ID="lblFechaIniExperiencia" runat="server" Text="Fecha de Inicio" CssClass="text-item text-semibold text-gray-700 text-center" />
-                                            <asp:TextBox ID="txtFechaIniExperiencia" runat="server" TextMode="Date" CssClass="text-box" />
+                                            <asp:TextBox ID="txtFechaIniExperiencia" runat="server" TextMode="Date" CssClass="text-box txtFechaIniExperiencia" oninput="calcTiempoExperiencia()" />
                                             <asp:RequiredFieldValidator ValidationGroup="formExperiencia" ID="rfvFechaIniExperiencia" runat="server" ControlToValidate="txtFechaIniExperiencia" ErrorMessage="Ingrese la fecha de Inicio" CssClass="required-field-validator" />
                                         </div>
 
                                         <div class="flex-col gap-4">
                                             <asp:Label ID="lblFechaFinExperiencia" runat="server" Text="Fecha de Fin" CssClass="text-item text-semibold text-gray-700 text-center" />
-                                            <asp:TextBox ID="txtFechaFinExperiencia" runat="server" TextMode="Date" CssClass="text-box" />
+                                            <asp:TextBox ID="txtFechaFinExperiencia" runat="server" TextMode="Date" CssClass="text-box txtFechaFinExperiencia" oninput="calcTiempoExperiencia()" />
                                             <asp:RequiredFieldValidator ValidationGroup="formExperiencia" ID="rfvFechaFinExperiencia" runat="server" ControlToValidate="txtFechaFinExperiencia" ErrorMessage="Ingrese la fecha de Fin" CssClass="required-field-validator" />
                                         </div>
 
                                         <div class="flex-col gap-4">
                                             <asp:Label ID="lblTiempoCargo" runat="server" Text="Tiempo Cargo" CssClass="text-item text-semibold text-gray-700 text-center" />
-                                            <asp:TextBox ID="txtTiempoCargo" runat="server" CssClass="text-box" />
+                                            <asp:Label ID="tiempoCargoFormated" Text="" runat="server" CssClass="text-box tiempoCargoFormated"/>
+                                            <asp:TextBox ID="txtTiempoCargo" runat="server" CssClass="text-box txtTiempoCargo hidden" Enabled="false" />
                                             <asp:RequiredFieldValidator ValidationGroup="formExperiencia" ID="rfvTiempoCargo" runat="server" ControlToValidate="txtPerfilProfecional" ErrorMessage="Ingrese el Tiempo del cargo" CssClass="required-field-validator" />
                                         </div>
                                     </ContentTemplate>
@@ -1040,10 +1041,9 @@
 
                     let prm = Sys.WebForms.PageRequestManager.getInstance();
                     function executeScripts() {
-                        contadorTexto(<%= txtPerfil.ClientID %>, <%= lblCuentaCaracteres.ClientID %>, 2000);
-                        showNameFileUpload(<%= FileUploadCv.ClientID %>, <%=namePreviewFile.ClientID %>);
-                        showNameFileUpload('<%= fuAvatar.ClientID %>', '<%= lblFuAvatar.ClientID %>');
-                        showContainer(<%= FileUploadCv.ClientID%>, "input", <%= previewFile.ClientID%>);
+                        <%--showNameFileUpload(<%= FileUploadCv.ClientID %>, <%=namePreviewFile.ClientID %>);--%>
+                        ////////showNameFileUpload('<%= fuAvatar.ClientID %>', '<%= lblFuAvatar.ClientID %>');
+                        ////////showContainer(<%= FileUploadCv.ClientID%>, "input", <%= previewFile.ClientID%>);
                     }
 
                     executeScripts()
@@ -1067,6 +1067,7 @@
                         if (nameForm !== null)
                             form.classList.remove("hidden")
                         bmodal.appendChild(form);
+                        
 
                     }
                     function CloseModall() {
@@ -1079,7 +1080,7 @@
                         modal.style.display = 'none';
                         
                     }
-                </script>    </div>
+        </script>    </div>
 
            
             
@@ -1117,7 +1118,38 @@
         function setFileName(e) {
       const file = e.target.files[0];
       const htmlSpan = e.target.parentNode.querySelector('span')
-      htmlSpan.innerText= file?.name
+            htmlSpan.innerText = file?.name
+
   }
+        function calcTiempoExperiencia() {
+            const fecaIni = new Date(document.querySelector(".txtFechaIniExperiencia").value)
+            const fecaFin = new Date(document.querySelector(".txtFechaFinExperiencia").value)
+            const tiempoCargo = document.querySelector(".txtTiempoCargo")
+            const tiempoCargoFormated = document.querySelector(".tiempoCargoFormated")
+
+            const diferenciaMilisegundos = fecaFin - fecaIni;
+
+            // Convertir la diferencia de milisegundos a días
+            const unDiaEnMilisegundos = 1000 * 60 * 60 * 24; // Milisegundos en un día
+            const diferenciaDias = diferenciaMilisegundos / unDiaEnMilisegundos;
+
+            tiempoCargo.value = diferenciaDias
+
+            let currentdiferenciaDias = tiempoCargo.value 
+
+            if (currentdiferenciaDias < 7) {
+                tiempoCargoFormated.innerText = `${Math.round(currentdiferenciaDias)} Días`
+            } else if (currentdiferenciaDias < 30){
+                tiempoCargoFormated.innerText = `${Math.round(currentdiferenciaDias/ 7)} Semanas`
+            } else if (currentdiferenciaDias < 365){
+                tiempoCargoFormated.innerText = `${Math.round(currentdiferenciaDias/ 30)} Meses`
+            } else if (currentdiferenciaDias > 365){
+                tiempoCargoFormated.innerText = `${Math.round(currentdiferenciaDias/ 365)} Años`
+            }
+            
+
+        }
+        
+        
     </script>
 </asp:Content>
