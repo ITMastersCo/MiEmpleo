@@ -115,9 +115,13 @@
             <div class="grid-auto-cols">
                 <asp:Label ID="Label1" runat="server" Text="Dirección de notificación" CssClass="text-bold text-left">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtDireccion" ErrorMessage="Digite la dirección de la sede principal de la empresa." ValidationGroup="DatosG" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator></asp:Label>
+                <div>
+
                 <asp:TextBox ID="txtDireccion" CssClass="text-box" ToolTip="Digite la dirección de la sede principal de la empresa" TextMode="SingleLine" placeholder="Dirección de notificación" runat="server"></asp:TextBox>
+                </div>
                 <asp:Label ID="Label2" runat="server" Text="Teléfono de contacto" CssClass="text-bold text-left">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtTelContacto" ErrorMessage="Digite el teléfono de contacto del representante legal." ValidationGroup="DatosG" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator></asp:Label>
+                <div class ="flex flex-col gap-4">
 
                 <asp:TextBox ID="txtTelContacto" CssClass="text-box" ToolTitxtTelContactop="Digite el teléfono de la sede principal de la empresa" TextMode="Number" placeholder="Teléfono de contacto" runat="server"></asp:TextBox>
                 <asp:RegularExpressionValidator ErrorMessage="Número no valido" 
@@ -126,6 +130,7 @@
                     ValidationExpression="^\d{7}$|^\d{10}$" 
                     CssClass="required-field-validator"
                     />
+                </div>
             </div>
             
             <div class ="grid-auto-cols" style="white-space: nowrap;">
