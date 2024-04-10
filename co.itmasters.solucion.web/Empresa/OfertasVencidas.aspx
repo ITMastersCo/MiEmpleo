@@ -21,7 +21,7 @@
                </svg>
                 </asp:Label>
                 <asp:Button ID="btnFilter" runat="server" Text="" OnClick="btnFilter_Click" />
-                <asp:DropDownList ID="cmbFiltros" Width="200px" runat="server" CssClass="drop-down-list" OnSelectedIndexChanged="cmbFiltros_SelectedIndexChanged" AutoPostBack="true" Visible="false"></asp:DropDownList>
+                <asp:DropDownList ID="cmbFiltros" Width="200px" runat="server" CssClass="drop-down-list" OnSelectedIndexChanged="cmbFiltros_SelectedIndexChanged" AutoPostBack="true" ></asp:DropDownList>
                 <asp:DropDownList ID="cmbOcupacionOfertaEmpresa" Width="400px" CssClass="drop-down-list" OnSelectedIndexChanged="cmbOcupacionOfertaEmpresa_SelectedIndexChanged" runat="server" AutoPostBack="true" Visible="false"></asp:DropDownList>
                 <br />
                 <asp:TextBox ID="txtFecha1" Visible="false" Width="200px" TextMode="Date" CssClass="text-box" runat="server"></asp:TextBox>
