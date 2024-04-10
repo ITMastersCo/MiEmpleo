@@ -52,6 +52,7 @@ namespace co.itmasters.solucion.web.Personal
                 DataBind();
                 CargarCombos();
                 SetFormPersoalInfo(persona);
+                ShowConditionsJobs(persona);
                 grdInsertAcademia(persona.Academia);
                 grdInsertExperiencia(persona.Experiencia);
                 FillSkillList();
@@ -62,10 +63,12 @@ namespace co.itmasters.solucion.web.Personal
 
 
         }
-        
+
         protected void CargarCombos()
         {
             _carga.Cargar(cmbSkill, TipoCombo.CMBPERSONAAPTITUD);
+            _carga.Cargar(cmbRangoSalarial, TipoCombo.CMBRANGOSALARIAL);
+            _carga.Cargar(cmbModalidadTrabajo, TipoCombo.CMBMODALIDADEMPLEO);
         }
         protected void grdInsertAcademia(List<PersonaAcademiaVO> academia)
         {
@@ -155,6 +158,30 @@ namespace co.itmasters.solucion.web.Personal
 
 
         }
+        private void ShowConditionsJobs(PersonaVO persona) {
+            cmbModalidadTrabajo.SelectedValue = persona?.idModalidadTrabajo?.ToString();
+            cmbRangoSalarial.SelectedValue = persona?.idRangoSalario?.ToString();
+        }
+        private void UpdateConditionsJobs(string idModalidaTrabajo, string idRangoSalarial)
+        {
+
+            int? newidModalidaTrabajo = Convert.ToInt32(idModalidaTrabajo);
+            int? newidRangoSalarial = Convert.ToInt32(idRangoSalarial);
+            if(newidModalidaTrabajo == -1) newidModalidaTrabajo = null;
+            if (newidRangoSalarial == -1) newidRangoSalarial = null;
+
+            PersonaVO newCondition = new PersonaVO();
+
+            newCondition.idUsuario = user.IdUsuario;
+            newCondition.idPersona = GetPersona().idPersona;
+            newCondition.idModalidadTrabajo = newidModalidaTrabajo;
+            newCondition.idRangoSalario = newidRangoSalarial;
+            newCondition.typeModify = TipoConsulta.MODIFY_UPDATE;
+            _ActoresService = new PersonaServiceClient();
+            _ActoresService.PersonaCondicionManoObra_Update(newCondition);
+            _ActoresService.Close();
+            ShowConditionsJobs(GetPersona());
+        }
         private void ShowPersonalInfo(PersonaVO persona)
         {
             wrpPersonalInfo.ID = persona.idPersona.ToString();
@@ -170,7 +197,7 @@ namespace co.itmasters.solucion.web.Personal
 
             ShowAttachments();
 
-           
+
 
         }
         protected void validatePersonalInfo(PersonaVO persona) {
@@ -449,7 +476,7 @@ namespace co.itmasters.solucion.web.Personal
         }
         protected void btnEditPersonalInfo_Click(object sender, EventArgs e)
         {
-       
+
 
 
         }
@@ -472,7 +499,7 @@ namespace co.itmasters.solucion.web.Personal
             btnSaveDescription.Visible = true;
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba",
                 $"contadorTexto({txtPerfil.ClientID},{lblCuentaCaracteres.ClientID}, 2000)", true);
-            
+
 
         }
         protected void btnSaveDescription_Click(object sender, EventArgs e)
@@ -682,11 +709,11 @@ namespace co.itmasters.solucion.web.Personal
 
                 ModifyAptitud(newAptitud);
                 FillSkillList();
-                
+
                 updSkill.Update();
                 string contentCmbSkill = cmbSkill.SelectedItem.Text;
 
-                
+
 
 
                 for (int i = 0; i < tagsNames.Count; i++)
@@ -766,7 +793,7 @@ namespace co.itmasters.solucion.web.Personal
         }
         private string formatDate(DateTime fechaInicial, DateTime fechaFinal)
         {
-           
+
 
             // Calcular la diferencia en días
             TimeSpan diferencia = fechaFinal - fechaInicial;
@@ -826,9 +853,9 @@ namespace co.itmasters.solucion.web.Personal
                     txtFechaIniExperiencia.Attributes["value"] = dateValueIni.ToString();
                     string dateValueFin = String.Format("{0:yyyy-MM-dd}", Convert.ToDateTime(((Label)row.FindControl("lblfechaFinCargo")).Text));
                     txtFechaFinExperiencia.Attributes["value"] = dateValueFin.ToString();
-                    tiempoCargoFormated.Text = formatDate(Convert.ToDateTime(dateValueIni),Convert.ToDateTime(dateValueFin)); 
+                    tiempoCargoFormated.Text = formatDate(Convert.ToDateTime(dateValueIni), Convert.ToDateTime(dateValueFin));
                     ShowModalButton(btnModalExperienciaSubmit);
-                    
+
                     break;
                 case TipoConsulta.MODIFY_DELETE:
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", MODALELIMINAREXPERIENCIA, true);
@@ -1014,32 +1041,32 @@ namespace co.itmasters.solucion.web.Personal
             txtFechaFinExperiencia.Text = null;
             ShowModalButton(btnModalExperienciaSubmit);
 
-            
+
         }
 
         protected void btnModalAvatarSubmit_Click(object sender, EventArgs e)
         {
-                Master.OcultarBanda();
-                try
+            Master.OcultarBanda();
+            try
+            {
+
+                if (fuAvatar.HasFile)
                 {
-                
-                    if (fuAvatar.HasFile)
+
+                    EmpresaVO _empresa = new EmpresaVO();
+                    string filename = Path.GetFileName(fuAvatar.FileName);
+                    FileInfo Info = new FileInfo(filename);
+                    int size = (fuAvatar.FileBytes).Length;
+                    if (Info.Extension == ".jpg" && size < 220000 || Info.Extension == ".JPG" && size < 220000)
                     {
 
-                        EmpresaVO _empresa = new EmpresaVO();
-                        string filename = Path.GetFileName(fuAvatar.FileName);
-                        FileInfo Info = new FileInfo(filename);
-                        int size = (fuAvatar.FileBytes).Length;
-                        if (Info.Extension == ".jpg" && size < 220000 || Info.Extension == ".JPG" && size < 220000)
+                        if (!System.IO.File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + "Candidatos"))
                         {
-
-                            if (!System.IO.File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + "Candidatos"))
-                            {
-                                System.IO.Directory.CreateDirectory(System.AppDomain.CurrentDomain.BaseDirectory + "Fotos\\" + "\\Candidatos" + "\\");
-                            }
-                            fuAvatar.SaveAs(System.AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + "\\Candidatos\\" + filename);
-                            System.IO.File.Delete(System.AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + "\\Candidatos\\" + (txtNumeroIdentificacion.Text).TrimStart().TrimEnd() + ".jpg");
-                            System.IO.File.Move(System.AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + "\\Candidatos\\" + filename, System.AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + "\\Candidatos\\" + (txtNumeroIdentificacion.Text).TrimStart().TrimEnd() + ".jpg");
+                            System.IO.Directory.CreateDirectory(System.AppDomain.CurrentDomain.BaseDirectory + "Fotos\\" + "\\Candidatos" + "\\");
+                        }
+                        fuAvatar.SaveAs(System.AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + "\\Candidatos\\" + filename);
+                        System.IO.File.Delete(System.AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + "\\Candidatos\\" + (txtNumeroIdentificacion.Text).TrimStart().TrimEnd() + ".jpg");
+                        System.IO.File.Move(System.AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + "\\Candidatos\\" + filename, System.AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + "\\Candidatos\\" + (txtNumeroIdentificacion.Text).TrimStart().TrimEnd() + ".jpg");
 
 
                         PersonaVO data = GetFormValuesPersonalInfo();
@@ -1062,24 +1089,24 @@ namespace co.itmasters.solucion.web.Personal
                             throw;
                         }
                     }
-                        else
-                        {
-                            Master.mostrarMensaje("La foto no cumple con los parametros establecidos, debe ser formato jpg y no mayor a  200Kb", Master.ERROR);
-                        }
-
-
-                    }
                     else
-
                     {
-                        Master.mostrarMensaje("Archivo no existe, por favor intente nuevamente.", Master.ERROR);
+                        Master.mostrarMensaje("La foto no cumple con los parametros establecidos, debe ser formato jpg y no mayor a  200Kb", Master.ERROR);
                     }
+
+
                 }
-                catch (Exception)
+                else
+
                 {
-                    Master.mostrarMensaje("Error cargando el archivo, por favor renombre el archivo de la fotografía.", Master.ERROR);
+                    Master.mostrarMensaje("Archivo no existe, por favor intente nuevamente.", Master.ERROR);
                 }
-                
+            }
+            catch (Exception)
+            {
+                Master.mostrarMensaje("Error cargando el archivo, por favor renombre el archivo de la fotografía.", Master.ERROR);
+            }
+
         }
 
 
@@ -1090,6 +1117,17 @@ namespace co.itmasters.solucion.web.Personal
             Master.OcultarBanda();
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", $"showModal('{messageAvatar.ClientID}')", true);
             ShowModalButton(btnModalAvatarSubmit);
+        }
+
+        protected void cmbRangoSalarial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            UpdateConditionsJobs(cmbModalidadTrabajo.SelectedValue, cmbRangoSalarial.SelectedValue);
+        }
+
+        protected void cmbModalidadTrabajo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateConditionsJobs(cmbModalidadTrabajo.SelectedValue, cmbRangoSalarial.SelectedValue);
         }
     }
 };

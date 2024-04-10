@@ -39,6 +39,12 @@ namespace co.itmasters.solucion.web.PersonaService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonaService/PersonaAptitud_Update", ReplyAction="http://tempuri.org/IPersonaService/PersonaAptitud_UpdateResponse")]
         System.Threading.Tasks.Task PersonaAptitud_UpdateAsync(co.itmasters.solucion.vo.PersonaAptitudVO pPersona);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonaService/PersonaCondicionManoObra_Update", ReplyAction="http://tempuri.org/IPersonaService/PersonaCondicionManoObra_UpdateResponse")]
+        void PersonaCondicionManoObra_Update(co.itmasters.solucion.vo.PersonaVO persona);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonaService/PersonaCondicionManoObra_Update", ReplyAction="http://tempuri.org/IPersonaService/PersonaCondicionManoObra_UpdateResponse")]
+        System.Threading.Tasks.Task PersonaCondicionManoObra_UpdateAsync(co.itmasters.solucion.vo.PersonaVO persona);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonaService/ActEconomicaAutocomplete", ReplyAction="http://tempuri.org/IPersonaService/ActEconomicaAutocompleteResponse")]
         co.itmasters.solucion.vo.AutocompleteActividadEconomica[] ActEconomicaAutocomplete(co.itmasters.solucion.vo.AutocompleteActividadEconomica Act);
         
@@ -169,6 +175,14 @@ namespace co.itmasters.solucion.web.PersonaService {
         
         public System.Threading.Tasks.Task PersonaAptitud_UpdateAsync(co.itmasters.solucion.vo.PersonaAptitudVO pPersona) {
             return base.Channel.PersonaAptitud_UpdateAsync(pPersona);
+        }
+        
+        public void PersonaCondicionManoObra_Update(co.itmasters.solucion.vo.PersonaVO persona) {
+            base.Channel.PersonaCondicionManoObra_Update(persona);
+        }
+        
+        public System.Threading.Tasks.Task PersonaCondicionManoObra_UpdateAsync(co.itmasters.solucion.vo.PersonaVO persona) {
+            return base.Channel.PersonaCondicionManoObra_UpdateAsync(persona);
         }
         
         public co.itmasters.solucion.vo.AutocompleteActividadEconomica[] ActEconomicaAutocomplete(co.itmasters.solucion.vo.AutocompleteActividadEconomica Act) {

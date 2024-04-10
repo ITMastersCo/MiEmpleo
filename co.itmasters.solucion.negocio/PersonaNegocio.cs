@@ -33,6 +33,10 @@ namespace co.itmasters.solucion.negocio
         {
             _persona.PersonaAptitud_Update(pPersona);
         }
+        public void PersonaCondicionManoObra_Update(PersonaVO persona)
+        {
+            _persona.PersonaCondicionManoObra_Update(persona);
+        }
         public List<AutocompleteActividadEconomica> ActEconomicaAutocomplete(AutocompleteActividadEconomica Act)
         {
             return _persona.ActEconomicaAutocomplete(Act);

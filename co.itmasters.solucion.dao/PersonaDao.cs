@@ -21,6 +21,7 @@ namespace co.itmasters.solucion.dao
         public const string PERSONA_ACADEMIAUPDATE = "Persona_AcademiaUpdate";
         public const string PERSONA_EXPERIENCIAUPDATE = "Persona_ExperienciaUpdate";
         public const string PERSONA_APTITUDUPDATE = "Persona_AptitudUpdate";
+        public const string PERSONA_CONDICIONMANOOBRA = "Persona_CondicionManoObra";
         public const string PERSONA_GRABARTERCERO = "Persona_GrabarTercero";
         public const string PERSONA_CAMBIARCLAVE = "Persona_CambiarClave";
         public const string PERSONA_BUSCARDATOSBASICOS = "Persona_BuscarDatosBasicos";
@@ -530,6 +531,31 @@ namespace co.itmasters.solucion.dao
                     new Parametro(PERSONA_IDPERSONAAPTITUD, persona.idPersonaAptitud, DbType.Int32),
     };
                 this.EjecutarStoredProcedure(PERSONA_APTITUDUPDATE, valParam);
+            }
+            catch (System.Data.SqlClient.SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        public void PersonaCondicionManoObra_Update(PersonaVO persona)
+
+        {
+            try
+            {
+                Parametro[] valParam = new Parametro[]
+                {
+                    new Parametro(MODIFY_TYPE, persona.typeModify, DbType.String),
+
+                    new Parametro(PERSONA_IDUSUARIO, persona.idUsuario, DbType.Int32),
+                    new Parametro(PERSONA_IDPERSONA, persona.idPersona, DbType.Int32),
+                    new Parametro(PERSONA_IDRANGOSALARIO, persona.idRangoSalario, DbType.Int32),
+                    new Parametro(PERSONA_IDMODALIDADTRABAJO, persona.idModalidadTrabajo, DbType.Int32),
+    };
+                this.EjecutarStoredProcedure(PERSONA_CONDICIONMANOOBRA, valParam);
             }
             catch (System.Data.SqlClient.SqlException e)
             {

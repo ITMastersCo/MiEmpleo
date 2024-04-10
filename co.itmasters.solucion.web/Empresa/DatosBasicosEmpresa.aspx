@@ -123,34 +123,36 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtTelContacto" ErrorMessage="Digite el teléfono de contacto del representante legal." ValidationGroup="DatosG" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator></asp:Label>
                 <div class ="flex flex-col gap-4">
 
-                <asp:TextBox ID="txtTelContacto" CssClass="text-box" ToolTitxtTelContactop="Digite el teléfono de la sede principal de la empresa" TextMode="Number" placeholder="Teléfono de contacto" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtTelContacto" CssClass="text-box" ToolTitxtTelContactop="Digite el teléfono de la sede principal de la empresa" TextMode="Number" placeholder="Teléfono de contacto" runat="server" ValidationGroup="DatosG"></asp:TextBox>
                 <asp:RegularExpressionValidator ErrorMessage="Número no valido" 
                     ControlToValidate="txtTelContacto" 
                     runat="server" 
-                    ValidationExpression="^\d{7}$|^\d{10}$" 
+                    ValidationExpression="^[0-9]{7}$|^[0-9]{10}$" 
                     CssClass="required-field-validator"
+                    ValidationGroup="DatosG"
                     />
                 </div>
             </div>
             
-            <div class ="grid-auto-cols" style="white-space: nowrap;">
-                <asp:Label ID="LblSectoEco" runat="server" Text="Sector económico" CssClass="text-bold text-w text-left items-center" style ="width:30%;">
-                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="CmbSectorEc" 
-                        ErrorMessage="Seleccione el sector económico a la  que pertenece la empresa." 
-                        ForeColor="#CC0000" CssClass="text" MaximumValue="10000000" 
-                        MinimumValue="0" Type="Integer" ValidationGroup="DatosG" >*</asp:RangeValidator></asp:Label>
-                <asp:DropDownList ID="CmbSectorEc" 
-                    ToolTip="Seleccione el sector económico a la  que pertenece la empresa" runat="server" CssClass="drop-down-list" 
-                    OnSelectedIndexChanged="CmbSectorEc_SelectedIndexChanged" AutoPostBack="true" style="grid-column: span 2 / span 2;" ></asp:DropDownList>
-                </div>
-                <div class="grid-auto-cols" style="white-space: nowrap;">
+            <div class="flex flex-col" >
+                <asp:Label ID="LblSectoEco" runat="server" Text="Sector económico" CssClass="text-bold text-w text-left items-center" Style="width: 30%;">
+                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="CmbSectorEc"
+                        ErrorMessage="Seleccione el sector económico a la  que pertenece la empresa."
+                        ForeColor="#CC0000" CssClass="text" MaximumValue="10000000"
+                        MinimumValue="0" Type="Integer" ValidationGroup="DatosG">*</asp:RangeValidator></asp:Label>
+                <asp:DropDownList ID="CmbSectorEc"
+                    ToolTip="Seleccione el sector económico a la  que pertenece la empresa" runat="server" CssClass="drop-down-list option-small"
+                    OnSelectedIndexChanged="CmbSectorEc_SelectedIndexChanged" AutoPostBack="true" Style="grid-column: span 2 / span 2;">
+                </asp:DropDownList>
+            </div>
+                <div class="flex flex-col">
 
                 <asp:Label ID="LblActEco" runat="server" Text="Actividad económica" CssClass="text-bold text-left items-center" style ="width:30%;">
                     <asp:RangeValidator ID="RangeValidator2" runat="server" ControlToValidate="CmbActEco" ErrorMessage="Seleccione la actividad principal en la  que pertenece la empresa." ForeColor="#CC0000" CssClass="text" MaximumValue="10000000" MinimumValue="0" Type="Integer" ValidationGroup="DatosG">*</asp:RangeValidator></asp:Label>
                 <asp:DropDownList ID="CmbActEco"
                     runat="server" 
                     ToolTip="Seleccione la actividad principal en la  que pertenece la empresa" 
-                    CssClass="drop-down-list"  style="grid-column: span 2 / span 2;"></asp:DropDownList>
+                    CssClass="drop-down-list option-small"  style="grid-column: span 2 / span 2;"></asp:DropDownList>
             </div>
 
             <div class="grid-auto-cols">

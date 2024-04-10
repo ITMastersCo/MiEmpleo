@@ -154,7 +154,7 @@
 
                     <div class="cv-title_i">
 
-                        <h3 class="text-section color-gray-800">Perfil profecional</h3>
+                        <h3 class="text-section color-gray-800">Perfil profesional</h3>
 
                         <div class="flex cv-icons">
 
@@ -599,6 +599,48 @@
 
                 </section>
 
+                <%-- Conditions for job--%>
+
+                <section class="cv-section">
+                    <div class="cv-title_i">
+                        <h3 class="text-section color-gray-800">Condiciones de la oferta de mano de obra
+                        </h3>
+                    </div>
+                    <div class="w-100per item-center max-w-850px flex-col gap-4">
+                        <asp:Label ID="lblRangoSalarial" runat="server" Text="Rango Salarial"
+                            AssociatedControlID="cmbRangoSalarial"
+                            CssClass="text-title-section text-medium color-gray-700 flex-col gap-4 w-100per item-center max-w-850px ">
+                        </asp:Label>
+                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                            <ContentTemplate>
+                                <div class="flex gap-4">
+                                    <asp:DropDownList ID="cmbRangoSalarial" runat="server" CssClass="text-box"
+                                        AutoPostBack="true" OnSelectedIndexChanged="cmbRangoSalarial_SelectedIndexChanged">
+                                        <asp:ListItem Selected="True" Value="-1">Seleccione</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </div>
+                    <div class="w-100per item-center max-w-850px flex-col gap-4">
+                        <asp:Label ID="lblModalidadTrabajo" runat="server" Text="Modalidad de Trabajo"
+                            AssociatedControlID="cmbModalidadTrabajo" 
+                            CssClass="text-title-section text-medium color-gray-700 flex-col gap-4 w-100per item-center max-w-850px ">
+                        </asp:Label>
+                        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                            <ContentTemplate>
+                                <div class="flex gap-4">
+                                    <asp:DropDownList ID="cmbModalidadTrabajo" runat="server" CssClass="text-box"
+                                        AutoPostBack="true" OnSelectedIndexChanged="cmbModalidadTrabajo_SelectedIndexChanged">
+                                        <asp:ListItem Selected="True" Value="-1">Seleccione</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </div>
+
+                    </section>
+
                 <%--Attachments--%>
 
                 <section class="cv-section" runat="server" visible="false">
@@ -676,6 +718,8 @@
                     </div>
 
                 </section>
+
+                
 
 
 
@@ -948,9 +992,15 @@
                                         </div>
 
                                         <div class="flex-col gap-4">
-                                            <asp:Label ID="lblPerfilProfecional" runat="server" Text="Perfil Profecional" CssClass="text-item text-semibold text-gray-700 text-center" />
+                                            <asp:Label ID="lblPerfilProfecional" runat="server" Text="Perfil Profesional" CssClass="text-item text-semibold text-gray-700 text-center" />
                                             <asp:TextBox ID="txtPerfilProfecional" runat="server" TextMode="MultiLine" CssClass="text-area" />
+                                            <asp:RegularExpressionValidator ErrorMessage="Texto demasiado grande"
+                                                ControlToValidate="txtPerfilProfecional"
+                                                runat="server"
+                                                ValidationExpression="^[\s\S]{0,200}$"
+                                                CssClass="required-field-validator"></asp:RegularExpressionValidator>
                                             <asp:RequiredFieldValidator ValidationGroup="formExperiencia" ID="rfvPerfilProfecional" runat="server" ControlToValidate="txtPerfilProfecional" ErrorMessage="Ingrese el Perfil Profecional" CssClass="required-field-validator" />
+
                                         </div>
 
 
@@ -1122,33 +1172,56 @@
 
   }
         function calcTiempoExperiencia() {
-            const fecaIni = new Date(document.querySelector(".txtFechaIniExperiencia").value)
-            const fecaFin = new Date(document.querySelector(".txtFechaFinExperiencia").value)
-            const tiempoCargo = document.querySelector(".txtTiempoCargo")
-            const tiempoCargoFormated = document.querySelector(".tiempoCargoFormated")
+            const fechaIniString = document.querySelector(".txtFechaIniExperiencia").value;
+            const fechaFinString = document.querySelector(".txtFechaFinExperiencia").value;
 
-            const diferenciaMilisegundos = fecaFin - fecaIni;
+            // Validar que se hayan ingresado ambas fechas
+            if (!fechaIniString || !fechaFinString) {
+                console.error("Por favor ingresa ambas fechas.");
+                return;
+            }
+
+            const fechaIni = new Date(fechaIniString);
+            const fechaFin = new Date(fechaFinString);
+
+            // Verificar si las fechas son válidas
+            if (isNaN(fechaIni) || isNaN(fechaFin)) {
+                console.error("Las fechas ingresadas no son válidas.");
+                return;
+            }
+
+            // Calcular la diferencia en milisegundos
+            const diferenciaMilisegundos = fechaFin - fechaIni;
 
             // Convertir la diferencia de milisegundos a días
             const unDiaEnMilisegundos = 1000 * 60 * 60 * 24; // Milisegundos en un día
             const diferenciaDias = diferenciaMilisegundos / unDiaEnMilisegundos;
 
-            tiempoCargo.value = diferenciaDias
+            // Mostrar la diferencia en años y meses si corresponde
+            if (diferenciaDias >= 365) {
+                const años = Math.floor(diferenciaDias / 365);
+                const mesesRestantes = Math.floor((diferenciaDias % 365) / 30);
+                const añosTexto = años > 1 ? `${años} años` : `${años} año`;
+                const mesesTexto = mesesRestantes > 1 ? `${mesesRestantes} meses` : `${mesesRestantes} mes`;
 
-            let currentdiferenciaDias = tiempoCargo.value 
+                document.querySelector(".tiempoCargoFormated").innerText = `${añosTexto} y ${mesesTexto}`;
+            } else {
+                // Mostrar la diferencia en semanas o meses si corresponde
+                if (diferenciaDias < 7) {
+                    document.querySelector(".tiempoCargoFormated").innerText = `${Math.round(diferenciaDias)} días`;
+                } else {
+                    const semanas = Math.floor(diferenciaDias / 7);
+                    const meses = Math.floor(diferenciaDias / 30);
 
-            if (currentdiferenciaDias < 7) {
-                tiempoCargoFormated.innerText = `${Math.round(currentdiferenciaDias)} Días`
-            } else if (currentdiferenciaDias < 30){
-                tiempoCargoFormated.innerText = `${Math.round(currentdiferenciaDias/ 7)} Semanas`
-            } else if (currentdiferenciaDias < 365){
-                tiempoCargoFormated.innerText = `${Math.round(currentdiferenciaDias/ 30)} Meses`
-            } else if (currentdiferenciaDias > 365){
-                tiempoCargoFormated.innerText = `${Math.round(currentdiferenciaDias/ 365)} Años`
+                    if (semanas >= 4) {
+                        document.querySelector(".tiempoCargoFormated").innerText = `${meses} meses`;
+                    } else {
+                        document.querySelector(".tiempoCargoFormated").innerText = `${semanas} semanas`;
+                    }
+                }
             }
-            
-
         }
+
         
         
     </script>
