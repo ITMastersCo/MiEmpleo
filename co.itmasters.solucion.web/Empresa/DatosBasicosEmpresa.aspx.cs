@@ -124,11 +124,11 @@ namespace co.itmasters.solucion.web.Empresa
                     titleFirstWord.InnerText = "Datos";
                     titleSecondWord.InnerText = "básicos empresa";
 
-                    imgDatosBasicosPage1.Src = $"..{user.Avatar}";
+                    imgDatosBasicosPage1.Src = $".{user.Avatar}";
                     imgDatosBasicosPage1.Attributes.Add("class","avatar");
                     imgDatosBasicosPage2.Visible = false;
                     imgDatosBasicosPage3.Visible = false;
-                    btnSubirFoto.Visible = false;
+                    
                     btnSiguiente.Visible = false;
                     txtRazonSocial.ReadOnly = true;
                     txtRazonSocial.Enabled = false;

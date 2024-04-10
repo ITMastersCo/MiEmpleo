@@ -1797,33 +1797,6 @@ namespace co.itmasters.solucion.web.Personal
         protected global::System.Web.UI.UpdatePanel updFechas;
 
         /// <summary>
-        /// Control lblTiempoCargo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTiempoCargo;
-
-        /// <summary>
-        /// Control txtTiempoCargo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTiempoCargo;
-
-        /// <summary>
-        /// Control rfvTiempoCargo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTiempoCargo;
-
-        /// <summary>
         /// Control lblFechaIniExperiencia.
         /// </summary>
         /// <remarks>
@@ -1876,6 +1849,42 @@ namespace co.itmasters.solucion.web.Personal
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFechaFinExperiencia;
+
+        /// <summary>
+        /// Control lblTiempoCargo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTiempoCargo;
+
+        /// <summary>
+        /// Control tiempoCargoFormated.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label tiempoCargoFormated;
+
+        /// <summary>
+        /// Control txtTiempoCargo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTiempoCargo;
+
+        /// <summary>
+        /// Control rfvTiempoCargo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTiempoCargo;
 
         /// <summary>
         /// Control openModal.

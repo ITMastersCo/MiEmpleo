@@ -204,6 +204,15 @@ namespace co.itmasters.solucion.web.Home
         protected global::System.Web.UI.WebControls.CheckBox chkConditions;
 
         /// <summary>
+        /// Control divCapcha.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCapcha;
+
+        /// <summary>
         /// Control lnkRegistroValida.
         /// </summary>
         /// <remarks>

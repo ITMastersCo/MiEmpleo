@@ -54,12 +54,34 @@
         </div>
         <section class="flex flex-col gap-16">
 
-            <div class="gridContainer">
+            <div class="grid-auto-cols">
+                <div class ="grid-auto-cols " style="align-items:center;">
                 <asp:Label ID="lblRazonSocial" runat="server" Text="Razón social / Persona Natural" CssClass="text-bold text-left items-center"></asp:Label>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="txtRazonSocial" ErrorMessage="Digite el nombre de la empresa a registrar." ValidationGroup="DatosG" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator>
                 <asp:TextBox ID="txtRazonSocial" CssClass="text-box" runat="server" ToolTip="Digite el nombre de la empresa a registrar" placeholder="Nombre de la empresa a registrar"></asp:TextBox>
-                <br />
+                </div>
 
+                <div class ="grid-auto-cols">
+                 <asp:Label ID="Label5" runat="server" Text="Foto de perfil"  CssClass="text-bold text-left">
+                 </asp:Label>
+
+                    <div class="flex flex-col gap-4 flex-center">
+
+                <asp:Label ID="Label40" runat="server" Text="" ToolTip="Seleccione archivo a cargar, recuerde que tiene que ser un arhivo en jpg y que su tamaño no sea mayor  a 200 kb" CssClass="file-upload"
+                    AssociatedControlID="FileUploadFoto">
+                    <asp:FileUpload ID="FileUploadFoto" runat="server" CssClass="" onchange="setFileName(event)"/>
+                    <span>Seleccionar
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                         <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                     </svg>
+                    </span>
+                </asp:Label>
+                    <asp:Button ID="btnSubirFoto" runat="server" Text="Subir Foto de perfil   " CssClass="button text-bold" OnClick="subirfoto_Click"  />
+                    </div>
+                </div>
+            </div>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="txtRazonSocial" ErrorMessage="Digite el nombre de la empresa a registrar." ValidationGroup="DatosG" ForeColor="#CC0000" CssClass="required-field-validator">*</asp:RequiredFieldValidator>
+            <div class="gridContainer">
+                <asp:Label ID="lblFoto" runat="server" CssClass="text-normal" Visible="false" Text="Foto cargada exitósamente" ForeColor="Green"></asp:Label>
             </div>
             <div class="grid-auto-cols">
                 <asp:Label ID="lblTipDocu" runat="server" Text="Tipo de documento" CssClass="text-bold text-left items-center">
@@ -68,15 +90,6 @@
                 <asp:Label ID="Label6" runat="server" Text="Número de documento" CssClass="text-bold text-left items-center">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtNumDocumento" ErrorMessage="Digite el documento de empresa / Persona natural" ValidationGroup="DatosG" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator></asp:Label>
                 <asp:TextBox ID="txtNumDocumento" CssClass="text-box" runat="server" ToolTip="Documento de empresa / Persona natural" placeholder="Documento de empresa / Persona natural"></asp:TextBox>
-            </div>
-
-            <div class="grid-auto-cols">
-                <asp:Label ID="LblSectoEco" runat="server" Text="Sector económico" CssClass="text-bold text-left items-center">
-                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="CmbSectorEc" ErrorMessage="Seleccione el sector económico a la  que pertenece la empresa." ForeColor="#CC0000" CssClass="text" MaximumValue="10000000" MinimumValue="0" Type="Integer" ValidationGroup="DatosG">*</asp:RangeValidator></asp:Label>
-                <asp:DropDownList ID="CmbSectorEc" ToolTip="Seleccione el sector económico a la  que pertenece la empresa" runat="server" CssClass="drop-down-list" OnSelectedIndexChanged="CmbSectorEc_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-                <asp:Label ID="LblActEco" runat="server" Text="Actividad económica" CssClass="text-bold text-left items-center">
-                    <asp:RangeValidator ID="RangeValidator2" runat="server" ControlToValidate="CmbActEco" ErrorMessage="Seleccione la actividad principal en la  que pertenece la empresa." ForeColor="#CC0000" CssClass="text" MaximumValue="10000000" MinimumValue="0" Type="Integer" ValidationGroup="DatosG">*</asp:RangeValidator></asp:Label>
-                <asp:DropDownList ID="CmbActEco" runat="server" ToolTip="Seleccione la actividad principal en la  que pertenece la empresa" CssClass="drop-down-list"></asp:DropDownList>
             </div>
 
 
@@ -88,13 +101,13 @@
                         <asp:DropDownList ID="cmbDepartamento" runat="server" ToolTip="Seleccione el departamento donde se encuentra ubicada la sede principal de la empresa" AutoPostBack="true" CssClass="drop-down-list" OnSelectedIndexChanged="cmbDepartamento_SelectedIndexChanged"></asp:DropDownList>
                     </contenttemplate>
                 </updatepanel>
-                <asp:Label ID="LblMunicipio" runat="server" Text="municipio" CssClass="text-bold text-left">
+                <asp:Label ID="LblMunicipio" runat="server" Text="Municipio" CssClass="text-bold text-left">
                     <asp:RangeValidator ID="RangeValidator4" runat="server" ControlToValidate="cmbMunicipio" ErrorMessage="Seleccione el municipio o ciudad donde se encuentra ubicada la sede principal de la empresa." ForeColor="#CC0000" CssClass="text" MaximumValue="170990773" MinimumValue="0" Type="Integer" ValidationGroup="DatosG">*</asp:RangeValidator></asp:Label>
-                <updatepanel id="updateDepartamento" runat="server">
-                    <contenttemplate>
+                <UpdatePanel id="updateDepartamento" runat="server">
+                    <ContentTemplate>
                         <asp:DropDownList ID="cmbMunicipio" runat="server" ToolTip="Seleccione el municipio o ciudad donde se encuentra ubicada la sede principal de la empresa" CssClass="drop-down-list"></asp:DropDownList>
-                    </contenttemplate>
-                </updatepanel>
+                    </ContentTemplate>
+                </UpdatePanel>
             </div>
 
 
@@ -102,37 +115,53 @@
             <div class="grid-auto-cols">
                 <asp:Label ID="Label1" runat="server" Text="Dirección de notificación" CssClass="text-bold text-left">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtDireccion" ErrorMessage="Digite la dirección de la sede principal de la empresa." ValidationGroup="DatosG" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator></asp:Label>
+                <div>
+
                 <asp:TextBox ID="txtDireccion" CssClass="text-box" ToolTip="Digite la dirección de la sede principal de la empresa" TextMode="SingleLine" placeholder="Dirección de notificación" runat="server"></asp:TextBox>
+                </div>
                 <asp:Label ID="Label2" runat="server" Text="Teléfono de contacto" CssClass="text-bold text-left">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtTelContacto" ErrorMessage="Digite el teléfono de contacto del representante legal." ValidationGroup="DatosG" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator></asp:Label>
+                <div class ="flex flex-col gap-4">
+
                 <asp:TextBox ID="txtTelContacto" CssClass="text-box" ToolTitxtTelContactop="Digite el teléfono de la sede principal de la empresa" TextMode="Number" placeholder="Teléfono de contacto" runat="server"></asp:TextBox>
+                <asp:RegularExpressionValidator ErrorMessage="Número no valido" 
+                    ControlToValidate="txtTelContacto" 
+                    runat="server" 
+                    ValidationExpression="^\d{7}$|^\d{10}$" 
+                    CssClass="required-field-validator"
+                    />
+                </div>
+            </div>
+            
+            <div class ="grid-auto-cols" style="white-space: nowrap;">
+                <asp:Label ID="LblSectoEco" runat="server" Text="Sector económico" CssClass="text-bold text-w text-left items-center" style ="width:30%;">
+                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="CmbSectorEc" 
+                        ErrorMessage="Seleccione el sector económico a la  que pertenece la empresa." 
+                        ForeColor="#CC0000" CssClass="text" MaximumValue="10000000" 
+                        MinimumValue="0" Type="Integer" ValidationGroup="DatosG" >*</asp:RangeValidator></asp:Label>
+                <asp:DropDownList ID="CmbSectorEc" 
+                    ToolTip="Seleccione el sector económico a la  que pertenece la empresa" runat="server" CssClass="drop-down-list" 
+                    OnSelectedIndexChanged="CmbSectorEc_SelectedIndexChanged" AutoPostBack="true" style="grid-column: span 2 / span 2;" ></asp:DropDownList>
+                </div>
+                <div class="grid-auto-cols" style="white-space: nowrap;">
+
+                <asp:Label ID="LblActEco" runat="server" Text="Actividad económica" CssClass="text-bold text-left items-center" style ="width:30%;">
+                    <asp:RangeValidator ID="RangeValidator2" runat="server" ControlToValidate="CmbActEco" ErrorMessage="Seleccione la actividad principal en la  que pertenece la empresa." ForeColor="#CC0000" CssClass="text" MaximumValue="10000000" MinimumValue="0" Type="Integer" ValidationGroup="DatosG">*</asp:RangeValidator></asp:Label>
+                <asp:DropDownList ID="CmbActEco"
+                    runat="server" 
+                    ToolTip="Seleccione la actividad principal en la  que pertenece la empresa" 
+                    CssClass="drop-down-list"  style="grid-column: span 2 / span 2;"></asp:DropDownList>
             </div>
 
             <div class="grid-auto-cols">
                 <asp:Label ID="Label3" runat="server" Text="Correo de contacto" CssClass="text-bold text-left">
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TxtEmail" ErrorMessage="Digite un correo válido." ValidationGroup="DatosG" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator></asp:Label>
 
-                <asp:TextBox ID="TxtEmail" CssClass="text-box" ToolTip="Digite el correo electrónico de contacto de la empresa" TextMode="Email" placeholder="Correo" runat="server" onblur="validateEmail()"></asp:TextBox>
-                <asp:Label ID="Label5" runat="server" Text="Foto de perfil" CssClass="text-bold text-left">
-                    <img id="imgFoto" runat="server" width="25" height="25" visible="false" src="" /></asp:Label>
-                <div class ="flex  gap-4 flex-center">
+                <asp:TextBox ID="TxtEmail"  CssClass="text-box " ToolTip="Digite el correo electrónico de contacto de la empresa" TextMode="Email" placeholder="Correo" runat="server" onblur="validateEmail()"></asp:TextBox>
 
-                <asp:Label ID="Label40" runat="server" Text="" ToolTip="Seleccione archivo a cargar, recuerde que tiene que ser un arhivo en jpg y que su tamaño no sea mayor  a 200 kb" CssClass="file-upload"
-                    AssociatedControlID="FileUploadFoto">
-                    <span>Seleccionar
-                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                         <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                     </svg>
-                    </span>
-                    <asp:FileUpload ID="FileUploadFoto" runat="server" CssClass="" />
-                </asp:Label>
-                    <asp:Button ID="btnSubirFoto" runat="server" Text="Subir" CssClass="button text-bold" OnClick="subirfoto_Click" Width="120px" />
-                </div>
 
             </div>
-            <div class="gridContainer">
-                <asp:Label ID="lblFoto" runat="server" CssClass="text-normal" Visible="false" Text="Foto cargada exitósamente" ForeColor="Green"></asp:Label>
-            </div>.
+            
 
             <div style="align-items: center">
                 <asp:Button ID="btnSiguiente" runat="server" Text="Continuar" ValidationGroup="DatosG" CssClass="button text-normal" OnClick="btnSiguiente_Click"  />
@@ -194,12 +223,12 @@
 
             <asp:Label ID="lblSubirCamaraComercio" runat="server" Text="" ToolTip="Solo permite subir documentos en formato PDF mo mayor a 10MB" CssClass="file-upload"
                 AssociatedControlID="FileUploadCamara">
+                <asp:FileUpload ID="FileUploadCamara" runat="server" CssClass="" onchange="setFileName(event)" />
                 <span>Seleccionar
                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
          </svg>
                 </span>
-                <asp:FileUpload ID="FileUploadCamara" runat="server" CssClass="" />
             </asp:Label>
 
             <asp:Button ID="btnsubirCC" runat="server" Text="Subir documento" CssClass="button text-normal" OnClick="subirCC_Click" />
@@ -211,12 +240,12 @@
 
             <asp:Label ID="LblRUT" runat="server" Text="" ToolTip="Solo permite subir documentos en formato PDF mo mayor a 10MB" CssClass="file-upload"
                 AssociatedControlID="FileUploadRut">
+                <asp:FileUpload ID="FileUploadRut" runat="server" CssClass="" onchange="setFileName(event)" />
                 <span>Seleccionar
          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
          </svg>
                 </span>
-                <asp:FileUpload ID="FileUploadRut" runat="server" CssClass="" />
             </asp:Label>
             <asp:Button ID="btnSubirRUT" runat="server" Text="Subir documento" CssClass="button text-normal" OnClick="subirRUT_Click" />
             </div>
@@ -253,4 +282,12 @@
              <asp:PostBackTrigger ControlID="btnSubirRUT" />
         </Triggers>
         </asp:UpdatePanel>
+
+    <script>
+        function setFileName(e) {
+            const file = e.target.files[0];
+            const htmlSpan = e.target.parentNode.querySelector('span')
+            htmlSpan.innerText= file?.name
+        }
+    </script>
 </asp:Content>

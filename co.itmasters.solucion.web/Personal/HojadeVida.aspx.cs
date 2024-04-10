@@ -764,6 +764,39 @@ namespace co.itmasters.solucion.web.Personal
 
 
         }
+        private string formatDate(DateTime fechaInicial, DateTime fechaFinal)
+        {
+           
+
+            // Calcular la diferencia en días
+            TimeSpan diferencia = fechaFinal - fechaInicial;
+            int diferenciaDias = (int)diferencia.TotalDays;
+
+            // Mostrar la diferencia en días
+            Console.WriteLine($"La diferencia en días entre las fechas es: {diferenciaDias} días");
+
+            // Formatear la diferencia según su valor
+            string tiempoCargoFormated;
+
+            if (diferenciaDias < 7)
+            {
+                tiempoCargoFormated = $"{Math.Round((double)diferenciaDias)} Días";
+            }
+            else if (diferenciaDias < 30)
+            {
+                tiempoCargoFormated = $"{Math.Round(diferenciaDias / 7.0)} Semanas";
+            }
+            else if (diferenciaDias < 365)
+            {
+                tiempoCargoFormated = $"{Math.Round(diferenciaDias / 30.0)} Meses";
+            }
+            else
+            {
+                tiempoCargoFormated = $"{diferenciaDias / 365.0:F1} Años";
+            }
+
+            return tiempoCargoFormated;
+        }
         protected void grdPersonaExperienca_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             Master.OcultarBanda();
@@ -793,7 +826,9 @@ namespace co.itmasters.solucion.web.Personal
                     txtFechaIniExperiencia.Attributes["value"] = dateValueIni.ToString();
                     string dateValueFin = String.Format("{0:yyyy-MM-dd}", Convert.ToDateTime(((Label)row.FindControl("lblfechaFinCargo")).Text));
                     txtFechaFinExperiencia.Attributes["value"] = dateValueFin.ToString();
+                    tiempoCargoFormated.Text = formatDate(Convert.ToDateTime(dateValueIni),Convert.ToDateTime(dateValueFin)); 
                     ShowModalButton(btnModalExperienciaSubmit);
+                    
                     break;
                 case TipoConsulta.MODIFY_DELETE:
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", MODALELIMINAREXPERIENCIA, true);

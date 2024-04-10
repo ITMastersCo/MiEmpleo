@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="../css/Empresa.css" />
     <link rel="stylesheet" href="../css/Sesion.css" />
 
-    <script src="https://www.google.com/recaptcha/api.js" async="async" defer="defer"></script>
 </head>
 <body>
     <div class="wrapper-sesion">
@@ -63,7 +62,13 @@
 
                         </span>
                         <div class="g-recaptcha" data-sitekey="your_site_key"></div>
-                        <%--<button class="button item-center" type="submit"> Crear Cuenta</button>--%>
+                                                    <div runat="server" id="divCapcha">
+
+                            <div id="html_element">
+
+                            </div>
+                            </div>
+
                           <br />
                         <br />
                         <div class="flex flex-col gap-8">
@@ -166,7 +171,7 @@
             var emailField = document.getElementById('TxtEmail');
 
             // Define our regular expression.
-            var validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+            var validEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
             // Using test we can check if the text match the pattern
             if (validEmail.test(emailField.value)) {
@@ -194,7 +199,24 @@
                 }
             }
         }
+        var onloadCallback = function () {
+            const recaptchaPlaceholder = document.getElementById('html_element');
+            if (recaptchaPlaceholder) {
+                grecaptcha.render(recaptchaPlaceholder, {
+                    'sitekey': '6LcEqbQpAAAAALb9VebDJaVwdjroIggfYLqpFgUy'
+                });
+            } else {
+                console.error('El elemento de marcador de posición de reCAPTCHA no es válido.');
+            }
+        };
+        function confirmaRegistro() {
+            alert('Su cuenta fue creada con exito.')
+            window.location.href = "../Home/LoginEmpresa.aspx";
+        }
     </script>
+        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+    async defer>
+</script>
 </body>
 
 </html>

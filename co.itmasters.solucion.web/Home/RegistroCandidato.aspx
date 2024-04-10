@@ -11,7 +11,7 @@
     <title>Mi empleo | Registro Empresa</title>
     <link href="~/Images/imgInicio/MiEmpleo.ico" type="image/x-icon" rel="shortcut icon" />
     <link rel="stylesheet" href="../css/Empleado.css">
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+      
 </head>
 <body>
     <div class="wrapper-sesion">
@@ -78,7 +78,7 @@
                         </p>
                         <asp:Label ID="lblError" runat="server" Text="err" CssClass="text" Visible="false" ForeColor="Red"></asp:Label>
                         <span>
-                            <asp:CheckBox ID="chkConditions" runat="server" ValidationGroup="ValidaRegistro"  CausesValidation="true"/>
+                            <asp:CheckBox ID="chkConditions" runat="server" ValidationGroup="ValidaRegistro" CausesValidation="true" />
                             <asp:Label runat="server" AssociatedControlID="chkConditions" class="text-small gray-900 text-semibold">
                                 Acepto
                         <a class="text-small text-highlighted text-underline pointer">términos y condiciones.
@@ -86,13 +86,19 @@
                             </asp:Label>
 
                         </span>
-                        <!-- <div class="g-recaptcha" data-sitekey="your_site_key"></div> -->
-                        <asp:LinkButton ID="lnkRegistroValida" runat="server" Visible="true" CssClass="button item-center" ValidationGroup="ValidaRegistro" OnClick="lnkRegistro_Click"> Siguiente</asp:LinkButton>
+                            <div runat="server" id="divCapcha">
+
+                            <div id="html_element">
+
+                            </div>
+                            </div>
+
+                            <asp:LinkButton ID="lnkRegistroValida" runat="server" Visible="true" CssClass="button item-center" ValidationGroup="ValidaRegistro" OnClick="lnkRegistro_Click"> Siguiente</asp:LinkButton>
                         <asp:LinkButton ID="lnkRegistro" runat="server" CssClass="button item-center" Visible="false" ValidationGroup="Registro" OnClick="lnkAutRegistro_Click">Crear Cuenta</asp:LinkButton>
 
                         <asp:Label runat="server" class="text-small text-semibold item-center">
                             ¿Ya tienes una?
-                                <a href="./Login.aspx" class="text-small text-highlighted text-underline pointer">Ingresa</a>
+                                <a href="./Login.aspx" class="text-small text-highlighted text-underline pointer color-500">Ingresa</a>
                         </asp:Label>
                         </div>
                         
@@ -153,7 +159,7 @@
             var emailField = document.getElementById('TxtEmail');
 
             // Define our regular expression.
-            var validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+            var validEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
             // Using test we can check if the text match the pattern
             if (validEmail.test(emailField.value)) {
@@ -181,7 +187,26 @@
                 }
             }
         }
+        function confirmaRegistro() {
+            alert("Registro realizado exitosamente")
+            console.log("Registro realizado exitosamente")
+            window.location.href = "../Home/Login.aspx";
+        }
+        var onloadCallback = function () {
+            const recaptchaPlaceholder = document.getElementById('html_element');
+            if (recaptchaPlaceholder) {
+            grecaptcha.render(recaptchaPlaceholder, {
+                'sitekey': '6LcEqbQpAAAAALb9VebDJaVwdjroIggfYLqpFgUy'
+            });
+            } else {
+                console.error('El elemento de marcador de posición de reCAPTCHA no es válido.');
+            }
+        };
+
     </script>
+        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+    async defer>
+</script>
 </body>
 
 </html>
