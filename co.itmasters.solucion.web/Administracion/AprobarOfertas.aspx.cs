@@ -10,7 +10,7 @@ using co.itmasters.solucion.web.OfertaService;
 using co.itmasters.solucion.vo;
 using System.Web.Services;
 using System.IO;
-using co.itmasters.solucion.web.OfertaService;
+
 using Microsoft.Win32;
 
 
