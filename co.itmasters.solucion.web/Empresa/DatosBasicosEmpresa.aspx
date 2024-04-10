@@ -221,9 +221,11 @@
         <div class="grid-auto-cols">
             <asp:Label ID="lblSubirCaCo" runat="server" Text="Adjuntar documento de cámara de comercio" CssClass="text-bold text-left">
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="TxtsubirCamaraComercio" ErrorMessage="Debe adjuntar documento de cámara de comercio" ValidationGroup="Subir" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator></asp:Label>
+            <asp:TextBox ID="TxtsubirCamaraComercio" runat="server" Text="" ValidationGroup="Subir" Enabled="false"></asp:TextBox>
             <div class ="flex flex-col gap-4 flex-center">
 
-            <asp:Label ID="lblSubirCamaraComercio" runat="server" Text="" ToolTip="Solo permite subir documentos en formato PDF mo mayor a 10MB" CssClass="file-upload"
+            <asp:Label ID="lblSubirCamaraComercio" runat="server" Text="" ToolTip="Solo permite subir documentos en formato PDF mo mayor a 10MB" 
+                CssClass="file-upload"
                 AssociatedControlID="FileUploadCamara">
                 <asp:FileUpload ID="FileUploadCamara" runat="server" CssClass="" onchange="setFileName(event)" />
                 <span>Seleccionar
@@ -238,6 +240,7 @@
 
             <asp:Label ID="lblSubirRUT" runat="server" Text="Adjuntar documento RUT " CssClass="text-bold text-left">
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="TxtsubirRUT" ErrorMessage="Debe adjuntar documento RUT " ValidationGroup="Subir" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator></asp:Label>
+            <asp:TextBox ID="TxtsubirRUT" runat="server" Text="" ValidationGroup="Subir" Enabled="false"></asp:TextBox>
             <div class="flex flex-col gap-4 flex-center">
 
             <asp:Label ID="LblRUT" runat="server" Text="" ToolTip="Solo permite subir documentos en formato PDF mo mayor a 10MB" CssClass="file-upload"
@@ -258,9 +261,7 @@
             <asp:Button ID="btnAtras2" runat="server" Text="Atras" CssClass="button text-normal" OnClick="btnAtras2_Click" />
             <asp:Button ID="btnFinaliza" runat="server" Text="Finalizar" ValidationGroup="Subir" CssClass="button text-normal" OnClick="btnGuardar_Click" />
         </div>
-        <div style="display: none">
-            <asp:TextBox ID="TxtsubirRUT" runat="server" Text=""></asp:TextBox>
-            <asp:TextBox ID="TxtsubirCamaraComercio" runat="server" Text=""></asp:TextBox>
+        <div >
             <asp:TextBox ID="txtFoto" runat="server" Text=""></asp:TextBox>
         </div>
     </div>
