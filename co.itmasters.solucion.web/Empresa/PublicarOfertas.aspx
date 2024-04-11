@@ -130,7 +130,7 @@
                          TextMode="Date" OnTextChanged="txtFechaPublicacion_TextChanged" > 
                     </asp:TextBox>
                     <asp:RangeValidator CssClass="required-field-validator" runat="server" ID="rvFechaPublicacion" errormessage="No puede superar la fecha de vencimiento del plan" Type="Date"
-                        controltovalidate="txtFechaPublicacion"  />
+                        controltovalidate="txtFechaPublicacion" />
                 </asp:Label>
                 <asp:Label Text="" runat="server" ID="lblDiasOferta" Visible="false"/>
                 <asp:Label ID="lblFechaVencimiento" runat="server" Text="Fecha de Vencimiento"
