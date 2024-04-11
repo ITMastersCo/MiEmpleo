@@ -60,29 +60,30 @@
                 <asp:TextBox ID="txtRazonSocial" CssClass="text-box" runat="server" ToolTip="Digite el nombre de la empresa a registrar" placeholder="Nombre de la empresa a registrar"></asp:TextBox>
                 </div>
 
-                <div class ="grid-auto-cols">
-                 <asp:Label ID="Label5" runat="server" Text="Foto de perfil"  CssClass="text-bold text-left">
-                 </asp:Label>
 
+                <div class="grid-auto-cols">
+
+                    <asp:Label ID="lblSubirFoto" runat="server" Text="Foto de perfil" CssClass="text-bold text-left">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtSubirFoto" ErrorMessage="Debe seleccionar una foto " 
+                            ValidationGroup="DatosG" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator></asp:Label>
+                    <asp:TextBox ID="txtSubirFoto" runat="server" CssClass="color-600 text-semibold fileValidation" ValidationGroup="DatosG" Enabled="false"></asp:TextBox>
                     <div class="flex flex-col gap-4 flex-center">
-
-                <asp:Label ID="Label40" runat="server" Text="" ToolTip="Seleccione archivo a cargar, recuerde que tiene que ser un arhivo en jpg y que su tamaño no sea mayor  a 200 kb" CssClass="file-upload"
-                    AssociatedControlID="FileUploadFoto">
-                    <asp:FileUpload ID="FileUploadFoto" runat="server" CssClass="" onchange="setFileName(event)"/>
-                    <span>Seleccionar
-                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                         <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                     </svg>
-                    </span>
-                </asp:Label>
-                    <asp:Button ID="btnSubirFoto" runat="server" Text="Subir Foto de perfil   " CssClass="button text-bold" OnClick="subirfoto_Click"  />
+                        <asp:Label ID="lblFoto" runat="server" Text="" ToolTip="Solo permite subir documentos en formato JPG mo mayor a 10MB" CssClass="file-upload"
+                            AssociatedControlID="FileUploadFoto">
+                            <asp:FileUpload ID="FileUploadFoto" runat="server" CssClass="" onchange="setFileName(event)" />
+                            <span>Seleccionar
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                              </svg>
+                            </span>
+                        </asp:Label>
                     </div>
                 </div>
+
+                
             </div>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="txtRazonSocial" ErrorMessage="Digite el nombre de la empresa a registrar." ValidationGroup="DatosG" ForeColor="#CC0000" CssClass="required-field-validator">*</asp:RequiredFieldValidator>
-            <div class="gridContainer">
-                <asp:Label ID="lblFoto" runat="server" CssClass="text-normal" Visible="false" Text="Foto cargada exitósamente" ForeColor="Green"></asp:Label>
-            </div>
+          
             <div class="grid-auto-cols">
                 <asp:Label ID="lblTipDocu" runat="server" Text="Tipo de documento" CssClass="text-bold text-left items-center">
                     <asp:RangeValidator ID="RangeValidator" runat="server" ControlToValidate="cmbTipDocumento" ForeColor="#CC0000" CssClass="text" ErrorMessage="Seleccione el típo de documento de la empresa o persona natural" MaximumValue="10" MinimumValue="0" Type="Integer" ValidationGroup="DatosG">*</asp:RangeValidator></asp:Label>
@@ -103,7 +104,7 @@
                 </updatepanel>
                 <asp:Label ID="LblMunicipio" runat="server" Text="Municipio" CssClass="text-bold text-left">
                     <asp:RangeValidator ID="RangeValidator4" runat="server" ControlToValidate="cmbMunicipio" ErrorMessage="Seleccione el municipio o ciudad donde se encuentra ubicada la sede principal de la empresa." ForeColor="#CC0000" CssClass="text" MaximumValue="170990773" MinimumValue="0" Type="Integer" ValidationGroup="DatosG">*</asp:RangeValidator></asp:Label>
-                <UpdatePanel id="updateDepartamento" runat="server">
+                <UpdatePanel ID="updateDepartamento" runat="server">
                     <ContentTemplate>
                         <asp:DropDownList ID="cmbMunicipio" runat="server" ToolTip="Seleccione el municipio o ciudad donde se encuentra ubicada la sede principal de la empresa" CssClass="drop-down-list"></asp:DropDownList>
                     </ContentTemplate>
@@ -219,40 +220,42 @@
         </div>
 
         <div class="grid-auto-cols">
-            <asp:Label ID="lblSubirCaCo" runat="server" Text="Adjuntar documento de cámara de comercio" CssClass="text-bold text-left">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="TxtsubirCamaraComercio" ErrorMessage="Debe adjuntar documento de cámara de comercio" ValidationGroup="Subir" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator></asp:Label>
-            <asp:TextBox ID="TxtsubirCamaraComercio" runat="server" Text="" ValidationGroup="Subir" Enabled="false"></asp:TextBox>
-            <div class ="flex flex-col gap-4 flex-center">
+            <div class="grid-auto-cols">
 
-            <asp:Label ID="lblSubirCamaraComercio" runat="server" Text="" ToolTip="Solo permite subir documentos en formato PDF mo mayor a 10MB" 
-                CssClass="file-upload"
-                AssociatedControlID="FileUploadCamara">
-                <asp:FileUpload ID="FileUploadCamara" runat="server" CssClass="" onchange="setFileName(event)" />
-                <span>Seleccionar
-                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-         </svg>
-                </span>
-            </asp:Label>
+                <asp:Label ID="lblSubirCaCo" runat="server" Text="Adjuntar documento de cámara de comercio" CssClass="text-bold text-left">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="TxtsubirCamaraComercio" ErrorMessage="Debe adjuntar documento de cámara de comercio" ValidationGroup="Subir" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator></asp:Label>
+                <asp:TextBox ID="TxtsubirCamaraComercio" runat="server" Text="" CssClass="fileValidation" ValidationGroup="Subir" Enabled="false"></asp:TextBox>
+                <div class="flex flex-col gap-4 flex-center">
 
-            <asp:Button ID="btnsubirCC" runat="server" Text="Subir documento" CssClass="button text-normal" OnClick="subirCC_Click" />
+                    <asp:Label ID="lblSubirCamaraComercio" runat="server" Text="" ToolTip="Solo permite subir documentos en formato PDF mo mayor a 10MB"
+                        CssClass="file-upload"
+                        AssociatedControlID="FileUploadCamara">
+                        <asp:FileUpload ID="FileUploadCamara" runat="server" CssClass="" onchange="setFileName(event)" />
+                        <span>Seleccionar
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                             </svg>
+                        </span>
+                    </asp:Label>
+                </div>
             </div>
 
-            <asp:Label ID="lblSubirRUT" runat="server" Text="Adjuntar documento RUT " CssClass="text-bold text-left">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="TxtsubirRUT" ErrorMessage="Debe adjuntar documento RUT " ValidationGroup="Subir" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator></asp:Label>
-            <asp:TextBox ID="TxtsubirRUT" runat="server" Text="" ValidationGroup="Subir" Enabled="false"></asp:TextBox>
-            <div class="flex flex-col gap-4 flex-center">
+            <div class="grid-auto-cols">
 
-            <asp:Label ID="LblRUT" runat="server" Text="" ToolTip="Solo permite subir documentos en formato PDF mo mayor a 10MB" CssClass="file-upload"
-                AssociatedControlID="FileUploadRut">
-                <asp:FileUpload ID="FileUploadRut" runat="server" CssClass="" onchange="setFileName(event)" />
-                <span>Seleccionar
-         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-         </svg>
-                </span>
-            </asp:Label>
-            <asp:Button ID="btnSubirRUT" runat="server" Text="Subir documento" CssClass="button text-normal" OnClick="subirRUT_Click" />
+                <asp:Label ID="lblSubirRUT" runat="server" Text="Adjuntar documento RUT" CssClass="text-bold text-left">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="TxtsubirRUT" ErrorMessage="Debe adjuntar documento RUT " ValidationGroup="Subir" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator></asp:Label>
+                <asp:TextBox ID="TxtsubirRUT" runat="server" Text="" CssClass="fileValidation" ValidationGroup="Subir" Enabled="false"></asp:TextBox>
+                <div class="flex flex-col gap-4 flex-center">
+                    <asp:Label ID="LblRUT" runat="server" Text="" ToolTip="Solo permite subir documentos en formato PDF mo mayor a 10MB" CssClass="file-upload"
+                        AssociatedControlID="FileUploadRut">
+                        <asp:FileUpload ID="FileUploadRut" runat="server" CssClass="" onchange="setFileName(event)" />
+                        <span>Seleccionar
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                         </svg>
+                        </span>
+                    </asp:Label>
+                </div>
             </div>
 
         </div>
@@ -280,9 +283,8 @@
     </div>
 </ContentTemplate>
          <Triggers>
-            <asp:PostBackTrigger ControlID="btnSubirFoto" />
-             <asp:PostBackTrigger ControlID="btnsubirCC" />
-             <asp:PostBackTrigger ControlID="btnSubirRUT" />
+            <asp:PostBackTrigger ControlID="btnFinaliza" />
+             <asp:PostBackTrigger ControlID="btnSiguiente" />
         </Triggers>
         </asp:UpdatePanel>
 
@@ -290,7 +292,10 @@
         function setFileName(e) {
             const file = e.target.files[0];
             const htmlSpan = e.target.parentNode.querySelector('span')
-            htmlSpan.innerText= file?.name
+            const inputValidate = e.target.parentNode.parentNode.parentNode.querySelector('.fileValidation')
+
+            htmlSpan.innerText = file?.name
+            inputValidate.value = "Archivo Seleccionado"
         }
     </script>
 </asp:Content>

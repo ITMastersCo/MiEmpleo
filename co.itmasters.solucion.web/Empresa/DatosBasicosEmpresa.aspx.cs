@@ -177,6 +177,7 @@ namespace co.itmasters.solucion.web.Empresa
                     RequiredFieldValidator9.ValidationGroup = "formBasicos";
                     TxtsubirCamaraComercio.ValidationGroup = "formBasicos";
                     TxtsubirRUT.ValidationGroup = "formBasicos";
+                    txtSubirFoto.ValidationGroup = "formBasicos";
                     btnFinaliza.ValidationGroup = "formBasicos";
                 }
 
@@ -189,6 +190,10 @@ namespace co.itmasters.solucion.web.Empresa
                 {
                     TxtsubirRUT.Text = "Archivo Cargado";
                     TxtsubirRUT.Enabled = false;
+                }if (user.Avatar.Contains(_resultado.numeroIde.ToString()))
+                {
+                    txtSubirFoto.Text = "Archivo Cargado";
+                    txtSubirFoto.Enabled = false;
                 }
                 
                 
@@ -203,7 +208,151 @@ namespace co.itmasters.solucion.web.Empresa
         }
 
 
+        private void UploadFoto()
+        {
+            try
+            {
 
+                if (FileUploadFoto.HasFile)
+                {
+
+                    EmpresaVO _empresa = new EmpresaVO();
+                    string filename = Path.GetFileName(FileUploadFoto.FileName);
+                    FileInfo Info = new FileInfo(filename);
+                    int size = (FileUploadFoto.FileBytes).Length;
+                    if (Info.Extension == ".jpg" && size < 220000 || Info.Extension == ".JPG" && size < 220000)
+                    {
+
+                        if (!System.IO.File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + "Empresas"))
+                        {
+                            System.IO.Directory.CreateDirectory(System.AppDomain.CurrentDomain.BaseDirectory + "Fotos\\" + "\\Empresas" + "\\");
+                        }
+                        FileUploadFoto.SaveAs(System.AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + "\\Empresas\\" + filename);
+                        System.IO.File.Delete(System.AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + "\\Empresas\\" + (txtNumDocumento.Text).TrimStart().TrimEnd() + ".jpg");
+                        System.IO.File.Move(System.AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + "\\Empresas\\" + filename, System.AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + "\\Empresas\\" + (txtNumDocumento.Text).TrimStart().TrimEnd() + ".jpg");
+                        //imgFoto.Src = "../Fotos/" + "/Empresas/" + (txtNumDocumento.Text).TrimStart().TrimEnd() + ".jpg";
+                        txtFoto.Text = "/Fotos/Empresas/" + (txtNumDocumento.Text).TrimStart().TrimEnd() + ".jpg";
+                        lblFoto.Visible = true;
+                    }
+                    else
+                    {
+                        Master.mostrarMensaje("La foto no cumple con los parametros establecidos, debe ser formato jpg y no mayor a  200Kb", Master.ERROR);
+                    }
+
+
+                }
+                else if(txtSubirFoto.Text == "")
+                {
+                    Master.mostrarMensaje("Archivo no existe, por favor intente nuevamente.", Master.ERROR);
+
+                }
+            }
+            catch (Exception)
+            {
+                Master.mostrarMensaje("Error cargando la foto, por favor intente nuevamente.", Master.ERROR);
+            }
+        }
+        private void UploadCC()
+        {
+            try
+            {
+
+                if (FileUploadCamara.HasFile)
+                {
+                    EmpresaVO _empresa = new EmpresaVO();
+                    string filename = Path.GetFileName(FileUploadCamara.FileName);
+                    FileInfo Info = new FileInfo(filename);
+                    int size = (FileUploadCamara.FileBytes).Length;
+                    if (Info.Extension == ".pdf" && size < 5200000)
+                    {
+                        if (!System.IO.File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "/DocsEmpresa/" + "Legalizacion"))
+                        {
+                            System.IO.Directory.CreateDirectory(System.AppDomain.CurrentDomain.BaseDirectory + "DocsEmpresa\\" + "\\Legalizacion" + "\\");
+                        }
+                        FileUploadCamara.SaveAs(System.AppDomain.CurrentDomain.BaseDirectory + "/DocsEmpresa/" + "\\Legalizacion\\" + filename);
+                        System.IO.File.Delete(System.AppDomain.CurrentDomain.BaseDirectory + "/DocsEmpresa/" + "\\Legalizacion\\" + (txtNumDocumento.Text).TrimStart().TrimEnd() + "_CC.pdf");
+                        System.IO.File.Move(System.AppDomain.CurrentDomain.BaseDirectory + "/DocsEmpresa/" + "\\Legalizacion\\" + filename, System.AppDomain.CurrentDomain.BaseDirectory + "/DocsEmpresa/" + "\\Legalizacion\\" + (txtNumDocumento.Text).TrimStart().TrimEnd() + "_CC.pdf");
+                        lblSubirCaCo.Text = "Documento Camara de Comercio cargado exitósamente";
+                        TxtsubirCamaraComercio.Text = "Archivo Cargado exitosamente";
+                        lblSubirCaCo.ForeColor = System.Drawing.Color.Green;
+                    }
+                    else
+                    {
+                        Master.mostrarMensaje("El documento CAMARA Y COMERCIO no cumple con los parametros establecidos, debe ser formato pdf y no mayor a  30Mb", Master.ERROR);
+                        lblSubirCaCo.Text = "Adjuntar documento de cámara de comercio";
+                        TxtsubirCamaraComercio.Text = "";
+                        lblSubirCaCo.ForeColor = System.Drawing.Color.Black;
+
+                    }
+                }
+                else if(TxtsubirCamaraComercio.Text == null)
+
+                {
+                    Master.mostrarMensaje("Archivo no existe, por favor intente nuevamente.", Master.ERROR);
+                    lblSubirCaCo.Text = "Adjuntar documento de cámara de comercio";
+                    TxtsubirCamaraComercio.Text = "";
+                    lblSubirCaCo.ForeColor = System.Drawing.Color.Black;
+                }
+            }
+            catch
+            {
+
+                lblSubirCaCo.Text = "Adjuntar documento de cámara de comercio";
+                TxtsubirCamaraComercio.Text = "";
+                lblSubirCaCo.ForeColor = System.Drawing.Color.Black;
+                throw new Exception("Error cargando el archivo de Camara de Comercio, intentelo nuevamente");
+
+            }
+        }
+        private void UploadRUT()
+        {
+            try
+            {
+                if (FileUploadRut.HasFile)
+                {
+                    EmpresaVO _empresa = new EmpresaVO();
+                    string filename = Path.GetFileName(FileUploadRut.FileName);
+                    FileInfo Info = new FileInfo(filename);
+                    int size = (FileUploadRut.FileBytes).Length;
+                    if (Info.Extension == ".pdf" && size < 5200000)
+                    {
+                        if (!System.IO.File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "/DocsEmpresa/" + "Legalizacion"))
+                        {
+                            System.IO.Directory.CreateDirectory(System.AppDomain.CurrentDomain.BaseDirectory + "DocsEmpresa\\" + "\\Legalizacion" + "\\");
+                        }
+                        FileUploadRut.SaveAs(System.AppDomain.CurrentDomain.BaseDirectory + "/DocsEmpresa/" + "\\Legalizacion\\" + filename);
+                        System.IO.File.Delete(System.AppDomain.CurrentDomain.BaseDirectory + "/DocsEmpresa/" + "\\Legalizacion\\" + (txtNumDocumento.Text).TrimStart().TrimEnd() + "_RUT.pdf");
+                        System.IO.File.Move(System.AppDomain.CurrentDomain.BaseDirectory + "/DocsEmpresa/" + "\\Legalizacion\\" + filename, System.AppDomain.CurrentDomain.BaseDirectory + "/DocsEmpresa/" + "\\Legalizacion\\" + (txtNumDocumento.Text).TrimStart().TrimEnd() + "_RUT.pdf");
+                        lblSubirRUT.Text = "Documento RUT cragado Exitósamente";
+                        TxtsubirRUT.Text = "Documento Cargado";
+                        lblSubirRUT.ForeColor = System.Drawing.Color.Green;
+                    }
+                    else
+                    {
+                        Master.mostrarMensaje("El documento RUT no cumple con los parametros establecidos, debe ser formato pdf y no mayor a  30Mb", Master.ERROR);
+                        lblSubirRUT.Text = "Adjuntar documento RUT";
+                        TxtsubirRUT.Text = "";
+                        lblSubirRUT.ForeColor = System.Drawing.Color.Black;
+                    }
+                }
+                else if(TxtsubirRUT.Text == "")
+                {
+                    Master.mostrarMensaje("Archivo no existe, por favor intente nuevamente.", Master.ERROR);
+                    lblSubirRUT.Text = "Adjuntar documento RUT";
+                    TxtsubirRUT.Text = "";
+                    lblSubirRUT.ForeColor = System.Drawing.Color.Black;
+                }
+
+
+            }
+            catch (Exception)
+            {
+                lblSubirRUT.Text = "Adjuntar documento RUT";
+                TxtsubirRUT.Text = "";
+                lblSubirRUT.ForeColor = System.Drawing.Color.Black;
+                throw new Exception("Error cargando el RUT, por favor intentelo nuevamente");
+            }
+        }
 
         protected void guardadatosempresa(int fase)
         {
@@ -268,7 +417,7 @@ namespace co.itmasters.solucion.web.Empresa
             divRepresentanteL.Style["display"] = "block";
             divDatosGenerales.Style["display"] = "none";
             divAdjuntos.Style["display"] = "none";
-
+            UploadFoto();
             this.guardadatosempresa(1);
 
 
@@ -300,57 +449,22 @@ namespace co.itmasters.solucion.web.Empresa
             titleFirstWord.Style["display"] = "none";
             titleSecondWord.Style["display"] = "none";
             this.guardadatosempresa(3);
+            Master.OcultarBanda();
+            try
+            {
+                UploadCC();
+                UploadRUT();
+            }
+            catch (Exception err)
+            {
+                Master.mostrarMensaje(err.Message, Master.ERROR);
+            }
             divfinal.Style["display"] = "block";
         }
 
         protected void cmbDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
             _carga.Cargar(cmbMunicipio, TipoCombo.CMBPROVINCIA, (cmbDepartamento.SelectedValue));
-        }
-        protected void subirfoto_Click(object sender, EventArgs e)
-        {
-            Master.OcultarBanda();
-            try
-            {
-
-                if (FileUploadFoto.HasFile)
-                {
-
-                    EmpresaVO _empresa = new EmpresaVO();
-                    string filename = Path.GetFileName(FileUploadFoto.FileName);
-                    FileInfo Info = new FileInfo(filename);
-                    int size = (FileUploadFoto.FileBytes).Length;
-                    if (Info.Extension == ".jpg" && size < 220000 || Info.Extension == ".JPG" && size < 220000)
-                    {
-
-                        if (!System.IO.File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + "Empresas"))
-                        {
-                            System.IO.Directory.CreateDirectory(System.AppDomain.CurrentDomain.BaseDirectory + "Fotos\\" + "\\Empresas" + "\\");
-                        }
-                        FileUploadFoto.SaveAs(System.AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + "\\Empresas\\" + filename);
-                        System.IO.File.Delete(System.AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + "\\Empresas\\" + (txtNumDocumento.Text).TrimStart().TrimEnd() + ".jpg");
-                        System.IO.File.Move(System.AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + "\\Empresas\\" + filename, System.AppDomain.CurrentDomain.BaseDirectory + "/Fotos/" + "\\Empresas\\" + (txtNumDocumento.Text).TrimStart().TrimEnd() + ".jpg");
-                        //imgFoto.Src = "../Fotos/" + "/Empresas/" + (txtNumDocumento.Text).TrimStart().TrimEnd() + ".jpg";
-                        txtFoto.Text = "/Fotos/Empresas/" + (txtNumDocumento.Text).TrimStart().TrimEnd() + ".jpg";
-                        lblFoto.Visible = true;
-                    }
-                    else
-                    {
-                        Master.mostrarMensaje("La foto no cumple con los parametros establecidos, debe ser formato jpg y no mayor a  200Kb", Master.ERROR);
-                    }
-
-                    
-                }
-                else
-
-                {
-                    Master.mostrarMensaje("Archivo no existe, por favor intente nuevamente.", Master.ERROR);
-                }
-            }
-            catch (Exception)
-            {
-                Master.mostrarMensaje("Error cargando el archivo, por favor renombre el archivo de la fotografía.", Master.ERROR);
-            }
         }
         protected void CmbSectorEc_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -365,106 +479,8 @@ namespace co.itmasters.solucion.web.Empresa
             }
 
         }
-        protected void subirCC_Click(object sender, EventArgs e)
-        {
-            Master.OcultarBanda();
-            try
-            {
 
-                if (FileUploadCamara.HasFile)
-                {
-                    EmpresaVO _empresa = new EmpresaVO();
-                    string filename = Path.GetFileName(FileUploadCamara.FileName);
-                    FileInfo Info = new FileInfo(filename);
-                    int size = (FileUploadCamara.FileBytes).Length;
-                    if (Info.Extension == ".pdf" && size < 5200000)
-                    {
-                        if (!System.IO.File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "/DocsEmpresa/" + "Legalizacion"))
-                        {
-                            System.IO.Directory.CreateDirectory(System.AppDomain.CurrentDomain.BaseDirectory + "DocsEmpresa\\" + "\\Legalizacion" + "\\");
-                        }
-                        FileUploadCamara.SaveAs(System.AppDomain.CurrentDomain.BaseDirectory + "/DocsEmpresa/" + "\\Legalizacion\\" + filename);
-                        System.IO.File.Delete(System.AppDomain.CurrentDomain.BaseDirectory + "/DocsEmpresa/" + "\\Legalizacion\\" + (txtNumDocumento.Text).TrimStart().TrimEnd() + "_CC.pdf");
-                        System.IO.File.Move(System.AppDomain.CurrentDomain.BaseDirectory + "/DocsEmpresa/" + "\\Legalizacion\\" + filename, System.AppDomain.CurrentDomain.BaseDirectory + "/DocsEmpresa/" + "\\Legalizacion\\" + (txtNumDocumento.Text).TrimStart().TrimEnd() + "_CC.pdf");
-                        lblSubirCaCo.Text = "Documento Camara de Comercio cargado exitósamente";
-                        TxtsubirCamaraComercio.Text = "Archivo Cargado exitosamente";
-                        lblSubirCaCo.ForeColor = System.Drawing.Color.Green;
-                    }
-                    else
-                    {
-                        Master.mostrarMensaje("El documento CAMARA Y COMERCIO no cumple con los parametros establecidos, debe ser formato pdf y no mayor a  30Mb", Master.ERROR);
-                        lblSubirCaCo.Text = "Adjuntar documento de cámara de comercio";
-                        TxtsubirCamaraComercio.Text = "";
-                        lblSubirCaCo.ForeColor = System.Drawing.Color.Black;
-                    }
-                }
-                else
-
-                {
-                    Master.mostrarMensaje("Archivo no existe, por favor intente nuevamente.", Master.ERROR);
-                    lblSubirCaCo.Text = "Adjuntar documento de cámara de comercio";
-                    TxtsubirCamaraComercio.Text = "";
-                    lblSubirCaCo.ForeColor = System.Drawing.Color.Black;
-                }
-            }
-            catch (Exception)
-            {
-                Master.mostrarMensaje("Error cargando el archivo, por favor comuniquese con el administrador", Master.ERROR);
-                lblSubirCaCo.Text = "Adjuntar documento de cámara de comercio";
-                TxtsubirCamaraComercio.Text = "";
-                lblSubirCaCo.ForeColor = System.Drawing.Color.Black;
-            }
-        }
-        protected void subirRUT_Click(object sender, EventArgs e)
-        {
-            Master.OcultarBanda();
-            try
-            {
-                if (FileUploadRut.HasFile)
-                {
-                    EmpresaVO _empresa = new EmpresaVO();
-                    string filename = Path.GetFileName(FileUploadRut.FileName);
-                    FileInfo Info = new FileInfo(filename);
-                    int size = (FileUploadRut.FileBytes).Length;
-                    if (Info.Extension == ".pdf" && size < 5200000)
-                    {
-                        if (!System.IO.File.Exists(System.AppDomain.CurrentDomain.BaseDirectory + "/DocsEmpresa/" + "Legalizacion"))
-                        {
-                            System.IO.Directory.CreateDirectory(System.AppDomain.CurrentDomain.BaseDirectory + "DocsEmpresa\\" + "\\Legalizacion" + "\\");
-                        }
-                        FileUploadRut.SaveAs(System.AppDomain.CurrentDomain.BaseDirectory + "/DocsEmpresa/" + "\\Legalizacion\\" + filename);
-                        System.IO.File.Delete(System.AppDomain.CurrentDomain.BaseDirectory + "/DocsEmpresa/" + "\\Legalizacion\\" + (txtNumDocumento.Text).TrimStart().TrimEnd() + "_RUT.pdf");
-                        System.IO.File.Move(System.AppDomain.CurrentDomain.BaseDirectory + "/DocsEmpresa/" + "\\Legalizacion\\" + filename, System.AppDomain.CurrentDomain.BaseDirectory + "/DocsEmpresa/" + "\\Legalizacion\\" + (txtNumDocumento.Text).TrimStart().TrimEnd() + "_RUT.pdf");
-                        lblSubirRUT.Text = "Documento RUT cragado Exitósamente";
-                        TxtsubirRUT.Text = "Documento Cargado";
-                        lblSubirRUT.ForeColor = System.Drawing.Color.Green;
-                    }
-                    else
-                    {
-                        Master.mostrarMensaje("El documento RUT no cumple con los parametros establecidos, debe ser formato pdf y no mayor a  30Mb", Master.ERROR);
-                        lblSubirRUT.Text = "Adjuntar documento RUT";
-                        TxtsubirRUT.Text = "";
-                        lblSubirRUT.ForeColor = System.Drawing.Color.Black;
-                    }
-                }
-                else
-
-                {
-                    Master.mostrarMensaje("Archivo no existe, por favor intente nuevamente.", Master.ERROR);
-                    lblSubirRUT.Text = "Adjuntar documento RUT";
-                    TxtsubirRUT.Text = "";
-                    lblSubirRUT.ForeColor = System.Drawing.Color.Black;
-                }
-            
-
-            }
-            catch (Exception)
-            {
-                Master.mostrarMensaje("Error cargando el archivo, por favor comuniquese con el administrador", Master.ERROR);
-                lblSubirRUT.Text = "Adjuntar documento RUT";
-                TxtsubirRUT.Text = "";
-                lblSubirRUT.ForeColor = System.Drawing.Color.Black;
-            }
-        }
+    
+       
     }
 }
