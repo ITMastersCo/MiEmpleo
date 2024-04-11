@@ -40,23 +40,28 @@ namespace co.itmasters.solucion.web.Empresa
 
             {
                 user = ((UserVO)Session["UsuarioAutenticado"]);
-                RangeDate();
+                var resultado = GetPlanesAdquiridos();
 
                 if (user.diligenciaFormulario == 0 )
                 {
                     Response.Redirect("~/Empresa/DatosBasicosEmpresa.aspx");
                 }
-                
+                if (resultado.Count < 1)
+                {
+                    Response.Redirect("~/Empresa/PlanesEmpresa.aspx");
+                }
                 if (Request.QueryString["idOferta"] == null)
                 {
                     ViewState["IdOferta"] = "0";
                     ViewState["Estado"] = "New";
+                    RangeDate();
                     this.cargarCombos();
                 }
                 else
                 {
                     ViewState["IdOferta"] = Request.QueryString["idOferta"];
                     ViewState["Estado"] = Request.QueryString["estado"];
+                RangeDate();
                     
                     
                     this.cargarCombos();
@@ -68,9 +73,8 @@ namespace co.itmasters.solucion.web.Empresa
 
 
         }
-        protected void RangeDate()
+        private List<OfertaVO>  GetPlanesAdquiridos()
         {
-            user = ((UserVO)Session["UsuarioAutenticado"]);
             OfertaVO datosConsulta = new OfertaVO();
             datosConsulta.typeModify = TipoConsulta.GET;
             datosConsulta.idUsuario = user.IdUsuario;
@@ -80,21 +84,37 @@ namespace co.itmasters.solucion.web.Empresa
             List<OfertaVO> resultado = _OfertaService.TraePlanesAdquiridosEmpresa(datosConsulta).ToList();
             _OfertaService.Close();
 
+            return resultado;
+        }
+        protected void RangeDate()
+        {
+            var resultado = GetPlanesAdquiridos();
 
+
+            if(resultado.Count > 0)
+            {
             OfertaVO plan = resultado.FindLast(e => e.ofertasConsumidas < e.nroOfertas );
+                lblDiasOferta.Text = plan?.diasPublicacionOferta.ToString();
 
-            lblDiasOferta.Text = plan?.diasPublicacionOferta.ToString();
+                if (plan != null)
+                {
 
-            rvFechaPublicacion.MinimumValue = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
-            txtFechaPublicacion.Attributes["min"] = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
-            rvFechaPublicacion.MaximumValue = String.Format("{0:yyyy-MM-dd}", plan?.fechaFinaliza);
-            txtFechaPublicacion.Attributes["max"] = String.Format("{0:yyyy-MM-dd}", plan?.fechaFinaliza);
+                rvFechaPublicacion.MinimumValue = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
+                txtFechaPublicacion.Attributes["min"] = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
+
+                rvFechaPublicacion.MaximumValue = String.Format("{0:yyyy-MM-dd}", plan?.fechaFinaliza);
+                txtFechaPublicacion.Attributes["max"] = String.Format("{0:yyyy-MM-dd}", plan?.fechaFinaliza);
 
 
-            rvFechaVencimiento.MinimumValue = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
-            txtFechaVencimiento.Attributes["min"] = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
-            rvFechaVencimiento.MaximumValue = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
-            txtFechaVencimiento.Attributes["max"] = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
+                rvFechaVencimiento.MinimumValue = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
+                txtFechaVencimiento.Attributes["min"] = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
+                rvFechaVencimiento.MaximumValue = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
+                txtFechaVencimiento.Attributes["max"] = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
+                }
+            }
+        
+
+            
             
 
         }
