@@ -90,7 +90,7 @@ namespace co.itmasters.solucion.web.Empresa
             }
             else
             {
-                if (Convert.ToDateTime(txtFecha1.Text) >= Convert.ToDateTime(txtFecha2.Text))
+                if (Convert.ToDateTime(txtFecha1.Text) <= Convert.ToDateTime(txtFecha2.Text))
                 {
                     this.traeOfertas(0, Convert.ToDateTime(txtFecha1.Text), Convert.ToDateTime(txtFecha2.Text));
                 }
