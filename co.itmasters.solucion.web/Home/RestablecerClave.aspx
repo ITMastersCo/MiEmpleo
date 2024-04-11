@@ -65,7 +65,7 @@
                             <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="Token" />
                             <asp:ValidationSummary ID="ValidationSummary2" runat="server" ValidationGroup="contrasena" />
                             <asp:RangeValidator ID="RangeValidator2" runat="server" ControlToValidate="cmbTipPersona" ErrorMessage="" MaximumValue="10" MinimumValue="0" Type="Integer" ValidationGroup="Restablece" ForeColor="#CC0000" CssClass="text">Seleccione el tipo de usuario</asp:RangeValidator>
-                            <asp:DropDownList ID="cmbTipPersona" runat="server" CssClass="drop-down-list">
+                            <asp:DropDownList ID="cmbTipPersona" runat="server" CssClass="drop-down-list cmbTipPersona">
                                 <asp:ListItem Selected="True" Value="-1">Seleccione un tipo de usuario</asp:ListItem>
                                 <asp:ListItem Value="2">Candidato</asp:ListItem>
                                 <asp:ListItem Value="1">Empresa</asp:ListItem>
@@ -196,6 +196,26 @@
 
 
             }
+        }
+        function confirmaRegistro() {
+            const tipoUsuario = document.querySelector(".cmbTipPersona")
+
+            
+            alert('Su contraseña se recupero con exito.')
+
+            switch (tipoUsuario?.value) {
+                case 1:
+                    window.location.href = "../Home/LoginEmpresa.aspx";
+                    break;
+                case 2:
+                    window.location.href = "../Home/Login.aspx";
+                    break;
+                default:
+                    window.location.href = "../Home/Login.aspx";
+                    break;
+            }
+
+            
         }
     </script>
 </body>

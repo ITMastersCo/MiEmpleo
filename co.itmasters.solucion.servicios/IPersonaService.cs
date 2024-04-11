@@ -27,6 +27,9 @@ namespace co.itmasters.solucion.servicios
         void PersonaAptitud_Update(PersonaAptitudVO pPersona);
 
         [OperationContract]
+        void PersonaCondicionManoObra_Update(PersonaVO persona);
+
+        [OperationContract]
         List<AutocompleteActividadEconomica> ActEconomicaAutocomplete(AutocompleteActividadEconomica Act);
 
         [OperationContract]

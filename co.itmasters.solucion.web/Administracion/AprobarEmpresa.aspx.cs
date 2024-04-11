@@ -96,20 +96,32 @@ namespace co.itmasters.solucion.web.Administracion
 
         protected void Volver_Click(object sender, EventArgs e)
         {
-            try
+            lblError.Text = "";
+            divObservacion.Style["display"] = "block";
+            if (txtObservacion.Text.Length > 10)
             {
-                EmpresaVO aprobar = new EmpresaVO();
-                aprobar.idEmpresa = Convert.ToInt32(LabelIdEmpresa.Text);
-                aprobar.estado = "RCH";
-                aprobar.idUsuario = user.IdUsuario;
-                _ActoresService = new EmpresaServiceClient();
-                _ActoresService.AprobarEmpresas(aprobar);
-                Master.mostrarMensaje("La empresa fue actualizada con éxito", Master.INFORMACION);
+                try
+                {
+                    EmpresaVO aprobar = new EmpresaVO();
+                    aprobar.idEmpresa = Convert.ToInt32(LabelIdEmpresa.Text);
+                    aprobar.estado = "RCH";
+                    aprobar.idUsuario = user.IdUsuario;
+                    aprobar.observacion = txtObservacion.Text;
+                    _ActoresService = new EmpresaServiceClient();
+                    _ActoresService.AprobarEmpresas(aprobar);
+                    Master.mostrarMensaje("La empresa fue actualizada con éxito", Master.INFORMACION);
+                }
+                catch (Exception err)
+                {
+                    Master.mostrarMensaje(err.Message, Master.ERROR);
+                }
             }
-            catch (Exception err)
+            else
             {
-                Master.mostrarMensaje(err.Message, Master.ERROR);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", "showModal();", true);
+                lblError.Text = "La observación debe ser mayor a 10 caractares";
             }
+            
         }
       
     }

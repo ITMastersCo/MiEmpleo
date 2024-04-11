@@ -235,12 +235,17 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                 </svg>
                                 <asp:Label Text="Camara y comercio" runat="server" ID="Label1" AssociatedControlID="rut" CssClass="label-info">
-                                      </asp:Label>
+                                </asp:Label>
                             </a>
 
                         </div>
                     </div>
-                
+                    <div id="divObservacion" runat="server" style="display: none">
+                        <asp:Label runat="server" ID="lbleObservacion" CssClass="label-info">Observación:</asp:Label>
+                        <asp:TextBox ID="txtObservacion" runat="server" CssClass="text-area" placeholder="Ingrese el motivo del rechazo de la Empresa." TextMode="MultiLine" Width="100%"></asp:TextBox>
+                        <asp:Label runat="server" ID="lblError" CssClass="label-info" ForeColor="Red"></asp:Label>
+                    </div>
+
 
                     <div class="flex-center flex-wrap gap-8 p-16">
                         <asp:Button ID="Nuevo" Visible="true" runat="server" CssClass="button bg-red-400" Text="Rechazar empresa" OnClick="Volver_Click" />

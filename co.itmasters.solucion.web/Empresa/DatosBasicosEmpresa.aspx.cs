@@ -144,15 +144,51 @@ namespace co.itmasters.solucion.web.Empresa
                     divAdjuntos.Style["display"] ="block" ;
                     labelDivFinal.InnerText = "Datos actualizados exsitosamente";
                     divfinal.Style["display"] = "none";
+
+                    txtRazonSocial.ValidationGroup = "formBasicos";
+                    txtRazonSocial.ValidationGroup = "formBasicos";
+                    txtNumDocumento.ValidationGroup = "formBasicos";
+                    txtNumDocumento.ValidationGroup = "formBasicos";
+                    txtDireccion.ValidationGroup = "formBasicos";
+                    txtDireccion.ValidationGroup = "formBasicos";
+                    txtTelContacto.ValidationGroup = "formBasicos";
+                    txtTelContacto.ValidationGroup = "formBasicos";
+                    txtTelContacto.ValidationGroup = "formBasicos";
+                    txtNumDocRepl.ValidationGroup = "formBasicos";
+                    txtNumDocRepl.ValidationGroup = "formBasicos";
+                    txtNomRepLegal.ValidationGroup = "formBasicos";
+                    txtNomRepLegal.ValidationGroup = "formBasicos";
+                    txtFoto.ValidationGroup = "formBasicos";
+                    RangeValidator.ValidationGroup = "formBasicos";
+                    RangeValidator3.ValidationGroup = "formBasicos";
+                    RangeValidator4.ValidationGroup = "formBasicos";
+                    RangeValidator1.ValidationGroup = "formBasicos";
+                    RangeValidator2.ValidationGroup = "formBasicos";
+                    RangeValidator5.ValidationGroup = "formBasicos";
+                    RequiredFieldValidator.ValidationGroup = "formBasicos";
+                    RequiredFieldValidator1.ValidationGroup = "formBasicos";
+                    RequiredFieldValidator2.ValidationGroup = "formBasicos";
+                    RequiredFieldValidator3.ValidationGroup = "formBasicos";
+                    RequiredFieldValidator4.ValidationGroup = "formBasicos";
+                    RequiredFieldValidator5.ValidationGroup = "formBasicos";
+                    RequiredFieldValidator6.ValidationGroup = "formBasicos";
+                    RequiredFieldValidator7.ValidationGroup = "formBasicos";
+                    RequiredFieldValidator8.ValidationGroup = "formBasicos";
+                    RequiredFieldValidator9.ValidationGroup = "formBasicos";
+                    TxtsubirCamaraComercio.ValidationGroup = "formBasicos";
+                    TxtsubirRUT.ValidationGroup = "formBasicos";
+                    btnFinaliza.ValidationGroup = "formBasicos";
                 }
-                    
-                if(_resultado.camaraComercio == true)
+
+                if (_resultado.camaraComercio == true)
                 {
                     TxtsubirCamaraComercio.Text = "Archivo Cargado";
+                    TxtsubirCamaraComercio.Enabled = false;
                 }
                 if(_resultado.rut == true)
                 {
                     TxtsubirRUT.Text = "Archivo Cargado";
+                    TxtsubirRUT.Enabled = false;
                 }
                 
                 

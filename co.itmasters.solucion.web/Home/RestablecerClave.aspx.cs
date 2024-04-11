@@ -99,17 +99,9 @@ namespace co.itmasters.solucion.web.Home
 
                     _Actores.ActualizaContrasena(_restablece);
                     _Actores.Close();
-                    
-                    ScriptManager.RegisterStartupScript(this, GetType(), "alert", "alert('Contraseña actualizada correctamente. " + "');", true);
-                    if (cmbTipPersona.SelectedValue == "2")
-                    {
-                        Response.Redirect("../Home/Login.aspx");
-                    }
-                    else if (cmbTipPersona.SelectedValue == "1")
-                    {
-                        Response.Redirect("../Home/LoginEmpresa.aspx");
-                    }
-                    
+
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", "confirmaRegistro();", true);
+
                 }
 
                 

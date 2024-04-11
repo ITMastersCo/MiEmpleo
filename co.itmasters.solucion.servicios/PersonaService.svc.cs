@@ -75,6 +75,20 @@ namespace co.itmasters.solucion.servicios
                 throw new FaultException(new FaultReason(err.Message));
             }
         }
+        public void PersonaCondicionManoObra_Update(PersonaVO persona)
+        {
+            try
+            {
+
+                _persona = new PersonaNegocio();
+                _persona.PersonaCondicionManoObra_Update(persona);
+            }
+            catch (Exception err)
+            {
+                Log.Write(err.Message, Log.ERROR);
+                throw new FaultException(new FaultReason(err.Message));
+            }
+        }
         public List<AutocompleteActividadEconomica> ActEconomicaAutocomplete(AutocompleteActividadEconomica Act)
         {
             try

@@ -39,8 +39,13 @@ namespace co.itmasters.solucion.web.Empresa
             if (!Page.IsPostBack)
 
             {
-                RangeDate();
                 user = ((UserVO)Session["UsuarioAutenticado"]);
+                RangeDate();
+
+                if (user.diligenciaFormulario == 0 )
+                {
+                    Response.Redirect("~/Empresa/DatosBasicosEmpresa.aspx");
+                }
                 
                 if (Request.QueryString["idOferta"] == null)
                 {
@@ -57,7 +62,7 @@ namespace co.itmasters.solucion.web.Empresa
                     this.cargarCombos();
                     this.validaOferta();
                 }
-            this.CargaDatosBasicos();
+                this.CargaDatosBasicos();
             }
             this.FillList();
 
@@ -78,12 +83,12 @@ namespace co.itmasters.solucion.web.Empresa
 
             OfertaVO plan = resultado.FindLast(e => e.ofertasConsumidas < e.nroOfertas );
 
-            lblDiasOferta.Text = plan.diasPublicacionOferta.ToString();
+            lblDiasOferta.Text = plan?.diasPublicacionOferta.ToString();
 
             rvFechaPublicacion.MinimumValue = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
             txtFechaPublicacion.Attributes["min"] = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
-            rvFechaPublicacion.MaximumValue = String.Format("{0:yyyy-MM-dd}", plan.fechaFinaliza);
-            txtFechaPublicacion.Attributes["max"] = String.Format("{0:yyyy-MM-dd}", plan.fechaFinaliza);
+            rvFechaPublicacion.MaximumValue = String.Format("{0:yyyy-MM-dd}", plan?.fechaFinaliza);
+            txtFechaPublicacion.Attributes["max"] = String.Format("{0:yyyy-MM-dd}", plan?.fechaFinaliza);
 
 
             rvFechaVencimiento.MinimumValue = String.Format("{0:yyyy-MM-dd}", DateTime.Now);

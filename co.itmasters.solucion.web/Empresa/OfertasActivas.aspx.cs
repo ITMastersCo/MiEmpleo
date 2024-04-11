@@ -52,7 +52,8 @@ namespace co.itmasters.solucion.web.Empresa
 
             if (cmbFiltros.SelectedValue == "1")
             {//Activas = 1 Pendientes = 2 Vencidas = 3
-                List<ListaVO> listadeOcupaciones = _carga.TablasBasicas(TipoCombo.CMBOCUPACIONOFERTA, new string[] { user.IdUsuario.ToString() });
+                List<ListaVO> listadeOcupaciones = _carga.TablasBasicas(TipoCombo.CMBOCUPACIONOFERTA, new string[] {  "ACT" ,user.IdUsuario.ToString() });
+                
                 _carga.Cargar(cmbOcupacionOfertaEmpresa, listadeOcupaciones);
                 cmbOcupacionOfertaEmpresa.Visible = true;
                 txtFecha1.Visible = false;
@@ -240,8 +241,6 @@ namespace co.itmasters.solucion.web.Empresa
         }
         protected void btnFilter_Click(object sender, EventArgs e)
         {
-            cmbFiltros.Visible = true;
-            btnBuscar.Visible = true;
         }
         protected void GrdOfertas_RowCommand(object sender, GridViewCommandEventArgs e)
         {
