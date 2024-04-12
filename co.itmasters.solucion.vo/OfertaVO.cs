@@ -94,7 +94,7 @@ namespace co.itmasters.solucion.vo
         public Boolean? capacitaciones { get; set; }
         public int? vigenciaPlan { get; set; }
         public Boolean? entrevistaZoom { get; set; }
-        public double? valorPlan { get; set; }
+        public int? valorPlan { get; set; }
         //    otros campos
         public string typeModify { get; set; }
         public int? activas { get; set; }

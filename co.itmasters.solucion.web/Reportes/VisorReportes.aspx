@@ -84,7 +84,7 @@
                             </svg>
                         </div>
 
-                        <asp:RadioButtonList ID="rblReportes" runat="server" CssClass="text-medium color-gray-500">
+                        <asp:RadioButtonList ID="rblReportes" runat="server" CssClass="text-medium color-gray-500 flex">
                         </asp:RadioButtonList>
                     </td>
 

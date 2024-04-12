@@ -88,7 +88,7 @@ namespace co.itmasters.solucion.web.Empresa
             ucCardPlan.idPlan = plan.idPlan.ToString();
             ucCardPlan.IdEmpresa = 0;
             ucCardPlan.Name = plan.nomPlan;
-            ucCardPlan.Price = plan.valorPlan.ToString();
+            ucCardPlan.Price = plan.valorPlan;
             ucCardPlan.OffersFeatured = Convert.ToBoolean(plan.ofertaDestacada);
             ucCardPlan.OffersConfidential = Convert.ToBoolean(plan.ofertaConfidencial);
             ucCardPlan.QuestionsFilter = Convert.ToBoolean(plan.preguntasDeFiltro);
@@ -149,6 +149,11 @@ namespace co.itmasters.solucion.web.Empresa
                 }
             }
             Response.Redirect("~/Empresa/PublicarOfertas.aspx");
+        }
+
+        protected void btnComparativo_Click(object sender, EventArgs e)
+        {
+            imgComparativo.Visible = true;
         }
     }
 }

@@ -20,6 +20,7 @@ using co.itmasters.solucion.web.Empresa;
 using MercadoPago.Client.Payment;
 using co.itmasters.solucion.vo.constantes;
 using System.Security.Cryptography.X509Certificates;
+using System.Globalization;
 
 namespace co.itmasters.solucion.web.Components_UI
 {
@@ -89,12 +90,15 @@ namespace co.itmasters.solucion.web.Components_UI
         {
             set { namePlan.InnerText = value; }
         }
-        public string Price
+        public int? Price
         {
             set
             {
-                PlanPrice = Convert.ToInt32(value);
-                pricePlan.InnerText = $"${value}";
+                if (value != null)
+                {
+                    PlanPrice = Convert.ToInt32(value);
+                    pricePlan.InnerText = $"${Convert.ToInt32(value).ToString("N0", CultureInfo.InvariantCulture)}";
+                }
             }
         }
         public Boolean OffersFeatured

@@ -16,16 +16,16 @@
 
 
             </div>
-
+            <div class="w-100per flex flex-center p-16">
+                <img src="..\Images\image-23.jpg" style="width: 60vw; margin-bottom:16px; pointer-events:none; margin:auto;" runat="server" visible="false" id="imgComparativo">
+            </div>
             <div class="flex-col gap-16 flex-center">
 
                 <div class="bg-orange-400 rounded">
                     <h2 class="text-title-section text-semibold 
                       color-gray-800 p-16 text-center">Optimiza el alcance de tus ofertas laborales 
                          con alguno de nuestros paquetes
-        <span class="text-title-section text-semibol 
-            color-gray-100 text-underline">Ver comparativo de paquetes
-        </span>
+                         <asp:Button runat="server" class="text-title-section text-semibold bg-color-400 color-white pointer" Text="Ver comparativo de paquetes" ID="btnComparativo" OnClick="btnComparativo_Click"/>
                     </h2>
                 </div>
                 <p>

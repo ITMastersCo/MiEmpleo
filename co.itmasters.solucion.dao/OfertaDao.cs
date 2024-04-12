@@ -343,7 +343,7 @@ namespace co.itmasters.solucion.dao
                         Oferta.ofertasConsumidas= Convert.ToInt32(dr[OFERTA_OFERTASCONSUMIDAS]);
                         Oferta.estado = Convert.ToString(dr[OFERTA_ESTADO]);
                         oferta.fechaUltimaOferta = dr[OFERTA_FECHAULTIMAOFERTA] == Convert.DBNull ? dateNull : Convert.ToDateTime(dr[OFERTA_FECHAULTIMAOFERTA]);
-                        Oferta.valorPlan = Convert.ToDouble(dr[OFERTA_VALORPLAN]);
+                        Oferta.valorPlan = dr[OFERTA_VALORPLAN] == Convert.DBNull ? intNull :  Convert.ToInt32(dr[OFERTA_VALORPLAN]);
                         Oferta.nomPlan = Convert.ToString(dr[OFERTA_NOMPLAN]);
                         Oferta.nroOfertas = Convert.ToInt32(dr[OFERTA_NROOFERTAS]);
                         Oferta.filtroCandidatos = Convert.ToBoolean(dr[OFERTA_FILTROCANDIDATOS]);
@@ -704,7 +704,7 @@ namespace co.itmasters.solucion.dao
                         Oferta.capacitaciones = Convert.ToBoolean(dr[OFERTA_CAPACITACIONES]);
                         Oferta.vigenciaPlan = Convert.ToInt32(dr[OFERTA_VIGENCIAPLAN]);
                         Oferta.entrevistaZoom = Convert.ToBoolean(dr[OFERTA_ENTREVISTAZOOM]);
-                        Oferta.valorPlan = Convert.ToDouble(dr[OFERTA_VALORPLAN]);
+                        Oferta.valorPlan = dr[OFERTA_VALORPLAN] == Convert.DBNull ? intNull : Convert.ToInt32(dr[OFERTA_VALORPLAN]);
                         Oferta.estado = Convert.ToString(dr[OFERTA_ESTADO]);
                         Oferta.preguntasDeFiltro = Convert.ToBoolean(dr[OFERTA_PREGUNTASDEFILTRO]);
                         rOferta.Add(Oferta);
