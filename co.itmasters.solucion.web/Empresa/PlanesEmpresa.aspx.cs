@@ -20,6 +20,8 @@ using MercadoPago.Client.Common;
 using System.Windows.Forms;
 using Microsoft.Ajax.Utilities;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using co.itmasters.solucion.vo.constantes;
+using System.CodeDom;
 
 
 namespace co.itmasters.solucion.web.Empresa
@@ -29,14 +31,15 @@ namespace co.itmasters.solucion.web.Empresa
         private OfertaServiceClient _OfertaService;
         private EmpresaServiceClient _Empresa;
         private UserVO user;
-        public EmpresaVO newPlan;
+        private EmpresaVO newPlan;
+        private OfertaVO planGratis;
 
         public string PreferenceID {get; set;}
         protected void Page_Load(object sender, EventArgs e)
         {
             user = ((UserVO)Session["UsuarioAutenticado"]);
             List<OfertaVO> listaOfertas = GetOffers();  // Obtiene una lista de ofertas desde la base de datos.
-
+            planGratis =  listaOfertas.Find(o => o.idPlan == 1);
             if (!Page.IsPostBack)
             {
                 DataBind();
@@ -102,9 +105,50 @@ namespace co.itmasters.solucion.web.Empresa
         {
             foreach (OfertaVO plan in plans)
             {
+                if (plan.idPlan != 1 )
                 AddPlanToContainer(plan);
             }
         }
-        
+        protected string CreaPlanAdquirido()
+        {
+            user = ((UserVO)Session["UsuarioAutenticado"]);
+            try
+            {
+                EmpresaVO newEmpresa = new EmpresaVO();
+                OfertaVO newPlan = new OfertaVO();
+
+                newEmpresa.typeModify = TipoConsulta.MODIFY_INSERT;
+                newEmpresa.idUsuario = user.IdUsuario;
+                newPlan.idPlan = planGratis.idPlan;
+                newPlan.vigenciaPlan = planGratis.vigenciaPlan;
+                newPlan.numeroOfertas = planGratis.nroOfertas;
+                newPlan.valorPlan = planGratis.valorPlan;
+                newEmpresa.Oferta = newPlan;
+
+                _Empresa = new EmpresaServiceClient();
+                string idPlanAdquirido = _Empresa.CreatePlanAdquirido(newEmpresa);
+                _Empresa.Close();
+                return idPlanAdquirido;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        protected void  btnPublcarOferta_Click(object sender, EventArgs e)
+        {
+            if(planGratis != null )
+            {
+                try
+                {
+                    CreaPlanAdquirido();
+                }catch (Exception err)
+                {
+                    Master.mostrarMensaje(err.Message, Master.ERROR);
+                }
+            }
+            Response.Redirect("~/Empresa/PublicarOfertas.aspx");
+        }
     }
 }

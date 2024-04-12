@@ -224,7 +224,12 @@
 
                 <asp:Label ID="lblSubirCaCo" runat="server" Text="Adjuntar documento de cámara de comercio" CssClass="text-bold text-left">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="TxtsubirCamaraComercio" ErrorMessage="Debe adjuntar documento de cámara de comercio" ValidationGroup="Subir" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator></asp:Label>
-                <asp:TextBox ID="TxtsubirCamaraComercio" runat="server" Text="" CssClass="fileValidation" ValidationGroup="Subir" Enabled="false"></asp:TextBox>
+                <asp:TextBox 
+                    ID="TxtsubirCamaraComercio" 
+                    runat="server" 
+                    Text="" 
+                    CssClass="color-600 text-semibold fileValidation" 
+                    ValidationGroup="Subir" Enabled="false"></asp:TextBox>
                 <div class="flex flex-col gap-4 flex-center">
 
                     <asp:Label ID="lblSubirCamaraComercio" runat="server" Text="" ToolTip="Solo permite subir documentos en formato PDF mo mayor a 10MB"
@@ -244,7 +249,12 @@
 
                 <asp:Label ID="lblSubirRUT" runat="server" Text="Adjuntar documento RUT" CssClass="text-bold text-left">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="TxtsubirRUT" ErrorMessage="Debe adjuntar documento RUT " ValidationGroup="Subir" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator></asp:Label>
-                <asp:TextBox ID="TxtsubirRUT" runat="server" Text="" CssClass="fileValidation" ValidationGroup="Subir" Enabled="false"></asp:TextBox>
+                <asp:TextBox ID="TxtsubirRUT" 
+                    runat="server" 
+                    Text="" 
+                    CssClass="color-600 text-semibold fileValidation" 
+                    ValidationGroup="Subir" 
+                    Enabled="false"></asp:TextBox>
                 <div class="flex flex-col gap-4 flex-center">
                     <asp:Label ID="LblRUT" runat="server" Text="" ToolTip="Solo permite subir documentos en formato PDF mo mayor a 10MB" CssClass="file-upload"
                         AssociatedControlID="FileUploadRut">

@@ -44,11 +44,11 @@ namespace co.itmasters.solucion.web.Empresa
                 empresa = ((EmpresaVO)Session["Empresa"]);
                 var resultado = GetPlanesAdquiridos();
 
-                if (user.diligenciaFormulario == 0 )
+                if (user.diligenciaFormulario == 0)
                 {
                     Response.Redirect("~/Empresa/DatosBasicosEmpresa.aspx");
                 }
-                if (resultado.Count < 1)
+                if (resultado.Count < 1 || resultado[0].estado != "CON")
                 {
                     Response.Redirect("~/Empresa/PlanesEmpresa.aspx");
                 }

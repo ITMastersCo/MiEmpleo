@@ -11,7 +11,7 @@
 
             <div class="flex-center-v gap-16 p-16">
 
-                <asp:Button ID="btnPublcarOferta" runat="server" Text="PulicarGratis" CssClass="button" />
+                <asp:Button ID="btnPublcarOferta" runat="server" Text="PulicarGratis" CssClass="button" OnClick="btnPublcarOferta_Click" />
                 <p>*3 publicaciones disponibles</p>
 
 
