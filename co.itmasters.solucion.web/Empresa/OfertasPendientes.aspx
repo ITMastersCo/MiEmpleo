@@ -18,7 +18,7 @@
                </svg>
                 </asp:Label>
                 <asp:Button ID="btnFilter" runat="server" Text="" OnClick="btnFilter_Click" />
-                <asp:DropDownList ID="cmbFiltros" Width="200px" runat="server" CssClass="drop-down-list" OnSelectedIndexChanged="cmbFiltros_SelectedIndexChanged" AutoPostBack="true" ></asp:DropDownList>
+                <asp:DropDownList ID="cmbFiltros" Width="200px" runat="server" CssClass="drop-down-list" OnSelectedIndexChanged="cmbFiltros_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                 <asp:DropDownList ID="cmbOcupacionOfertaEmpresa" Width="400px" CssClass="drop-down-list" OnSelectedIndexChanged="cmbOcupacionOfertaEmpresa_SelectedIndexChanged" runat="server" AutoPostBack="true" Visible="false"></asp:DropDownList>
                 <br />
                 <asp:TextBox ID="txtFecha1" Visible="false" Width="200px" TextMode="Date" CssClass="text-box" runat="server"></asp:TextBox>
@@ -41,13 +41,12 @@
                             <asp:TemplateField Visible="true">
                                 <ItemTemplate>
                                     <asp:Label ID="lblnomOferta" ToolTip="Hola" CssClass="text-item text-semibold color-gray-900" runat="server" Text='<%# Eval("tituloVacante") %>'></asp:Label>
-                                    <asp:ImageButton ID="btnViewDetailOffer" runat="Server" Style="height: 25px; width: 25px;" 
-                                        CommandArgument="<% # Container.DataItemIndex %>" 
-                                        CommandName="VerDatos" 
+                                    <asp:ImageButton ID="btnViewDetailOffer" runat="Server" Style="height: 25px; width: 25px;"
+                                        CommandArgument="<% # Container.DataItemIndex %>"
+                                        CommandName="VerDatos"
                                         OnCommand="btnViewDetailOffer_Command"
                                         ImageUrl="~/Images/ver.png"
-                                        ToolTip="Ver oferta."
-                                        />
+                                        ToolTip="Ver oferta." />
                                     <br />
                                     <asp:Label ID="lblEstadoOferta" runat="server" Text='<%# Eval("estado") %>'></asp:Label>
                                     <br />
@@ -73,7 +72,7 @@
                                     <br />
                                     <asp:ImageButton ID="ImgRenovar" runat="Server" Style="height: 25px; width: 25px;" CommandArgument="<% # Container.DataItemIndex %>" CommandName="Renovar" ImageUrl="~/Images/Actualizar.svg" ToolTip="No disponible." />
                                     <asp:ImageButton ID="ImgDuplicar" runat="Server" Style="height: 25px; width: 25px;" CommandArgument="<% # Container.DataItemIndex %>" CommandName="Duplicar" ImageUrl="~/Images/Duplicar.svg" ToolTip="No disponible." />
-       
+
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
@@ -83,28 +82,28 @@
             </div>
 
             <%-- Modal de confirmacion borrar ofertas --%>
-                <asp:UpdatePanel  runat="server" id="ModalBorrarOferta" class="hidden" UpdateMode="Conditional" >
-                    <ContentTemplate>
-                         <div>
-                    <h3 class="text-subtitle">¡Estimado usuario! <span class="text-highlighted text-subtitle">una vez  elimine esta oferta perderá el cupo dentro de su paquete.</span> ¿Desea continuar?
-                    </h3>
+            <asp:UpdatePanel runat="server" ID="ModalBorrarOferta" class="hidden" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <div>
+                        <h3 class="text-subtitle">¡Estimado usuario! <span class="text-highlighted text-subtitle">una vez  elimine esta oferta perderá el cupo dentro de su paquete.</span> ¿Desea continuar?
+                        </h3>
 
-                    <div class="flex-center">
-                        <asp:UpdatePanel runat="server">
-                            <ContentTemplate>
-                                <asp:Button ID="Button1" Visible="true" runat="server" CssClass="button bg-red-400" Text="No estoy seguro" OnClick="Cancerlar_Click" />
-                                  <asp:Button ID="Anular" Visible="true" runat="server" CssClass="button" Text="Continuar" OnClick="Anular_Click" />
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
+                        <div class="flex-center">
+                            <asp:UpdatePanel runat="server">
+                                <ContentTemplate>
+                                    <asp:Button ID="Button1" Visible="true" runat="server" CssClass="button bg-red-400" Text="No estoy seguro" OnClick="Cancerlar_Click" />
+                                    <asp:Button ID="Anular" Visible="true" runat="server" CssClass="button" Text="Continuar" OnClick="Anular_Click" />
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+
+                        </div>
 
                     </div>
-
-                </div>                
-                         <div id="variable" runat="server" class="hidden">
-                    <asp:Label ID="lblIdOfertaDelete" runat="server" Text=""></asp:Label>
-                </div>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
+                    <div id="variable" runat="server" class="hidden">
+                        <asp:Label ID="lblIdOfertaDelete" runat="server" Text=""></asp:Label>
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
 
             <%-- Contenedor oculto para trabajar diferentes contenidos en la modal --%>
             <div id="wrapperHidden" class="hidden">
@@ -217,7 +216,7 @@
 
 
                     <%-- Lista de candidatos postulados --%>
-                    <h2 class="text-item color-gray-800 text-semibold">Candidatos postulados</h2>
+                    <h2 class="text-item color-gray-800 text-semibold" runat="server" id="titleGrdPostulados">Candidatos postulados</h2>
                     <div runat="server" id="containerCandidatos" class="flex flex-center bg-gray-100 overflow-y-scroll rounded relative"
                         style="height: 70vh;">
                         <div class="absolute" style="top: 0;">
@@ -348,7 +347,12 @@
                                 </Columns>
                             </asp:GridView>
                             <div runat="server" id="noResultsShare" class="p-32" visible="false">
-                                <h3 class="text-center text-item text-regular color-gray-500 p-32">*No se encontraron candidatos relacionados a la ofeta.
+                                <h3 class="text-center text-item text-regular color-gray-500 p-32"
+                                    runat="server"
+                                    id="msgNoResults">*No se encontraron candidatos relacionados a la ofeta.
+                                </h3>
+                                <p runat="server" id="msgObservacion" class="text-center text-normal text-gray-600" visible="false">
+                                </p>
                                 </h3>
                             </div>
                         </div>
@@ -361,18 +365,18 @@
             <%-- Contenedor de la modal --%>
             <asp:UpdatePanel ID="openModal" class="modal-dialog overflow-y-scroll" runat="server" MaintainScrollPositionOnPostback="true" UpdateMode="Conditional">
                 <ContentTemplate>
-                    
-           <div class="flex-col flex-center">
-               <asp:Label ID="lblCloseModal" Text="" runat="server" AssociatedControlID="btnCloseModal">
-                   <svg xmlns="http://www.w3.org/2000/svg" class="icon-24 pointer color-gray-700 closed" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                       <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                   </svg>
-                   <asp:Button ID="btnCloseModal" Text="" runat="server" CssClass="hidden" OnClick="btnCloseModal_Click" />
-               </asp:Label>
-               <asp:Panel runat="server" ID="modalCV" CssClass="modal-body flex flex-center w-100per max-w-850px">
-               </asp:Panel>
 
-               <%--<div class="flex-center flex-wrap gap-16">
+                    <div class="flex-col flex-center">
+                        <asp:Label ID="lblCloseModal" Text="" runat="server" AssociatedControlID="btnCloseModal">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon-24 pointer color-gray-700 closed" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            <asp:Button ID="btnCloseModal" Text="" runat="server" CssClass="hidden" OnClick="btnCloseModal_Click" />
+                        </asp:Label>
+                        <asp:Panel runat="server" ID="modalCV" CssClass="modal-body flex flex-center w-100per max-w-850px">
+                        </asp:Panel>
+
+                        <%--<div class="flex-center flex-wrap gap-16">
                     <asp:Button ID="btnModalCacel" Visible="false" runat="server" CssClass="button bg-red-500" Text="Cancelar" OnClick="btnModalCancel_Click" />
                     <asp:Button ID="btnModalSubmmit" Visible="false" runat="server" CssClass="button " Text="Actualizar" ValidationGroup="formDatosBasicos" OnClick="btnModalSubmmit_Click" />
                     <asp:Button ID="btnModalEstudiosSubmit" Visible="false" runat="server" CssClass="button" Text="Actualizar" ValidationGroup="formEstudio" OnClick="btnModalEstudiosSubmit_Click" />
@@ -380,7 +384,7 @@
                     <asp:Button ID="btnModalEliminarEstudio" Text="Si, eliminar" runat="server" CssClass="button" Visible = "false" OnClick="btnModalEliminarEstudio_Click"/>
                     <asp:Button ID="btnModalEliminarExperiencia" Text="Si, eliminar" runat="server" CssClass="button" Visible = "false" OnClick="btnModalEliminarExperiencia_Click"/>
                 </div>--%>
-           </div>
+                    </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
 

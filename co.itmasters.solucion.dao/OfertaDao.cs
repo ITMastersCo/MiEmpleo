@@ -966,6 +966,7 @@ namespace co.itmasters.solucion.dao
             //oferta.nomOcupacion8 = Convert.ToString(dr[OFERTA_NOMOCUPACION8]);
             //oferta.nomOcupacion9 = Convert.ToString(dr[OFERTA_NOMOCUPACION8]);
             //oferta.nomOcupacion10 = Convert.ToString(dr[OFERTA_NOMOCUPACION9]);
+            oferta.Observaciones = Convert.ToString(dr[OFERTA_OBSERVACIONES]);
             return oferta;
 
         }

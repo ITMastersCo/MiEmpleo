@@ -76,7 +76,7 @@ namespace co.itmasters.solucion.web.Empresa
                         GridViewRow rowPro = GrdOfertas.Rows[j];
                         ((Label)rowPro.FindControl("lbltotalhv")).ToolTip = "Total hojas de vida aplicadas.";
                         ((Label)rowPro.FindControl("lblHvVistas")).ToolTip = "Total hojas de vida vistas por la empresa.";
-                        ((Label)rowPro.FindControl("lblHvVistas")).Text =Convert.ToString(((Label)rowPro.FindControl("lblHvVistas")).Text) + "<br/>No leidos";
+                        //((Label)rowPro.FindControl("lblHvVistas")).Text =Convert.ToString(((Label)rowPro.FindControl("lblHvVistas")).Text) + "<br/>No leidos";
                         if (((Label)rowPro.FindControl("lblEstadoOferta")).Text == "PEN")
                         {
                             ((Label)rowPro.FindControl("lblEstadoOferta")).Text = "Pendiente";
@@ -89,8 +89,8 @@ namespace co.itmasters.solucion.web.Empresa
                         }
                         else if (((Label)rowPro.FindControl("lblEstadoOferta")).Text == "RCH")
                         {
-                            ((Label)rowPro.FindControl("lblEstadoOferta")).Text = "Pendiente";
-                            ((Label)rowPro.FindControl("lblEstadoOferta")).ForeColor = System.Drawing.Color.Orange;
+                            ((Label)rowPro.FindControl("lblEstadoOferta")).Text = "Rechazada";
+                            ((Label)rowPro.FindControl("lblEstadoOferta")).ForeColor = System.Drawing.Color.Red;
                         }
                         else if (((Label)rowPro.FindControl("lblEstadoOferta")).Text == "ACT")
                         {
@@ -160,6 +160,15 @@ namespace co.itmasters.solucion.web.Empresa
                 lblOfferUserWhoPublished.Text = viewOferta.nomEmpresa;
                 lblOfferLocation.Text = viewOferta.nomCiudad;
                 lblDescriptioOffer.Text = viewOferta.descripcionVacante;
+                if(viewOferta.estado == "RCH" && viewOferta.Observaciones != null)
+                {
+                titleGrdPostulados.InnerText = "Observaciones";
+                 grdCandidatos.Visible = false;
+                 msgNoResults.InnerText = "Lo sentimos ls oferta ha sido rechazada";
+                 msgNoResults.Attributes["class"] = "text-center text-item text-regular color-red-500 p-32";
+                msgObservacion.Visible = true;
+                 msgObservacion.InnerText = $"Motivo de rechazo:{viewOferta.Observaciones}";
+                }
 
                 // Trae los Postulados de la ofeta
 

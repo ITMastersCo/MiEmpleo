@@ -189,11 +189,11 @@
                     </article>
 
 
-                    <h2 class="text-item color-gray-800 text-semibold" >Candidatos postulados</h2>
+                    <h2 class="text-item color-gray-800 text-semibold" runat="server" id="titleGrdPostulados" >Candidatos postulados</h2>
                     <div runat="server" id="containerCandidatos" class="flex flex-center bg-gray-100 overflow-y-scroll rounded relative"
                         style="height: 70vh;">
                         <div class="absolute ansolute-cente-x"  style="top: 0;">
-                            <asp:GridView ID="grdCandidatos" runat="server" AutoGenerateColumns="false" class="flex-col flex-center gap-4 ">
+                          <asp:GridView ID="grdCandidatos" runat="server" AutoGenerateColumns="false" class="flex-col flex-center gap-4 ">
                                 <Columns>
                                     <asp:TemplateField Visible="false">
                                         <ItemTemplate>
@@ -318,8 +318,14 @@
                                 </Columns>
                             </asp:GridView>
                             <div runat="server" id="noResultsShare" class="p-32" visible="false">
-                                <h3 class="text-center text-item text-regular color-gray-500 p-32">*No se encontraron candidatos relacionados a la ofeta.
+                                <h3 class="text-center text-item text-regular color-gray-500 p-32" 
+                                    runat="server"
+                                    id="msgNoResults"
+                                    >*No se encontraron candidatos relacionados a la ofeta.
                                 </h3>
+                                <p runat="server" ID="msgObservacion" class="text-center text-normal text-gray-600" visible="false">
+
+                                </p>
                             </div>
                         </div>
                     </div>

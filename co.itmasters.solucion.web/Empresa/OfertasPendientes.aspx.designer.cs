@@ -258,6 +258,15 @@ namespace co.itmasters.solucion.web.Empresa
         protected global::System.Web.UI.WebControls.Label lblDescriptioOffer;
 
         /// <summary>
+        /// Control titleGrdPostulados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl titleGrdPostulados;
+
+        /// <summary>
         /// Control containerCandidatos.
         /// </summary>
         /// <remarks>
@@ -283,6 +292,24 @@ namespace co.itmasters.solucion.web.Empresa
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl noResultsShare;
+
+        /// <summary>
+        /// Control msgNoResults.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl msgNoResults;
+
+        /// <summary>
+        /// Control msgObservacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl msgObservacion;
 
         /// <summary>
         /// Control openModal.

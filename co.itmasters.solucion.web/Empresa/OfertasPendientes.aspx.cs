@@ -176,7 +176,7 @@ namespace co.itmasters.solucion.web.Empresa
                     else if (((Label)rowPro.FindControl("lblEstadoOferta")).Text == "RCH")
                     {
                         ((Label)rowPro.FindControl("lblEstadoOferta")).Text = "Rechazada, puede modificar";
-                        ((Label)rowPro.FindControl("lblEstadoOferta")).ForeColor = System.Drawing.Color.Orange;
+                        ((Label)rowPro.FindControl("lblEstadoOferta")).ForeColor = System.Drawing.Color.Red;
 
                         var imgEdit = rowPro.FindControl("imgEditar") as Image;
                         var imgDelete = rowPro.FindControl("ImgBorrar") as Image;
@@ -323,7 +323,15 @@ namespace co.itmasters.solucion.web.Empresa
             lblOfferUserWhoPublished.Text = viewOferta.nomEmpresa;
             lblOfferLocation.Text = viewOferta.nomCiudad;
             lblDescriptioOffer.Text = viewOferta.descripcionVacante;
-
+            if (viewOferta.estado == "RCH" && viewOferta.Observaciones != null)
+            {
+                titleGrdPostulados.InnerText = "Observaciones";
+                grdCandidatos.Visible = false;
+                msgNoResults.InnerText = "Lo sentimos la oferta ha sido rechazada";
+                msgNoResults.Attributes["class"] = "text-center text-item text-regular color-red-500 p-32";
+                msgObservacion.Visible = true;
+                msgObservacion.InnerText = $"Motivo de rechazo:{viewOferta.Observaciones}";
+            }
             // Trae los Postulados de la ofeta
 
             List<PersonaVO> postulados = GetPostulados(Id);
