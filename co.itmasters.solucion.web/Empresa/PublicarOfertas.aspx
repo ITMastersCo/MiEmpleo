@@ -87,6 +87,14 @@
                     AssociatedControlID="txtTituloVacante"
                     CssClass="text-title-section text-medium color-gray-700 flex-col gap-4 w-100per item-center max-w-850px ">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="txtTituloVacante" ErrorMessage="Digite el título de la vacante." ValidationGroup="Oferta" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator 
+                        ErrorMessage="Demasiados caracteres. Maxímo 100." 
+                        ControlToValidate="txtTituloVacante" 
+                        runat="server" 
+                        CssClass="required-field-validator"    
+                        ValidationGroup ="Oferta"
+                        ValidationExpression="^{100}$" />
+                        
                     <asp:TextBox ID="txtTituloVacante" runat="server" CssClass="text-box"
                         placeholder="Breve denominación del puesto de trabajo">
                     </asp:TextBox>
@@ -95,6 +103,13 @@
                     AssociatedControlID="txtDescripcionVacante"
                     CssClass="text-title-section text-medium color-gray-700 flex-col gap-4 w-100per item-center max-w-850px ">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtDescripcionVacante" ErrorMessage="Digite la descripción de la vacante." ValidationGroup="Oferta" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator>
+                     <asp:RegularExpressionValidator 
+                      ErrorMessage="Demasiados caracteres. Maxímo 6000" 
+                      ControlToValidate="txtDescripcionVacante" 
+                      runat="server" 
+                      CssClass="required-field-validator"    
+                      ValidationGroup ="Oferta"
+                      ValidationExpression="^{6000}$" />
                     <asp:TextBox ID="txtDescripcionVacante" runat="server" TextMode="MultiLine" CssClass="text-area" Height="150px"
                         placeholder="Información detallada del perfil de la vacante">
                     </asp:TextBox>
@@ -109,6 +124,7 @@
                     AssociatedControlID="txtCantidadVacantes"
                     CssClass="text-title-section text-medium color-gray-700 flex-col gap-4 w-100per item-center max-w-850px ">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtCantidadVacantes" ErrorMessage="Digite la cantidades de vacantes." ValidationGroup="Oferta" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator>
+
                     <asp:TextBox ID="txtCantidadVacantes" runat="server" CssClass="text-box" TextMode="Number"
                         placeholder="Número de vacantes de desea suplir">
                     </asp:TextBox>
@@ -117,8 +133,15 @@
                     AssociatedControlID="txtCargo"
                     CssClass="text-title-section text-medium color-gray-700 flex-col gap-4 w-100per item-center max-w-850px ">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtCargo" ErrorMessage="Digite la descripción del cargo." ValidationGroup="Oferta" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator>
-                    <asp:TextBox ID="txtCargo" runat="server" CssClass="text-area" Height="150px"
-                        placeholder="Digite una descripcion del crago o cargos." TextMode="MultiLine">
+                      <asp:RegularExpressionValidator 
+                     ErrorMessage="Demasiados caracteres. Maxímo 100." 
+                     ControlToValidate="txtCargo" 
+                     runat="server" 
+                     CssClass="required-field-validator"    
+                     ValidationGroup ="Oferta"
+                     ValidationExpression="^{100}$" />
+                    <asp:TextBox ID="txtCargo" runat="server" CssClass="text-box" 
+                        placeholder="Digite el cargo que va a desempeñar el candidato." >
                     </asp:TextBox>
                 </asp:Label>
                 
@@ -266,11 +289,11 @@
                     AssociatedControlID="cmbSectorEconomico"
                     CssClass="text-title-section text-medium color-gray-700 flex-col gap-4 w-100per item-center max-w-850px ">
                     <asp:RangeValidator ID="RangeValidator" runat="server" ControlToValidate="cmbSectorEconomico" ForeColor="#CC0000" CssClass="text" ErrorMessage="Seleccione el sector económico" MaximumValue="10000000" MinimumValue="0" Type="Integer" ValidationGroup="Oferta">*</asp:RangeValidator>
-                    <asp:DropDownList ID="cmbSectorEconomico" runat="server" CssClass="text-box"
+                    <asp:DropDownList ID="cmbSectorEconomico" runat="server" CssClass="text-box" Enabled="false" 
                         AutoPostBack="true">
                     </asp:DropDownList>
                 </asp:Label>
-                <asp:Label ID="Label2" runat="server" AssociatedControlID="ChkConfidencial" CssClass="check-box">
+                <asp:Label ID="lblConfidencial" runat="server" AssociatedControlID="ChkConfidencial" CssClass="check-box" Visible ="false">
                     <p>Es confidencial </p>
                     <span>
                         <asp:CheckBox ID="ChkConfidencial" runat="server" CssClass="" />

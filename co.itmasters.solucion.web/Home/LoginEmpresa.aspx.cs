@@ -5,12 +5,15 @@ using System.Web.Security;
 using System.Web.UI.WebControls;
 using co.itmasters.solucion.vo;
 using co.itmasters.solucion.web.Code;
+using co.itmasters.solucion.web.EmpresaService;
+using co.itmasters.solucion.web.Reportes.GestionGeneral;
 using co.itmasters.solucion.web.SeguridadService;
 namespace co.itmasters.solucion.web.Home
 {
     public partial class LoginEmpresa : System.Web.UI.Page
     {
         SeguridadServiceClient _SeguridadService;
+        private EmpresaServiceClient _EmpresasService;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -44,6 +47,14 @@ namespace co.itmasters.solucion.web.Home
 
             Session["AccesToken"] = AccesToken;
             Session["PublicToken"] = PublicToken;
+
+            var Empresa = new EmpresaVO { idUsuario = user.IdUsuario };
+
+            _EmpresasService = new EmpresaServiceClient();
+            EmpresaVO CurrentEmpresa = _EmpresasService.DatosEmpresa(Empresa);
+            _EmpresasService.Close();
+            Session["Empresa"] = CurrentEmpresa;
+
         }
 
         protected void cLogin_Authenticate(object sender, AuthenticateEventArgs e)

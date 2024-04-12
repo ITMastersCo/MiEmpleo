@@ -699,13 +699,13 @@ namespace co.itmasters.solucion.web.Empresa
         protected global::System.Web.UI.WebControls.DropDownList cmbSectorEconomico;
 
         /// <summary>
-        /// Control Label2.
+        /// Control lblConfidencial.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label lblConfidencial;
 
         /// <summary>
         /// Control ChkConfidencial.

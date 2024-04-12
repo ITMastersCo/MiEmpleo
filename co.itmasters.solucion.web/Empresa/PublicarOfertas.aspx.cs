@@ -25,6 +25,7 @@ namespace co.itmasters.solucion.web.Empresa
         private OfertaServiceClient _OfertaService;
         private EmpresaServiceClient _ActoresService;
         private UserVO user;
+        private EmpresaVO empresa;
         
         private CargaCombos _carga = new CargaCombos();
         private List<Control> tags = new List<Control>();
@@ -40,6 +41,7 @@ namespace co.itmasters.solucion.web.Empresa
 
             {
                 user = ((UserVO)Session["UsuarioAutenticado"]);
+                empresa = ((EmpresaVO)Session["Empresa"]);
                 var resultado = GetPlanesAdquiridos();
 
                 if (user.diligenciaFormulario == 0 )
@@ -66,6 +68,12 @@ namespace co.itmasters.solucion.web.Empresa
                     
                     this.cargarCombos();
                     this.validaOferta();
+                }
+                if (resultado[0].ofertaConfidencial == true)
+                {
+                    lblConfidencial.Visible = true;
+                    ChkConfidencial.Visible= true;
+                    ChkConfidencial.Enabled = true;
                 }
                 this.CargaDatosBasicos();
             }
@@ -122,7 +130,7 @@ namespace co.itmasters.solucion.web.Empresa
         {
             _carga.Cargar(cmbTiempoExperiencia, TipoCombo.CMBTIEMPOEXPERIENCIA);
             _carga.Cargar(cmbNivelEstudiosRequeridos, TipoCombo.CMBNIVELEDUCATIVO);
-            if (ViewState["IdOferta"].ToString() == "0")
+              if (ViewState["IdOferta"].ToString() == "0")
             {
                 _carga.CargarVacio(cmbOcupacion);
             }
@@ -135,6 +143,7 @@ namespace co.itmasters.solucion.web.Empresa
             _carga.Cargar(cmbModalidadEmpleo, TipoCombo.CMBMODALIDADEMPLEO);
             _carga.Cargar(cmbDepartamento, TipoCombo.CMBDEPRTAMENTO, ("170"));
             _carga.Cargar(cmbSectorEconomico, TipoCombo.CMBSECTORECONOMICO);
+            cmbSectorEconomico.SelectedValue = empresa.idSectorEconomico.ToString();
 
         }
 
@@ -358,6 +367,7 @@ namespace co.itmasters.solucion.web.Empresa
         protected void btnPublicarOferta_Click(object sender, EventArgs e)
         {
             user = ((UserVO)Session["UsuarioAutenticado"]);
+            empresa = ((EmpresaVO)Session["Empresa"]);
             try 
             {
                 OfertaVO registro = new OfertaVO();
@@ -376,7 +386,7 @@ namespace co.itmasters.solucion.web.Empresa
                 registro.idModalidad = Convert.ToInt32(cmbModalidadEmpleo.SelectedValue);
                 registro.idMunicipioVacante = Convert.ToInt32(cmbDepartamento.SelectedValue);
                 registro.idCiudadVacante = Convert.ToInt32(cmbMunicipio.SelectedValue);
-                registro.idSectorEconomico = Convert.ToInt32(cmbSectorEconomico.SelectedValue);
+                registro.idSectorEconomico = empresa.idSectorEconomico;
                 registro.esConfidencial = ChkConfidencial.Checked;
                 if (idTagOcupacion.Text !="")
                 {
@@ -546,7 +556,9 @@ namespace co.itmasters.solucion.web.Empresa
             DateTime fechaPublicacion = Convert.ToDateTime(txtFechaPublicacion.Text);
             Int32 diasOferta = Convert.ToInt32(lblDiasOferta.Text);
             DateTime fechaMaxima = fechaPublicacion + TimeSpan.FromDays(diasOferta);
+            rvFechaVencimiento.MinimumValue = String.Format("{0:yyyy-MM-dd}", fechaPublicacion);
             rvFechaVencimiento.MaximumValue = String.Format("{0:yyyy-MM-dd}", fechaMaxima);
+            txtFechaVencimiento.Attributes["min"] = String.Format("{0:yyyy-MM-dd}", fechaPublicacion);
             txtFechaVencimiento.Attributes["max"] = String.Format("{0:yyyy-MM-dd}", fechaMaxima);
         }
     }
