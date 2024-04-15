@@ -24,6 +24,24 @@ namespace co.itmasters.solucion.web.Empresa
         protected global::System.Web.UI.WebControls.Button btnPublcarOferta;
 
         /// <summary>
+        /// Control divComparativo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divComparativo;
+
+        /// <summary>
+        /// Control btnCerrarComparativo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCerrarComparativo;
+
+        /// <summary>
         /// Control imgComparativo.
         /// </summary>
         /// <remarks>

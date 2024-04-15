@@ -153,7 +153,12 @@ namespace co.itmasters.solucion.web.Empresa
 
         protected void btnComparativo_Click(object sender, EventArgs e)
         {
-            imgComparativo.Visible = true;
+            divComparativo.Visible = true;
+        }
+
+        protected void btnCerrarComparativo_Click(object sender, EventArgs e)
+        {
+            divComparativo.Visible=false;
         }
     }
 }
