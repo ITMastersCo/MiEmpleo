@@ -12,6 +12,7 @@ using System.Web.Services;
 using System.IO;
 
 using Microsoft.Win32;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace co.itmasters.solucion.web.Administracion
@@ -62,7 +63,8 @@ namespace co.itmasters.solucion.web.Administracion
                 empresa.InnerText = Convert.ToString(((Label)row.FindControl("lblnomEmpresa")).Text);
                 lblNomOferta2.InnerText =  Convert.ToString(((Label)row.FindControl("lblnomOferta")).Text);
                 nombreOferta.Text = Convert.ToString(((Label)row.FindControl("lblnomOferta")).Text);
-                labelDescripcionVacante.InnerText =  Convert.ToString(((Label)row.FindControl("lblDescripcionVacante")).Text);
+                string descrip = ((Label)row.FindControl("lblDescripcionVacante")).Text;
+                labelDescripcionVacante.InnerText =  ((Label)row.FindControl("lblDescripcionVacante")).Text;
                 labeltiempoExperiencia.InnerText = Convert.ToString(((Label)row.FindControl("lbltiempoExperiencia")).Text);
                 LabelNmonCiudad2.InnerText =  Convert.ToString(((Label)row.FindControl("lblNomCiudad")).Text);
                 laberRango.InnerText = Convert.ToString(((Label)row.FindControl("lblRangoSalario")).Text);
