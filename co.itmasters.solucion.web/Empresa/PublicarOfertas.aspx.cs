@@ -48,10 +48,28 @@ namespace co.itmasters.solucion.web.Empresa
                 {
                     Response.Redirect("~/Empresa/DatosBasicosEmpresa.aspx");
                 }
-                if (resultado.Count < 1 || resultado[0].estado != "CON")
+
+                bool todasOfertasConsumidas = true;
+                bool todosPlanesVencidos = true;
+
+                foreach (var plan in resultado)
+                {
+                    if (plan.ofertasConsumidas < plan.nroOfertas)
+                    {
+                        todasOfertasConsumidas = false;
+                    }
+
+                    if (DateTime.Now < plan.fechaFinaliza)
+                    {
+                        todosPlanesVencidos = false;
+                    }
+                }
+
+                if (todasOfertasConsumidas || todosPlanesVencidos)
                 {
                     Response.Redirect("~/Empresa/PlanesEmpresa.aspx");
                 }
+
                 if (Request.QueryString["idOferta"] == null)
                 {
                     ViewState["IdOferta"] = "0";
