@@ -296,7 +296,7 @@
                                 </h4>
                             </div>
                             <div>
-                                <asp:Label Text="" runat="server" ID="lblDescriptioOffer" />
+                                <asp:Label Text="" runat="server" ID="lblDescriptioOffer" style="white-space:break-spaces;" />
                             </div>
                         </article>
 

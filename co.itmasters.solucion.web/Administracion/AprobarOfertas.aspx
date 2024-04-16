@@ -151,7 +151,7 @@
                         </asp:Label>
                         <asp:Label  runat="server" TLabelTelRepLegalext="" CssClass="text-item text-semibold text-gray-700 text-left">
                              <h3 class="text-semibold color-500 text-item"> Descripción: 
-                                <p class="text-semibold color-gray-700" runat="server" id="labelDescripcionVacante"  >
+                                <p class="text-semibold color-gray-700" runat="server" id="labelDescripcionVacante" style=" white-space: break-spaces; ">
 
                                 </p>
                             </h3>

@@ -184,7 +184,7 @@
                             </div>
                         </div>
                         <div class="bg-gray-100 rounded p-16">
-                            <asp:Label Text="" runat="server" ID="lblDescriptioOffer" />
+                            <asp:Label Text="" runat="server" ID="lblDescriptioOffer" style="white-space:break-spaces;" />
                         </di>
                     </article>
 
