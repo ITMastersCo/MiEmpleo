@@ -103,13 +103,13 @@
                     AssociatedControlID="txtDescripcionVacante"
                     CssClass="text-title-section text-medium color-gray-700 flex-col gap-4 w-100per item-center max-w-850px ">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtDescripcionVacante" ErrorMessage="Digite la descripción de la vacante." ValidationGroup="Oferta" ForeColor="#CC0000" CssClass="text">*</asp:RequiredFieldValidator>
-                     <asp:RegularExpressionValidator 
+                 <%--    <asp:RegularExpressionValidator 
                       ErrorMessage="Demasiados caracteres. Maxímo 6000" 
                       ControlToValidate="txtDescripcionVacante" 
                       runat="server" 
                       CssClass="required-field-validator"    
                       ValidationGroup ="Oferta"
-                      ValidationExpression="^.{0,6000}$" />
+                />--%>
                     <asp:TextBox ID="txtDescripcionVacante" runat="server" TextMode="MultiLine" CssClass="text-area" Height="150px"
                         placeholder="Información detallada del perfil de la vacante">
                     </asp:TextBox>

@@ -31,7 +31,7 @@
                     <h2 class="text-title-section text-semibold 
                       color-gray-800 p-16 text-center">Optimiza el alcance de tus ofertas laborales 
                          con alguno de nuestros paquetes
-                         <asp:Button runat="server" class="text-title-section text-semibold bg-color-400 color-white pointer" Text="Ver comparativo de paquetes" ID="btnComparativo" OnClick="btnComparativo_Click"/>
+                         <asp:Button runat="server" class="text-title-section text-semibold bg-color-400 color-white pointer text-underline hover" Text="Ver comparativo de paquetes" ID="btnComparativo" OnClick="btnComparativo_Click" style="text-decoration:underline;"/>
                     </h2>
                 </div>
                 <p>
@@ -45,6 +45,10 @@
         </ContentTemplate>
     </asp:UpdatePanel>
 
-
+    <style>
+        .hover:hover{
+            color:var(--gray-500);
+        }
+    </style>
 
 </asp:Content>
