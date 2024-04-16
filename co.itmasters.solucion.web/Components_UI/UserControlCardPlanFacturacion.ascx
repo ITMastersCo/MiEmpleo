@@ -88,7 +88,7 @@
         </div>
         <a href="~/Empresa/PlanesEmpresa.aspx" runat="server" id="btnVerPlanes" class="button self-start-y">Ver Planes </a>
     </div>
-    <article class="card card_plan">
+<%--    <article class="card card_plan">
         <h4 class="text-title-item text-semibold color-gray-700">Próxima factura</h4>
         <h5 class="text-title-item text-semibold color-gray-600">Resumen</h5>
         <div runat="server" id="detailsFact" class="details_fact">
@@ -98,7 +98,7 @@
 
         </p>
 
-    </article>
+    </article>--%>
 
 
 
