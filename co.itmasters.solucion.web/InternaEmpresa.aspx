@@ -80,13 +80,14 @@
                 </div>
             </section> 
             <section class="benefits">
-                <h2 class="text-subtitle">Beneficios de <span class="text-subtitle text-highlighted">Miempleo.co</span></h2>
+                <img src="/images/home-empresa-beneficios.webp" alt="Alternate Text" />
+                <%--<h2 class="text-subtitle">Beneficios de <span class="text-subtitle text-highlighted">Miempleo.co</span></h2>
                 <ul class="place-center">
                     <li class="item-benefit"><img src="./images/ImgInicio/benefit-empresa-1.png" alt=""/><p class="text-semibold">Publicaciónes más economicas</p></li>
-                    <li class="item-benefit"><img src="./images/ImgInicio/benefit-empresa-2.png" alt=""/><p class="text-semibold">Una preselección más fácil</p></li>
+                    <li class="item-be8nefit"><img src="./images/ImgInicio/benefit-empresa-2.png" alt=""/><p class="text-semibold">Una preselección más fácil</p></li>
                     <li class="item-benefit"><img src="./images/ImgInicio/benefit-empresa-3.png" alt=""/><p class="text-semibold">Creación de Multiusuarios</p></li>
                     <li class="item-benefit"><img src="./images/ImgInicio/benefit-empresa-4.png" alt=""/><p class="text-semibold">Programa de entrevistas directamente por zoom</p></li>
-                </ul>
+                </ul>--%>
             </section>
             <!-- About US -->
             <section class="place-center about">

@@ -78,7 +78,7 @@
         </form>
     </main>
     <aside class="info">
-        <img src="../images/ImgInicio/mujer-entrevista 1.png" alt=""/>
+        <img src="../images/Usuario-inicio-de-sesion.webp" alt="" />
     </aside>
 </div>
 <script type="text/javascript">
