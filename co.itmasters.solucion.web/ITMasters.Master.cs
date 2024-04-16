@@ -113,6 +113,7 @@ namespace co.itmasters.solucion.web
         {
             String dir = ((ScriptManager)sender).Page.AppRelativeVirtualPath;
             //Response.Redirect("~/Error.aspx);
+            this.mostrarMensaje(e.Exception.Message, ERROR);
             Server.Transfer("~/Error.aspx");
         }
 

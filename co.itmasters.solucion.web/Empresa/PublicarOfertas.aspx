@@ -93,7 +93,7 @@
                         runat="server" 
                         CssClass="required-field-validator"    
                         ValidationGroup ="Oferta"
-                        ValidationExpression="^{100}$" />
+                        ValidationExpression="^.{0,100}$" />
                         
                     <asp:TextBox ID="txtTituloVacante" runat="server" CssClass="text-box"
                         placeholder="Breve denominación del puesto de trabajo">
@@ -109,7 +109,7 @@
                       runat="server" 
                       CssClass="required-field-validator"    
                       ValidationGroup ="Oferta"
-                      ValidationExpression="^{6000}$" />
+                      ValidationExpression="^.{0,6000}$" />
                     <asp:TextBox ID="txtDescripcionVacante" runat="server" TextMode="MultiLine" CssClass="text-area" Height="150px"
                         placeholder="Información detallada del perfil de la vacante">
                     </asp:TextBox>
@@ -139,7 +139,7 @@
                      runat="server" 
                      CssClass="required-field-validator"    
                      ValidationGroup ="Oferta"
-                     ValidationExpression="^{100}$" />
+                     ValidationExpression="^.{0,100}$" />
                     <asp:TextBox ID="txtCargo" runat="server" CssClass="text-box" 
                         placeholder="Digite el cargo que va a desempeñar el candidato." >
                     </asp:TextBox>
@@ -152,7 +152,7 @@
                     <asp:TextBox ID="txtFechaPublicacion" runat="server" CssClass="text-box" AutoPostBack="true"
                          TextMode="Date" OnTextChanged="txtFechaPublicacion_TextChanged" > 
                     </asp:TextBox>
-                    <asp:RangeValidator CssClass="required-field-validator" runat="server" ID="rvFechaPublicacion" errormessage="No puede superar la fecha de vencimiento del plan" Type="Date"
+                    <asp:RangeValidator CssClass="required-field-validator" runat="server" ID="rvFechaPublicacion"  errormessage="No puede superar la fecha de vencimiento del plan" Type="Date"
                         controltovalidate="txtFechaPublicacion" />
                 </asp:Label>
                 <asp:Label Text="" runat="server" ID="lblDiasOferta" Visible="false"/>
@@ -293,7 +293,7 @@
                         AutoPostBack="true">
                     </asp:DropDownList>
                 </asp:Label>
-                <asp:Label ID="lblConfidencial" runat="server" AssociatedControlID="ChkConfidencial" CssClass="check-box" Visible ="false">
+                <asp:Label ID="lblConfidencial" runat="server" AssociatedControlID="ChkConfidencial" CssClass="check-box" >
                     <p>Es confidencial </p>
                     <span>
                         <asp:CheckBox ID="ChkConfidencial" runat="server" CssClass="" />

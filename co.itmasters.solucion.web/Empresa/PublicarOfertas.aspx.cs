@@ -75,6 +75,12 @@ namespace co.itmasters.solucion.web.Empresa
                     ChkConfidencial.Visible= true;
                     ChkConfidencial.Enabled = true;
                 }
+                else
+                {
+                    lblConfidencial.Visible = false;
+                    ChkConfidencial.Visible = false;
+                    ChkConfidencial.Enabled = false;
+                }
                 this.CargaDatosBasicos();
             }
             this.FillList();
@@ -107,16 +113,16 @@ namespace co.itmasters.solucion.web.Empresa
                 if (plan != null)
                 {
 
-                rvFechaPublicacion.MinimumValue = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
+                rvFechaPublicacion.MinimumValue = String.Format("{0:dd/MM/yyyy}", DateTime.Now);
                 txtFechaPublicacion.Attributes["min"] = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
 
-                rvFechaPublicacion.MaximumValue = String.Format("{0:yyyy-MM-dd}", plan?.fechaFinaliza);
+                rvFechaPublicacion.MaximumValue = String.Format("{0:dd/MM/yyyy}", plan?.fechaFinaliza);
                 txtFechaPublicacion.Attributes["max"] = String.Format("{0:yyyy-MM-dd}", plan?.fechaFinaliza);
 
 
-                rvFechaVencimiento.MinimumValue = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
+                rvFechaVencimiento.MinimumValue = String.Format("{0:dd/MM/yyyy}", DateTime.Now);
                 txtFechaVencimiento.Attributes["min"] = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
-                rvFechaVencimiento.MaximumValue = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
+                rvFechaVencimiento.MaximumValue = String.Format("{0:dd/MM/yyyy}", DateTime.Now);
                 txtFechaVencimiento.Attributes["max"] = String.Format("{0:yyyy-MM-dd}", DateTime.Now);
                 }
             }
@@ -188,8 +194,6 @@ namespace co.itmasters.solucion.web.Empresa
                 cmbTiempoExperiencia.SelectedValue = resultado.tiempoExperiencia.ToString();
                 txtCantidadVacantes.Text = resultado.cantidadVacantes.ToString();
                 txtCargo.Text = resultado.cargo;
-                txtFechaPublicacion.Text = resultado.fechaPublicacion.ToString().Substring(0, 10);
-                txtFechaVencimiento.Text = resultado.fechaVencimiento.ToString().Substring(0, 10);
                 cmbNivelEstudiosRequeridos.SelectedValue = resultado.idNivelEstudiosRequeridos.ToString();
                 //nameTagOcupacion.Text = resultado.idOcupacion1.ToString();
                 cmbRangoSalarial.SelectedValue = resultado.idRangoSalario.ToString();
@@ -244,8 +248,8 @@ namespace co.itmasters.solucion.web.Empresa
                             txtTituloVacante.Enabled = false;
                             txtDescripcionVacante.Enabled = false;
                         }
-                    
-                }
+
+                    }
                 else
                 {
                     txtTituloVacante.ReadOnly = false;
@@ -358,7 +362,15 @@ namespace co.itmasters.solucion.web.Empresa
         }
         protected void cmbNivelEstudiosRequeridos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            try
+            {
+
             _carga.Cargar(cmbOcupacion, TipoCombo.CMBEDUCACIONOCUPACION, cmbNivelEstudiosRequeridos.SelectedValue);
+            }
+            catch (Exception ex)
+            {
+                Master.mostrarMensaje(ex.Message, Master.ERROR);
+            }
         }
         protected void cmbDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -366,6 +378,10 @@ namespace co.itmasters.solucion.web.Empresa
         }
         protected void btnPublicarOferta_Click(object sender, EventArgs e)
         {
+            Page.Validate("Oferta");
+            if (Page.IsValid)
+            {
+
             user = ((UserVO)Session["UsuarioAutenticado"]);
             empresa = ((EmpresaVO)Session["Empresa"]);
             try 
@@ -457,6 +473,7 @@ namespace co.itmasters.solucion.web.Empresa
             {
                 Master.mostrarMensaje(err.Message, Master.ERROR);
                 home.Focus();
+            }
             }
             
         }
@@ -553,13 +570,21 @@ namespace co.itmasters.solucion.web.Empresa
 
         protected void txtFechaPublicacion_TextChanged(object sender, EventArgs e)
         {
+            if (txtFechaPublicacion.Text != "")
+            {
+                try { 
             DateTime fechaPublicacion = Convert.ToDateTime(txtFechaPublicacion.Text);
             Int32 diasOferta = Convert.ToInt32(lblDiasOferta.Text);
             DateTime fechaMaxima = fechaPublicacion + TimeSpan.FromDays(diasOferta);
-            rvFechaVencimiento.MinimumValue = String.Format("{0:yyyy-MM-dd}", fechaPublicacion);
-            rvFechaVencimiento.MaximumValue = String.Format("{0:yyyy-MM-dd}", fechaMaxima);
+            rvFechaVencimiento.MinimumValue = String.Format("{0:dd/MM/yyyy}", fechaPublicacion);
+            rvFechaVencimiento.MaximumValue = String.Format("{0:dd/MM/yyyy}", fechaMaxima);
             txtFechaVencimiento.Attributes["min"] = String.Format("{0:yyyy-MM-dd}", fechaPublicacion);
             txtFechaVencimiento.Attributes["max"] = String.Format("{0:yyyy-MM-dd}", fechaMaxima);
+                }catch (Exception ex)
+                {
+                    Master.mostrarMensaje(ex.Message, Master.ERROR);
+                }
+            }
         }
     }
 }
