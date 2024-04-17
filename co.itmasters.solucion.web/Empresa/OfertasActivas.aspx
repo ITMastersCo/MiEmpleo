@@ -13,15 +13,15 @@
             </div>
 
             <%-- Filtros de ofertas --%>
-            <div class="flex-center">
+            <div class="flex-center filters gap-4">
                 <asp:Label ID="lblFilter" runat="server" ToolTip="Filtrar" class="flex-inline pointer" AssociatedControlID="btnFilter">
                <svg class="icon-24 color-gray-600 " xmlns="http://www.w3.org/2000/svg"fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
                </svg>
                 </asp:Label>
                 <asp:Button ID="btnFilter" runat="server" Text="" OnClick="btnFilter_Click" />
-                <asp:DropDownList ID="cmbFiltros" Width="200px" runat="server" CssClass="drop-down-list" OnSelectedIndexChanged="cmbFiltros_SelectedIndexChanged" AutoPostBack="true" ></asp:DropDownList>
-                <asp:DropDownList ID="cmbOcupacionOfertaEmpresa" Width="400px" CssClass="drop-down-list" OnSelectedIndexChanged="cmbOcupacionOfertaEmpresa_SelectedIndexChanged" runat="server" AutoPostBack="true" Visible="false"></asp:DropDownList>
+                <asp:DropDownList ID="cmbFiltros" Width="360px" runat="server" CssClass="drop-down-list" OnSelectedIndexChanged="cmbFiltros_SelectedIndexChanged" AutoPostBack="true" ></asp:DropDownList>
+                <asp:DropDownList ID="cmbOcupacionOfertaEmpresa" Width="360px" CssClass="drop-down-list" OnSelectedIndexChanged="cmbOcupacionOfertaEmpresa_SelectedIndexChanged" runat="server" AutoPostBack="true" Visible="false"></asp:DropDownList>
                 <br />
                 <asp:TextBox ID="txtFecha1" Visible="false" Width="200px" TextMode="Date" CssClass="text-box" runat="server"></asp:TextBox>
                 <asp:TextBox ID="txtFecha2" Visible="false" Width="200px" TextMode="Date" CssClass="text-box" runat="server"></asp:TextBox>
@@ -32,62 +32,7 @@
             <%-- Lista de Ofertas activas --%>
             <div class="flex gap-16 flex-center m-auto">
                 <div class="flex-center">
-                    <asp:GridView ID="GrdOfertas1" runat="server" CssClass="grid-view" AutoGenerateColumns="false" OnRowCommand="GrdOfertas_RowCommand" PageSize="999999">
-                        <Columns>
-                            <asp:TemplateField Visible="false">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblidOferta" runat="server" Text='<%# Eval("idOferta") %>'></asp:Label>
-                                    <asp:Label ID="lblEsDestacada" runat="server" Text='<%# Eval("esDestacada") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField Visible="true">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblnomOferta" ToolTip="Hola" CssClass="text-item text-semibold color-gray-900" runat="server" Text='<%# Eval("tituloVacante") %>'></asp:Label>
-                                    <asp:ImageButton ID="imgVer" runat="Server" Style="height: 25px; width: 25px;"
-                                        CommandArgument="<%# Container.DataItemIndex %>"
-                                        OnCommand="btnViewDetailOffer_Command" ImageUrl="~/Images/ver.png" ToolTip="Ver oferta." />
-                                    <br />
-                                    <asp:Label ID="lblEstadoOferta" runat="server" Text='<%# Eval("estado") %>'></asp:Label>
-                                    <br />
-                                    <asp:Label ID="lblCiudad" runat="server" Text='<%# Eval("nomCiudad") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField Visible="true">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblFechaVacante" ToolTip="Hola" CssClass="text-item text-semibold color-gray-900" runat="server" Text='<%# Eval("fechaPublicacion","{0:d}") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField Visible="true" FooterStyle-HorizontalAlign="Center">
-                                <ItemTemplate>
-                                    <asp:Label ID="lbltotalhv" CssClass="text-item text-semibold color-gray-900" runat="server" Text='<%# Eval("totHv") %>'></asp:Label>
-                                    <br />
-                                    <asp:Label ID="lblHvVistas" CssClass="text-item text-semibold color-orange-500" runat="server" Text='<%# Eval("hvVista") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField Visible="true">
-                                <ItemTemplate>
-                                       <div class="flex gap-16 flex-center w-100per" >
-                                      <div>
-
-                                    <asp:ImageButton ID="imgEditar" runat="Server" Style="height: 25px; width: 25px;" CommandArgument="<% # Container.DataItemIndex %>" CommandName="Editar" ImageUrl="~/Images/Editar.svg    " ToolTip="Editar la oferta." />
-                                    <asp:ImageButton ID="ImgBorrar" runat="Server" Style="height: 25px; width: 25px;" CommandArgument="<% # Container.DataItemIndex %>" CommandName="Eliminar" ImageUrl="~/Images/Eliminar.svg" ToolTip="Eliminar oferta." />
-                                    <br />
-                                    <asp:ImageButton ID="ImgRenovar" runat="Server" Style="height: 25px; width: 25px;" CommandArgument="<% # Container.DataItemIndex %>" CommandName="Renovar" ImageUrl="~/Images/Actualizar.svg" ToolTip="No disponible." />
-                                    <asp:ImageButton ID="ImgDuplicar" runat="Server" Style="height: 25px; width: 25px;" CommandArgument="<% # Container.DataItemIndex %>" CommandName="Duplicar" ImageUrl="~/Images/Duplicar.svg" ToolTip="Duplicar oferta." />
-                                    </div>
-                                        <div class="flex flex-col">
-
-                                            <asp:Label ID="lblDestacarOferta"  Text="Destacar" runat="server" CssClass="button text-normal pointer" Style="z-index: 20;" AssociatedControlID="btnDestacarOferta" />
-
-                                            <asp:Button Text="" runat="server" ID="btnDestacarOferta" CssClass="hidden"
-                                                OnCommand="btnDestacarOferta_Command" CommandArgument="<% # Container.DataItemIndex %>" />
-                                            <div id='M<%# Eval("idOferta") %>_wallet_container'></div>
-                                        </div>
-                                    </div>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                        </Columns>
-                    </asp:GridView>
+                    
 
 
 
@@ -561,6 +506,10 @@
             .max-w-300 {
     max-width: 280px;
 }
+        }
+        .filters{
+            flex-direction:column;
+            align-items:center;
         }
     </style>
     <script type="text/javascript">
