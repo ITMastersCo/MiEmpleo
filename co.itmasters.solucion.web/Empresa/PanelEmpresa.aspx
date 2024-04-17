@@ -50,7 +50,7 @@
             </div>
 
             <div class="flex gap-16 flex-center m-auto">
-                <asp:Label ID="lbldetalleOferta" CssClass="text-item text-semibold color-gray-900" runat="server" Text="Detalle Ofertas">
+                <asp:Label ID="lbldetalleOferta" CssClass="text-item text-semibold color-gray-900 " runat="server" Text="Detalle Ofertas">
                 </asp:Label>
             </div>
 
@@ -84,15 +84,15 @@
             </asp:GridView>
 
             <div id="wrapperHidden" class="hidden">
-                <div runat="server" id="detalleOferta" class="flex-col gap-32 w-100per">
+                <div runat="server" id="detalleOferta" class="flex-col gap-32 w-100per detalleOferta">
 
-                    <article class="flex-col gap-32">
+                    <article class="flex flex-col gap-32">
                         <div class="hidden">
                             <asp:Label Text="" ID="lblIdOferta" runat="server" />
                             <asp:Label Text="" ID="lblIdPersona" runat="server" />
                         </div>
 
-                        <div runat="server" class="flex-center-v gap-4 pointer">
+                        <div runat="server" class=" flex flex-center-v gap-4 pointer">
                             <div class="flex-col ">
                                 <div class="line">
                                 </div>
@@ -104,23 +104,23 @@
                             </div>
 
                             <div class="flex-col gap-8">
-                                <div class="flex-center-v gap-16">
-                                    <asp:Label runat="server" ID="lblOfferTitle" class="text-item color-gray-800 text-semibold">
+                                <div class="flex-center-v gap-16 ">
+                                    <asp:Label runat="server" ID="lblOfferTitle" class="text-item color-gray-800 text-semibold lblOfferTitle">
 
                                     </asp:Label>
                                 </div>
-                                <div class="flex-center-v gap-16">
+                                <div class="flex flex-center-v gap-16">
                                     <span class="flex-center-v gap-4">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon-16 color-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                                         </svg>
 
-                                        <asp:Label runat="server" ID="lblOfferUserWhoPublished" class="text-normal text-regular color-gray-700">
+                                        <asp:Label runat="server" ID="lblOfferUserWhoPublished" class="text-normal text-regular color-gray-700 lblOfferUserWhoPublished">
                             
                                         </asp:Label>
                                     </span>
                                 </div>
-                                <div class=" flex-center-v gap-16">
+                                <div class="flex flex-center-v gap-16 details">
 
 
 
@@ -163,8 +163,8 @@
 
 
                         </div>
-                        <div class="flex space-between w-100per flex-center-v">
-                            <div class="flex flex-center-v gap-4">
+                        <div class="flex space-between w-100per flex-center-v details">
+                            <div class=" flex-center-v gap-4">
 
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon-24 color-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -173,7 +173,7 @@
                          <asp:Label ID="lblDateCrateOffer" Text="" runat="server" />
                             </h4>
                             </div>
-                            <div class="flex flex-center-v gap-">
+                            <div class=" flex-center-v gap-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon-24 color-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
@@ -183,7 +183,7 @@
                             </h4>
                             </div>
                         </div>
-                        <div class="bg-gray-100 rounded p-16">
+                        <div class="bg-gray-100 rounded p-16 lblDescriptioOffer" >
                             <asp:Label Text="" runat="server" ID="lblDescriptioOffer" style="white-space:break-spaces;" />
                         </di>
                     </article>

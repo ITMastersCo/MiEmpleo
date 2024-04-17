@@ -266,10 +266,43 @@ svg {
         transition: opacity 100ms ease-in;
     }
 
-@media and screen (min-width:500px) {
+@media screen and (max-width:800px) {
     .modal-dialog > div {
         width: 100vw;
+        padding:56px 0;
     }
+
+    .detalleOferta .flex {
+        flex-direction: column;
+    }
+
+    .detalleOferta .flex .details {
+        align-items: flex-start;
+        width:100%;
+        & span
+
+{
+    font-size: var(--font-size-small);
+}
+
+}
+
+.detalleOferta .lblOfferUserWhoPublished {
+    text-align: center;
+    font-size: var(--font-size-small);
+}
+
+.detalleOferta .icon-lblOfferUserWhoPublished {
+    display: none;
+}
+
+.detalleOferta .lblOfferTitle {
+    justify-content: center;
+}
+.detalleOferta .lblDescriptioOffer {
+    overflow:scroll;
+}
+
 }
 
 .closed {
@@ -2276,15 +2309,15 @@ svg.icon-36 {
 
 
 .card_offer {
-    display: inline-flex;
+    display: flex;
     padding: 12px 12px;
     border: solid 1px var(--gray-300);
     align-items: flex-start;
     border-radius: 10px;
     background: var(--white);
     position: relative;
-    /*max-width: 484px;*/
-    width: 484px;
+    max-width: 484px;
+    /*width: 484px;*/
     overflow: hidden;
 }
 
