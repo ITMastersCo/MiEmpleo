@@ -14,7 +14,9 @@
 
 .MasterBannerContent {
   max-width: 80%;
-  justify-content: space-around;
+  padding-bottom:5rem;
+  gap:2rem;
+  justify-content: flex-end;
   color: var(--gray-100);
 }
 .logo{
