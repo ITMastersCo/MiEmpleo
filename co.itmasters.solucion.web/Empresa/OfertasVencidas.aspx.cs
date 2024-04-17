@@ -206,22 +206,22 @@ namespace co.itmasters.solucion.web.Empresa
             GridViewRow row = GrdOfertas.Rows[index];
             if (e.CommandName == "Editar")
             {
-                Response.Redirect("../Empresa/PublicarOfertas.aspx?idOferta=" + Convert.ToString(((Label)row.FindControl("lblidOferta")).Text) + "&estado=Editar");
+                Response.Redirect("../Empresa/PublicarOfertas.aspx?idOferta=" + Convert.ToString(((Label)row.FindControl("idOferta")).Text) + "&estado=Editar");
 
             }
             if (e.CommandName == "Eliminar")
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba",
                 $"OpenModal('{ModalBorrarOferta.ClientID}','{openModal.ClientID}')", true);
-                lblIdOfertaDelete.Text = Convert.ToString(((Label)row.FindControl("lblidOferta")).Text);
+                lblIdOfertaDelete.Text = Convert.ToString(((Label)row.FindControl("idOferta")).Text);
             }
             if (e.CommandName == "Renovar")
             {
-                Response.Redirect("../Empresa/PublicarOfertas.aspx?idOferta=" + Convert.ToString(((Label)row.FindControl("lblidOferta")).Text) + "&estado=Renovar");
+                Response.Redirect("../Empresa/PublicarOfertas.aspx?idOferta=" + Convert.ToString(((Label)row.FindControl("idOferta")).Text) + "&estado=Renovar");
             }
             if (e.CommandName == "Duplicar")
             {
-                Response.Redirect("../Empresa/PublicarOfertas.aspx?idOferta=" + Convert.ToString(((Label)row.FindControl("lblidOferta")).Text) + "&estado=Duplicar");
+                Response.Redirect("../Empresa/PublicarOfertas.aspx?idOferta=" + Convert.ToString(((Label)row.FindControl("idOferta")).Text) + "&estado=Duplicar");
             }
 
         }
@@ -285,7 +285,7 @@ namespace co.itmasters.solucion.web.Empresa
             {
                 Int32 index = Convert.ToInt32(e.CommandArgument) % GrdOfertas.PageSize;
                 GridViewRow row = GrdOfertas.Rows[index];
-                Int32 Id = Convert.ToInt32(((Label)row.FindControl("lblidOferta")).Text);
+                Int32 Id = Convert.ToInt32(((Label)row.FindControl("idOferta")).Text);
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba",
                     $"OpenModal('{detalleOferta.ClientID}','{openModal.ClientID}')", true);
 
