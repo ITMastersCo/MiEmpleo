@@ -609,6 +609,9 @@ namespace co.itmasters.solucion.dao
                         Oferta.estado = Convert.ToString(dr[OFERTA_ESTADO]);
                         Oferta.totHv = Convert.ToInt32(dr[OFERTA_TOTALHOJASDEVIDA]);
                         Oferta.hvVista = Convert.ToInt32(dr[OFERTA_HVVISTAS]);
+                        Oferta.RangoSalario = Convert.ToString(dr[OFERTA_RANGOSALARIO]);
+                        Oferta.nomCiudad = Convert.ToString(dr[OFERTA_NOMCIUDAD]);
+                        Oferta.fechaPublicacion = Convert.ToDateTime(dr[OFERTA_FECHAPUBLICACION]);
                         rOferta.Add(Oferta);
                     }
                 }
@@ -945,7 +948,7 @@ namespace co.itmasters.solucion.dao
             oferta.cambioCiudadResidencia = Convert.ToBoolean(dr[OFERTA_CAMBIOCIUDADRESIDENCIA]);
             oferta.esDestacada = Convert.ToBoolean(dr[OFERTA_ESDESTACADA]);
             oferta.estado = Convert.ToString(dr[OFERTA_ESTADO]);
-            oferta.fechaAprobacion = dr[OFERTA_IDOCUPACION1] == Convert.DBNull ? dateNull : Convert.ToDateTime(dr[OFERTA_FECHAAPROBACION]);
+            oferta.fechaAprobacion = dr[OFERTA_FECHAAPROBACION] == Convert.DBNull ? dateNull : Convert.ToDateTime(dr[OFERTA_FECHAAPROBACION]);
             oferta.idOcupacion1 = dr[OFERTA_IDOCUPACION1] == Convert.DBNull ? intNull : Convert.ToInt32(dr[OFERTA_IDOCUPACION1]); 
             oferta.idOcupacion2 = dr[OFERTA_IDOCUPACION2] == Convert.DBNull ? intNull : Convert.ToInt32(dr[OFERTA_IDOCUPACION2]);
             oferta.idOcupacion3 = dr[OFERTA_IDOCUPACION3] == Convert.DBNull ? intNull : Convert.ToInt32(dr[OFERTA_IDOCUPACION3]);

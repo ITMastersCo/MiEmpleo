@@ -65,7 +65,7 @@ namespace co.itmasters.solucion.web.Empresa
                 OfertaVO estadistica = new OfertaVO();
                 estadistica.idUsuario = idusuario;
                 _OfertaService = new OfertaServiceClient();
-                List<OfertaVO> resultado = _OfertaService.TraeOfertaEmpresa(estadistica).ToList<OfertaVO>(); ;
+                List<OfertaVO> resultado = _OfertaService.TraeOfertaEmpresa(estadistica).ToList<OfertaVO>(); 
                 _OfertaService.Close();
                 if (resultado.Count > 0)
                 {
@@ -74,28 +74,29 @@ namespace co.itmasters.solucion.web.Empresa
                     for (int j = 0; j < GrdOfertas.Rows.Count; j++)
                     {
                         GridViewRow rowPro = GrdOfertas.Rows[j];
-                        ((Label)rowPro.FindControl("lbltotalhv")).ToolTip = "Total hojas de vida aplicadas.";
-                        ((Label)rowPro.FindControl("lblHvVistas")).ToolTip = "Total hojas de vida vistas por la empresa.";
-                        //((Label)rowPro.FindControl("lblHvVistas")).Text =Convert.ToString(((Label)rowPro.FindControl("lblHvVistas")).Text) + "<br/>No leidos";
-                        if (((Label)rowPro.FindControl("lblEstadoOferta")).Text == "PEN")
+                        ((Label)rowPro.FindControl("offerViews")).ToolTip = "Total hojas de vida aplicadas.";
+                        //((Label)rowPro.FindControl("lblHvVistas")).ToolTip = "Total hojas de vida vistas por la empresa.";
+                        //((Label)rowPro.Fi ndControl("lblHvVistas")).Text =Convert.ToString(((Label)rowPro.FindControl("lblHvVistas")).Text) + "<br/>No leidos";
+                        Label text = ((Label)rowPro.FindControl("state"));
+                        if (((Label)rowPro.FindControl("state")).Text == "PEN")
                         {
-                            ((Label)rowPro.FindControl("lblEstadoOferta")).Text = "Pendiente";
-                            ((Label)rowPro.FindControl("lblEstadoOferta")).ForeColor = System.Drawing.Color.Orange;                        
+                            ((Label)rowPro.FindControl("state")).Text = "Pendiente";
+                            ((Label)rowPro.FindControl("state")).ForeColor = System.Drawing.Color.Orange;
                         }
-                        else if (((Label)rowPro.FindControl("lblEstadoOferta")).Text == "VEN")
+                        else if (((Label)rowPro.FindControl("state")).Text == "VEN")
                         {
-                            ((Label)rowPro.FindControl("lblEstadoOferta")).Text = "Vencida";
-                            ((Label)rowPro.FindControl("lblEstadoOferta")).ForeColor = System.Drawing.Color.Red;
+                            ((Label)rowPro.FindControl("state")).Text = "Vencida";
+                            ((Label)rowPro.FindControl("state")).ForeColor = System.Drawing.Color.Red;
                         }
-                        else if (((Label)rowPro.FindControl("lblEstadoOferta")).Text == "RCH")
+                        else if (((Label)rowPro.FindControl("state")).Text == "RCH")
                         {
                             ((Label)rowPro.FindControl("lblEstadoOferta")).Text = "Rechazada";
-                            ((Label)rowPro.FindControl("lblEstadoOferta")).ForeColor = System.Drawing.Color.Red;
+                            ((Label)rowPro.FindControl("state")).ForeColor = System.Drawing.Color.Red;
                         }
-                        else if (((Label)rowPro.FindControl("lblEstadoOferta")).Text == "ACT")
+                        else if (((Label)rowPro.FindControl("state")).Text == "ACT")
                         {
-                            ((Label)rowPro.FindControl("lblEstadoOferta")).Text = "Activo";
-                            ((Label)rowPro.FindControl("lblEstadoOferta")).ForeColor = System.Drawing.Color.DarkGreen;
+                            ((Label)rowPro.FindControl("state")).Text = "Activo";
+                            ((Label)rowPro.FindControl("state")).ForeColor = System.Drawing.Color.DarkGreen;
                         }
                     }
                         //(Convert.ToString(((Label)rowPro.FindControl("lblIdAlumnoCol")).Text));
@@ -228,6 +229,11 @@ namespace co.itmasters.solucion.web.Empresa
             {
                 Master.mostrarMensaje(err.Message, Master.ERROR);
             }
+        }
+
+        protected void btnViewOfferFeatured_Command(object sender, CommandEventArgs e)
+        {
+
         }
     }
 }
