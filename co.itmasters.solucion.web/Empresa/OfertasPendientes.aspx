@@ -31,52 +31,7 @@
             <%-- Lista de Ofertas --%>
             <div class="flex gap-16 flex-center m-auto">
                 <div class="flex-center">
-                    <asp:GridView ID="GrdOfertas1" runat="server" CssClass="grid-view" AutoGenerateColumns="false" OnRowCommand="GrdOfertas_RowCommand" PageSize="9999">
-                     <Columns>
-                            <asp:TemplateField Visible="false">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblidOferta" runat="server" Text='<%# Eval("idOferta") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField Visible="true">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblnomOferta" ToolTip="Hola" CssClass="text-item text-semibold color-gray-900" runat="server" Text='<%# Eval("tituloVacante") %>'></asp:Label>
-                                    <asp:ImageButton ID="btnViewDetailOffer" runat="Server" Style="height: 25px; width: 25px;"
-                                        CommandArgument="<% # Container.DataItemIndex %>"
-                                        CommandName="VerDatos"
-                                        OnCommand="btnViewDetailOffer_Command"
-                                        ImageUrl="~/Images/ver.png"
-                                        ToolTip="Ver oferta." />
-                                    <br />
-                                    <asp:Label ID="lblEstadoOferta" runat="server" Text='<%# Eval("estado") %>'></asp:Label>
-                                    <br />
-                                    <asp:Label ID="lblCiudad" runat="server" Text='<%# Eval("nomCiudad") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField Visible="true">
-                                <ItemTemplate>
-                                    <asp:Label ID="lblFechaVacante" ToolTip="Hola" CssClass="text-item text-semibold color-gray-900" runat="server" Text='<%# Eval("fechaPublicacion","{0:d}") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField Visible="true" FooterStyle-HorizontalAlign="Center">
-                                <ItemTemplate>
-                                    <asp:Label ID="lbltotalhv" CssClass="text-item text-semibold color-gray-900" runat="server" Text='<%# Eval("totHv") %>'></asp:Label>
-                                    <br />
-                                    <asp:Label ID="lblHvVistas" CssClass="text-item text-semibold color-orange-500" runat="server" Text='<%# Eval("hvVista") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField Visible="true">
-                                <ItemTemplate>
-                                    <asp:ImageButton ID="imgEditar" runat="Server" Style="height: 25px; width: 25px;" CommandArgument="<% # Container.DataItemIndex %>" CommandName="Editar" ImageUrl="~/Images/Editar.svg    " ToolTip="No disponible." />
-                                    <asp:ImageButton ID="ImgBorrar" runat="Server" Style="height: 25px; width: 25px;" CommandArgument="<% # Container.DataItemIndex %>" CommandName="Eliminar" ImageUrl="~/Images/Eliminar.svg" ToolTip="Eliminar oferta." />
-                                    <br />
-                                    <asp:ImageButton ID="ImgRenovar" runat="Server" Style="height: 25px; width: 25px;" CommandArgument="<% # Container.DataItemIndex %>" CommandName="Renovar" ImageUrl="~/Images/Actualizar.svg" ToolTip="No disponible." />
-                                    <asp:ImageButton ID="ImgDuplicar" runat="Server" Style="height: 25px; width: 25px;" CommandArgument="<% # Container.DataItemIndex %>" CommandName="Duplicar" ImageUrl="~/Images/Duplicar.svg" ToolTip="No disponible." />
-
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                        </Columns>
-                    </asp:GridView>
+               
 
 
                               <asp:GridView ID="GrdOfertas" runat="server" AutoGenerateColumns="false" PageSize="9999" OnRowCommand="GrdOfertas_RowCommand">

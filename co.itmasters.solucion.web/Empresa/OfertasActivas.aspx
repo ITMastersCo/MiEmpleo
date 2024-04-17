@@ -124,7 +124,7 @@
                             </div>
                         <div class="flex flex-col">
 
-                            <asp:Label ID="lblDestacarOferta" Text="Destacar" runat="server" CssClass="button text-normal pointer" Style="z-index: 20;" AssociatedControlID="btnDestacarOferta" />
+                            <asp:Label ID="lblDestacarOferta" Text="Destacar" runat="server" CssClass="text-semibold rounded pad-x-3 pad-y-1 pointer bg-color-400 color-gray-700" Style="z-index: 20;" AssociatedControlID="btnDestacarOferta" />
 
                             <asp:Button Text="" runat="server" ID="btnDestacarOferta" CssClass="hidden"
                                 OnCommand="btnDestacarOferta_Command" CommandArgument="<% # Container.DataItemIndex %>" />

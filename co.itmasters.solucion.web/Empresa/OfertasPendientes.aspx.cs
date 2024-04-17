@@ -154,7 +154,7 @@ namespace co.itmasters.solucion.web.Empresa
                     {
                         ((Label)rowPro.FindControl("state")).Text = "Vencida";
                         ((Label)rowPro.FindControl("state")).ForeColor = System.Drawing.Color.Red;
-
+                        ((Label)rowPro.FindControl("lblOfferEdit")).Visible=false;
 
                     }
                     else if (((Label)rowPro.FindControl("state")).Text == "RCH")

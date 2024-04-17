@@ -140,64 +140,32 @@ namespace co.itmasters.solucion.web.Empresa
                 for (int j = 0; j < GrdOfertas.Rows.Count; j++)
                 {
                     GridViewRow rowPro = GrdOfertas.Rows[j];
-                    ((Label)rowPro.FindControl("lbltotalhv")).ToolTip = "Total hojas de vida aplicadas.";
-                    ((Label)rowPro.FindControl("lblHvVistas")).ToolTip = "Total hojas de vida vistas por la empresa.";
-                    ((Label)rowPro.FindControl("lblHvVistas")).Text = Convert.ToString(((Label)rowPro.FindControl("lblHvVistas")).Text) + "<br/>No leidos";
-                    if (((Label)rowPro.FindControl("lblEstadoOferta")).Text == "PEN")
+                    ((Label)rowPro.FindControl("offerAppications")).ToolTip = "Total hojas de vida aplicadas.";
+                    ((Label)rowPro.FindControl("offerAppications")).ToolTip = "Total hojas de vida vistas por la empresa.";
+                    if (((Label)rowPro.FindControl("state")).Text == "PEN")
                     {
-                        ((Label)rowPro.FindControl("lblEstadoOferta")).Text = "Pendiente";
-                        ((Label)rowPro.FindControl("lblEstadoOferta")).ForeColor = System.Drawing.Color.Orange;
-                        var imgEdit = rowPro.FindControl("imgEditar") as Image;
-                        var imgDelete = rowPro.FindControl("ImgBorrar") as Image;
-                        var imgRenew = rowPro.FindControl("ImgRenovar") as Image;
-                        var imgDup = rowPro.FindControl("ImgDuplicar") as Image;
-
-                        imgEdit.Enabled = false;
-                        imgDelete.Enabled = true;
-                        imgRenew.Enabled = false;
-                        imgDup.Enabled = false;
-
+                        ((Label)rowPro.FindControl("state")).Text = "Pendiente";
+                        ((Label)rowPro.FindControl("state")).ForeColor = System.Drawing.Color.Orange;
+                 
                     }
-                    else if (((Label)rowPro.FindControl("lblEstadoOferta")).Text == "VEN")
+                    else if (((Label)rowPro.FindControl("state")).Text == "VEN")
                     {
-                        ((Label)rowPro.FindControl("lblEstadoOferta")).Text = "Vencida";
-                        ((Label)rowPro.FindControl("lblEstadoOferta")).ForeColor = System.Drawing.Color.Red;
-                        var imgEdit = rowPro.FindControl("imgEditar") as Image;
-                        var imgDelete = rowPro.FindControl("ImgBorrar") as Image;
-                        var imgRenew = rowPro.FindControl("ImgRenovar") as Image;
-                        var imgDup = rowPro.FindControl("ImgDuplicar") as Image;
-
-                        imgEdit.Enabled = false;
-                        imgDelete.Enabled = true;
-                        imgRenew.Enabled = true;
-                        imgDup.Enabled = true;
+                        ((Label)rowPro.FindControl("state")).Text = "Vencida";
+                        ((Label)rowPro.FindControl("state")).ForeColor = System.Drawing.Color.Red;
+                        ((Label)rowPro.FindControl("lblOfferEdit")).Visible = false;
                     }
-                    else if (((Label)rowPro.FindControl("lblEstadoOferta")).Text == "RCH")
+                    else if (((Label)rowPro.FindControl("state")).Text == "RCH")
                     {
-                        ((Label)rowPro.FindControl("lblEstadoOferta")).Text = "Pendiente";
-                        ((Label)rowPro.FindControl("lblEstadoOferta")).ForeColor = System.Drawing.Color.Orange;
+                        ((Label)rowPro.FindControl("state")).Text = "Pendiente";
+                        ((Label)rowPro.FindControl("state")).ForeColor = System.Drawing.Color.Orange;
 
-                        var imgEdit = rowPro.FindControl("imgEditar") as Image;
-                        var imgDelete = rowPro.FindControl("ImgBorrar") as Image;
-                        var imgRenew = rowPro.FindControl("ImgRenovar") as Image;
-                        var imgDup = rowPro.FindControl("ImgDuplicar") as Image;
-                        imgEdit.Enabled = false;
-                        imgDelete.Enabled = true;
-                        imgRenew.Enabled = true;
-                        imgDup.Enabled = true;
+                        
                     }
-                    else if (((Label)rowPro.FindControl("lblEstadoOferta")).Text == "ACT")
+                    else if (((Label)rowPro.FindControl("state")).Text == "ACT")
                     {
-                        ((Label)rowPro.FindControl("lblEstadoOferta")).Text = "Activo";
-                        ((Label)rowPro.FindControl("lblEstadoOferta")).ForeColor = System.Drawing.Color.DarkGreen;
-                        var imgEdit = rowPro.FindControl("imgEditar") as Image;
-                        var imgDelete = rowPro.FindControl("ImgBorrar") as Image;
-                        var imgRenew = rowPro.FindControl("ImgRenovar") as Image;
-                        var imgDup = rowPro.FindControl("ImgDuplicar") as Image;
-                        imgEdit.Enabled = true;
-                        imgDelete.Enabled = true;
-                        imgRenew.Enabled = false;
-                        imgDup.Enabled = true;
+                        ((Label)rowPro.FindControl("state")).Text = "Activo";
+                        ((Label)rowPro.FindControl("state")).ForeColor = System.Drawing.Color.DarkGreen;
+                        
                     }
 
                 }
