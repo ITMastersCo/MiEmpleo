@@ -96,6 +96,15 @@ namespace co.itmasters.solucion.web.Empresa
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl wallet_container;
 
         /// <summary>
+        /// Control GrdOfertas1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GrdOfertas1;
+
+        /// <summary>
         /// Control GrdOfertas.
         /// </summary>
         /// <remarks>
@@ -222,22 +231,22 @@ namespace co.itmasters.solucion.web.Empresa
         protected global::System.Web.UI.WebControls.Label lblOfferLocation;
 
         /// <summary>
-        /// Control lblOfferEdit.
+        /// Control lblOfferEditDetail.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOfferEdit;
+        protected global::System.Web.UI.WebControls.Label lblOfferEditDetail;
 
         /// <summary>
-        /// Control btnOfferEdit.
+        /// Control btnOfferEditDetail.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOfferEdit;
+        protected global::System.Web.UI.WebControls.Button btnOfferEditDetail;
 
         /// <summary>
         /// Control lblDateCrateOffer.

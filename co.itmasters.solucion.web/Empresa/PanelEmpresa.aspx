@@ -54,34 +54,7 @@
                 </asp:Label>
             </div>
 
-            <asp:GridView ID="GrdOfertas1" runat="server" CssClass="" AutoGenerateColumns="false" OnRowCommand="GrdOfertas_RowCommand">
-                <Columns>
-                    <asp:TemplateField Visible="true">
-                        <ItemTemplate>
-                            <div class="hidden">
-                                <asp:Label ID="lblidOferta" runat="server" Text='<%# Eval("idOferta") %>'></asp:Label>
-                            </div>
-                            <asp:Label Text="" runat="server" ID="lblViewDetailOffer" CssClass="card_offer space-between pointer"
-                                AssociatedControlID="btnViewDetailOffer">
-
-                                <div>
-                                    <asp:Label ID="lblnomOferta" ToolTip="nombre de la oferta" CssClass="text-item text-semibold color-gray-900" runat="server" Text='<%# Eval("tituloVacante") %>'></asp:Label>
-                                    <br />
-                                    <asp:Label ID="lblEstadoOferta" runat="server" Text='<%# Eval("estado") %>'></asp:Label>
-                                </div>
-                                <div>
-                                    <asp:Label ID="lbltotalhv" CssClass="text-item text-semibold color-gray-900" runat="server" Text='<%# Eval("totHv") %>'></asp:Label>
-                                    <br />
-                                    <asp:Label ID="lblHvVistas" CssClass="text-item text-semibold color-orange-500" runat="server" Text='<%# Eval("hvVista") %>'></asp:Label>
-                                </div>
-                            </asp:Label>
-                            <asp:Button ID="btnViewDetailOffer" Text="" CssClass="hidden" runat="server" 
-                                CommandArgument="<%# Container.DataItemIndex %>"
-                                OnCommand="btnViewDetailOffer_Command" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-            </asp:GridView>
+            
                    <asp:GridView ID="GrdOfertas" runat="server" AutoGenerateColumns="false" PageSize="9999"
            >
            <Columns>
@@ -95,7 +68,7 @@
                <asp:TemplateField>
                    <ItemTemplate>
                        <asp:Label runat="server" class="card_offer space-between pointer" AssociatedControlID="btnViewDetailOffer"
-                           Style="margin-bottom: 8px;  width: 100%; "
+                           Style="margin-bottom: 8px; "
                            >
                            <div class="flex-center-v gap-4">
                                <div class="flex-col hidden" >

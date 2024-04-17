@@ -150,15 +150,6 @@ namespace co.itmasters.solucion.web.Empresa
         protected global::System.Web.UI.WebControls.Label lbldetalleOferta;
 
         /// <summary>
-        /// Control GrdOfertas1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GrdOfertas1;
-
-        /// <summary>
         /// Control GrdOfertas.
         /// </summary>
         /// <remarks>

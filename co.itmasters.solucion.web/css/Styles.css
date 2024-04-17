@@ -267,6 +267,7 @@ svg {
     }
 
 @media screen and (max-width:800px) {
+
     .modal-dialog > div {
         width: 100vw;
         padding:56px 0;
@@ -2317,7 +2318,7 @@ svg.icon-36 {
     background: var(--white);
     position: relative;
     max-width: 484px;
-    /*width: 484px;*/
+    width: 484px;
     overflow: hidden;
 }
 
@@ -2332,6 +2333,11 @@ svg.icon-36 {
         margin: 11px 0 ;
         border-radius:1.5px;
     }
+@media screen and (max-width:600px){
+    .card_offer {
+        width: 100%;
+    }
+}
 
 .avatar-rectangle {
     position: relative;
