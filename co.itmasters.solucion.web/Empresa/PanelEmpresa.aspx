@@ -94,7 +94,7 @@
 
                <asp:TemplateField>
                    <ItemTemplate>
-                       <asp:Label runat="server" class="card_offer space-between pointer" AssociatedControlID="btnViewOfferFeatured"
+                       <asp:Label runat="server" class="card_offer space-between pointer" AssociatedControlID="btnViewDetailOffer"
                            Style="margin-bottom: 8px;  width: 100%; "
                            >
                            <div class="flex-center-v gap-4">
@@ -166,8 +166,8 @@
 
                                    </div>
                                </div>
-                               <asp:Button Text="" runat="server" ID="btnViewOfferFeatured"
-                                   CommandArgument="<%# Container.DataItemIndex %>" CommandName="GET" ToolTip="Ver" OnCommand="btnViewOfferFeatured_Command" />
+                               <asp:Button Text="" runat="server" ID="btnViewDetailOffer"
+                                   CommandArgument="<%# Container.DataItemIndex %>" CommandName="GET" ToolTip="Ver" OnCommand="btnViewDetailOffer_Command" />
                            </div>
 
 
@@ -178,7 +178,7 @@
 
                                    <asp:Label ID="lblOfferEdit" runat="server" Text="" AssociatedControlID="btnOfferEdit">
                                        <asp:Button ID="btnOfferEdit" runat="server" Text="Button" Visible="false" />
-                                       <svg class="icon-24 pointer color-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                       <svg class="icon-24 pointer color-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                                        </svg>
                                    </asp:Label>

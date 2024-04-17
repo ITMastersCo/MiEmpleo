@@ -142,7 +142,7 @@ namespace co.itmasters.solucion.web.Empresa
             {
                 Int32 index = Convert.ToInt32(e.CommandArgument) % GrdOfertas.PageSize;
                 GridViewRow row = GrdOfertas.Rows[index];
-                Int32 Id = Convert.ToInt32(((Label)row.FindControl("lblidOferta")).Text);
+                Int32 Id = Convert.ToInt32(((Label)row.FindControl("idOferta")).Text);
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba",
                     $"OpenModal('{detalleOferta.ClientID}','{openModal.ClientID}')", true);
 
