@@ -355,7 +355,7 @@
                             </div>
 
                         </div>
-                        <img runat="server"  id="imgBanner" src ="./images/ImgInicio/mujer-entrevista 1.png" class="desktop" alt="" style="height:70dvh;"/>
+                        <img runat="server"  id="imgBanner" src ="./images/ImgInicio/Home-usuario-imagen-2.webp" class="desktop" alt="" style="height:70dvh;"/>
                     </section>
 
                     <!-- Offers -->
@@ -500,10 +500,10 @@
                         <div class="wrapper benefit-content">
 
                             <div class="benefit-main">
-                                <img src="./images/ImgInicio/mujer-entrevista-3.png" class="mobile" alt="mujer-entrevista-" />
-                                <img src="./images/ImgInicio/mujer-entrevista 1.png" class="desktop" alt="" />
-                                <p class="text-normal">
-                                    En <span class="text-highlighted text-normal">Miempleo.co</span>  te ayudamos a conseguir 
+                                <%--<img src="./images/ImgInicio/mujer-entrevista-3.png" class="mobile" alt="mujer-entrevista-" />--%>
+                                <%--<img src="./images/ImgInicio/Home-usuario-beneficios.webp" class="desktop" alt="" />--%>
+                                <p class="text-item">
+                                    En <span class="text-highlighted text-item">Miempleo.co</span>  te ayudamos a conseguir 
                                            el trabajo de tus sueños, tenemos ofertas 
                                            de trabajo que mejoran tu perfil laboral 
                                            y se ajustan a tus necesidades.
@@ -543,13 +543,13 @@
                     <footer>
                         <div class="wrapper footer mobile">
 
-                            <img src="./images/ImgInicio/LOGO-2.png" alt="" />
+                            <img src="./images/ImgInicio/MiEmpleo-vertical-1.webp" alt="" />
                             <p class="text-title-section text-bold">
                                 Mi <span class="text-highlighted text-title-section">Empleo </span>
                                 tueherramienta perfecta para encontrar trabjo en poco tiempo
                             </p>
                             <a href="./Home/Login.aspx">
-                                <button class="button text-normal">Crear Hoja de vida</button></a>
+                                <p class="button text-normal">Crear Hoja de vida</p></a>
                             <span>
                                 <ul class="social">
                                     <li><a href="#">
@@ -567,12 +567,12 @@
                             <nav class="footer desktop">
 
                                 <a href="#">
-                                    <img src="./images/ImgInicio/LOGO-2.png" alt="" /></a>
+                                    <img src="./images/ImgInicio/MiEmpleo-vertical-1.webp" alt="" /></a>
                                 <ul class="menu-footer ">
                                     <li><a href="#">Inicio</a></li>
                                     <li><a href="#">Contenido de Valor</a></li>
                                     <li><a href="#">Sobre Nosotros</a></li>
-                                    <li><a href="#">Empresa/Publicar vacante gratis</a></li>
+                                    <li><a href="./InternaEmpresa.aspx">Empresa/Publicar vacante gratis</a></li>
 
                                 </ul>
                                 <ul class="menu-footer ">
@@ -591,7 +591,11 @@
                                         <li><a href="#">
                                             <img src="./images/ImgInicio/group.svg" alt="" /></a></li>
                                         <li><a href="#">
-                                            <img src="./images/ImgInicio/gmiail.svg" alt="" /></a></li>
+                                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="color-white">
+                                                <title>LinkedIn</title>
+                                                <path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+
+                                            </svg>
                                         <li><a href="#">
                                             <img src="./images/ImgInicio/whatsapp.svg" alt="" /></a></li>
                                     </ul>
@@ -900,6 +904,12 @@
 
 
         </script>
+            <style>
+        .footer{
+            width:100%;
+            margin-left:0;
+        }
+    </style>
     </form>
 </body>
 </html>

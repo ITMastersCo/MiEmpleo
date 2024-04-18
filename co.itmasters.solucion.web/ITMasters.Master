@@ -96,7 +96,7 @@
             <div class="wrapper footer mobile">
 
                 <a href="#">
-                    <img class="logo" src="../images/ImgInicio/LOGO-Empresas.png" alt=""></a>
+                    <img class="logo" src="../images/ImgInicio/MiEmpleo-vertical-1.webp" alt=""></a>
                 <p class="text-big text-semibold">
                     Mi <span class="text-highlighted text-big">Empleo </span>
                     tu herramienta perfecta para encontrar los mejores talentos
@@ -120,7 +120,7 @@
                 <nav class="footer desktop">
 
                     <a href="#">
-                        <img class="logo" src="../images/ImgInicio/LOGO-Empresas.png" alt=""></a>
+                        <img class="logo" src="../images/ImgInicio/MiEmpleo-vertical-1.webp" alt=""></a>
                     <ul class="menu-footer ">
                         <li><a href="#">Inicio</a></li>
                         <li><a href="#">Contenido de Valor</a></li>

@@ -113,7 +113,7 @@
     <footer>
         <div class="wrapper footer mobile">
 
-            <a href="#"><img class="logo" src="./images/ImgInicio/LOGO-Empresas.png" alt=""/></a>
+            <a href="#"><img class="logo" src="./images/ImgInicio/MiEmpleo-vertical-1.webp" alt=""/></a>
             <p class="text-big text-semibold">Mi <span class="text-highlighted text-big"> Empleo </span> 
                 tu herramienta perfecta para encontrar los mejores talentos</p>
                 <a href="#"><button class="button text-normal">Crear Hoja de vida</button></a>
@@ -129,7 +129,7 @@
             <div >
                 <nav class="footer desktop">
                     
-                    <a href="#"><img class="logo" src="./images/ImgInicio/LOGO-Empresas.png" alt=""/></a>
+                    <a href="#"><img class="logo" src="./images/ImgInicio/MiEmpleo-vertical-1.webp" alt=""/></a>
                     <ul class="menu-footer ">
                         <li><a href="#">Inicio</a></li>
                         <li><a href="#">Contenido de Valor</a></li>
@@ -157,5 +157,11 @@
                 </div>
     </footer>
     <script src="Scripts/Index.js"></script>
+            <style>
+    .footer{
+        width:100%;
+        margin-left:0;
+    }
+</style>
 </body>
 </html>

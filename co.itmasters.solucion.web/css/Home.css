@@ -113,10 +113,15 @@ main {
 .loginIconDesktop {
     display: none;
 }
-
-.benefit-main {
+.wrapper.benefit-content {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(1,400px);
+    
+}
+.benefit-main {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     max-width: 500px;
 }
 
@@ -135,7 +140,7 @@ main {
 }
 
 section.benefit {
-    background-image: url(../Images/ImgInicio/vector-21.png);
+    background-image: url("../Images/ImgInicio/Home-usuario-imagen 2.png");
     background-size: 150%;
     background-repeat: no-repeat;
     text-align: center;
@@ -146,13 +151,14 @@ section.benefit {
 }
 
 .benefit p {
-    width: 80%;
+    width: 60%;
     margin: auto;
+    
     max-width: 400px;
 }
 
 .benefit h2 {
-    width: 50%;
+    width: 70%;
 }
 
 .benefit-content {
@@ -290,12 +296,17 @@ section.benefit {
     }
 
     .wrapper.benefit {
-        height: 70dvh;
-        background-position: center 125%;
-        background-size: 95%;
+        height: 600px;
+        background-position: center 12%;
+        background-size: 100%;
     }
-
-    .benefit-main p {
+    .wrapper.benefit-content {
+        grid-template-columns: repeat(3,400px);
+    }
+    .benefit-main{
+        grid-column-start:3;
+    }
+        .benefit-main p {
         max-width: 400px;
     }
 

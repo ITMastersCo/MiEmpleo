@@ -242,7 +242,7 @@ body{
     position: absolute;
     padding: 2rem;
     width: 100%;
-    background-color: rgba(36, 36, 36, 0.798);
+    background-color: var(--gray-100);
     font-weight: var(--font-weight-semibold);
     left: 0;
     top: 54px;
@@ -260,15 +260,15 @@ body{
 .wrapper-menu-main li {
     width: 100%;
 }
-.wrapper-menu-main a{
-    display: flex;
-    color: var(--gray-100);
-    opacity: .7;
-    padding: .8em 0;
-    white-space: nowrap;
-    border-bottom: solid 1px var(--gray-100);
-    width: 100%;
-}
+    .wrapper-menu-main a {
+        display: flex;
+        color: var(--gray-900);
+        opacity: .7;
+        padding: .8em 0;
+        white-space: nowrap;
+        border-bottom: solid 1px var(--gray-900);
+        width: 100%;
+    }
 .wrapper-menu-main a:hover{
     opacity: 1;
 }
