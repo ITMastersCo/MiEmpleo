@@ -904,12 +904,7 @@
 
 
         </script>
-            <style>
-        .footer{
-            width:100%;
-            margin-left:0;
-        }
-    </style>
+            c
     </form>
 </body>
 </html>
