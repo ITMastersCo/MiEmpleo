@@ -29,7 +29,7 @@
             </ul>
         </nav>
         <a href="./Index.aspx" class="logo center tooltip">
-            <img src="./images/ImgInicio/LOGO-dark.png" alt="Home"/>
+            <img src="./images/ImgInicio/Logo-horizontal-dark.webp" alt="Home"/>
             <span class="tooltiptext">Inicio</span>
         </a>
 
@@ -80,13 +80,14 @@
                 </div>
             </section> 
             <section class="benefits">
-                <h2 class="text-subtitle">Beneficios de <span class="text-subtitle text-highlighted">Miempleo.co</span></h2>
+                <img src="/images/home-empresa-beneficios.webp" alt="Alternate Text" />
+                <%--<h2 class="text-subtitle">Beneficios de <span class="text-subtitle text-highlighted">Miempleo.co</span></h2>
                 <ul class="place-center">
                     <li class="item-benefit"><img src="./images/ImgInicio/benefit-empresa-1.png" alt=""/><p class="text-semibold">Publicaciónes más economicas</p></li>
-                    <li class="item-benefit"><img src="./images/ImgInicio/benefit-empresa-2.png" alt=""/><p class="text-semibold">Una preselección más fácil</p></li>
+                    <li class="item-be8nefit"><img src="./images/ImgInicio/benefit-empresa-2.png" alt=""/><p class="text-semibold">Una preselección más fácil</p></li>
                     <li class="item-benefit"><img src="./images/ImgInicio/benefit-empresa-3.png" alt=""/><p class="text-semibold">Creación de Multiusuarios</p></li>
                     <li class="item-benefit"><img src="./images/ImgInicio/benefit-empresa-4.png" alt=""/><p class="text-semibold">Programa de entrevistas directamente por zoom</p></li>
-                </ul>
+                </ul>--%>
             </section>
             <!-- About US -->
             <section class="place-center about">
@@ -112,7 +113,7 @@
     <footer>
         <div class="wrapper footer mobile">
 
-            <a href="#"><img class="logo" src="./images/ImgInicio/LOGO-Empresas.png" alt=""/></a>
+            <a href="#"><img class="logo" src="./images/ImgInicio/MiEmpleo-vertical-1.webp" alt=""/></a>
             <p class="text-big text-semibold">Mi <span class="text-highlighted text-big"> Empleo </span> 
                 tu herramienta perfecta para encontrar los mejores talentos</p>
                 <a href="#"><button class="button text-normal">Crear Hoja de vida</button></a>
@@ -128,7 +129,7 @@
             <div >
                 <nav class="footer desktop">
                     
-                    <a href="#"><img class="logo" src="./images/ImgInicio/LOGO-Empresas.png" alt=""/></a>
+                    <a href="#"><img class="logo" src="./images/ImgInicio/MiEmpleo-vertical-1.webp" alt=""/></a>
                     <ul class="menu-footer ">
                         <li><a href="#">Inicio</a></li>
                         <li><a href="#">Contenido de Valor</a></li>
@@ -156,5 +157,11 @@
                 </div>
     </footer>
     <script src="Scripts/Index.js"></script>
+            <style>
+    .footer{
+        width:100%;
+        margin-left:0;
+    }
+</style>
 </body>
 </html>

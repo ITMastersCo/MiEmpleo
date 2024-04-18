@@ -89,7 +89,7 @@ namespace co.itmasters.solucion.web.Facturacion
             
             UserControlCardPlanFacturacion ucCardPlan = (UserControlCardPlanFacturacion)LoadControl("~/Components_UI/UserControlCardPlanFacturacion.ascx");
             ucCardPlan.ID = plan.idPlan.ToString();
-            ucCardPlan.Name = $"PAQUETE {plan.nomPlan} (Paquete Actual)"; ;
+            ucCardPlan.Name = $"PAQUETE {plan.nomPlan} (Paquete Activo)"; ;
             ucCardPlan.OffersFeatured = Convert.ToBoolean(plan.ofertaDestacada);
             ucCardPlan.OffersConfidential = Convert.ToBoolean(plan.ofertaConfidencial);
             ucCardPlan.QuestionsFilter = Convert.ToBoolean(plan.preguntasDeFiltro);

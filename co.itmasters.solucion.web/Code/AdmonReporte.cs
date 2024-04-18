@@ -552,7 +552,7 @@ namespace co.itmasters.solucion.web.Code
             {
                 // check the existance of image 
                 if (!File.Exists(Context.Request.PhysicalApplicationPath + LogoPath))
-                    LogoPath = "../Images/ImgInicio/LOGO-Empresas.png";
+                    LogoPath = "../Images/ImgInicio/MiEmpleo-vertical-1.webp";
                 // open image in file stream
                 fs = new FileStream(Context.Request.PhysicalApplicationPath + LogoPath, FileMode.Open);
 

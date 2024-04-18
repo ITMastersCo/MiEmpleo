@@ -211,13 +211,13 @@
                     </div>
 
                     <div id="wrapperHidden" class="hidden">
-                        <article runat="server" id="detalleOferta" class="flex-col gap-8 hidden">
+                        <article runat="server" id="detalleOferta" class="flex-col gap-8 hidden detalleOferta">
                             <div class ="hidden">
                                 <asp:Label Text="" ID="lblIdOferta" runat="server" />
                                 <asp:Label Text="" ID="lblIdPersona" runat="server" />
                             </div>
 
-                            <div runat="server" class="flex-center-v gap-4 pointer">
+                            <div runat="server" class="flex flex-center-v gap-4 pointer">
                                 <div class="flex-col ">
                                     <div class="line">
                                     </div>
@@ -227,24 +227,24 @@
                                     </div>
                                 </div>
 
-                                <div class="flex-col gap-8">
-                                    <div class="flex-center-v gap-16">
+                                <div class="flex-col gap-8 ">
+                                    <div class="flex-center-v gap-16 lblOfferTitle">
                                         <asp:Label runat="server" ID="lblOfferTitle" class="text-item color-gray-800 text-semibold">
 
                                         </asp:Label>
                                     </div>
-                                    <div class="flex-center-v gap-16">
+                                    <div class="flex flex-center-v gap-16">
                                         <span class="flex-center-v gap-4">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon-16 color-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon-16 color-gray-700 icon-lblOfferUserWhoPublished" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                                             </svg>
 
-                                            <asp:Label runat="server" ID="lblOfferUserWhoPublished" class="text-normal text-regular color-gray-700">
+                                            <asp:Label runat="server" ID="lblOfferUserWhoPublished" class="text-normal text-regular color-gray-700 lblOfferUserWhoPublished">
                                                     
                                             </asp:Label>
                                         </span>
                                     </div>
-                                    <div class=" flex-center-v gap-16">
+                                    <div class="flex flex-center-v gap-16 details">
 
 
 
@@ -296,7 +296,8 @@
                                 </h4>
                             </div>
                             <div>
-                                <asp:Label Text="" runat="server" ID="lblDescriptioOffer" />
+                                <h1>Descripción</h1>
+                                <asp:Label Text="" runat="server" ID="lblDescriptioOffer" style="white-space:break-spaces;" />
                             </div>
                         </article>
 

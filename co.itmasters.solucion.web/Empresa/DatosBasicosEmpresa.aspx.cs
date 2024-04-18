@@ -87,6 +87,7 @@ namespace co.itmasters.solucion.web.Empresa
                 else
                 {
                     CmbSectorEc.SelectedValue = _resultado.idSectorEconomico.ToString();
+                    txtSectorEc.Text = CmbSectorEc.SelectedItem.ToString();
                     this.CmbSectorEc_SelectedIndexChanged(null,null);
                 }
                 //VALIDAMOS ACTIVIDAD ECONÓMICA DE TIPO INT
@@ -97,6 +98,7 @@ namespace co.itmasters.solucion.web.Empresa
                 else
                 {
                     CmbActEco.SelectedValue = _resultado.idActividadEconomica.ToString();
+                     txtActEco.Text = CmbActEco.SelectedItem.ToString();
                 }
                 //VALIDAMOS TIPO DOC REPRESENTANTE LEGAL DE TIPO INT
                 if (_resultado.idTipoIdeRepLegal == null)
@@ -472,6 +474,7 @@ namespace co.itmasters.solucion.web.Empresa
             {
                 //_carga.Cargar(cmbMunicipio, TipoCombo.CMBPROVINCIA, (cmbDepartamento.SelectedValue));
                 _carga.Cargar(CmbActEco, TipoCombo.CMBACTIVIDADECONOMICA, (CmbSectorEc.SelectedValue));
+                txtActEco.Text = CmbActEco.SelectedItem.ToString();
             }
             else
             {

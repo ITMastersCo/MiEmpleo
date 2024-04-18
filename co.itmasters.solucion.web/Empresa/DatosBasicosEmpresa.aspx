@@ -134,26 +134,70 @@
                     />
                 </div>
             </div>
-            
-            <div class="flex flex-col" >
+
+            <div class="flex flex-col relative" >
                 <asp:Label ID="LblSectoEco" runat="server" Text="Sector económico" CssClass="text-bold text-w text-left items-center" Style="width: 30%;">
                     <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="CmbSectorEc"
                         ErrorMessage="Seleccione el sector económico a la  que pertenece la empresa."
                         ForeColor="#CC0000" CssClass="text" MaximumValue="10000000"
                         MinimumValue="0" Type="Integer" ValidationGroup="DatosG">*</asp:RangeValidator></asp:Label>
-                <asp:DropDownList ID="CmbSectorEc"
-                    ToolTip="Seleccione el sector económico a la  que pertenece la empresa" runat="server" CssClass="drop-down-list option-small"
-                    OnSelectedIndexChanged="CmbSectorEc_SelectedIndexChanged" AutoPostBack="true" Style="grid-column: span 2 / span 2;">
+                <div class="relative">
+                    <span class="absolute w-100per h-100per flex ponter" style="z-index: 10;"
+                        onclick="showOptions(event)"
+                        ></span>
+
+                    <asp:TextBox
+                        runat="server"
+                        type="text"
+                        ID="txtSectorEc"
+                        CssClass="text-box"
+                        placeholder="Selccione un elemento"
+                        Enabled="false"
+                        oninput="showOptions(event)"
+                        Style="z-index: 9; max-width:100%;">
+                    </asp:TextBox>
+                </div>
+
+                <asp:DropDownList ID="CmbSectorEc" size="4"
+                    CssClass="drop-down-list option-small list-autofill" 
+                    ToolTip="Seleccione el sector económico a la  que pertenece la empresa" runat="server"
+                    onmouseleave="hiddenOptions(event)"
+                    onchange="setOption(event)"
+                    Style="grid-column: span 2 / span 2; display:none;"
+                    OnSelectedIndexChanged="CmbSectorEc_SelectedIndexChanged"
+                    AutoPostBack="true"
+                    >
                 </asp:DropDownList>
             </div>
-                <div class="flex flex-col">
-
+            <div class="flex flex-col relative" >
                 <asp:Label ID="LblActEco" runat="server" Text="Actividad económica" CssClass="text-bold text-left items-center" style ="width:30%;">
                     <asp:RangeValidator ID="RangeValidator2" runat="server" ControlToValidate="CmbActEco" ErrorMessage="Seleccione la actividad principal en la  que pertenece la empresa." ForeColor="#CC0000" CssClass="text" MaximumValue="10000000" MinimumValue="0" Type="Integer" ValidationGroup="DatosG">*</asp:RangeValidator></asp:Label>
-                <asp:DropDownList ID="CmbActEco"
-                    runat="server" 
-                    ToolTip="Seleccione la actividad principal en la  que pertenece la empresa" 
-                    CssClass="drop-down-list option-small"  style="grid-column: span 2 / span 2;"></asp:DropDownList>
+                <div class="relative">
+                    <span class="absolute w-100per h-100per flex ponter" style="z-index: 10;"
+                        onclick="showOptions(event)"
+                        ></span>
+
+                    <asp:TextBox
+                        runat="server"
+                        id="txtActEco"
+                        type="text"
+                        CssClass="text-box"
+                        placeholder="Selccione un elemento"
+                        Enabled="false"
+                        oninput="showOptions(event)"
+                        Style="z-index: 9; max-width:100%;">
+                    </asp:TextBox>
+                </div>
+
+                <asp:DropDownList ID="CmbActEco" size="4"
+                    CssClass="drop-down-list option-small list-autofill" 
+                    ToolTip="Seleccione la actividad principal en la  que pertenece la empresa" runat="server"
+                    onmouseleave="hiddenOptions(event)"
+                    onchange="setOption(event)"
+                    Style="grid-column: span 2 / span 2; display:none;"
+                    
+                    >
+                </asp:DropDownList>
             </div>
 
             <div class="grid-auto-cols">
@@ -306,6 +350,22 @@
 
             htmlSpan.innerText = file?.name
             inputValidate.value = "Archivo Seleccionado"
+        }
+        function showOptions(event) {
+            const parent = event.target.parentNode.parentNode
+            const select = parent.querySelector("select")
+            select.style.display = 'block';
+        }
+        function hiddenOptions(e) {
+            const select = e.target
+            select.style.display = 'none';
+        }
+        function setOption(event) {
+            const select =  event.currentTarget
+            const parent = event.target.parentNode
+            const input = parent.querySelector('input')
+            input.value = select.options[select.selectedIndex].text;
+            hiddenOptions(event)
         }
     </script>
 </asp:Content>

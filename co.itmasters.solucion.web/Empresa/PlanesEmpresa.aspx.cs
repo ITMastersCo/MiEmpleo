@@ -147,13 +147,22 @@ namespace co.itmasters.solucion.web.Empresa
                 {
                     Master.mostrarMensaje(err.Message, Master.ERROR);
                 }
+                    Response.Redirect("~/Empresa/PublicarOfertas.aspx");
             }
-            Response.Redirect("~/Empresa/PublicarOfertas.aspx");
+            else 
+            {
+                Master.mostrarMensaje("Ya has consumido todas la ofertas gratis, compra un plan y sigue publicando ofertas.", Master.INFORMACION);
+            }
         }
 
         protected void btnComparativo_Click(object sender, EventArgs e)
         {
-            imgComparativo.Visible = true;
+            divComparativo.Visible = true;
+        }
+
+        protected void btnCerrarComparativo_Click(object sender, EventArgs e)
+        {
+            divComparativo.Visible=false;
         }
     }
 }

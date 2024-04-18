@@ -3,18 +3,20 @@
 @import url("Empresa.css");
 
 .MasterBanner {
-  height: 100dvh;
-  padding-top: 54px;
-  background-image:linear-gradient(0deg, #eaeaea00 31.02%, #010101de 106.34%),url("../images/brooke-cagle-WHWYBmtn3_0-unsplash.jpg");
-  background-size: cover, cover;
-  background-position: center;
-  mix-blend-mode: darken;
-  
+    height: 80dvh;
+    margin-top: 54px;
+    background-image: url("../images/Home-empresa-publicar-oferta.jpg");
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: center;
+    mix-blend-mode: darken;
 }
 
 .MasterBannerContent {
   max-width: 80%;
-  justify-content: space-around;
+  padding-bottom:5rem;
+  gap:2rem;
+  justify-content: flex-end;
   color: var(--gray-100);
 }
 .logo{
@@ -25,11 +27,11 @@
   width: 24px;
 }
 .benefits{
-  background-image:linear-gradient(0deg, #0000006f 31.02%, #3a3a3a40 106.34%),url("../images/background-benefit.jpg") ;
+  
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left center;
-  padding: 5rem;
+  
   
   display: flex;
   width: 100%;
@@ -151,7 +153,7 @@
     font-size: var(--font-size-section);
   }
   .benefits{
-    height: 70dvh;
+    /*height: 70dvh;*/
   }
   .comunnity{
     height: 70dvh;

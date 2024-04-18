@@ -141,65 +141,34 @@ namespace co.itmasters.solucion.web.Empresa
                 for (int j = 0; j < GrdOfertas.Rows.Count; j++)
                 {
                     GridViewRow rowPro = GrdOfertas.Rows[j];
-                    ((Label)rowPro.FindControl("lbltotalhv")).ToolTip = "Total hojas de vida aplicadas.";
-                    ((Label)rowPro.FindControl("lblHvVistas")).ToolTip = "Total hojas de vida vistas por la empresa.";
-                    ((Label)rowPro.FindControl("lblHvVistas")).Text = Convert.ToString(((Label)rowPro.FindControl("lblHvVistas")).Text) + "<br/>No leidos";
-                    if (((Label)rowPro.FindControl("lblEstadoOferta")).Text == "PEN")
+                    ((Label)rowPro.FindControl("offerAppications")).ToolTip = "Total hojas de vida aplicadas.";
+                    ((Label)rowPro.FindControl("offerViews")).ToolTip = "Total hojas de vida vistas por la empresa.";
+                    if (((Label)rowPro.FindControl("state")).Text == "PEN")
                     {
-                        ((Label)rowPro.FindControl("lblEstadoOferta")).Text = "Pendiente";
-                        ((Label)rowPro.FindControl("lblEstadoOferta")).ForeColor = System.Drawing.Color.Orange;
-                        var imgEdit = rowPro.FindControl("imgEditar") as Image;
-                        var imgDelete = rowPro.FindControl("ImgBorrar") as Image;
-                        var imgRenew = rowPro.FindControl("ImgRenovar") as Image;
-                        var imgDup = rowPro.FindControl("ImgDuplicar") as Image;
-                        imgEdit.Enabled = false;
-                        imgEdit.ToolTip = "No Disponible";
-                        imgDelete.Enabled = true;
-                        imgRenew.Enabled = false;
-                        imgDup.Enabled = false;
+                        ((Label)rowPro.FindControl("state")).Text = "Pendiente";
+                        ((Label)rowPro.FindControl("state")).ForeColor = System.Drawing.Color.Orange;
+                        ((Label)rowPro.FindControl("lblOfferDuplicate")).Visible = false;
+                        ((Label)rowPro.FindControl("lblOfferEdit")).Visible = false;
+                    }
+                    else if (((Label)rowPro.FindControl("state")).Text == "VEN")
+                    {
+                        ((Label)rowPro.FindControl("state")).Text = "Vencida";
+                        ((Label)rowPro.FindControl("state")).ForeColor = System.Drawing.Color.Red;
+                        ((Label)rowPro.FindControl("lblOfferEdit")).Visible=false;
 
                     }
-                    else if (((Label)rowPro.FindControl("lblEstadoOferta")).Text == "VEN")
+                    else if (((Label)rowPro.FindControl("state")).Text == "RCH")
                     {
-                        ((Label)rowPro.FindControl("lblEstadoOferta")).Text = "Vencida";
-                        ((Label)rowPro.FindControl("lblEstadoOferta")).ForeColor = System.Drawing.Color.Red;
-                        var imgEdit = rowPro.FindControl("imgEditar") as Image;
-                        var imgDelete = rowPro.FindControl("ImgBorrar") as Image;
-                        var imgRenew = rowPro.FindControl("ImgRenovar") as Image;
-                        var imgDup = rowPro.FindControl("ImgDuplicar") as Image;
+                        ((Label)rowPro.FindControl("state")).Text = "Rechazada, puede modificar";
+                        ((Label)rowPro.FindControl("state")).ForeColor = System.Drawing.Color.Red;
 
-                        imgEdit.Enabled = false;
-                        imgDelete.Enabled = true;
-                        imgRenew.Enabled = true;
-                        imgDup.Enabled = true;
-                    }
-                    else if (((Label)rowPro.FindControl("lblEstadoOferta")).Text == "RCH")
-                    {
-                        ((Label)rowPro.FindControl("lblEstadoOferta")).Text = "Rechazada, puede modificar";
-                        ((Label)rowPro.FindControl("lblEstadoOferta")).ForeColor = System.Drawing.Color.Red;
 
-                        var imgEdit = rowPro.FindControl("imgEditar") as Image;
-                        var imgDelete = rowPro.FindControl("ImgBorrar") as Image;
-                        var imgRenew = rowPro.FindControl("ImgRenovar") as Image;
-                        var imgDup = rowPro.FindControl("ImgDuplicar") as Image;
-                        imgEdit.Enabled = true;
-                        imgEdit.ToolTip = "EditarOferta";
-                        imgDelete.Enabled = true;
-                        imgRenew.Enabled = false;
-                        imgDup.Enabled = false;
                     }
-                    else if (((Label)rowPro.FindControl("lblEstadoOferta")).Text == "ACT")
+                    else if (((Label)rowPro.FindControl("state")).Text == "ACT")
                     {
-                        ((Label)rowPro.FindControl("lblEstadoOferta")).Text = "Activo";
-                        ((Label)rowPro.FindControl("lblEstadoOferta")).ForeColor = System.Drawing.Color.DarkGreen;
-                        var imgEdit = rowPro.FindControl("imgEditar") as Image;
-                        var imgDelete = rowPro.FindControl("ImgBorrar") as Image;
-                        var imgRenew = rowPro.FindControl("ImgRenovar") as Image;
-                        var imgDup = rowPro.FindControl("ImgDuplicar") as Image;
-                        imgEdit.Enabled = true;
-                        imgDelete.Enabled = true;
-                        imgRenew.Enabled = false;
-                        imgDup.Enabled = true;
+                        ((Label)rowPro.FindControl("state")).Text = "Activo";
+                        ((Label)rowPro.FindControl("state")).ForeColor = System.Drawing.Color.DarkGreen;
+ 
                     }
 
                 }
@@ -237,22 +206,22 @@ namespace co.itmasters.solucion.web.Empresa
             GridViewRow row = GrdOfertas.Rows[index];
             if (e.CommandName == "Editar")
             {
-                Response.Redirect("../Empresa/PublicarOfertas.aspx?idOferta=" + Convert.ToString(((Label)row.FindControl("lblidOferta")).Text) + "&estado=Editar");
+                Response.Redirect("../Empresa/PublicarOfertas.aspx?idOferta=" + Convert.ToString(((Label)row.FindControl("idOferta")).Text) + "&estado=Editar");
 
             }
             if (e.CommandName == "Eliminar")
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba",
                $"OpenModal('{ModalBorrarOferta.ClientID}','{openModal.ClientID}')", true);
-                lblIdOfertaDelete.Text = Convert.ToString(((Label)row.FindControl("lblidOferta")).Text);
+                lblIdOfertaDelete.Text = Convert.ToString(((Label)row.FindControl("idOferta")).Text);
             }
             if (e.CommandName == "Renovar")
             {
-                Response.Redirect("../Empresa/PublicarOfertas.aspx?idOferta=" + Convert.ToString(((Label)row.FindControl("lblidOferta")).Text) + "&estado=Renovar");
+                Response.Redirect("../Empresa/PublicarOfertas.aspx?idOferta=" + Convert.ToString(((Label)row.FindControl("idOferta")).Text) + "&estado=Renovar");
             }
             if (e.CommandName == "Duplicar")
             {
-                Response.Redirect("../Empresa/PublicarOfertas.aspx?idOferta=" + Convert.ToString(((Label)row.FindControl("lblidOferta")).Text) + "&estado=Duplicar");
+                Response.Redirect("../Empresa/PublicarOfertas.aspx?idOferta=" + Convert.ToString(((Label)row.FindControl("idOferta")).Text) + "&estado=Duplicar");
             }
 
         }
@@ -304,7 +273,7 @@ namespace co.itmasters.solucion.web.Empresa
         {
             Int32 index = Convert.ToInt32(e.CommandArgument) % GrdOfertas.PageSize;
             GridViewRow row = GrdOfertas.Rows[index];
-            Int32 Id = Convert.ToInt32(((Label)row.FindControl("lblidOferta")).Text);
+            Int32 Id = Convert.ToInt32(((Label)row.FindControl("idOferta")).Text);
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba",
                 $"OpenModal('{detalleOferta.ClientID}','{openModal.ClientID}')", true);
 

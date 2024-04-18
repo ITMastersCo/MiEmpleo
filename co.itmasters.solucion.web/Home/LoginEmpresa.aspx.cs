@@ -6,7 +6,6 @@ using System.Web.UI.WebControls;
 using co.itmasters.solucion.vo;
 using co.itmasters.solucion.web.Code;
 using co.itmasters.solucion.web.EmpresaService;
-using co.itmasters.solucion.web.Reportes.GestionGeneral;
 using co.itmasters.solucion.web.SeguridadService;
 namespace co.itmasters.solucion.web.Home
 {

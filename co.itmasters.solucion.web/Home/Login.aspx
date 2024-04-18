@@ -19,7 +19,7 @@
    <div class="wrapper-sesion">
     <header class="headerSesion">
         <a href="../index.aspx">
-            <img src="../images/ImgInicio/LOGO.png" width="280px" alt="Inicio">
+            <img src="../images/ImgInicio/Logo-horizontal.webp" width="280px" alt="Inicio">
         </a>
     </header>
 
@@ -78,7 +78,7 @@
         </form>
     </main>
     <aside class="info">
-        <img src="../images/ImgInicio/mujer-entrevista 1.png" alt=""/>
+        <img src="../images/Usuario-inicio-de-sesion.webp" alt="" />
     </aside>
 </div>
 <script type="text/javascript">

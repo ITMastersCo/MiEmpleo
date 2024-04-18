@@ -211,6 +211,8 @@ namespace co.itmasters.solucion.web
                 GridViewRow row = grdOfertasDestacadas.Rows[index];
                 Int32 Id = Convert.ToInt32(((Label)row.FindControl("idOferta")).Text);
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Prueba", $"OpenModal('{detalleOferta.ClientID}','{openModal.ClientID}')", true);
+                try
+                {
 
                 OfertaVO oferta = new OfertaVO();
                 oferta.idOferta = Convert.ToInt32(Id);
@@ -227,6 +229,10 @@ namespace co.itmasters.solucion.web
                 lblOfferUserWhoPublished.Text = viewOferta.nomEmpresa;
                 lblOfferLocation.Text = viewOferta.nomCiudad;
                 lblDescriptioOffer.Text = viewOferta.descripcionVacante;
+                }catch(Exception err)
+                {
+                    Master.mostrarMensaje(err.Message, Master.ERROR);
+                }
 
             }
 
