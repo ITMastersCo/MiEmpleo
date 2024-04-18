@@ -114,7 +114,7 @@
                             </ul>
                         </nav>
                         <a href="#" class="logo center">
-                            <img src="./images/ImgInicio/LOGO.png" alt="" />
+                            <img src="./images/ImgInicio/Logo-horizontal.webp" alt="" />
                         </a>
 
                         <a href="./InternaEmpresa.aspx" class="tech text-bold center">Empresa / Publicar oferta gratis

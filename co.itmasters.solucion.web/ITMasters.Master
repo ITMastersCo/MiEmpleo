@@ -32,10 +32,8 @@
             </div>
             <div class="flex flex-center gap-16">
 
-                <img src="../images/ImgInicio/LOGO.png" class="logo" id="imgMaster" runat="server" alt="Logo MiEmpleo" />
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon-24 color-green-400" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
-                </svg>
+                <img src="../images/ImgInicio/Logo-horizontal.webp" class="logo" id="imgMaster" runat="server" alt="Logo MiEmpleo" />
+           
             </div>
             <div class="flex-center gap-16">
                 <div class="info-header">

@@ -29,7 +29,7 @@
             </ul>
         </nav>
         <a href="./Index.aspx" class="logo center tooltip">
-            <img src="./images/ImgInicio/LOGO-dark.png" alt="Home"/>
+            <img src="./images/ImgInicio/Logo-horizontal-dark.webp" alt="Home"/>
             <span class="tooltiptext">Inicio</span>
         </a>
 

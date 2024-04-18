@@ -17,7 +17,7 @@
     <div class="wrapper-sesion">
         <header class="headerSesion">
             <a href="../index.aspx">
-                <img src="../images/ImgInicio/LOGO.png" alt="Inicio">
+                <img src="../images/ImgInicio/Logo-horizontal.webp" alt="Inicio">
             </a>
         </header>
 

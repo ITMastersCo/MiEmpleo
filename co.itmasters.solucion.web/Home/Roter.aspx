@@ -13,7 +13,7 @@
 </head>
 <body>
     <main class="place-center">
-        <a href="../index.aspx"><img src="../Images/imgInicio/LOGO.png" alt=""/></a>
+        <a href="../index.aspx"><img src="../Images/ImgInicio/Logo-horizontal.webp" alt=""/></a>
         <div class="place-center">
 
             <h1 class="title">

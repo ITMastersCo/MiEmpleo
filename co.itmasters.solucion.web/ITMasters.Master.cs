@@ -47,13 +47,13 @@ namespace co.itmasters.solucion.web
 
                 if (user.tipoUsuario == 1 || user.tipoUsuario == 3)
                 {
-                    imgMaster.Src = "~/images/ImgInicio/LOGO-dark.png";
+                    imgMaster.Src = "~/images/ImgInicio/Logo-horizontal-dark.webp";
                     lblHeader.Text = "Publicar oferta";
                     
                 }
                 else
                 {
-                    imgMaster.Src = "~/images/ImgInicio/LOGO.png";
+                    imgMaster.Src = "~/images/ImgInicio/Logo-horizontal.webp";
                     lblHeader.Text = "Imprimir hoja de vida";
                 }
 

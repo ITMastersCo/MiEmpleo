@@ -29,7 +29,7 @@
 
         <header class="headerSesion">
             <a href="../index.aspx">
-                <img src="../images/ImgInicio/LOGO-dark.png" width="280px" alt="Inicio" />
+                <img src="../images/ImgInicio/Logo-horizontal-dark.webp" width="280px" alt="Inicio" />
             </a>
             
         </header>
