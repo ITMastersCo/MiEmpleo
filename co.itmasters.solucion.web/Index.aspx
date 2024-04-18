@@ -548,7 +548,7 @@
                                 Mi <span class="text-highlighted text-title-section">Empleo </span>
                                 tueherramienta perfecta para encontrar trabjo en poco tiempo
                             </p>
-                            <a href="#">
+                            <a href="./Home/Login.aspx">
                                 <button class="button text-normal">Crear Hoja de vida</button></a>
                             <span>
                                 <ul class="social">
