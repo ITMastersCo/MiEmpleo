@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "co.itmasters.solucion.vo", "co.itmasters.solucion.vo\co.itmasters.solucion.vo.csproj", "{7FDE8F90-790F-4549-8E36-82F157151C06}"
 EndProject
@@ -12,9 +12,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "co.itmasters.solucion.servicios", "co.itmasters.solucion.servicios\co.itmasters.solucion.servicios.csproj", "{E66926FF-5B0B-44E4-A38F-E1F793A2C93F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "co.itmasters.solucion.web", "co.itmasters.solucion.web\co.itmasters.solucion.web.csproj", "{49A516B0-4936-4735-B563-6159A9991AD8}"
-	ProjectSection(ProjectDependencies) = postProject
-		{E66926FF-5B0B-44E4-A38F-E1F793A2C93F} = {E66926FF-5B0B-44E4-A38F-E1F793A2C93F}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
