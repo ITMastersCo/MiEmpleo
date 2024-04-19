@@ -121,15 +121,16 @@ main {
 .benefit-main {
     display: flex;
     flex-direction: column;
+    align-items:center;
     gap: 16px;
     max-width: 500px;
 }
 
-    .benefit-main img {
-        transform: rotate3d(0, 1, 0, 180deg);
-        grid-row-start: 1;
-        grid-row-end: 3;
-    }
+ .benefit-main img {
+   display:block;
+   width:200px;
+
+ }
 
 .benefit button {
     grid-column-start: 2;
@@ -140,8 +141,8 @@ main {
 }
 
 section.benefit {
-    background-image: url("../Images/ImgInicio/Home-usuario-imagen2.png");
-    background-size: 150%;
+    background-image: url("../Images/ImgInicio/2-fondo-beneficios.jpg");
+    background-size:  cover;
     background-repeat: no-repeat;
     text-align: center;
     overflow: hidden;
@@ -243,11 +244,43 @@ section.benefit {
     }
 
     .benefit-main img {
-        display: block;
+        display: none;
+    }
+    section.benefit {
+        background-image: url("../Images/ImgInicio/Home-usuario-imagen2.png");
     }
 
     .benefit-main p {
         max-width: 280px;
+    }
+    .wrapper.benefit {
+        height: 600px;
+        background-position: center 12%;
+        background-size: 100%;
+    }
+
+    .wrapper.benefit-content {
+        grid-template-columns: repeat(1,400px);
+    }
+   
+    .benefit-main {
+        grid-column-start: 3;
+    }
+
+        .benefit-main p {
+            max-width: 400px;
+        }
+
+    .benefit img.mobile {
+        display: none;
+    }
+
+    .benefit img.desktop {
+        display: block;
+    }
+
+    .benefit-main {
+        max-width: 100%;
     }
 
     .wrapper-offers {
@@ -265,7 +298,7 @@ section.benefit {
     .wrapper.offers {
         width: 80%;
     }
-
+   
     .banner {
         height: 90dvh;
         background-position: center 125%;
@@ -278,7 +311,7 @@ section.benefit {
         .banner #imgBanner.desktop {
             display: block;
         }
-
+        
     .info-banner {
         justify-content: center;
     }
@@ -286,7 +319,9 @@ section.benefit {
     .banner .form {
         flex-direction: row;
     }
-
+    .wrapper.benefit {
+        height:800px;
+    }
     .offer-item {
         max-width: 600px;
     }
@@ -294,34 +329,9 @@ section.benefit {
     .offer-content {
         gap: 2rem;
     }
-
-    .wrapper.benefit {
-        height: 600px;
-        background-position: center 12%;
-        background-size: 100%;
-    }
     .wrapper.benefit-content {
-        grid-template-columns: repeat(3,400px);
+        grid-template-columns: repeat(1,400px);
     }
-    .benefit-main{
-        grid-column-start:3;
-    }
-        .benefit-main p {
-        max-width: 400px;
-    }
-
-    .benefit img.mobile {
-        display: none;
-    }
-
-    .benefit img.desktop {
-        display: block;
-    }
-
-    .benefit-main {
-        max-width: 100%;
-    }
-
     .footer.mobile {
         display: none;
     }

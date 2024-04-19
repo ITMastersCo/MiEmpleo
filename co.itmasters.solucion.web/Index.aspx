@@ -500,8 +500,7 @@
                         <div class="wrapper benefit-content">
 
                             <div class="benefit-main">
-                                <%--<img src="./images/ImgInicio/mujer-entrevista-3.png" class="mobile" alt="mujer-entrevista-" />--%>
-                                <%--<img src="./images/ImgInicio/Home-usuario-beneficios.webp" class="desktop" alt="" />--%>
+                                <img src="./images/ImgInicio/chica-circulo.png"  alt="mujer-entrevista" />
                                 <p class="text-item">
                                     En <span class="text-highlighted text-item">Miempleo.co</span>  te ayudamos a conseguir 
                                            el trabajo de tus sueños, tenemos ofertas 
