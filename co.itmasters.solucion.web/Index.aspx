@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link href="~/Images/imgInicio/MiEmpleo.ico" type="image/x-icon" rel="shortcut icon" />
+    <link href="css/slider.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/home.css" />
     <style type="text/css" >
         .modalDialog {
@@ -500,8 +501,7 @@
                         <div class="wrapper benefit-content">
 
                             <div class="benefit-main">
-                                <%--<img src="./images/ImgInicio/mujer-entrevista-3.png" class="mobile" alt="mujer-entrevista-" />--%>
-                                <%--<img src="./images/ImgInicio/Home-usuario-beneficios.webp" class="desktop" alt="" />--%>
+                                <img src="./images/ImgInicio/chica-circulo.png"  alt="mujer-entrevista" />
                                 <p class="text-item">
                                     En <span class="text-highlighted text-item">Miempleo.co</span>  te ayudamos a conseguir 
                                            el trabajo de tus sueños, tenemos ofertas 
@@ -521,20 +521,98 @@
                     <!-- Customers -->
                     <section class="customers wrapper">
                         <h2 class="text-subtitle"><span class="text-subtitle text-highlighted">Nuestros</span> Clientes</h2>
-                        <div class="slider">
-                            <span>
-                                <img class="arrowLeft" src="./images/ImgInicio/flecha-candidato.svg" alt="" /></span>
-                            <div class="carousel">
-                                <article class="customers-content">
-                                    <img src="./images/ImgInicio/userComment.png" alt="" />
-                                    <h3 class="text-highlighted text-title-section">Diego Ramirez</h3>
-                                    <p class="text-normal">Gracias a ellos consegi un empleo en lo que me fguata y puedo tener un trabajo remunerado</p>
-                                    <img src="./images/ImgInicio/Calificacion.png" alt="" />
-                                </article>
-                            </div>
-                            <span>
-                                <img class="arrowRight" src="./images/ImgInicio/flecha-candidato.svg" alt="" /></span>
-                        </div>
+                        <div class="wrapper-slider" id="wrapper-slider">
+          <i id="left" >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3 h-3 color-gray-700">
+                <path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+            </svg>
+
+          </i>
+          <div class="carousel" id="carousel">
+            <a href="" class="item-slider">
+              <div class="info-jobs">
+                <h3>Cliente</h3>
+                <p>Descripcion breve del clienteb</p>
+              </div>
+              <img
+                src="Images/ImgInicio/Avatar-Default.jpg"
+                alt="Usuario"
+                draggable="false"
+              />
+            </a>
+            <a href="" class="item-slider">
+              <div class="info-jobs">
+                <h3>Cliente</h3>
+                <p>Descripcion breve del clienteb</p>
+              </div>
+              <img
+                src="Images/ImgInicio/Avatar-Default.jpg"
+                alt="Usuario"
+                draggable="false"
+              />
+            </a>
+            <a href="" class="item-slider">
+              <div class="info-jobs">
+                <h3>Cliente</h3>
+                <p>Descripcion breve del clienteb</p>
+              </div>
+              <img
+                src="Images/ImgInicio/Avatar-Default.jpg"
+                alt="Usuario"
+                draggable="false"
+              />
+            </a>
+            <a href="" class="item-slider">
+              <div class="info-jobs">
+                <h3>Cliente</h3>
+                <p>Descripcion breve del clienteb</p>
+              </div>
+              <img
+                src="Images/ImgInicio/Avatar-Default.jpg"
+                alt="Usuario"
+                draggable="false"
+              />
+            </a>
+            <a href="" class="item-slider">
+              <div class="info-jobs">
+                <h3>Cliente</h3>
+                <p>Descripcion breve del clienteb</p>
+              </div>
+              <img
+                src="Images/ImgInicio/Avatar-Default.jpg"
+                alt="Usuario"
+                draggable="false"
+              />
+            </a>
+            <a href="" class="item-slider">
+              <div class="info-jobs">
+                <h3>Cliente</h3>
+                <p>Descripcion breve del clienteb</p>
+              </div>
+              <img
+                src="Images/ImgInicio/Avatar-Default.jpg"
+                alt="Usuario"
+                draggable="false"
+              />
+            </a>
+            <a href="" class="item-slider">
+              <div class="info-jobs">
+                <h3>Cliente</h3>
+                <p>Descripcion breve del clienteb</p>
+              </div>
+              <img
+                src="Images/ImgInicio/Avatar-Default.jpg"
+                alt="Usuario"
+                draggable="false"
+              />
+            </a>
+          </div>
+          <i id="right" >
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3 h-3 color-gray-700">
+            <path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+        </svg>
+          </i>
+        </div>
                     </section>
 
                     <%--</main>--%>
@@ -552,12 +630,20 @@
                                 <p class="button text-normal">Crear Hoja de vida</p></a>
                             <span>
                                 <ul class="social">
-                                    <li><a href="#">
+                                    <li><a href="https://www.facebook.com/miempleo.co" target="_blank">
                                         <img src="./images/ImgInicio/facebook.svg" alt="" /></a></li>
-                                    <li><a href="#">
+                                    <li><a href="https://www.instagram.com/miempleo.co/" target="_blank">
                                         <img src="./images/ImgInicio/group.svg" alt="" /></a></li>
-                                    <li><a href="#">
-                                        <img src="./images/ImgInicio/gmiail.svg" alt="" /></a></li>
+                                    <li><a href="https://www.instagram.com/miempleo.co/" target="_blank">
+                                         <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"  class="color-white">
+                                            <title>LinkedIn</title>
+                                            <path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+
+                                        </svg>
+
+                                        </a>
+
+                                    </li>
                                     <li><a href="#">
                                         <img src="./images/ImgInicio/whatsapp.svg" alt="" /></a></li>
                                 </ul>
@@ -582,15 +668,15 @@
                                     <li><a href="#">PQRF</a></li>
 
                                 </ul>
-                                <span class="footer-social">
-                                    <a href="#">
-                                        <button class="button text-normal">¡Siguenos!</button></a>
+                                <span class="footer-social flex flex-col gap-16">
+                                    <span class="text-normal p-16 ">¡Siguenos!</span>
+                                        
                                     <ul class="social">
-                                        <li><a href="#">
+                                        <li><a href="https://www.facebook.com/miempleo.co" target="_blank">
                                             <img src="./images/ImgInicio/facebook.svg" alt="" /></a></li>
-                                        <li><a href="#">
+                                        <li><a href="https://www.instagram.com/miempleo.co/" target="_blank">
                                             <img src="./images/ImgInicio/group.svg" alt="" /></a></li>
-                                        <li><a href="#">
+                                        <li><a href="https://www.linkedin.com/company/miempleo-co/" target="_blank">
                                             <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="color-white">
                                                 <title>LinkedIn</title>
                                                 <path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -904,7 +990,13 @@
 
 
         </script>
-            c
+        <script type="module" src="Scripts/slider.js"></script>
+                       <style>
+    .footer{
+        width:100%;
+        margin-left:0;
+    }
+</style>
     </form>
 </body>
 </html>

@@ -1,0 +1,138 @@
+
+
+.wrapper-jobs {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 7% auto;
+}
+
+    .wrapper-jobs a {
+        cursor: pointer;
+    }
+
+    .wrapper-jobs > .title {
+        color: var(--blue-black);
+        font-family: var(--font-family);
+        margin-bottom: 7%;
+    }
+
+.wrapper-slider {
+    max-width: 80%;
+    position: relative;
+}
+
+    .wrapper-slider i {
+        top: 50%;
+        cursor: pointer;
+        position: absolute;
+        height: 46px;
+        width: 46px;
+        font-size: 1.2rem;
+        background: var(--gray-200);
+        text-align: center;
+        line-height: 46px;
+        border-radius: 50%;
+        border: solid 1px var(--blue-black);
+        transform: translateY(-50%);
+        z-index: 20;
+    }
+
+        .wrapper-slider i:first-child,
+        .wrapper-servicios i:first-child {
+            top:45%;
+            left: -23px;
+            transform:rotate(180deg);
+        }
+
+        .wrapper-slider i:last-child,
+        .wrapper-servicios i:last-child {
+            right: -23px;
+        }
+
+    .wrapper-slider .carousel {
+        overflow: hidden;
+        display: grid;
+        grid-auto-columns: calc(100% / 4 - 12px);
+        grid-template-rows: 220px;
+        gap: 14px;
+        padding: 5% 1px;
+        scroll-behavior: smooth;
+        transition: scroll 2s;
+    }
+
+.carousel.dragging {
+    cursor: grab;
+    scroll-behavior: auto;
+}
+
+    .carousel.dragging a {
+        pointer-events: none;
+    }
+
+.carousel .item-slider {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    position: relative;
+    border-radius: 0.5em;
+    box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.671);
+}
+
+    .carousel .item-slider > img {
+        object-fit: cover;
+    }
+
+    .carousel .item-slider:first-child {
+        margin-left: 0;
+    }
+
+@media screen and (max-width: 1200px) {
+    .wrapper-slider .carousel {
+        grid-auto-columns: calc(100% / 3 - 12px);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .wrapper-slider .carousel {
+        grid-auto-columns: calc(100% / 2 - 12px);
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .wrapper-slider .carousel {
+        grid-auto-columns: 100%;
+    }
+}
+
+.carousel .info-jobs {
+    opacity: 0;
+    padding: 10%;
+    white-space: wrap;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    justify-content: space-around;
+    text-align: center;
+    background-color: rgba(var(--blue-transparency), 75%);
+    color: var(--white);
+    font-family: var(--font-family);
+    transition: opacity 0.5s;
+}
+
+.carousel img,
+.info-jobs {
+    border-radius: 0.5em;
+}
+
+    .info-jobs:hover {
+        opacity: 100%;
+        transition: opacity 0.5s;
+    }
