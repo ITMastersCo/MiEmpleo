@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link href="~/Images/imgInicio/MiEmpleo.ico" type="image/x-icon" rel="shortcut icon" />
+    <link href="css/slider.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/home.css" />
     <style type="text/css" >
         .modalDialog {
@@ -520,20 +521,98 @@
                     <!-- Customers -->
                     <section class="customers wrapper">
                         <h2 class="text-subtitle"><span class="text-subtitle text-highlighted">Nuestros</span> Clientes</h2>
-                        <div class="slider">
-                            <span>
-                                <img class="arrowLeft" src="./images/ImgInicio/flecha-candidato.svg" alt="" /></span>
-                            <div class="carousel">
-                                <article class="customers-content">
-                                    <img src="./images/ImgInicio/userComment.png" alt="" />
-                                    <h3 class="text-highlighted text-title-section">Diego Ramirez</h3>
-                                    <p class="text-normal">Gracias a ellos consegi un empleo en lo que me fguata y puedo tener un trabajo remunerado</p>
-                                    <img src="./images/ImgInicio/Calificacion.png" alt="" />
-                                </article>
-                            </div>
-                            <span>
-                                <img class="arrowRight" src="./images/ImgInicio/flecha-candidato.svg" alt="" /></span>
-                        </div>
+                        <div class="wrapper-slider" id="wrapper-slider">
+          <i id="left" >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3 h-3 color-gray-700">
+                <path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+            </svg>
+
+          </i>
+          <div class="carousel" id="carousel">
+            <a href="" class="item-slider">
+              <div class="info-jobs">
+                <h3>Wikness</h3>
+                <p>Este sitio esta hecho para vender sitios web</p>
+              </div>
+              <img
+                src="Images/ImgInicio/Avatar-Default.jpg"
+                alt="Usuario"
+                draggable="false"
+              />
+            </a>
+            <a href="" class="item-slider">
+              <div class="info-jobs">
+                <h3>Wikness</h3>
+                <p>Este sitio esta hecho para vender sitios web</p>
+              </div>
+              <img
+                src="Images/ImgInicio/Avatar-Default.jpg"
+                alt="Usuario"
+                draggable="false"
+              />
+            </a>
+            <a href="" class="item-slider">
+              <div class="info-jobs">
+                <h3>Wikness</h3>
+                <p>Este sitio esta hecho para vender sitios web</p>
+              </div>
+              <img
+                src="Images/ImgInicio/Avatar-Default.jpg"
+                alt="Usuario"
+                draggable="false"
+              />
+            </a>
+            <a href="" class="item-slider">
+              <div class="info-jobs">
+                <h3>Wikness</h3>
+                <p>Este sitio esta hecho para vender sitios web</p>
+              </div>
+              <img
+                src="Images/ImgInicio/Avatar-Default.jpg"
+                alt="Usuario"
+                draggable="false"
+              />
+            </a>
+            <a href="" class="item-slider">
+              <div class="info-jobs">
+                <h3>Wikness</h3>
+                <p>Este sitio esta hecho para vender sitios web</p>
+              </div>
+              <img
+                src="Images/ImgInicio/Avatar-Default.jpg"
+                alt="Usuario"
+                draggable="false"
+              />
+            </a>
+            <a href="" class="item-slider">
+              <div class="info-jobs">
+                <h3>Wikness</h3>
+                <p>Este sitio esta hecho para vender sitios web</p>
+              </div>
+              <img
+                src="Images/ImgInicio/Avatar-Default.jpg"
+                alt="Usuario"
+                draggable="false"
+              />
+            </a>
+            <a href="" class="item-slider">
+              <div class="info-jobs">
+                <h3>Wikness</h3>
+                <p>Este sitio esta hecho para vender sitios web</p>
+              </div>
+              <img
+                src="Images/ImgInicio/Avatar-Default.jpg"
+                alt="Usuario"
+                draggable="false"
+              />
+            </a>
+          </div>
+          <i id="right" >
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3 h-3 color-gray-700">
+            <path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+        </svg>
+          </i>
+        </div>
                     </section>
 
                     <%--</main>--%>
@@ -911,6 +990,7 @@
 
 
         </script>
+        <script type="module" src="Scripts/slider.js"></script>
                        <style>
     .footer{
         width:100%;
