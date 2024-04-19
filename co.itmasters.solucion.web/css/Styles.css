@@ -324,8 +324,8 @@ svg {
 }
 .work-side {
     min-height: calc(100vh - 110px);
-    padding-top:121px;
-    padding:16px;
+    padding-top: 121px;
+    padding-inline: 16px;
 }
 .tooltip {
     position: relative;
