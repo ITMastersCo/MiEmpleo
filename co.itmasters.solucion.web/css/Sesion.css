@@ -17,6 +17,10 @@ body{
     align-items: center;
     justify-content: center;
 }
+.headerSesion img{
+    margin:auto;
+    width:100%;
+}
 .wrapper-sesion{
     background: linear-gradient(0deg, #EAEAEA 86.61%, var(--color-500) 106%);
     background-repeat: no-repeat;
