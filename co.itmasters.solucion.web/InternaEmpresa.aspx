@@ -228,8 +228,8 @@
                         <li><a href="#">PQRF</a></li>
                       
                     </ul>    
-                    <div class="footer-social">
-                        <a href="#"><button class="button text-normal">¡Siguenos!</button></a>
+                    <div class="footer-social flex flex-col gap-16">
+                        <span class="text-item text-semibold ">¡Siguenos!</span>
                         <ul class="social">
                             <li><a href="https://www.facebook.com/miempleo.co" target="_blank"><img src="./images/ImgInicio/facebook.svg" alt=""/></a></li>
                             <li><a href="https://www.instagram.com/miempleo.co/" target="_blank"><img src="./images/ImgInicio/group.svg" alt=""/></a></li>

@@ -668,9 +668,9 @@
                                     <li><a href="#">PQRF</a></li>
 
                                 </ul>
-                                <span class="footer-social">
-                                    <a href="#">
-                                        <button class="button text-normal">¡Siguenos!</button></a>
+                                <span class="footer-social flex flex-col gap-16">
+                                    <span class="text-normal p-16 ">¡Siguenos!</span>
+                                        
                                     <ul class="social">
                                         <li><a href="https://www.facebook.com/miempleo.co" target="_blank">
                                             <img src="./images/ImgInicio/facebook.svg" alt="" /></a></li>
