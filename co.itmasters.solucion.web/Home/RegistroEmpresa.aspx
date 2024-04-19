@@ -122,7 +122,7 @@
         </main>
 
         <aside class="info">
-            <img src="../images/ImgInicio/imagen-empresas 2.png" alt="" />
+            <img src="../images/ImgInicio/login-empresa.webp" alt="" />
         </aside>
     </div>
 

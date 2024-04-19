@@ -77,8 +77,8 @@
                     <div class="carousel" id="carousel">
                         <a href="" class="item-slider">
                             <div class="info-jobs">
-                                <h3>Wikness</h3>
-                                <p>Este sitio esta hecho para vender sitios web</p>
+                                <h3>Cliente</h3>
+                                <p>Descripcion breve del clienteb</p>
                             </div>
                             <img
                                 src="Images/ImgInicio/Avatar-Default.jpg"
@@ -87,8 +87,8 @@
                         </a>
                         <a href="" class="item-slider">
                             <div class="info-jobs">
-                                <h3>Wikness</h3>
-                                <p>Este sitio esta hecho para vender sitios web</p>
+                                <h3>Cliente</h3>
+                                <p>Descripcion breve del clienteb</p>
                             </div>
                             <img
                                 src="Images/ImgInicio/Avatar-Default.jpg"
@@ -97,8 +97,8 @@
                         </a>
                         <a href="" class="item-slider">
                             <div class="info-jobs">
-                                <h3>Wikness</h3>
-                                <p>Este sitio esta hecho para vender sitios web</p>
+                                <h3>Cliente</h3>
+                                <p>Descripcion breve del clienteb</p>
                             </div>
                             <img
                                 src="Images/ImgInicio/Avatar-Default.jpg"
@@ -107,8 +107,8 @@
                         </a>
                         <a href="" class="item-slider">
                             <div class="info-jobs">
-                                <h3>Wikness</h3>
-                                <p>Este sitio esta hecho para vender sitios web</p>
+                                <h3>Cliente</h3>
+                                <p>Descripcion breve del clienteb</p>
                             </div>
                             <img
                                 src="Images/ImgInicio/Avatar-Default.jpg"
@@ -117,8 +117,8 @@
                         </a>
                         <a href="" class="item-slider">
                             <div class="info-jobs">
-                                <h3>Wikness</h3>
-                                <p>Este sitio esta hecho para vender sitios web</p>
+                                <h3>Cliente</h3>
+                                <p>Descripcion breve del clienteb</p>
                             </div>
                             <img
                                 src="Images/ImgInicio/Avatar-Default.jpg"
@@ -127,8 +127,8 @@
                         </a>
                         <a href="" class="item-slider">
                             <div class="info-jobs">
-                                <h3>Wikness</h3>
-                                <p>Este sitio esta hecho para vender sitios web</p>
+                                <h3>Cliente</h3>
+                                <p>Descripcion breve del clienteb</p>
                             </div>
                             <img
                                 src="Images/ImgInicio/Avatar-Default.jpg"
@@ -137,8 +137,8 @@
                         </a>
                         <a href="" class="item-slider">
                             <div class="info-jobs">
-                                <h3>Wikness</h3>
-                                <p>Este sitio esta hecho para vender sitios web</p>
+                                <h3>Cliente</h3>
+                                <p>Descripcion breve del clienteb</p>
                             </div>
                             <img
                                 src="Images/ImgInicio/Avatar-Default.jpg"
