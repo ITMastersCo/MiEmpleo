@@ -81,7 +81,7 @@
                             <asp:CheckBox ID="chkConditions" runat="server" ValidationGroup="ValidaRegistro" CausesValidation="true" />
                             <asp:Label runat="server" AssociatedControlID="chkConditions" class="text-small gray-900 text-semibold">
                                 Acepto
-                        <a class="text-small text-highlighted text-underline pointer">términos y condiciones.
+                        <a href="<%= UrlTerminos  %>" class="text-small text-highlighted text-underline pointer">términos y condiciones.
                         </a>
                             </asp:Label>
 
@@ -196,7 +196,7 @@
             const recaptchaPlaceholder = document.getElementById('html_element');
             if (recaptchaPlaceholder) {
             grecaptcha.render(recaptchaPlaceholder, {
-                'sitekey': '6LcEqbQpAAAAALb9VebDJaVwdjroIggfYLqpFgUy'
+                'sitekey': '<%= SiteKeyCaptcha %>'
             });
             } else {
                 console.error('El elemento de marcador de posición de reCAPTCHA no es válido.');

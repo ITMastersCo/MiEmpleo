@@ -19,7 +19,8 @@ namespace co.itmasters.solucion.web.Home
     public partial class RegistroEmpresa : System.Web.UI.Page
     {
         private SeguridadServiceClient _Actores;
-  
+        protected string SiteKeyCaptcha = ConfigurationManager.AppSettings["SiteKeyCaptcha"];
+        protected string UrlTerminos = ConfigurationManager.AppSettings["UrlTerminos"];
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)

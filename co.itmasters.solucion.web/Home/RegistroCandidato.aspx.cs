@@ -14,6 +14,7 @@ using Newtonsoft.Json.Linq;
 using System.Configuration;
 using System.IO;
 using System.Net;
+using System.Web.Configuration;
 
 namespace co.itmasters.solucion.web.Home
 {
@@ -22,6 +23,8 @@ namespace co.itmasters.solucion.web.Home
     {
         private SeguridadServiceClient _Actores;
         private CargaCombos _carga = new CargaCombos();
+        protected string SiteKeyCaptcha = ConfigurationManager.AppSettings["SiteKeyCaptcha"];
+        protected string UrlTerminos = ConfigurationManager.AppSettings["UrlTerminos"];
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
