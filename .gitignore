@@ -32,5 +32,6 @@
 *.db
 .vs/
 Publish/  
-/co.itmasters.solucion.web/co.itmasters.solucion.web.csproj
-/co.itmasters.solucion.web/Web.config
+
+
+
