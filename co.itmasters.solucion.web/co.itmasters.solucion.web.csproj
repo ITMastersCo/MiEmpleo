@@ -1698,13 +1698,6 @@
     <None Include="Service References\EmpresaService\EmpresaService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MercadoPagoNotification\MercadoPagoNotification.disco" />
-    <None Include="Service References\MercadoPagoNotification\configuration91.svcinfo" />
-    <None Include="Service References\MercadoPagoNotification\configuration.svcinfo" />
-    <None Include="Service References\MercadoPagoNotification\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Service References\MercadoPagoService\MercadoPagoService.wsdl" />
     <None Include="Service References\MercadoPagoService\MercadoPagoService.xsd">
       <SubType>Designer</SubType>
@@ -2154,11 +2147,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\MercadoPagoNotification\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Service References\MercadoPagoService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2316,10 +2304,6 @@
     <None Include="Service References\ComunesService\ComunesService5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MercadoPagoNotification\MercadoPagoNotification.wsdl" />
-    <None Include="Service References\MercadoPagoNotification\MercadoPagoNotification.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\PersonaService\PersonaService.wsdl" />
     <None Include="Service References\PersonaService\PersonaService.xsd">
       <SubType>Designer</SubType>
@@ -2461,7 +2445,6 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ComunesService\" />
     <WCFMetadataStorage Include="Service References\EmpresaService\" />
-    <WCFMetadataStorage Include="Service References\MercadoPagoNotification\" />
     <WCFMetadataStorage Include="Service References\MercadoPagoService\" />
     <WCFMetadataStorage Include="Service References\OfertaService\" />
     <WCFMetadataStorage Include="Service References\PersonaService\" />
