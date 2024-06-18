@@ -13,6 +13,9 @@ namespace co.itmasters.solucion.servicios
     public interface IOfertaService
     {
         [OperationContract]
+        List<OfertaVO> Oferta_PersonaPostulaciones(OfertaVO Ofertas);
+
+        [OperationContract]
         void ModifyPagos(OfertaVO pago);
 
         [OperationContract]

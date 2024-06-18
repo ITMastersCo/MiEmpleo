@@ -43,7 +43,7 @@ namespace co.itmasters.solucion.web.Code
                 else
                 {
                     page = page.Replace(aplicacion, "");          // valida para servidor
-                    page = page.Substring(1, page.Length - 1);    // valida para servidor
+                    //page = page.Substring(0, page.Length - 1);    // valida para servidor
                 }
 
                 if (user != null && !validarPermisos(user.Formulario, page))

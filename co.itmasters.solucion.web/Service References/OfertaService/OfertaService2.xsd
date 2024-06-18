@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:3487/OfertaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" />
+  <xs:element name="Oferta_PersonaPostulaciones">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Ofertas" nillable="true" type="q1:OfertaVO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Oferta_PersonaPostulacionesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Oferta_PersonaPostulacionesResult" nillable="true" type="q2:ArrayOfOfertaVO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ModifyPagos">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="pago" nillable="true" type="q1:OfertaVO" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="pago" nillable="true" type="q3:OfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -16,21 +30,21 @@
   <xs:element name="Postulados">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="oferta" nillable="true" type="q2:OfertaVO" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="oferta" nillable="true" type="q4:OfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="PostuladosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="PostuladosResult" nillable="true" type="q3:ArrayOfPersonaVO" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="PostuladosResult" nillable="true" type="q5:ArrayOfPersonaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Postulacion">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="postulacion" nillable="true" type="q4:OfertaVO" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="postulacion" nillable="true" type="q6:OfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -42,133 +56,133 @@
   <xs:element name="TraePlanesAdquiridosEmpresa">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Oferta" nillable="true" type="q5:OfertaVO" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Oferta" nillable="true" type="q7:OfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="TraePlanesAdquiridosEmpresaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="TraePlanesAdquiridosEmpresaResult" nillable="true" type="q6:ArrayOfOfertaVO" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="TraePlanesAdquiridosEmpresaResult" nillable="true" type="q8:ArrayOfOfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetOfertaPersonaDetalle">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Ofertas" nillable="true" type="q7:OfertaVO" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Ofertas" nillable="true" type="q9:OfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetOfertaPersonaDetalleResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="GetOfertaPersonaDetalleResult" nillable="true" type="q8:OfertaVO" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="GetOfertaPersonaDetalleResult" nillable="true" type="q10:OfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetOfertaPersona">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Ofertas" nillable="true" type="q9:OfertaVO" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Ofertas" nillable="true" type="q11:OfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetOfertaPersonaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="GetOfertaPersonaResult" nillable="true" type="q10:ArrayOfOfertaVO" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="GetOfertaPersonaResult" nillable="true" type="q12:ArrayOfOfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="TraeOfertaDetalle">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Ofertas" nillable="true" type="q11:OfertaVO" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Ofertas" nillable="true" type="q13:OfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="TraeOfertaDetalleResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="TraeOfertaDetalleResult" nillable="true" type="q12:OfertaVO" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="TraeOfertaDetalleResult" nillable="true" type="q14:OfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="TraerEstadisticasOferta">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Ofertas" nillable="true" type="q13:OfertaVO" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Ofertas" nillable="true" type="q15:OfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="TraerEstadisticasOfertaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="TraerEstadisticasOfertaResult" nillable="true" type="q14:OfertaVO" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="TraerEstadisticasOfertaResult" nillable="true" type="q16:OfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="TraeOfertas">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Ofertas" nillable="true" type="q15:OfertaVO" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Ofertas" nillable="true" type="q17:OfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="TraeOfertasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="TraeOfertasResult" nillable="true" type="q16:ArrayOfOfertaVO" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="TraeOfertasResult" nillable="true" type="q18:ArrayOfOfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="TraeOfertaEmpresa">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Ofertas" nillable="true" type="q17:OfertaVO" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Ofertas" nillable="true" type="q19:OfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="TraeOfertaEmpresaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="TraeOfertaEmpresaResult" nillable="true" type="q18:ArrayOfOfertaVO" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="TraeOfertaEmpresaResult" nillable="true" type="q20:ArrayOfOfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="TraeEstadoOfertaEmpresa">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Estado" nillable="true" type="q19:OfertaVO" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Estado" nillable="true" type="q21:OfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="TraeEstadoOfertaEmpresaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="TraeEstadoOfertaEmpresaResult" nillable="true" type="q20:ArrayOfOfertaVO" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="TraeEstadoOfertaEmpresaResult" nillable="true" type="q22:ArrayOfOfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="TraeEstadoOferta">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Estado" nillable="true" type="q21:OfertaVO" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Estado" nillable="true" type="q23:OfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="TraeEstadoOfertaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="TraeEstadoOfertaResult" nillable="true" type="q22:ArrayOfOfertaVO" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="TraeEstadoOfertaResult" nillable="true" type="q24:ArrayOfOfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AnulaOferta">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Oferta" nillable="true" type="q23:OfertaVO" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Oferta" nillable="true" type="q25:OfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -180,7 +194,7 @@
   <xs:element name="PublicarOferta">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Oferta" nillable="true" type="q24:OfertaVO" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Oferta" nillable="true" type="q26:OfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -192,7 +206,7 @@
   <xs:element name="AprobarOfertas">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Oferta" nillable="true" type="q25:OfertaVO" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" minOccurs="0" name="Oferta" nillable="true" type="q27:OfertaVO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

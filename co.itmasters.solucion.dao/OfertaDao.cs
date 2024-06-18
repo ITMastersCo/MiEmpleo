@@ -98,6 +98,7 @@ namespace co.itmasters.solucion.dao
         public const string OFERTA_USUARIOMODIFICA = "usuarioModifica";
         public const string OFERTA_FECHAMODIFICA = "fechaModifica";
         public const string OFERTA_NOMEMPRESA = "nomEmpresa";
+        public const string OFERTA_PERSONAPOSTULACIONES = "Oferta_PersonaPostulaciones";
         public const string OFERTA_TYPEMODIFY = "typeModify";
 
         //oferta.PlanesAdquiridos
@@ -201,7 +202,49 @@ namespace co.itmasters.solucion.dao
         #endregion
 
         #region  [Metodos Expuestos]
+        public List<OfertaVO> Oferta_PersonaPostulaciones(OfertaVO Ofertas)
+        {
+            try
+            {
+                Parametro[] valParam = new Parametro[]
+                {
+                    //Se adicionan los parametros para la busqueda del objeto
+                    new Parametro(OFERTA_IDUSUARIO, Ofertas.idUsuario, DbType.Int32),
+                    new Parametro(OFERTA_IDOCUPACION, Ofertas.idOcupacion, DbType.Int32),
+                    new Parametro(OFERTA_FECHAINICIA, Ofertas.fechaInicia, DbType.DateTime),
+                    new Parametro(OFERTA_FECHAFINALIZA, Ofertas.fechaFinaliza, DbType.DateTime),
+                };
 
+                DataTable dt = this.EjecutarStoredProcedureDataTable(OFERTA_PERSONAPOSTULACIONES, valParam);
+
+                List<OfertaVO> newOferta = new List<OfertaVO>();
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        OfertaVO Oferta = new OfertaVO();
+                        Oferta.idOferta = Convert.ToInt32(dr[OFERTA_IDOFERTA]);
+                        Oferta.tituloVacante = Convert.ToString(dr[OFERTA_TITULOVACANTE]);
+                        Oferta.RangoSalario = Convert.ToString(dr[OFERTA_NOMRANGOSALARIAL]);
+                        Oferta.nomCiudad = Convert.ToString(dr[OFERTA_NOMCIUDAD]);
+                        Oferta.nomEmpresa = Convert.ToString(dr[OFERTA_NOMEMPRESA]);
+                        Oferta.rutaAvatar = Convert.ToString(dr[PERSONA_RUTAAVATAR]);
+                        Oferta.descripcionVacante = Convert.ToString(dr[OFERTA_DESCRIPCIONVACANTE]);
+                        newOferta.Add(Oferta);
+                    }
+                }
+                return newOferta;
+            }
+            catch (System.Data.SqlClient.SqlException e)
+            {
+                throw new Exception(e.Message);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
         public void ModifyPagos(OfertaVO pago)
         {
             try
@@ -396,7 +439,8 @@ namespace co.itmasters.solucion.dao
             {
                 throw new Exception(e.Message);
             }
-        }public List<OfertaVO> GetOfertaPersona(OfertaVO Ofertas)
+        }
+        public List<OfertaVO> GetOfertaPersona(OfertaVO Ofertas)
         {
             try
             {

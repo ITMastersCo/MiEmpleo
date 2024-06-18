@@ -1531,19 +1531,25 @@
     <Content Include="Fonts\static\Inter-Regular.ttf" />
     <Content Include="Fonts\static\Inter-SemiBold.ttf" />
     <Content Include="Fonts\static\Inter-Thin.ttf" />
-    <Content Include="Images\Error401.webp" />
-    <Content Include="Images\Error403.webp" />
-    <Content Include="Images\Error404.webp" />
-    <Content Include="Images\Error405.webp" />
-    <Content Include="Images\Error406.webp" />
-    <Content Include="Images\Error412.webp" />
-    <Content Include="Images\Error500.webp" />
-    <Content Include="Images\Error501.webp" />
-    <Content Include="Images\Error502.webp" />
-    <Content Include="Images\ErrorGenerico.webp" />
+    <Content Include="Images\home-empresa-beneficios.webp" />
+    <Content Include="Images\ImgInicio\Home-usuario-beneficios.webp" />
+    <Content Include="Images\ImgInicio\Home-usuario-imagen-2.webp" />
+    <Content Include="Images\ImgInicio\login-empresa.webp" />
+    <Content Include="Images\ImgInicio\Logo-horizontal-big.webp" />
+    <Content Include="Images\ImgInicio\Logo-horizontal-dark-big.webp" />
+    <Content Include="Images\ImgInicio\Logo-horizontal-dark.webp" />
+    <Content Include="Images\ImgInicio\Logo-horizontal.webp" />
+    <Content Include="Images\ImgInicio\MiEmpleo-vertical-1-copia.webp" />
+    <Content Include="Images\ImgInicio\MiEmpleo-vertical-1.webp" />
+    <Content Include="Images\ImgInicio\nosotros-empresa-2.webp" />
+    <Content Include="Images\LogosMiEmpleo-horizontal-copia.webp" />
+    <Content Include="Images\LogosMiEmpleo-horizontal.webp" />
+    <Content Include="Images\nosotros-empresa-2.webp" />
+    <Content Include="Images\Usuario-inicio-de-sesion.webp" />
     <None Include="packages.config" />
     <Content Include="Home\Roter.aspx" />
     <Content Include="Images\Actualizar.svg" />
+    <Content Include="Images\AvatarDefault.png" />
     <Content Include="Images\backgroun-about-us.jpg" />
     <Content Include="Images\benefit-empresa-1.png" />
     <Content Include="Images\benefit-empresa-2.png" />
@@ -1556,12 +1562,30 @@
     <Content Include="Images\empesas2_1.png" />
     <Content Include="Images\empresas1_2.png" />
     <Content Include="Images\empresas3_1.png" />
+    <Content Include="Images\Error401.webp" />
+    <Content Include="Images\Error403.webp" />
+    <Content Include="Images\Error404.webp" />
+    <Content Include="Images\Error405.webp" />
+    <Content Include="Images\Error406.webp" />
+    <Content Include="Images\Error412.webp" />
+    <Content Include="Images\Error500.webp" />
+    <Content Include="Images\Error501.webp" />
+    <Content Include="Images\Error502.webp" />
+    <Content Include="Images\ErrorGenerico.webp" />
     <Content Include="Images\flecha-empresa.svg" />
+    <Content Include="Images\Home-empresa-publicar-oferta.jpg" />
+    <Content Include="Images\Icon-Academia.jpg" />
+    <Content Include="Images\Icon-experiencia.jpg" />
+    <Content Include="Images\image-23.jpg" />
+    <Content Include="Images\ImgInicio\2-fondo-beneficios.jpg" />
+    <Content Include="Images\ImgInicio\Avatar-Default.jpg" />
     <Content Include="Images\ImgInicio\benefit-empresa-1.png" />
     <Content Include="Images\ImgInicio\benefit-empresa-2.png" />
     <Content Include="Images\ImgInicio\benefit-empresa-3.png" />
     <Content Include="Images\ImgInicio\benefit-empresa-4.png" />
     <Content Include="Images\ImgInicio\Calificacion.png" />
+    <Content Include="Images\ImgInicio\chica-circulo %281%29.png" />
+    <Content Include="Images\ImgInicio\chica-circulo.png" />
     <Content Include="Images\ImgInicio\CrearCV01.png" />
     <Content Include="Images\ImgInicio\facebook.svg" />
     <Content Include="Images\ImgInicio\flecha-candidato.svg" />
@@ -1571,14 +1595,25 @@
     <Content Include="Images\ImgInicio\Fondo02.png" />
     <Content Include="Images\ImgInicio\gmiail.svg" />
     <Content Include="Images\ImgInicio\group.svg" />
+    <Content Include="Images\ImgInicio\Home-usuario-imagen-2.png" />
+    <Content Include="Images\ImgInicio\Home-usuario-imagen2.png" />
+    <Content Include="Images\ImgInicio\iEmpleo.ico" />
+    <Content Include="Images\ImgInicio\imagen-empresas-2.png" />
     <Content Include="Images\ImgInicio\ingresar.png" />
     <Content Include="Images\ImgInicio\Ingreso01.png" />
+    <Content Include="Images\ImgInicio\LOGO-2-old.png" />
+    <Content Include="Images\ImgInicio\LOGO-dark-copia.png" />
     <Content Include="Images\ImgInicio\LOGO-dark.png" />
     <Content Include="Images\ImgInicio\LOGO-Empresas.png" />
     <Content Include="Images\ImgInicio\LOGO.png" />
     <Content Include="Images\ImgInicio\menu-bars.svg" />
+    <Content Include="Images\ImgInicio\MiEmpleo-copia.png" />
+    <Content Include="Images\ImgInicio\MiEmpleo-vertical.png" />
     <Content Include="Images\ImgInicio\MiEmpleo.ico" />
+    <Content Include="Images\ImgInicio\MiEmpleo.jpg" />
+    <Content Include="Images\ImgInicio\MiEmpleo01-old.png" />
     <Content Include="Images\ImgInicio\MiEmpleoLogo.png" />
+    <Content Include="Images\ImgInicio\nosotros-empresa-2.jpg" />
     <Content Include="Images\ImgInicio\OfertaGratis.png" />
     <Content Include="Images\ImgInicio\TituloOfertasDesatacadas.png" />
     <Content Include="Images\ImgInicio\user-empresa.svg" />
@@ -1605,7 +1640,19 @@
     <Content Include="Images\ImgMenu\UsuarioPerfil.png" />
     <Content Include="Images\ImgMenu\UsuarioSeguidores.png" />
     <Content Include="Images\ImgMenu\UsuarioZoom.png" />
+    <Content Include="Images\Info.jpg" />
+    <Content Include="Images\InfoAcademia.svg" />
+    <Content Include="Images\login-empresa.jpg" />
     <Content Include="Images\LOGO-Empresas.png" />
+    <Content Include="Images\logo-reportes%27old.jpg" />
+    <Content Include="Images\logo-reportes.jpg" />
+    <Content Include="Images\LogoOscuro-old.jpg" />
+    <Content Include="Images\LogoOscuro.jpg" />
+    <Content Include="Images\Logos-mi-empleo-horizontal-negativo.png" />
+    <Content Include="Images\Logos-mi-empleo-horizontal.jpg" />
+    <Content Include="Images\Logos-mi-empleo-vertical-negativo.jpg" />
+    <Content Include="Images\Logos-mi-empleo-vertical-negativo.png" />
+    <Content Include="Images\nosotros-empresa.jpg" />
     <Content Include="Images\Nuevo.gif" />
     <Content Include="Images\Nuevo1.gif" />
     <Content Include="Images\page-first.gif" />
@@ -1614,10 +1661,13 @@
     <Content Include="Images\page-prev.gif" />
     <Content Include="Images\Salir.gif" />
     <Content Include="Images\user-empresa.svg" />
+    <Content Include="Images\Vector.jpg" />
+    <Content Include="Images\Wave.svg" />
     <Content Include="Index.aspx" />
     <Content Include="InternaEmpresa.aspx" />
     <Content Include="Paquete\PaquetesEmpresa.aspx" />
     <Content Include="Personal\HojadeVida.aspx" />
+    <Content Include="Personal\Postulaciones.aspx" />
     <Content Include="Properties\DataSources\co.itmasters.academics.vo.AprendizVO1.datasource" />
     <None Include="Properties\DataSources\co.itmasters.academics.vo.AsociarAspirantesVO.datasource" />
     <None Include="Properties\DataSources\co.itmasters.academics.vo.AspirantesGrupoAspVO.datasource" />
@@ -1647,11 +1697,11 @@
     <Content Include="Properties\DataSources\co.itmasters.solucion.vo.OfertaVO.datasource" />
     <Content Include="Properties\DataSources\co.itmasters.solucion.vo.PaymentVO.datasource" />
     <Content Include="Properties\DataSources\co.itmasters.solucion.vo.CredencialesVO.datasource" />
-    <None Include="Properties\PublishProfiles\Profile1.pubxml" />
     <Content Include="Reportes\Facturacion\Facturacion.xml" />
     <Content Include="Reportes\VisorReportes.aspx" />
     <Content Include="Scripts\Index.js" />
     <Content Include="Scripts\JCombos.js" />
+    <None Include="Properties\PublishProfiles\Perfil-All.pubxml" />
     <None Include="Scripts\jquery-1.3.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.3.2.js" />
     <Content Include="Scripts\jquery-1.3.2.min.js" />
@@ -1682,13 +1732,6 @@
     </None>
     <None Include="Service References\EmpresaService\EmpresaService2.xsd">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\MercadoPagoNotification\MercadoPagoNotification.disco" />
-    <None Include="Service References\MercadoPagoNotification\configuration91.svcinfo" />
-    <None Include="Service References\MercadoPagoNotification\configuration.svcinfo" />
-    <None Include="Service References\MercadoPagoNotification\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\MercadoPagoService\MercadoPagoService.wsdl" />
     <None Include="Service References\MercadoPagoService\MercadoPagoService.xsd">
@@ -2067,6 +2110,13 @@
     <Compile Include="Personal\HojadeVida.aspx.designer.cs">
       <DependentUpon>HojadeVida.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Personal\Postulaciones.aspx.cs">
+      <DependentUpon>Postulaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Personal\Postulaciones.aspx.designer.cs">
+      <DependentUpon>Postulaciones.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -2135,11 +2185,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\EmpresaService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\MercadoPagoNotification\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -2301,10 +2346,6 @@
     <None Include="Service References\ComunesService\ComunesService5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MercadoPagoNotification\MercadoPagoNotification.wsdl" />
-    <None Include="Service References\MercadoPagoNotification\MercadoPagoNotification.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\PersonaService\PersonaService.wsdl" />
     <None Include="Service References\PersonaService\PersonaService.xsd">
       <SubType>Designer</SubType>
@@ -2446,7 +2487,6 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ComunesService\" />
     <WCFMetadataStorage Include="Service References\EmpresaService\" />
-    <WCFMetadataStorage Include="Service References\MercadoPagoNotification\" />
     <WCFMetadataStorage Include="Service References\MercadoPagoService\" />
     <WCFMetadataStorage Include="Service References\OfertaService\" />
     <WCFMetadataStorage Include="Service References\PersonaService\" />

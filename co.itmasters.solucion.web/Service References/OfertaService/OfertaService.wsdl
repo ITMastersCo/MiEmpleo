@@ -7,6 +7,12 @@
       <xsd:import schemaLocation="http://localhost:3487/OfertaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/co.itmasters.solucion.vo" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IOfertaService_Oferta_PersonaPostulaciones_InputMessage">
+    <wsdl:part name="parameters" element="tns:Oferta_PersonaPostulaciones" />
+  </wsdl:message>
+  <wsdl:message name="IOfertaService_Oferta_PersonaPostulaciones_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Oferta_PersonaPostulacionesResponse" />
+  </wsdl:message>
   <wsdl:message name="IOfertaService_ModifyPagos_InputMessage">
     <wsdl:part name="parameters" element="tns:ModifyPagos" />
   </wsdl:message>
@@ -98,6 +104,10 @@
     <wsdl:part name="parameters" element="tns:AprobarOfertasResponse" />
   </wsdl:message>
   <wsdl:portType name="IOfertaService">
+    <wsdl:operation name="Oferta_PersonaPostulaciones">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOfertaService/Oferta_PersonaPostulaciones" message="tns:IOfertaService_Oferta_PersonaPostulaciones_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOfertaService/Oferta_PersonaPostulacionesResponse" message="tns:IOfertaService_Oferta_PersonaPostulaciones_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ModifyPagos">
       <wsdl:input wsaw:Action="http://tempuri.org/IOfertaService/ModifyPagos" message="tns:IOfertaService_ModifyPagos_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOfertaService/ModifyPagosResponse" message="tns:IOfertaService_ModifyPagos_OutputMessage" />
@@ -161,6 +171,15 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IOfertaService" type="tns:IOfertaService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Oferta_PersonaPostulaciones">
+      <soap:operation soapAction="http://tempuri.org/IOfertaService/Oferta_PersonaPostulaciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ModifyPagos">
       <soap:operation soapAction="http://tempuri.org/IOfertaService/ModifyPagos" style="document" />
       <wsdl:input>
