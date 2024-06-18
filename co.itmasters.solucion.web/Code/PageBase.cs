@@ -28,7 +28,7 @@ namespace co.itmasters.solucion.web.Code
         protected void validarAccesoPagina_Handler(object sender, System.EventArgs e)
         {
             if (HttpContext.Current.User.Identity.IsAuthenticated)
-            {
+             {
                 UserVO user = ((UserVO)Session["UsuarioAutenticado"]);
                 //UsuarioVO user = (UsuarioVO)Membership.GetUser(User.Identity.Name);
                 String page = Context.Request.Url.AbsolutePath;
@@ -42,8 +42,8 @@ namespace co.itmasters.solucion.web.Code
                 }
                 else
                 {
-                    page = page.Replace(aplicacion, "");          // valida para servidor
-                    //page = page.Substring(0, page.Length - 1);    // valida para servidor
+                    //page = page.Replace(aplicacion, "");          // valida para servidor
+                    page = page.Substring(1, page.Length - 1);    // valida para servidor
                 }
 
                 if (user != null && !validarPermisos(user.Formulario, page))

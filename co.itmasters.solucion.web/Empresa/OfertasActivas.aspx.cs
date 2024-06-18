@@ -401,7 +401,7 @@ namespace co.itmasters.solucion.web.Empresa
 
                 //Url dominio
                 string fullUrl = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
-                string ruta = "MiEmpleo";
+                //string ruta = "MiEmpleo";
 
 
 
@@ -422,9 +422,9 @@ namespace co.itmasters.solucion.web.Empresa
                       },
                     BackUrls = new PreferenceBackUrlsRequest
                     {
-                        Success = $"{fullUrl}/{ruta}/Facturacion/Facturacion.aspx",
-                        Failure = $"{fullUrl}/{ruta}/Facturacion/Facturacion.aspx",
-                        Pending = $"{fullUrl}/{ruta}/Facturacion/Facturacion.aspx",
+                        Success = $"{fullUrl}/Facturacion/Facturacion.aspx",
+                        Failure = $"{fullUrl}/Facturacion/Facturacion.aspx",
+                        Pending = $"{fullUrl}/Facturacion/Facturacion.aspx",
                     },
                     AutoReturn = "approved",
                 };
