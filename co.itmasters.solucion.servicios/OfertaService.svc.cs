@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Web.UI;
 using System.Web.UI.MobileControls.Adapters;
 
 namespace co.itmasters.solucion.servicios
@@ -16,6 +17,19 @@ namespace co.itmasters.solucion.servicios
     {
         private OfertaNegocio _oferta;
 
+        public List<OfertaVO> Oferta_PersonaPostulaciones(OfertaVO Ofertas)
+        {
+            try
+            {
+                _oferta = new OfertaNegocio();
+               return _oferta.Oferta_PersonaPostulaciones(Ofertas);
+            }
+            catch (Exception err)
+            {
+                Log.Write(err.Message, Log.ERROR);
+                throw new FaultException(new FaultReason(err.Message));
+            }
+        }
         public void ModifyPagos(OfertaVO pago)
         {
             try

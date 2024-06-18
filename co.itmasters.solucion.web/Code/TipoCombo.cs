@@ -11,6 +11,7 @@ namespace co.itmasters.solucion.web.Code
         public const string CMBTIPIDENTIFICACION = "cmbTipIdentificacion";
         public const string CMBTIPOFILTROS = "cmbTipoFiltros";
         public const string CMBOCUPACIONOFERTA = "cmbOcupacionOferta";
+        public const string CMBOCUPACIONESPERSONAPOSTULACION = "cmbOcupacionesPersonaPostulacion";
         public const string CMBACTIVIDADECONOMICA = "cmbActividadEconomica";
         public const string CMBPERSONAAPTITUD = "cmbAptitud";
         public const string CMBSECTORECONOMICO = "cmbSectorEconomico";

@@ -15,6 +15,12 @@ namespace co.itmasters.solucion.web.OfertaService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="OfertaService.IOfertaService")]
     public interface IOfertaService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/Oferta_PersonaPostulaciones", ReplyAction="http://tempuri.org/IOfertaService/Oferta_PersonaPostulacionesResponse")]
+        co.itmasters.solucion.vo.OfertaVO[] Oferta_PersonaPostulaciones(co.itmasters.solucion.vo.OfertaVO Ofertas);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/Oferta_PersonaPostulaciones", ReplyAction="http://tempuri.org/IOfertaService/Oferta_PersonaPostulacionesResponse")]
+        System.Threading.Tasks.Task<co.itmasters.solucion.vo.OfertaVO[]> Oferta_PersonaPostulacionesAsync(co.itmasters.solucion.vo.OfertaVO Ofertas);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOfertaService/ModifyPagos", ReplyAction="http://tempuri.org/IOfertaService/ModifyPagosResponse")]
         void ModifyPagos(co.itmasters.solucion.vo.OfertaVO pago);
         
@@ -131,6 +137,14 @@ namespace co.itmasters.solucion.web.OfertaService {
         
         public OfertaServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public co.itmasters.solucion.vo.OfertaVO[] Oferta_PersonaPostulaciones(co.itmasters.solucion.vo.OfertaVO Ofertas) {
+            return base.Channel.Oferta_PersonaPostulaciones(Ofertas);
+        }
+        
+        public System.Threading.Tasks.Task<co.itmasters.solucion.vo.OfertaVO[]> Oferta_PersonaPostulacionesAsync(co.itmasters.solucion.vo.OfertaVO Ofertas) {
+            return base.Channel.Oferta_PersonaPostulacionesAsync(Ofertas);
         }
         
         public void ModifyPagos(co.itmasters.solucion.vo.OfertaVO pago) {

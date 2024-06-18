@@ -89,13 +89,19 @@
       <xs:element name="_x003C_usuarioCrea_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_usuarioModfica_x003E_k__BackingField" nillable="true" type="xs:string" />
       <xs:element name="_x003C_valorPago_x003E_k__BackingField" nillable="true" type="xs:int" />
-      <xs:element name="_x003C_valorPlan_x003E_k__BackingField" nillable="true" type="xs:double" />
+      <xs:element name="_x003C_valorPlan_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_vencidas_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="_x003C_vigenciaPlan_x003E_k__BackingField" nillable="true" type="xs:int" />
       <xs:element name="preference_id" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="OfertaVO" nillable="true" type="tns:OfertaVO" />
+  <xs:complexType name="ArrayOfOfertaVO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OfertaVO" nillable="true" type="tns:OfertaVO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOfertaVO" nillable="true" type="tns:ArrayOfOfertaVO" />
   <xs:complexType name="ArrayOfPersonaVO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="PersonaVO" nillable="true" type="tns:PersonaVO" />
@@ -202,10 +208,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PersonaExperienciaVO" nillable="true" type="tns:PersonaExperienciaVO" />
-  <xs:complexType name="ArrayOfOfertaVO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="OfertaVO" nillable="true" type="tns:OfertaVO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfOfertaVO" nillable="true" type="tns:ArrayOfOfertaVO" />
 </xs:schema>
