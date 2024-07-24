@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="co.itmasters.solucion.servicios.OfertaService" CodeBehind="OfertaService.svc.cs" %>
